@@ -34,6 +34,10 @@ export default {
     >
       <i class="fas fa-angle-double-left" />
     </span>
+    <hr class="hr1" />
+    <div class="hr1circle" />
+    <div class="hr2circle" />
+    <hr class="hr2" />
   </div>
 </template>
 
@@ -49,6 +53,7 @@ export default {
 .sidebar {
   color: white;
   background-color: var(--sidebar-bg-color);
+  border-right: solid 2px black;
 
   float: left;
   position: fixed;
@@ -62,6 +67,40 @@ export default {
 
   display: flex;
   flex-direction: column;
+}
+
+.sidebar::before {
+  content: '';
+  height: 100%;
+  width: 220px;
+  position: absolute;
+  left: 0;
+  bottom: 80%;
+  background: #2f855a;
+  transform: skewY(-25deg);
+  border-right: solid 2px black;
+}
+
+.hr1circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  z-index: 8;
+  position: absolute;
+  top: 12%;
+  left: 80%;
+  border: solid 1px black;
+}
+
+.hr2circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  z-index: 8;
+  position: absolute;
+  top: 12.2%;
+  left: 126%;
+  border: solid 1px black;
 }
 
 .sidebar h1 {
@@ -81,5 +120,23 @@ export default {
 .rotate-180 {
   transform: rotate(180deg);
   transition: 0.2s linear;
+}
+
+.hr1 {
+  border-color: black;
+  width: 50px;
+  position: absolute;
+  top: 10%;
+  left: 85%;
+  transform: skewY(-25deg);
+}
+
+.hr2 {
+  border-color: black;
+  width: 50px;
+  position: absolute;
+  top: 13.5%;
+  left: 100%;
+  transform: skewY(-25deg);
 }
 </style>
