@@ -21,11 +21,12 @@ export default {
       <span v-else>Vue Sidebar</span>
     </h1>
 
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">Analytics</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
+    <SidebarLink to="/" icon="home">Home</SidebarLink>
+    <SidebarLink to="/documentos" icon="documentos">Documentos</SidebarLink>
+    <SidebarLink to="/benefícios" icon="benefícios">Benefícios</SidebarLink>
+    <SidebarLink to="/equipe" icon="Equipe">Equipe</SidebarLink>
+    <SidebarLink to="/tutoriais" icon="fas fa-image">Tutoriais</SidebarLink>
+    <SidebarLink to="/permissões" icon="fas fa-image">Permissões</SidebarLink>
 
     <span
       class="collapse-icon"

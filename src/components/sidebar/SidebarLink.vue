@@ -3,11 +3,15 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { collapsed } from './state'
 
+import IconBase from '@/components/icons/IconBase.vue'
+import IconWrite from '@/components/icons/IconWrite.vue'
+
 export default {
   props: {
     to: { type: String, required: true },
     icon: { type: String, required: true }
   },
+  components: { IconBase, IconWrite },
   setup(props) {
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
@@ -18,7 +22,7 @@ export default {
 
 <template>
   <router-link :to="to" class="link" :class="{ active: isActive }">
-    <i class="icon" :class="icon" />
+    <icon-base icon-name="write"><icon-write /></icon-base>
     <transition name="fade">
       <span v-if="!collapsed">
         <slot />
