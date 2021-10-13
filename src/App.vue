@@ -1,8 +1,11 @@
 <script>
 import Sidebar from '@/components/sidebar/Sidebar'
+import Banner from '@/components/banner/Banner'
+
 import { sidebarWidth } from '@/components/sidebar/state'
+
 export default {
-  components: { Sidebar },
+  components: { Sidebar, Banner },
   setup() {
     return { sidebarWidth }
   }
@@ -10,7 +13,14 @@ export default {
 </script>
 <template>
   <Sidebar />
-  <div :style="{ 'margin-left': sidebarWidth }">
+  <Banner />
+  <div
+    :style="{
+      'margin-left': sidebarWidth,
+      'margin-top': '10rem',
+      height: 'calc(100vh - 10rem)'
+    }"
+  >
     <router-view />
   </div>
 </template>
