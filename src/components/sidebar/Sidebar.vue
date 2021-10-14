@@ -64,15 +64,15 @@ export default {
     <div
       class="circle"
       :style="{
-        top: collapsed ? '29%' : '26.7%',
-        left: collapsed ? '61%' : '88%'
+        top: collapsed ? '29.4%' : '26.7%',
+        left: collapsed ? '68%' : '91%'
       }"
     />
     <div
       class="circle"
       :style="{
-        top: collapsed ? '28.8%' : '24.8%',
-        left: collapsed ? '148%' : '118%'
+        top: collapsed ? '29.3%' : '25.2%',
+        left: collapsed ? '148%' : '119%'
       }"
     />
     <hr
@@ -90,13 +90,20 @@ export default {
   --sidebar-bg-color: #2f855a;
   --sidebar-item-hover: #38a169;
   --sidebar-item-active: #276749;
+
+  --sidebar-green-ligth: #aaff48;
+  --sidebar-green-medium: #89f45f;
+  --sidebar-green-dark: #43df94;
 }
 </style>
 
 <style scoped>
 .sidebar {
   color: white;
-  background-color: var(--sidebar-bg-color);
+  background-image: linear-gradient(
+    var(--sidebar-green-ligth),
+    var(--sidebar-green-dark)
+  );
   border-right: solid 2px black;
 
   float: left;
@@ -120,7 +127,7 @@ export default {
   position: absolute;
   left: 0;
   bottom: 68%;
-  background: #2f855a;
+  background: var(--sidebar-green-medium);
   transform: skewY(-25deg);
   border-right: solid 2px black;
   transition: 0.2s linear;
@@ -147,8 +154,8 @@ h1 {
   transition: 0.3s ease;
 }
 .circle {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   z-index: 8;
   position: absolute;

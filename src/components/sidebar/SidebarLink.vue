@@ -66,15 +66,15 @@ export default {
 }
 
 .circle {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   z-index: 8;
   position: absolute;
   border: solid 1px black;
   transition: 0.3s ease;
-  top: -18%;
-  left: -8%;
+  top: -10%;
+  left: -5%;
 }
 
 .link:hover {
