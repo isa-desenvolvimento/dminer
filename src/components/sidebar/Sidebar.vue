@@ -94,6 +94,14 @@ export default {
   --sidebar-green-ligth: #aaff48;
   --sidebar-green-medium: #89f45f;
   --sidebar-green-dark: #43df94;
+
+  --gray: #60645c;
+
+  --sidebar-border: 2px solid var(--gray);
+  --fine-border: 1px solid var(--gray);
+
+  --avatar-border-left-right: 81px solid var(--sidebar-green-medium);
+  --avatar-border-bottom-top: 30px solid transparent;
 }
 </style>
 
@@ -104,7 +112,7 @@ export default {
     var(--sidebar-green-ligth),
     var(--sidebar-green-dark)
   );
-  border-right: solid 2px black;
+  border-right: var(--sidebar-border);
 
   float: left;
   position: fixed;
@@ -129,7 +137,7 @@ export default {
   bottom: 68%;
   background: var(--sidebar-green-medium);
   transform: skewY(-25deg);
-  border-right: solid 2px black;
+  border-right: var(--sidebar-border);
   transition: 0.2s linear;
 }
 
@@ -159,7 +167,7 @@ h1 {
   border-radius: 50%;
   z-index: 8;
   position: absolute;
-  border: solid 1px black;
+  border: var(--fine-border);
   transition: 0.3s ease;
 }
 
@@ -183,7 +191,7 @@ h1 {
 }
 
 hr {
-  border-color: black;
+  border-color: var(--gray);
   position: absolute;
   transform: skewY(-25deg);
 }

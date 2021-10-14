@@ -21,7 +21,7 @@ export default {
     :to="to"
     class="link"
     :class="{ active: isActive }"
-    :style="{ 'border-top': collapsed ? 'none' : '1px solid black' }"
+    :style="{ 'border-top': collapsed ? 'none' : '1px solid #60645c' }"
   >
     <i class="icon" :class="icon" />
     <transition name="fade">
@@ -33,7 +33,7 @@ export default {
   </router-link>
 </template>
 
-<style scoped>
+<style>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.1s;
@@ -62,7 +62,7 @@ export default {
   text-decoration: none;
 
   width: 100%;
-  border-top: 1px solid black;
+  border-top: var(--fine-border);
 }
 
 .circle {
@@ -71,7 +71,7 @@ export default {
   border-radius: 50%;
   z-index: 8;
   position: absolute;
-  border: solid 1px black;
+  border: var(--fine-border);
   transition: 0.3s ease;
   top: -10%;
   left: -5%;

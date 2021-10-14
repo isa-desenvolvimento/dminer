@@ -1,46 +1,39 @@
 <template>
-  <div class="hexagon">
-    <Avatar />
-  </div>
+  <div id="hexagono"></div>
 </template>
 
-<script>
-import Avatar from 'vue-boring-avatars'
-
-export default {
-  components: {
-    Avatar
-  }
-}
-</script>
-
 <style scoped>
-.hexagon {
-  position: relative;
-  width: 150px;
-  height: 80px;
-  background-color: #64c7cc;
-  margin: 86.6px 0;
-}
+#hexagono {
+  width: 10rem;
+  height: 10rem;
 
-.hexagon::before,
-.hexagon::after {
+  background: transparent
+    url('https://images.uncyc.org/pt/thumb/2/29/Mr-bean-avatar.jpg/250px-Mr-bean-avatar.jpg')
+    no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+#hexagono:before {
   content: '';
   position: absolute;
-  left: 0; /* added */
+  top: 0px;
+  left: 0px;
   width: 0;
-  border-left: 75px solid transparent;
-  border-right: 75px solid transparent;
+  height: 0;
+  border-left: var(--avatar-border-left-right);
+  border-right: var(--avatar-border-left-right);
+  border-bottom: var(--avatar-border-bottom-top);
 }
-
-.hexagon::before {
-  bottom: 100%;
-  border-bottom: 40px solid #64c7cc;
-}
-
-.hexagon::after {
-  top: 100%;
+#hexagono:after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
   width: 0;
-  border-top: 40px solid #64c7cc;
+  height: 0;
+  border-left: var(--avatar-border-left-right);
+  border-right: var(--avatar-border-left-right);
+  border-top: var(--avatar-border-bottom-top);
 }
 </style>
