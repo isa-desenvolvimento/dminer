@@ -3,9 +3,11 @@
     xmlns="http://www.w3.org/2000/svg"
     :width="width"
     :height="height"
-    viewBox="0 0 18 18"
     :aria-labelledby="iconName"
     role="presentation"
+    viewBox="0 0 512 256"
+    style="enable-background: new 0 0 512 256"
+    xml:space="preserve"
   >
     <g :fill="iconColor">
       <slot />
@@ -22,11 +24,11 @@ export default {
     },
     width: {
       type: [Number, String],
-      default: 18
+      default: 40
     },
     height: {
       type: [Number, String],
-      default: 18
+      default: 40
     },
     iconColor: {
       type: String,

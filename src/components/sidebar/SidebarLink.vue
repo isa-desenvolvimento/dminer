@@ -4,14 +4,14 @@ import { useRoute } from 'vue-router'
 import { collapsed } from './state'
 
 import IconBase from '@/components/icons/IconBase.vue'
-import IconWrite from '@/components/icons/IconWrite.vue'
+import IconTutoriais from '@/components/icons/IconTutoriais.vue'
 
 export default {
   props: {
     to: { type: String, required: true },
     icon: { type: String, required: true }
   },
-  components: { IconBase, IconWrite },
+  components: { IconBase, IconTutoriais },
   setup(props) {
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
@@ -22,7 +22,7 @@ export default {
 
 <template>
   <router-link :to="to" class="link" :class="{ active: isActive }">
-    <icon-base icon-name="write"><icon-write /></icon-base>
+    <icon-base icon-name="tutoriais"><icon-tutoriais /></icon-base>
     <transition name="fade">
       <span v-if="!collapsed">
         <slot />
@@ -56,8 +56,9 @@ export default {
   border-radius: 0.25em;
   height: 1.5em;
 
-  color: white;
+  color: black;
   text-decoration: none;
+  grid-gap: 1rem;
 }
 
 .link:hover {
