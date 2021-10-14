@@ -1,6 +1,18 @@
 <template>
-  <div class="hexagon"></div>
+  <div class="hexagon">
+    <Avatar />
+  </div>
 </template>
+
+<script>
+import Avatar from 'vue-boring-avatars'
+
+export default {
+  components: {
+    Avatar
+  }
+}
+</script>
 
 <style scoped>
 .hexagon {
