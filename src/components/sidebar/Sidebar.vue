@@ -1,18 +1,34 @@
 <script>
 import SidebarLink from './SidebarLink'
-import { collapsed, toggleSidebar, sidebarWidth } from './state'
+import {
+  collapsed,
+  toggleSidebar,
+  sidebarWidth,
+  SIDEBAR_WIDTH_COLLAPSED
+} from './state'
 
 export default {
   props: {},
   components: { SidebarLink },
   setup() {
-    return { collapsed, toggleSidebar, sidebarWidth }
+    return {
+      collapsed,
+      toggleSidebar,
+      sidebarWidth,
+      SIDEBAR_WIDTH_COLLAPSED
+    }
   }
 }
 </script>
 
 <template>
-  <div class="sidebar" :style="{ width: sidebarWidth }">
+  <div
+    :class="{
+      sidebar: true,
+      'sidebar-closed': collapsed
+    }"
+    :style="{ width: sidebarWidth }"
+  >
     <h1>
       <span v-if="collapsed">
         <div>V</div>
@@ -20,13 +36,15 @@ export default {
       </span>
       <span v-else>Vue Sidebar</span>
     </h1>
-
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">Analytics</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
-
+    <div class="menu">
+      <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
+      <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
+      <SidebarLink to="/analytics" icon="fas fa-chart-bar">
+        Analytics
+      </SidebarLink>
+      <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
+      <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
+    </div>
     <span
       class="collapse-icon"
       :class="{ 'rotate-180': collapsed }"
@@ -34,10 +52,34 @@ export default {
     >
       <i class="fas fa-angle-double-left" />
     </span>
-    <hr class="hr1" />
-    <div class="hr1circle" />
-    <div class="hr2circle" />
-    <hr class="hr2" />
+    <hr
+      :style="{
+        top: collapsed ? '28%' : '25%',
+        left: collapsed ? '80%' : '94%',
+        width: collapsed ? '25px' : '35px'
+      }"
+    />
+    <div
+      class="circle"
+      :style="{
+        top: collapsed ? '29%' : '26.7%',
+        left: collapsed ? '61%' : '88%'
+      }"
+    />
+    <div
+      class="circle"
+      :style="{
+        top: collapsed ? '28.8%' : '24.8%',
+        left: collapsed ? '148%' : '118%'
+      }"
+    />
+    <hr
+      :style="{
+        top: collapsed ? '29.5%' : '25.7%',
+        left: collapsed ? '100%' : '100%',
+        width: collapsed ? '25px' : '35px'
+      }"
+    />
   </div>
 </template>
 
@@ -75,32 +117,36 @@ export default {
   width: 220px;
   position: absolute;
   left: 0;
-  bottom: 80%;
+  bottom: 68%;
   background: #2f855a;
   transform: skewY(-25deg);
   border-right: solid 2px black;
+  transition: 0.2s linear;
 }
 
-.hr1circle {
+.sidebar-closed::before {
+  width: 70px !important;
+  transition: 0.2s linear;
+}
+
+.menu {
+  margin-top: 70%;
+  display: grid;
+  justify-content: center;
+}
+
+h1 {
+  z-index: 2;
+}
+
+.circle {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   z-index: 8;
   position: absolute;
-  top: 12%;
-  left: 80%;
   border: solid 1px black;
-}
-
-.hr2circle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  z-index: 8;
-  position: absolute;
-  top: 12.2%;
-  left: 126%;
-  border: solid 1px black;
+  transition: 0.3s ease;
 }
 
 .sidebar h1 {
@@ -122,21 +168,9 @@ export default {
   transition: 0.2s linear;
 }
 
-.hr1 {
+hr {
   border-color: black;
-  width: 50px;
   position: absolute;
-  top: 10%;
-  left: 85%;
-  transform: skewY(-25deg);
-}
-
-.hr2 {
-  border-color: black;
-  width: 50px;
-  position: absolute;
-  top: 13.5%;
-  left: 100%;
   transform: skewY(-25deg);
 }
 </style>

@@ -17,13 +17,19 @@ export default {
 </script>
 
 <template>
-  <router-link :to="to" class="link" :class="{ active: isActive }">
+  <router-link
+    :to="to"
+    class="link"
+    :class="{ active: isActive }"
+    :style="{ 'border-top': collapsed ? 'none' : '1px solid black' }"
+  >
     <i class="icon" :class="icon" />
     <transition name="fade">
       <span v-if="!collapsed">
         <slot />
       </span>
     </transition>
+    <div class="circle" :style="{ display: collapsed ? 'none' : 'block' }" />
   </router-link>
 </template>
 
@@ -49,11 +55,26 @@ export default {
 
   margin: 0.1em 0;
   padding: 0.4em;
-  border-radius: 0.25em;
+  /* border-radius: 0.25em; */
   height: 1.5em;
 
   color: white;
   text-decoration: none;
+
+  width: 100%;
+  border-top: 1px solid black;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  z-index: 8;
+  position: absolute;
+  border: solid 1px black;
+  transition: 0.3s ease;
+  top: -18%;
+  left: -8%;
 }
 
 .link:hover {

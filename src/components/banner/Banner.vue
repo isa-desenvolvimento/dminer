@@ -1,20 +1,18 @@
 <template>
-  <transition name="fade">
+  <div
+    class="container"
+    :style="{
+      'margin-left': sidebarWidth
+    }"
+  >
     <div
-      class="container"
-      :style="{
-        'margin-left': sidebarWidth
-      }"
-    >
-      <div
-        class="imagePreviewWrapper"
-        :style="{ 'background-image': `url(${previewImage})` }"
-        @click="selectImage"
-      ></div>
+      class="imagePreviewWrapper"
+      :style="{ 'background-image': `url(${previewImage})` }"
+      @click="selectImage"
+    ></div>
 
-      <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
-    </div>
-  </transition>
+    <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
+  </div>
 </template>
 
 <script>
@@ -52,21 +50,13 @@ export default {
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.1s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 .container {
   width: 100%;
   background-color: red;
   position: fixed;
   top: 0;
   height: 10rem;
+  transition: 0.2s linear;
 }
 
 .imagePreviewWrapper {
