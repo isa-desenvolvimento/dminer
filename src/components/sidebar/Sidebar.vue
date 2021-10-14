@@ -1,6 +1,11 @@
 <script>
 import SidebarLink from './SidebarLink'
 import Avatar from '@/components/avatar/Avatar'
+import IconBenefits from '@/components/icons/IconBenefits'
+import IconPermissions from '@/components/icons/IconPermissions'
+import IconTeam from '@/components/icons/IconTeam'
+import IconDocument from '../icons/IconDocument.vue'
+import IconTutoriais from '../icons/IconTutoriais.vue'
 
 import {
   collapsed,
@@ -11,7 +16,15 @@ import {
 
 export default {
   props: {},
-  components: { SidebarLink, Avatar },
+  components: {
+    SidebarLink,
+    Avatar,
+    IconBenefits,
+    IconDocument,
+    IconPermissions,
+    IconTeam,
+    IconTutoriais
+  },
   setup() {
     return {
       collapsed,
@@ -39,13 +52,26 @@ export default {
       <Avatar v-else />
     </div>
     <div class="menu">
-      <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-      <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
-      <SidebarLink to="/analytics" icon="fas fa-chart-bar">
-        Analytics
+      <SidebarLink to="/documentos" icon="documentos">
+        <icon-document />
+        Documentos
       </SidebarLink>
-      <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
-      <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
+      <SidebarLink to="/beneficios" icon="benefícios">
+        <icon-benefits />
+        Benefícios
+      </SidebarLink>
+      <SidebarLink to="/equipe" icon="Equipe">
+        <icon-team />
+        Equipe
+      </SidebarLink>
+      <SidebarLink to="/tutoriais" icon="fas fa-image">
+        <icon-tutoriais />
+        Tutoriais
+      </SidebarLink>
+      <SidebarLink to="/permissoes" icon="fas fa-image">
+        <icon-permissions />
+        Permissões
+      </SidebarLink>
     </div>
     <span
       class="collapse-icon"

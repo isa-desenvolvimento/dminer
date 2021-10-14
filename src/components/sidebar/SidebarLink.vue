@@ -3,11 +3,14 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { collapsed } from './state'
 
+import IconBase from '@/components/icons/IconBase.vue'
+
 export default {
   props: {
     to: { type: String, required: true },
-    icon: { type: String, required: true }
+    icon: { type: Element, required: true }
   },
+  components: { IconBase },
   setup(props) {
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
@@ -23,7 +26,9 @@ export default {
     :class="{ active: isActive }"
     :style="{ 'border-top': collapsed ? 'none' : '1px solid #60645c' }"
   >
-    <i class="icon" :class="icon" />
+    <icon-base icon-name="icon">
+      <slot />
+    </icon-base>
     <transition name="fade">
       <span v-if="!collapsed">
         <slot />
@@ -54,15 +59,16 @@ export default {
   user-select: none;
 
   margin: 0.1em 0;
-  padding: 0.4em;
+  padding: 0.8em 0;
   /* border-radius: 0.25em; */
   height: 1.5em;
 
-  color: white;
+  color: black;
   text-decoration: none;
 
   width: 100%;
   border-top: var(--fine-border);
+  grid-gap: 1rem;
 }
 
 .circle {

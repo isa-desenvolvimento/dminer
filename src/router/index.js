@@ -1,21 +1,36 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Documentos from '../views/Documentos.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Documentos',
+    component: Documentos
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue')
+    path: '/documentos',
+    name: 'Documentos',
+    component: () => import('../views/Documentos.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
+    path: '/beneficios',
+    name: 'Benefícios',
+    component: () => import('../views/Beneficios.vue')
+  },
+  {
+    path: '/equipe',
+    name: 'Equipe',
+    component: () => import('../views/Equipe.vue')
+  },
+  {
+    path: '/tutoriais',
+    name: 'Tutoriais',
+    component: () => import('../views/Tutoriais.vue')
+  },
+  {
+    path: '/permissoes',
+    name: 'Permissões',
+    component: () => import('../views/Permissoes.vue')
   }
 ]
 
