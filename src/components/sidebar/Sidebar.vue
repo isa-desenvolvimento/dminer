@@ -1,5 +1,7 @@
 <script>
 import SidebarLink from './SidebarLink'
+import Avatar from '@/components/avatar/Avatar'
+
 import {
   collapsed,
   toggleSidebar,
@@ -9,7 +11,7 @@ import {
 
 export default {
   props: {},
-  components: { SidebarLink },
+  components: { SidebarLink, Avatar },
   setup() {
     return {
       collapsed,
@@ -29,13 +31,13 @@ export default {
     }"
     :style="{ width: sidebarWidth }"
   >
-    <h1>
+    <div class="container-avatar">
       <span v-if="collapsed">
         <div>V</div>
         <div>S</div>
       </span>
-      <span v-else>Vue Sidebar</span>
-    </h1>
+      <Avatar v-else />
+    </div>
     <div class="menu">
       <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
       <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
@@ -139,6 +141,11 @@ h1 {
   z-index: 2;
 }
 
+.container-avatar {
+  display: flex;
+  justify-content: center;
+  transition: 0.3s ease;
+}
 .circle {
   width: 10px;
   height: 10px;
