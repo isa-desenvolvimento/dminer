@@ -1,10 +1,22 @@
 <script>
 import SidebarLink from './SidebarLink'
 import { collapsed, toggleSidebar, sidebarWidth } from './state'
+import IconBenefits from '@/components/icons/IconBenefits'
+import IconPermissions from '@/components/icons/IconPermissions'
+import IconTeam from '@/components/icons/IconTeam'
+import IconDocument from '../icons/IconDocument.vue'
+import IconTutoriais from '../icons/IconTutoriais.vue'
 
 export default {
   props: {},
-  components: { SidebarLink },
+  components: {
+    SidebarLink,
+    IconBenefits,
+    IconDocument,
+    IconPermissions,
+    IconTeam,
+    IconTutoriais
+  },
   setup() {
     return { collapsed, toggleSidebar, sidebarWidth }
   }
@@ -21,12 +33,26 @@ export default {
       <span v-else>Vue Sidebar</span>
     </h1>
 
-    <SidebarLink to="/" icon="home">Home</SidebarLink>
-    <SidebarLink to="/documentos" icon="documentos">Documentos</SidebarLink>
-    <SidebarLink to="/benefícios" icon="benefícios">Benefícios</SidebarLink>
-    <SidebarLink to="/equipe" icon="Equipe">Equipe</SidebarLink>
-    <SidebarLink to="/tutoriais" icon="fas fa-image">Tutoriais</SidebarLink>
-    <SidebarLink to="/permissões" icon="fas fa-image">Permissões</SidebarLink>
+    <SidebarLink to="/" icon="documents">
+      <icon-document />
+      Documentos
+    </SidebarLink>
+    <SidebarLink to="/benefícios" icon="benefícios">
+      <icon-benefits />
+      Benefícios
+    </SidebarLink>
+    <SidebarLink to="/equipe" icon="Equipe">
+      <icon-team />
+      Equipe
+    </SidebarLink>
+    <SidebarLink to="/tutoriais" icon="fas fa-image">
+      <icon-tutoriais />
+      Tutoriais
+    </SidebarLink>
+    <SidebarLink to="/permissões" icon="fas fa-image">
+      <icon-permissions />
+      Permissões
+    </SidebarLink>
 
     <span
       class="collapse-icon"

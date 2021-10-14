@@ -4,14 +4,13 @@ import { useRoute } from 'vue-router'
 import { collapsed } from './state'
 
 import IconBase from '@/components/icons/IconBase.vue'
-import IconTutoriais from '@/components/icons/IconTutoriais.vue'
 
 export default {
   props: {
     to: { type: String, required: true },
-    icon: { type: String, required: true }
+    icon: { type: Element, required: true }
   },
-  components: { IconBase, IconTutoriais },
+  components: { IconBase },
   setup(props) {
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
@@ -22,7 +21,10 @@ export default {
 
 <template>
   <router-link :to="to" class="link" :class="{ active: isActive }">
-    <icon-base icon-name="tutoriais"><icon-tutoriais /></icon-base>
+    <icon-base icon-name="icon">
+      <slot />
+    </icon-base>
+
     <transition name="fade">
       <span v-if="!collapsed">
         <slot />
