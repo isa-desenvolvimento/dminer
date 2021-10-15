@@ -8,6 +8,7 @@ import IconDocument from '@/components/icons/IconDocument'
 import IconTutoriais from '@/components/icons/IconTutoriais'
 import IconEmail from '@/components/icons/IconEmail'
 import IconBirthday from '@/components/icons/IconBirthday'
+import IconPower from '@/components/icons/IconPower'
 
 import {
   collapsed,
@@ -27,7 +28,8 @@ export default {
     IconTeam,
     IconTutoriais,
     IconBirthday,
-    IconEmail
+    IconEmail,
+    IconPower
   },
   setup() {
     return {
@@ -90,6 +92,9 @@ export default {
       <SidebarLink to="/permissoes" icon="fas fa-image">
         <icon-permissions />
         PERMISSÕES
+      </SidebarLink>
+      <SidebarLink to="/power" icon="power" isPower>
+        <icon-power />
       </SidebarLink>
     </div>
     <span

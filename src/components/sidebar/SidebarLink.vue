@@ -9,7 +9,8 @@ export default {
   props: {
     to: { type: String, required: true },
     icon: { type: Element, required: true },
-    isIconLink: { type: Boolean, required: false }
+    isIconLink: { type: Boolean, required: false },
+    isPower: { type: Boolean, required: false }
   },
   components: { IconBase },
   setup(props) {
@@ -26,7 +27,8 @@ export default {
     class="link"
     :class="{ active: isActive }"
     :style="{
-      'border-top': collapsed || isIconLink ? 'none' : '1px solid #60645c'
+      'border-top': collapsed || isIconLink ? 'none' : '1px solid #60645c',
+      'justify-content': isIconLink || isPower ? 'center' : ''
     }"
   >
     <icon-base icon-name="icon">
