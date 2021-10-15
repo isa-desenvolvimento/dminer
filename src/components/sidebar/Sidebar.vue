@@ -53,7 +53,7 @@ export default {
         <div>V</div>
         <div>S</div>
       </span>
-      <Avatar v-else />
+      <Avatar username="D.MINER" v-else />
     </div>
     <div class="menu" :style="{ display: collapsed ? 'block' : 'grid' }">
       <div
@@ -73,23 +73,23 @@ export default {
 
       <SidebarLink to="/documentos" icon="documentos">
         <icon-document />
-        Documentos
+        DOCUMENTOS
       </SidebarLink>
       <SidebarLink to="/beneficios" icon="benefícios">
         <icon-benefits />
-        Benefícios
+        BENEFÍCIOS
       </SidebarLink>
       <SidebarLink to="/equipe" icon="Equipe">
         <icon-team />
-        Equipe
+        EQUIPE
       </SidebarLink>
       <SidebarLink to="/tutoriais" icon="fas fa-image">
         <icon-tutoriais />
-        Tutoriais
+        TUTORIAIS
       </SidebarLink>
       <SidebarLink to="/permissoes" icon="fas fa-image">
         <icon-permissions />
-        Permissões
+        PERMISSÕES
       </SidebarLink>
     </div>
     <span
@@ -204,6 +204,8 @@ h1 {
   display: flex;
   justify-content: center;
   transition: 0.3s ease;
+  transition-delay: 0.3s;
+  z-index: 0;
 }
 
 .circle {
