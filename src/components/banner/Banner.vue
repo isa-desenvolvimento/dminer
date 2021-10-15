@@ -27,6 +27,11 @@ export default {
       previewImage: null
     }
   },
+  mounted() {
+    if (localStorage.banner) {
+      this.previewImage = localStorage.banner
+    }
+  },
 
   props: { toggleSidebar: Boolean },
   methods: {
@@ -40,6 +45,7 @@ export default {
         let reader = new FileReader()
         reader.onload = (e) => {
           this.previewImage = e.target.result
+          localStorage.banner = e.target.result
         }
         reader.readAsDataURL(file[0])
         this.$emit('input', file[0])
@@ -55,7 +61,7 @@ export default {
   background-color: red;
   position: fixed;
   top: 0;
-  height: 10rem;
+  height: 5rem;
   transition: 0.2s linear;
 }
 
