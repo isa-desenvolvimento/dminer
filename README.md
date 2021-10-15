@@ -1,29 +1,41 @@
-# dminer
+<h1 align="center">
 
-## Project setup
+👾  INTRANET D.MINER👾
+</h1>
+<p align="center">🚀  Sistema comunicação para colaboradores internos. 
+</p>
 
-```
-yarn install
-```
+### 🏆 Aplicação [Demo](https://dminer.herokuapp.com/)
 
-### Compiles and hot-reloads for development
+### Pré-requisitos
 
-```
-yarn serve
-```
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com/), [Node.js - v16.9.1](https://nodejs.org/en/), [Vue3](https://v3.vuejs.org/) .
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### Compiles and minifies for production
-
-```
-yarn build
-```
-
-### Lints and fixes files
+### 🎲 Rodando o Front
 
 ```
-yarn lint
+# Clone este repositório
+$ git clonegit@github.com:dminer-git/intranet.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd intranet
+
+# Instale as dependências 
+$ yarn install
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn serve
+
+# O servidor inciará na porta:8080 - acesse <http://localhost:8080>
+
 ```
 
-### Customize configuration
+### 🛠 Tecnologias
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Vue3](https://v3.vuejs.org/)
+- [Commitlint](https://commitlint.js.org/)
+- [Husky](https://www.husky.com.br/)
