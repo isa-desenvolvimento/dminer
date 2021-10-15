@@ -8,7 +8,8 @@ import IconBase from '@/components/icons/IconBase.vue'
 export default {
   props: {
     to: { type: String, required: true },
-    icon: { type: Element, required: true }
+    icon: { type: Element, required: true },
+    isIconLink: { type: Boolean, required: false }
   },
   components: { IconBase },
   setup(props) {
@@ -24,7 +25,9 @@ export default {
     :to="to"
     class="link"
     :class="{ active: isActive }"
-    :style="{ 'border-top': collapsed ? 'none' : '1px solid #60645c' }"
+    :style="{
+      'border-top': collapsed || isIconLink ? 'none' : '1px solid #60645c'
+    }"
   >
     <icon-base icon-name="icon">
       <slot />
@@ -34,7 +37,10 @@ export default {
         <slot />
       </span>
     </transition>
-    <div class="circle" :style="{ display: collapsed ? 'none' : 'block' }" />
+    <div
+      class="circle"
+      :style="{ display: collapsed || isIconLink ? 'none' : 'block' }"
+    />
   </router-link>
 </template>
 
@@ -61,13 +67,11 @@ export default {
   margin: 0.1em 0;
   padding: 0.8em 0;
   /* border-radius: 0.25em; */
-  height: 1.5em;
 
   color: black;
   text-decoration: none;
 
-  width: 100%;
-  border-top: var(--fine-border);
+  /* width: 100%; */
   grid-gap: 1rem;
 }
 
@@ -79,7 +83,7 @@ export default {
   position: absolute;
   border: var(--fine-border);
   transition: 0.3s ease;
-  top: -10%;
+  top: -8%;
   left: -5%;
 }
 

@@ -4,8 +4,10 @@ import Avatar from '@/components/avatar/Avatar'
 import IconBenefits from '@/components/icons/IconBenefits'
 import IconPermissions from '@/components/icons/IconPermissions'
 import IconTeam from '@/components/icons/IconTeam'
-import IconDocument from '../icons/IconDocument.vue'
-import IconTutoriais from '../icons/IconTutoriais.vue'
+import IconDocument from '@/components/icons/IconDocument'
+import IconTutoriais from '@/components/icons/IconTutoriais'
+import IconEmail from '@/components/icons/IconEmail'
+import IconBirthday from '@/components/icons/IconBirthday'
 
 import {
   collapsed,
@@ -23,7 +25,9 @@ export default {
     IconDocument,
     IconPermissions,
     IconTeam,
-    IconTutoriais
+    IconTutoriais,
+    IconBirthday,
+    IconEmail
   },
   setup() {
     return {
@@ -51,7 +55,22 @@ export default {
       </span>
       <Avatar v-else />
     </div>
-    <div class="menu">
+    <div class="menu" :style="{ display: collapsed ? 'block' : 'grid' }">
+      <div
+        :style="{
+          display: collapsed ? 'block' : ' flex',
+          'justify-content': 'center'
+        }"
+      >
+        <SidebarLink to="/email" icon="email" isIconLink>
+          <icon-email />
+        </SidebarLink>
+
+        <SidebarLink to="/birthday" icon="birthday" isIconLink>
+          <icon-birthday />
+        </SidebarLink>
+      </div>
+
       <SidebarLink to="/documentos" icon="documentos">
         <icon-document />
         Documentos
@@ -113,13 +132,10 @@ export default {
 
 <style>
 :root {
-  --sidebar-bg-color: #2f855a;
-  --sidebar-item-hover: #38a169;
-  --sidebar-item-active: #276749;
-
   --sidebar-green-ligth: #aaff48;
   --sidebar-green-medium: #89f45f;
   --sidebar-green-dark: #43df94;
+  --sidebar-green-opacity: #55e48663;
 
   --gray: #60645c;
 
@@ -128,16 +144,19 @@ export default {
 
   --avatar-border-left-right: 81px solid var(--sidebar-green-medium);
   --avatar-border-bottom-top: 30px solid transparent;
+  --sidebar-item-active: var(--sidebar-green-opacity);
+  --sidebar-item-hover: var(--sidebar-green-opacity);
+  --sidebar-bg-color: linear-gradient(
+    var(--sidebar-green-ligth),
+    var(--sidebar-green-dark)
+  );
 }
 </style>
 
 <style scoped>
 .sidebar {
   color: white;
-  background-image: linear-gradient(
-    var(--sidebar-green-ligth),
-    var(--sidebar-green-dark)
-  );
+  background-image: var(--sidebar-bg-color);
   border-right: var(--sidebar-border);
 
   float: left;
@@ -173,9 +192,8 @@ export default {
 }
 
 .menu {
-  margin-top: 70%;
-  display: grid;
   justify-content: center;
+  margin-top: 10%;
 }
 
 h1 {
@@ -187,6 +205,7 @@ h1 {
   justify-content: center;
   transition: 0.3s ease;
 }
+
 .circle {
   width: 5px;
   height: 5px;

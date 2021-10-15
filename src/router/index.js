@@ -31,6 +31,16 @@ const routes = [
     path: '/permissoes',
     name: 'Permissões',
     component: () => import('../views/Permissoes.vue')
+  },
+  {
+    path: '/email',
+    name: 'Email',
+    component: () => import('../views/Email.vue')
+  },
+  {
+    path: '/birthday',
+    name: 'Birthday',
+    component: () => import('../views/Birthday.vue')
   }
 ]
 
