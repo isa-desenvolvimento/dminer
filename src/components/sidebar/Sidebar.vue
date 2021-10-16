@@ -149,29 +149,6 @@ export default {
   </div>
 </template>
 
-<style>
-:root {
-  --sidebar-green-ligth: #aaff48;
-  --sidebar-green-medium: #89f45f;
-  --sidebar-green-dark: #43df94;
-  --sidebar-green-opacity: #55e48663;
-
-  --gray: #60645c;
-
-  --sidebar-border: 2px solid var(--gray);
-  --fine-border: 1px solid var(--gray);
-
-  --avatar-border-left-right: 81px solid var(--sidebar-green-medium);
-  --avatar-border-bottom-top: 30px solid transparent;
-  --sidebar-item-active: var(--sidebar-green-opacity);
-  --sidebar-item-hover: var(--sidebar-green-opacity);
-  --sidebar-bg-color: linear-gradient(
-    var(--sidebar-green-ligth),
-    var(--sidebar-green-dark)
-  );
-}
-</style>
-
 <style scoped>
 .sidebar {
   color: white;
