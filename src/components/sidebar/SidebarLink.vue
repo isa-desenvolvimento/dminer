@@ -63,7 +63,8 @@ export default {
 
   cursor: pointer;
   position: relative;
-  font-weight: 400;
+
+  font-family: 'Swis721_LtEx_BT_Light', Helvetica, Arial;
   user-select: none;
 
   margin: 0.1em 0;
@@ -73,8 +74,8 @@ export default {
   color: black;
   text-decoration: none;
 
-  /* width: 100%; */
-  grid-gap: 1rem;
+  width: 100%;
+  gap: 0.2rem;
 }
 
 .circle {

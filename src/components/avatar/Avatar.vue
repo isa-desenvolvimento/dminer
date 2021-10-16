@@ -103,4 +103,9 @@ export default {
 .imageInput {
   display: none;
 }
+
+h2 {
+  font-family: 'Cera_Stencil_PRO_Medium';
+  color: black;
+}
 </style>

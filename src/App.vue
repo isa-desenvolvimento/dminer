@@ -34,16 +34,36 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+@font-face {
+  font-family: 'Swis721_LtEx_BT_Light';
+  src: local('Swis721_LtEx_BT_Light'),
+    url(./assets/fonts/Swis721_LtEx_BT_Light.ttf) format('truetype');
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+@font-face {
+  font-family: 'Cera_Stencil_PRO_Medium';
+  src: local('Cera_Stencil_PRO_Medium'),
+    url(./assets/fonts/Cera_Stencil_PRO_Medium.otf) format('truetype');
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+:root {
+  --sidebar-green-ligth: #aaff48;
+  --sidebar-green-medium: #89f45f;
+  --sidebar-green-dark: #43df94;
+  --sidebar-green-opacity: #55e48663;
+
+  --gray: #60645c;
+
+  --sidebar-border: 2px solid var(--gray);
+  --fine-border: 1px solid var(--gray);
+
+  --avatar-border-left-right: 81px solid var(--sidebar-green-medium);
+  --avatar-border-bottom-top: 30px solid transparent;
+  --sidebar-item-active: var(--sidebar-green-opacity);
+  --sidebar-item-hover: var(--sidebar-green-opacity);
+  --sidebar-bg-color: linear-gradient(
+    var(--sidebar-green-ligth),
+    var(--sidebar-green-dark)
+  );
 }
 </style>
