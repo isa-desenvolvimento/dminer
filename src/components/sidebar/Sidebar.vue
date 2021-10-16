@@ -9,6 +9,8 @@ import IconTutoriais from '@/components/icons/IconTutoriais'
 import IconEmail from '@/components/icons/IconEmail'
 import IconBirthday from '@/components/icons/IconBirthday'
 import IconPower from '@/components/icons/IconPower'
+import IconEdit from '@/components/icons/IconEdit'
+import IconBase from '@/components/icons/IconBase.vue'
 
 import {
   collapsed,
@@ -29,7 +31,9 @@ export default {
     IconTutoriais,
     IconBirthday,
     IconEmail,
-    IconPower
+    IconPower,
+    IconEdit,
+    IconBase
   },
   setup() {
     return {
@@ -37,6 +41,12 @@ export default {
       toggleSidebar,
       sidebarWidth,
       SIDEBAR_WIDTH_COLLAPSED
+    }
+  },
+  methods: {
+    getIniciais(fullName) {
+      const name = fullName.split(' ')
+      return `${name[0].substring(0, 1)} \n${name[1].substring(0, 1)}`
     }
   }
 }
@@ -51,11 +61,15 @@ export default {
     :style="{ width: sidebarWidth }"
   >
     <div class="container-avatar">
-      <span v-if="collapsed">
-        <div>V</div>
-        <div>S</div>
+      <span v-if="collapsed" class="username">
+        <div>{{ getIniciais('D Miner') }}</div>
       </span>
-      <Avatar username="D.MINER" v-else />
+      <div v-else>
+        <icon-base icon-name="icon" class="edit-icon">
+          <icon-edit />
+        </icon-base>
+        <Avatar username="D.MINER" />
+      </div>
     </div>
     <div class="menu" :style="{ display: collapsed ? 'block' : 'grid' }">
       <div
@@ -246,5 +260,17 @@ hr {
   border-color: var(--gray);
   position: absolute;
   transform: skewY(-25deg);
+}
+
+.edit-icon {
+  position: absolute;
+  right: 0;
+  top: 2rem;
+  height: 1.5rem;
+}
+
+.username {
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 </style>
