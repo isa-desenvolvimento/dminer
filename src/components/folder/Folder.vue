@@ -6,7 +6,9 @@
     <div class="folder__content">
       <slot />
     </div>
-    <div class="folder__footer"></div>
+    <div class="folder__footer">
+      <slot name="footer" />
+    </div>
   </div>
 </template>
 
@@ -19,7 +21,7 @@ export default {
 <style scoped>
 .container__folder {
   background-color: white;
-  width: 30%;
+  width: 100%;
   height: 100%;
 
   display: grid;

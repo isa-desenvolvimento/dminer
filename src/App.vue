@@ -47,6 +47,12 @@ export default {
     var(--sidebar-green-dark)
   );
 
+  --gradient-linear-white-green: linear-gradient(
+    to right,
+    white,
+    var(--sidebar-green-ligth)
+  );
+
   --font-family--title: 'Cera_Stencil_PRO_Medium';
   --font-family--text: 'Swis721_LtEx_BT_Light';
 }

@@ -16,7 +16,11 @@
       <folder title="Calendário">
         <calendar />
       </folder>
-      <folder title="Aniversário" />
+      <folder title="Aniversário">
+        <notification v-for="item in notificationList" :key="item">
+          <template v-slot:title>{{ item }}</template>
+        </notification>
+      </folder>
     </section>
     <section class="container__section">
       <folder title="Enquete" />
@@ -36,8 +40,7 @@ export default {
   data() {
     return {
       notificationList: ['Teste 1', 'Teste 2', 'Teste 3'],
-      positionNotification: 'right',
-      date: new Date()
+      positionNotification: 'right'
     }
   },
   components: { InputDate, Folder, Notification, Calendar },
@@ -56,6 +59,7 @@ export default {
   display: grid;
   grid-template-rows: 1fr 3fr 3fr;
   height: 100%;
+  padding: 0 3rem;
 }
 
 .container__section {
