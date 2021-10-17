@@ -1,39 +1,20 @@
 <script>
 import Sidebar from '@/components/sidebar/Sidebar'
 import Banner from '@/components/banner/Banner'
-
-import { sidebarWidth } from '@/components/sidebar/state'
+import Content from '@/components/content/Content'
 
 export default {
-  components: { Sidebar, Banner },
-  setup() {
-    return { sidebarWidth }
-  }
+  components: { Sidebar, Banner, Content }
 }
 </script>
 <template>
   <Sidebar />
   <Banner />
-  <div
-    :style="{
-      'margin-left': sidebarWidth,
-      'margin-top': '10rem',
-      height: 'calc(100vh - 10rem)'
-    }"
-  >
-    <router-view />
-  </div>
+
+  <Content />
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 @font-face {
   font-family: 'Swis721_LtEx_BT_Light';
   src: local('Swis721_LtEx_BT_Light'),
@@ -65,5 +46,17 @@ export default {
     var(--sidebar-green-ligth),
     var(--sidebar-green-dark)
   );
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  font-family: 'Swis721_LtEx_BT_Light', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>
