@@ -135,13 +135,13 @@ export default {
     <div
       class="circle"
       :style="{
-        top: collapsed ? '29.3%' : '25.2%',
+        top: collapsed ? '29%' : '25.2%',
         left: collapsed ? '148%' : '119%'
       }"
     />
     <hr
       :style="{
-        top: collapsed ? '29.5%' : '25.7%',
+        top: collapsed ? '29%' : '25.7%',
         left: collapsed ? '100%' : '100%',
         width: collapsed ? '25px' : '35px'
       }"
@@ -167,6 +167,7 @@ export default {
 
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 10px 4px #888888;
 }
 
 .sidebar::before {
@@ -180,6 +181,9 @@ export default {
   transform: skewY(-25deg);
   border-right: var(--sidebar-border);
   transition: 0.2s linear;
+  box-shadow: 1px -6px 4px var(--gray);
+
+  transition: 0.3s ease;
 }
 
 .sidebar-closed::before {
@@ -234,9 +238,10 @@ h1 {
 }
 
 hr {
-  border-color: var(--gray);
+  background: var(--gray);
   position: absolute;
-  transform: skewY(-25deg);
+  transform: skewY(336deg);
+  box-shadow: 4px 2px 4px var(--gray);
 }
 
 .edit-icon {

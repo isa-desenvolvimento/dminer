@@ -66,6 +66,29 @@ export default {
   --font-family--text: 'Swis721_LtEx_BT_Light';
 
   --color-title: var(--gray);
+
+  --background-color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--sidebar-green-ligth);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sidebar-green-dark);
 }
 
 body {
