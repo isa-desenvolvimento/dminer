@@ -52,11 +52,17 @@ body {
   margin: 0;
 }
 
+:focus-visible {
+  outline: none;
+}
+
 #app {
   font-family: 'Swis721_LtEx_BT_Light', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  overflow: hidden;
 }
 </style>
