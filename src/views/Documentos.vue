@@ -4,14 +4,14 @@
       <InputDate />
     </section>
     <section class="container__section">
-      <Folder />
-      <Folder />
-      <Folder />
+      <Folder title="Notificações" />
+      <Folder title="Calendário" />
+      <Folder title="Aniversário" />
     </section>
     <section class="container__section">
-      <Folder />
-      <Folder />
-      <Folder />
+      <Folder title="Enquete" />
+      <Folder title="Avisos" />
+      <Folder title="Lembretes" />
     </section>
   </div>
 </template>
