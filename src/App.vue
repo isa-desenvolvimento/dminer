@@ -46,6 +46,9 @@ export default {
     var(--sidebar-green-ligth),
     var(--sidebar-green-dark)
   );
+
+  --font-family--title: 'Cera_Stencil_PRO_Medium';
+  --font-family--text: 'Swis721_LtEx_BT_Light';
 }
 
 body {

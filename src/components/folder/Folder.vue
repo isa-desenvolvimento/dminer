@@ -34,6 +34,8 @@ export default {
 .folder__content {
   overflow-y: auto;
   max-height: 18rem;
+
+  margin-top: 0.5rem;
 }
 
 .folder__footer {

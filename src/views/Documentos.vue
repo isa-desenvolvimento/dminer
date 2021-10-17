@@ -13,7 +13,9 @@
           <template v-slot:title>{{ item }}</template>
         </notification>
       </folder>
-      <folder title="Calendário" />
+      <folder title="Calendário">
+        <calendar />
+      </folder>
       <folder title="Aniversário" />
     </section>
     <section class="container__section">
@@ -28,15 +30,17 @@
 import InputDate from '@/components/input/InputDate'
 import Folder from '@/components/folder/Folder'
 import Notification from '@/components/notification/Notification'
+import Calendar from '@/components/calendar/Calendar'
 
 export default {
   data() {
     return {
-      notificationList: ['Teste 1', 'Teste 2', 'Teste 3', 'Teste 3'],
-      positionNotification: 'right'
+      notificationList: ['Teste 1', 'Teste 2', 'Teste 3'],
+      positionNotification: 'right',
+      date: new Date()
     }
   },
-  components: { InputDate, Folder, Notification },
+  components: { InputDate, Folder, Notification, Calendar },
   methods: {
     getPositionNotification() {
       this.positionNotification =
