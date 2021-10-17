@@ -31,6 +31,11 @@ export default {
   position: relative;
 }
 
+.folder__content {
+  overflow-y: auto;
+  max-height: 18rem;
+}
+
 .folder__footer {
   background-color: var(--sidebar-green-ligth);
 }

@@ -32,7 +32,7 @@ import Notification from '@/components/notification/Notification'
 export default {
   data() {
     return {
-      notificationList: ['Teste 1', 'Teste 2', 'Teste 3'],
+      notificationList: ['Teste 1', 'Teste 2', 'Teste 3', 'Teste 3'],
       positionNotification: 'right'
     }
   },
