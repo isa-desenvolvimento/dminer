@@ -54,8 +54,8 @@ export default {
 
 <template>
   <div
+    class="sidebar"
     :class="{
-      sidebar: true,
       'sidebar-closed': collapsed
     }"
     :style="{ width: sidebarWidth }"

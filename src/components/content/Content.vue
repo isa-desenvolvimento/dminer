@@ -1,10 +1,12 @@
 <template>
   <div
-    class="container"
+    class="container__content"
     :style="{
       'margin-left': sidebarWidth
     }"
   >
+    <resize-observer @notify="handleResize" :showTrigger="true" />
+
     <!-- Left content -->
     <div class="container__left"><router-view /></div>
 
@@ -20,20 +22,29 @@
 </template>
 
 <script>
-import { sidebarWidth } from '@/components/sidebar/state'
+import { sidebarWidth, collapsed } from '@/components/sidebar/state'
 import Publication from '@/components/publication/Publication'
 import Folder from '@/components/folder/Folder.vue'
 
 export default {
   components: { Publication, Folder },
   setup() {
-    return { sidebarWidth }
+    return {
+      sidebarWidth,
+      handleResize({ width }) {
+        if (width < 1080) {
+          collapsed.value = true
+        } else {
+          collapsed.value = false
+        }
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
-.container {
+.container__content {
   display: flex;
   margin-top: 5rem;
   height: calc(100vh - 5rem);
@@ -42,11 +53,24 @@ export default {
 
 .container__left {
   flex: 1;
-  background-color: red;
 }
 
 .container__right {
   width: 25%;
-  background-color: aqua;
+}
+
+@media only screen and (max-width: 1080px) {
+  .container__content {
+    display: grid;
+    overflow-y: auto;
+  }
+
+  .container__left {
+    margin-bottom: 5rem;
+  }
+
+  .container__right {
+    width: 100%;
+  }
 }
 </style>

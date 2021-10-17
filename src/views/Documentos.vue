@@ -77,4 +77,15 @@ export default {
 
   padding: 0.5rem;
 }
+
+@media only screen and (max-width: 1080px) {
+  .view__documents {
+    grid-gap: 1rem;
+  }
+  .container__section {
+    display: contents;
+    padding: 0.5rem;
+    overflow-y: auto;
+  }
+}
 </style>

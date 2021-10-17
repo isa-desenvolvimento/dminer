@@ -4,14 +4,23 @@ import Banner from '@/components/banner/Banner'
 import Content from '@/components/content/Content'
 
 export default {
+  // setup() {
+  //   return {
+  //     handleResize({ width, height }) {
+  //       console.log('resized', width, height)
+  //     }
+  //   }
+  // },
   components: { Sidebar, Banner, Content }
 }
 </script>
 <template>
-  <Sidebar />
-  <Banner />
+  <div>
+    <Sidebar />
+    <Banner />
 
-  <Content />
+    <Content />
+  </div>
 </template>
 
 <style>
