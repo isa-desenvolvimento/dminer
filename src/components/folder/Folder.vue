@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
 .container__folder {
-  background-color: white;
+  border: var(--fine-border);
   width: 100%;
   height: 100%;
 
@@ -45,11 +45,12 @@ export default {
 }
 
 h3 {
-  font-family: 'Cera_Stencil_PRO_Medium';
-  color: black;
-  font-weight: 300;
   position: absolute;
   right: 0.5rem;
   bottom: -2rem;
+
+  font-family: var(--font-family--title);
+  color: var(--color-title);
+  font-weight: 300;
 }
 </style>

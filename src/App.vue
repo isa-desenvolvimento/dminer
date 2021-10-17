@@ -64,6 +64,8 @@ export default {
 
   --font-family--title: 'Cera_Stencil_PRO_Medium';
   --font-family--text: 'Swis721_LtEx_BT_Light';
+
+  --color-title: var(--gray);
 }
 
 body {

@@ -10,7 +10,11 @@
           v-for="item in notificationList"
           :key="item"
         >
-          <template v-slot:title>{{ item }}</template>
+          <template v-slot:title>
+            <Title>
+              {{ item }}
+            </Title>
+          </template>
         </notification>
       </folder>
       <folder title="Calendário">
@@ -18,7 +22,11 @@
       </folder>
       <folder title="Aniversário">
         <notification v-for="item in notificationList" :key="item">
-          <template v-slot:title>{{ item }}</template>
+          <template v-slot:title>
+            <Title>
+              {{ item }}
+            </Title>
+          </template>
         </notification>
       </folder>
     </section>
@@ -35,6 +43,7 @@ import InputDate from '@/components/input/InputDate'
 import Folder from '@/components/folder/Folder'
 import Notification from '@/components/notification/Notification'
 import Calendar from '@/components/calendar/Calendar'
+import Title from '@/components/title/Title'
 
 export default {
   data() {
@@ -43,7 +52,7 @@ export default {
       positionNotification: 'right'
     }
   },
-  components: { InputDate, Folder, Notification, Calendar },
+  components: { InputDate, Folder, Notification, Calendar, Title },
   methods: {
     getPositionNotification() {
       this.positionNotification =
