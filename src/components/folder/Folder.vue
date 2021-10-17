@@ -3,7 +3,9 @@
     <div class="folder__head">
       <h3>{{ title.toUpperCase() }}</h3>
     </div>
-    <div class="folder__content"></div>
+    <div class="folder__content">
+      <slot />
+    </div>
     <div class="folder__footer"></div>
   </div>
 </template>

@@ -1,17 +1,25 @@
 <template>
   <div class="view__documents">
     <section class="container__section">
-      <InputDate />
+      <inputDate />
     </section>
     <section class="container__section">
-      <Folder title="Notificações" />
-      <Folder title="Calendário" />
-      <Folder title="Aniversário" />
+      <folder title="Notificações">
+        <notification
+          :position="getPositionNotification()"
+          v-for="item in notificationList"
+          :key="item"
+        >
+          <template v-slot:title>{{ item }}</template>
+        </notification>
+      </folder>
+      <folder title="Calendário" />
+      <folder title="Aniversário" />
     </section>
     <section class="container__section">
-      <Folder title="Enquete" />
-      <Folder title="Avisos" />
-      <Folder title="Lembretes" />
+      <folder title="Enquete" />
+      <folder title="Avisos" />
+      <folder title="Lembretes" />
     </section>
   </div>
 </template>
@@ -19,10 +27,23 @@
 <script>
 import InputDate from '@/components/input/InputDate'
 import Folder from '@/components/folder/Folder'
+import Notification from '@/components/notification/Notification'
 
 export default {
-  data() {},
-  components: { InputDate, Folder }
+  data() {
+    return {
+      notificationList: ['Teste 1', 'Teste 2', 'Teste 3'],
+      positionNotification: 'right'
+    }
+  },
+  components: { InputDate, Folder, Notification },
+  methods: {
+    getPositionNotification() {
+      this.positionNotification =
+        this.positionNotification === 'right' ? 'left' : 'right'
+      return this.positionNotification
+    }
+  }
 }
 </script>
 
