@@ -4,7 +4,7 @@
     :style="{ 'background-image': `url(${folderSVG})` }"
   >
     <div class="folder__head">
-      <h3>{{ title.toUpperCase() }}</h3>
+      <h2>{{ title.toUpperCase() }}</h2>
     </div>
     <div class="folder__content">
       <slot />
@@ -51,10 +51,10 @@ export default {
 .folder__footer {
 }
 
-h3 {
+h2 {
   position: absolute;
   right: 1.5rem;
-  bottom: -1rem;
+  bottom: -0.7rem;
 
   font-family: var(--font-family--title);
   color: var(--color-title);
