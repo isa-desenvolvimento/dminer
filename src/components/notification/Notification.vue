@@ -1,9 +1,11 @@
 <template>
-  <div class="container__notification">
-    <div
-      class="notification__title"
-      :style="{ 'margin-left': position === 'left' ? '0' : 'auto' }"
-    >
+  <div
+    class="container__notification"
+    :style="{
+      'background-image': `url(${notificationSVG})`
+    }"
+  >
+    <div class="notification__title">
       <slot name="title" />
       <slot />
     </div>
@@ -12,24 +14,33 @@
 </template>
 
 <script>
+import notificationSVG from '@/assets/widget/notification.svg'
+
 export default {
-  props: {
-    position: { type: String, required: false, default: 'left' }
+  data() {
+    return { notificationSVG }
   }
 }
 </script>
 
 <style scoped>
 .container__notification {
-  margin-top: 2rem;
+  background-repeat: no-repeat;
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  align-items: center;
+
+  cursor: pointer;
 }
 
-.notification__title {
-  background-color: #aaff48;
-  width: 75%;
-  border: solid 1px;
-  border-radius: 0.3rem;
-  text-align: center;
-  padding: 0.5rem;
+.container__notification:nth-of-type(odd) {
+  transform: rotateY(180deg);
+}
+
+.container__notification:nth-of-type(odd) > .notification__title {
+  transform: rotateY(180deg);
 }
 </style>

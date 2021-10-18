@@ -1,5 +1,8 @@
 <template>
-  <div class="container__folder">
+  <div
+    class="container__folder"
+    :style="{ 'background-image': `url(${folderSVG})` }"
+  >
     <div class="folder__head">
       <h3>{{ title.toUpperCase() }}</h3>
     </div>
@@ -13,41 +16,45 @@
 </template>
 
 <script>
+import folderSVG from '@/assets/widget/folder.svg'
+import notificationSVG from '@/assets/widget/notification.svg'
+
 export default {
-  props: { title: { type: String, required: true } }
+  props: { title: { type: String, required: true } },
+  data() {
+    return { folderSVG, notificationSVG }
+  }
 }
 </script>
 
 <style scoped>
 .container__folder {
-  border: var(--fine-border);
   width: 100%;
   height: 100%;
 
   display: grid;
-  grid-template-rows: 0.2fr 2fr 0.3fr;
+  grid-template-rows: 0.2fr 0.7fr;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 1rem;
 }
 
 .folder__head {
-  background-color: var(--sidebar-green-ligth);
   position: relative;
 }
 
 .folder__content {
   overflow-y: auto;
   max-height: 18rem;
-
-  margin-top: 0.5rem;
 }
 
 .folder__footer {
-  background-color: var(--sidebar-green-ligth);
 }
 
 h3 {
   position: absolute;
-  right: 0.5rem;
-  bottom: -2rem;
+  right: 1.5rem;
+  bottom: -1rem;
 
   font-family: var(--font-family--title);
   color: var(--color-title);

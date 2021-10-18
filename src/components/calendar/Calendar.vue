@@ -26,4 +26,8 @@ export default {
 .vc-container {
   border: none;
 }
+
+.vc-container.vc-is-expanded {
+  min-width: 90%;
+}
 </style>

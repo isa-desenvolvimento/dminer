@@ -5,11 +5,7 @@
     </section>
     <section class="container__section">
       <folder title="Notificações">
-        <notification
-          :position="getPositionNotification()"
-          v-for="item in notificationList"
-          :key="item"
-        >
+        <notification v-for="item in notificationList" :key="item">
           <template v-slot:title>
             <Title>
               {{ item }}
@@ -48,18 +44,11 @@ import Title from '@/components/title/Title'
 export default {
   data() {
     return {
-      notificationList: ['Teste 1', 'Teste 2', 'Teste 3'],
-      positionNotification: 'right'
+      notificationList: ['Teste 1', 'Teste 2', 'Teste 3']
     }
   },
   components: { InputDate, Folder, Notification, Calendar, Title },
-  methods: {
-    getPositionNotification() {
-      this.positionNotification =
-        this.positionNotification === 'right' ? 'left' : 'right'
-      return this.positionNotification
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -68,7 +57,8 @@ export default {
   display: grid;
   grid-template-rows: 1fr 3fr 3fr;
   height: 100%;
-  padding: 0 3rem;
+  /* padding: 0 3rem; */
+  padding: 0 6rem;
 }
 
 .container__section {
