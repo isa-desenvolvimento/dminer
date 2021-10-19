@@ -4,11 +4,11 @@
     :style="{ 'background-image': `url(${folderSVG})` }"
   >
     <div class="folder__head">
-      <h2>{{ title.toUpperCase() }}</h2>
+      <h2>{{ title }}</h2>
     </div>
     <div
       class="folder__content"
-      :style="{ 'max-height': !is - expanded && '18rem' }"
+      :style="{ 'max-height': !isExpanded && '18rem' }"
     >
       <slot />
     </div>
@@ -25,7 +25,7 @@ import notificationSVG from '@/assets/widget/notification.svg'
 export default {
   props: {
     title: { type: String, required: true },
-    'is-expanded': { type: Boolean, required: false, default: false }
+    isExpanded: { type: Boolean, required: false, default: false }
   },
   data() {
     return { folderSVG, notificationSVG }

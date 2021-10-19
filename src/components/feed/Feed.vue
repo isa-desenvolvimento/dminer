@@ -14,18 +14,24 @@
         <v-button type="button">Carregar mais</v-button>
       </div>
       <div class="feed__footer__buttons">
-        <icon-base viewBox="0 0 1024 1024" class="icon">
-          <icon-feed-view />
-          <slot />
-        </icon-base>
-        <icon-base viewBox="0 0 1024 1024" class="icon">
-          <icon-feed-new />
-          <slot />
-        </icon-base>
-        <icon-base viewBox="0 0 1024 1024" class="icon">
-          <icon-feed-save />
-          <slot />
-        </icon-base>
+        <v-button isIcon type="button">
+          <icon-base viewBox="0 0 1024 1024" class="icon">
+            <icon-feed-view />
+            <slot />
+          </icon-base>
+        </v-button>
+        <v-button isIcon type="button">
+          <icon-base viewBox="0 0 1024 1024" class="icon">
+            <icon-feed-new />
+            <slot />
+          </icon-base>
+        </v-button>
+        <v-button isIcon type="button">
+          <icon-base viewBox="0 0 1024 1024" class="icon">
+            <icon-feed-save />
+            <slot />
+          </icon-base>
+        </v-button>
       </div>
     </div>
   </div>
@@ -99,7 +105,7 @@ h2 {
 
 .icon {
   height: 100%;
-  width: 30%;
+  width: 100%;
 }
 
 .feed__button {

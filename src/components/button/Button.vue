@@ -1,5 +1,9 @@
 <template>
-  <button :disabled="disabled" class="container__button" :onclick="onClick">
+  <button
+    :disabled="disabled"
+    :class="isIcon ? 'container__button__icon' : 'container__button'"
+    :onclick="onClick"
+  >
     <slot />
   </button>
 </template>
@@ -9,21 +13,33 @@ export default {
   props: {
     type: { type: String, required: false, default: 'submit' },
     disabled: { type: Boolean, required: false, default: false },
-    onClick: { type: Function, required: false }
+    onClick: { type: Function, required: false },
+    isIcon: { type: Boolean, required: false, default: false }
   }
 }
 </script>
 
 <style scoped>
-.container__button {
+button {
+  text-transform: uppercase;
+  font-family: var(--font-family--text);
+
   width: 50%;
   height: 100%;
+
+  cursor: pointer;
+}
+
+.container__button {
   border: var(--fine-border);
   border-radius: 3px;
   background-color: var(--sidebar-green-ligth);
   padding: 0.5rem;
+}
 
-  cursor: pointer;
+.container__button__icon {
+  border: none;
+  background-color: transparent;
 }
 
 .container__button:hover {

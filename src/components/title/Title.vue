@@ -11,5 +11,6 @@ h2 {
   font-weight: 300;
   right: 0.5rem;
   bottom: -2rem;
+  text-transform: uppercase;
 }
 </style>

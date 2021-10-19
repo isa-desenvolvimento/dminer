@@ -8,7 +8,7 @@
 
     <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
 
-    <h2>{{ username.toUpperCase() }}</h2>
+    <h2>{{ username }}</h2>
   </div>
 </template>
 
@@ -105,8 +105,9 @@ export default {
 }
 
 h2 {
-  font-family: 'Cera_Stencil_PRO_Medium';
+  font-family: var(--font-family--title);
   color: black;
   font-weight: 300;
+  text-transform: uppercase;
 }
 </style>
