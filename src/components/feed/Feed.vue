@@ -79,11 +79,10 @@ export default {
 }
 
 .feed__content {
-  overflow-y: auto;
-  width: 90%;
-  /* padding: 0 2rem; */
-  height: 100%;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .feed__footer__buttons {

@@ -23,7 +23,8 @@ export default {
   background-size: cover;
   height: 20%;
   margin-left: auto;
-  width: 95%;
+  margin-right: 1.2rem;
+  width: 80%;
   overflow: hidden;
 
   background-image: url('~@/assets/widget/publication.svg');
