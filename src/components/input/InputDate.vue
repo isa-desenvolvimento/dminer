@@ -44,7 +44,7 @@ export default {
   height: 90%;
   background-repeat: no-repeat;
   background-size: contain;
-  gap: 7rem;
+  gap: 17rem;
 }
 input {
   width: 55%;
@@ -64,8 +64,8 @@ input {
   font-family: var(--font-family--title);
   color: var(--color-title);
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: auto;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 </style>

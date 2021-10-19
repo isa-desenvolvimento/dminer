@@ -12,11 +12,12 @@
 
     <!-- Right content -->
     <div class="container__right">
-      <folder title="Feed">
-        <publication title="Teste"></publication>
-        <publication title="Teste"></publication>
-        <template v-slot:footer><button>Carregar mais</button></template>
-      </folder>
+      <feed title="Feed">
+        <Publication />
+        <Publication />
+        <Publication />
+        <Publication />
+      </feed>
     </div>
   </div>
 </template>
@@ -24,10 +25,15 @@
 <script>
 import { sidebarWidth, collapsed } from '@/components/sidebar/state'
 import Publication from '@/components/publication/Publication'
-import Folder from '@/components/folder/Folder.vue'
+import Feed from '@/components/feed/Feed'
+
+import feedSVG from '@/assets/widget/feed.svg'
 
 export default {
-  components: { Publication, Folder },
+  components: { Publication, Feed },
+  data() {
+    return { feedSVG }
+  },
   setup() {
     return {
       sidebarWidth,
@@ -57,6 +63,7 @@ export default {
 
 .container__right {
   width: 25%;
+  position: relative;
 }
 
 @media only screen and (max-width: 1080px) {

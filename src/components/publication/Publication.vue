@@ -19,8 +19,14 @@ export default {
 
 <style>
 .container__publication {
-  border: solid 1px;
-  margin: 1rem 2rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20%;
+  margin-left: auto;
+  width: 95%;
+  overflow: hidden;
+
+  background-image: url('~@/assets/widget/publication.svg');
 }
 
 .publication__title {
@@ -28,7 +34,6 @@ export default {
 }
 
 .container__publication:nth-of-type(odd) {
-  background-image: var(--gradient-linear-white-green);
-  /* background-image: linear-gradient(to right, red , yellow); */
+  background-image: url('~@/assets/widget/publication-p.svg');
 }
 </style>

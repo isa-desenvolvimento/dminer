@@ -5,7 +5,7 @@
     :height="height"
     :aria-labelledby="iconName"
     role="presentation"
-    viewBox="0 0 512 512"
+    :viewBox="viewBox"
     style="enable-background: new 0 0 512 256"
     xml:space="preserve"
   >
@@ -33,6 +33,10 @@ export default {
     iconColor: {
       type: String,
       default: 'currentColor'
+    },
+    viewBox: {
+      type: String,
+      default: '0 0 512 512'
     }
   }
 }

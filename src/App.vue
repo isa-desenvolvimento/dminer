@@ -68,6 +68,8 @@ export default {
   --color-title: var(--gray);
 
   --background-color: white;
+
+  --background-color--disabled: white;
 }
 
 /* width */

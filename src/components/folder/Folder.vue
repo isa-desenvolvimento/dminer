@@ -6,7 +6,10 @@
     <div class="folder__head">
       <h2>{{ title.toUpperCase() }}</h2>
     </div>
-    <div class="folder__content">
+    <div
+      class="folder__content"
+      :style="{ 'max-height': !is - expanded && '18rem' }"
+    >
       <slot />
     </div>
     <div class="folder__footer">
@@ -20,7 +23,10 @@ import folderSVG from '@/assets/widget/folder.svg'
 import notificationSVG from '@/assets/widget/notification.svg'
 
 export default {
-  props: { title: { type: String, required: true } },
+  props: {
+    title: { type: String, required: true },
+    'is-expanded': { type: Boolean, required: false, default: false }
+  },
   data() {
     return { folderSVG, notificationSVG }
   }
@@ -45,7 +51,6 @@ export default {
 
 .folder__content {
   overflow-y: auto;
-  max-height: 18rem;
 }
 
 .folder__footer {
