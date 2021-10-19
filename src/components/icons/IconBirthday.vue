@@ -172,7 +172,7 @@
     <ellipse class="st2" cx="213.73" cy="81.91" rx="5.35" ry="16.52" />
   </g>
 </template>
-<style type="text/css">
+<style type="text/css" scoped>
 .st0 {
   fill: none;
   stroke: #231f20;

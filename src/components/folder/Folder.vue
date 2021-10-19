@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="container__folder"
-    :style="{ 'background-image': `url(${folderSVG})` }"
-  >
+  <div class="container__folder">
     <div class="folder__head">
       <h2>{{ title }}</h2>
     </div>
@@ -13,22 +10,35 @@
       <slot />
     </div>
     <div class="folder__footer">
-      <slot name="footer" />
+      <icon-base
+        viewBox="0 0 1024 1024"
+        icon-name="icon"
+        class="edit-icon"
+        :onClick="() => onClick()"
+      >
+        <icon-button />
+      </icon-base>
     </div>
   </div>
 </template>
 
 <script>
-import folderSVG from '@/assets/widget/folder.svg'
-import notificationSVG from '@/assets/widget/notification.svg'
+import IconButton from '@/components/icons/IconButton'
+import IconBase from '@/components/icons/IconBase'
 
 export default {
   props: {
     title: { type: String, required: true },
     isExpanded: { type: Boolean, required: false, default: false }
   },
-  data() {
-    return { folderSVG, notificationSVG }
+  components: {
+    IconBase,
+    IconButton
+  },
+  methods: {
+    onClick() {
+      console.log('teste')
+    }
   }
 }
 </script>
@@ -43,6 +53,8 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0 1rem;
+
+  background-image: url('~@/assets/widget/folder.svg');
 }
 
 .folder__head {
@@ -54,6 +66,9 @@ export default {
 }
 
 .folder__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
 }
 
 h2 {
@@ -64,5 +79,10 @@ h2 {
   font-family: var(--font-family--title);
   color: var(--color-title);
   font-weight: 300;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
 }
 </style>

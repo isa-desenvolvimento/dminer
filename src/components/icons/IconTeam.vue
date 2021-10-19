@@ -26,7 +26,7 @@
     <line class="st1" x1="413.17" y1="423.49" x2="374.21" y2="397.31" />
   </g>
 </template>
-<style type="text/css">
+<style type="text/css" scoped>
 .st0 {
   fill: none;
   stroke: #1f191a;

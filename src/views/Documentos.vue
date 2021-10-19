@@ -44,14 +44,7 @@ import Title from '@/components/title/Title'
 export default {
   data() {
     return {
-      notificationList: [
-        'Teste 1',
-        'Teste 2',
-        'Teste 3',
-        'Teste 1',
-        'Teste 2',
-        'Teste 3'
-      ]
+      notificationList: ['Teste 1', 'Teste 2', 'Teste 3']
     }
   },
   components: { InputDate, Folder, Notification, Calendar, Title },

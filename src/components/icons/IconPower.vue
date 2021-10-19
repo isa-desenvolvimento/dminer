@@ -5,7 +5,7 @@
     <ellipse cx="251.94" cy="64.25" rx="32.94" ry="58.25" />
   </g>
 </template>
-<style type="text/css">
+<style type="text/css" scoped>
 .st0 {
   fill: none;
   stroke: #000000;

@@ -14,24 +14,30 @@
         <v-button type="button">Carregar mais</v-button>
       </div>
       <div class="feed__footer__buttons">
-        <v-button isIcon type="button">
-          <icon-base viewBox="0 0 1024 1024" class="icon">
-            <icon-feed-view />
-            <slot />
-          </icon-base>
-        </v-button>
-        <v-button isIcon type="button">
-          <icon-base viewBox="0 0 1024 1024" class="icon">
-            <icon-feed-new />
-            <slot />
-          </icon-base>
-        </v-button>
-        <v-button isIcon type="button">
-          <icon-base viewBox="0 0 1024 1024" class="icon">
-            <icon-feed-save />
-            <slot />
-          </icon-base>
-        </v-button>
+        <icon-base
+          viewBox="0 0 1024 1024"
+          class="icon"
+          :onClick="() => onClick()"
+        >
+          <icon-feed-view />
+          <slot />
+        </icon-base>
+        <icon-base
+          viewBox="0 0 1024 1024"
+          class="icon"
+          :onClick="() => onClick()"
+        >
+          <icon-feed-new />
+          <slot />
+        </icon-base>
+        <icon-base
+          viewBox="0 0 1024 1024"
+          class="icon"
+          :onClick="() => onClick()"
+        >
+          <icon-feed-save />
+          <slot />
+        </icon-base>
       </div>
     </div>
   </div>
@@ -55,6 +61,11 @@ export default {
   },
   data() {
     return { feedSVG, notificationSVG }
+  },
+  methods: {
+    onClick() {
+      console.log('teste')
+    }
   }
 }
 </script>

@@ -24,7 +24,7 @@
     <path class="st0" d="M198.37,326.18c0,0.73,121.31,0,121.31,0" />
   </g>
 </template>
-<style type="text/css">
+<style type="text/css" scoped>
 .st0 {
   fill: none;
   stroke: #000000;

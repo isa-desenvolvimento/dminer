@@ -1,9 +1,5 @@
 <template>
-  <button
-    :disabled="disabled"
-    :class="isIcon ? 'container__button__icon' : 'container__button'"
-    :onclick="onClick"
-  >
+  <button :disabled="disabled" class="container__button" :onclick="onClick">
     <slot />
   </button>
 </template>
@@ -35,11 +31,6 @@ button {
   border-radius: 3px;
   background-color: var(--sidebar-green-ligth);
   padding: 0.5rem;
-}
-
-.container__button__icon {
-  border: none;
-  background-color: transparent;
 }
 
 .container__button:hover {

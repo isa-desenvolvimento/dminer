@@ -98,7 +98,7 @@
     </g>
   </g>
 </template>
-<style type="text/css">
+<style type="text/css" scoped>
 .st0 {
   fill: none;
   stroke: #000000;

@@ -16,7 +16,6 @@
         <Publication />
         <Publication />
         <Publication />
-        <Publication />
       </feed>
     </div>
   </div>

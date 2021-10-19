@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="container__provisorio"
-    :style="{ 'background-image': `url(${fildSVG})` }"
-  >
+  <div class="container__provisorio">
     <input v-model="value" />
     <div class="container__date">
       <span>{{ date }}</span>
@@ -12,14 +9,12 @@
 
 <script>
 import { dateNowFormart } from '@/util/date'
-import fildSVG from '@/assets/widget/fild.svg'
 
 export default {
   props: ['modelValue'],
   emits: ['update:modelValue'],
   data() {
     return {
-      fildSVG,
       date: dateNowFormart()
     }
   },
@@ -44,7 +39,9 @@ export default {
   height: 90%;
   background-repeat: no-repeat;
   background-size: contain;
-  gap: 17rem;
+  gap: 15rem;
+
+  background-image: url('~@/assets/widget/fild.svg');
 }
 input {
   width: 55%;
@@ -52,12 +49,12 @@ input {
   height: 30%;
   background: transparent;
   margin: auto;
-  margin-left: 3rem;
+  margin-left: 2.5rem;
 
   font-family: var(--font-family--text);
   color: var(--color-title);
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .container__date {
@@ -66,6 +63,6 @@ input {
   font-weight: 300;
   font-size: 1.5rem;
   margin: auto;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 </style>

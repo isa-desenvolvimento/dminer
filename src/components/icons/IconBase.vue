@@ -6,8 +6,12 @@
     :aria-labelledby="iconName"
     role="presentation"
     :viewBox="viewBox"
-    style="enable-background: new 0 0 512 256"
+    :style="{
+      'enable-background': 'new 0 0 512 256',
+      cursor: onClick ? 'pointer' : 'defaulf'
+    }"
     xml:space="preserve"
+    :onclick="onClick"
   >
     <g :fill="iconColor">
       <slot />
@@ -37,7 +41,8 @@ export default {
     viewBox: {
       type: String,
       default: '0 0 512 512'
-    }
+    },
+    onClick: { type: Function, required: false }
   }
 }
 </script>
