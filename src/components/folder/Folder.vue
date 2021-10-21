@@ -14,7 +14,7 @@
         viewBox="0 0 1024 1024"
         icon-name="icon"
         class="edit-icon"
-        :onClick="() => onClick()"
+        :onClick="onClick"
       >
         <icon-button />
       </icon-base>
@@ -29,16 +29,12 @@ import IconBase from '@/components/icons/IconBase'
 export default {
   props: {
     title: { type: String, required: true },
-    isExpanded: { type: Boolean, required: false, default: false }
+    isExpanded: { type: Boolean, required: false, default: false },
+    onClick: { type: Function, required: false }
   },
   components: {
     IconBase,
     IconButton
-  },
-  methods: {
-    onClick() {
-      console.log('teste')
-    }
   }
 }
 </script>

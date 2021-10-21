@@ -13,7 +13,7 @@
           </template>
         </notification>
       </folder>
-      <folder title="Calendário">
+      <folder title="Calendário" id="show-modal" @click="showModal = true">
         <calendar />
       </folder>
       <folder title="Aniversário">
@@ -32,6 +32,19 @@
       <folder title="Lembretes" />
     </section>
   </div>
+
+  <!-- use the modal component, pass in the prop -->
+  <transition name="modal">
+    <modal v-if="showModal" @close="showModal = false">
+      <!--
+      you can use custom content here to overwrite
+      default content
+    -->
+      <template v-slot:header>
+        <h3>custom header</h3>
+      </template>
+    </modal>
+  </transition>
 </template>
 
 <script>
@@ -41,13 +54,16 @@ import Notification from '@/components/notification/Notification'
 import Calendar from '@/components/calendar/Calendar'
 import Title from '@/components/title/Title'
 
+import Modal from '@/components/modal/Modal'
+
 export default {
   data() {
     return {
-      notificationList: ['Teste 1', 'Teste 2', 'Teste 3']
+      notificationList: ['Teste 1', 'Teste 2', 'Teste 3'],
+      showModal: false
     }
   },
-  components: { InputDate, Folder, Notification, Calendar, Title },
+  components: { InputDate, Folder, Notification, Calendar, Title, Modal },
   methods: {}
 }
 </script>
