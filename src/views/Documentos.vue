@@ -13,7 +13,7 @@
           </template>
         </notification>
       </folder>
-      <folder title="Calendário" id="show-modal" @click="showModal = true">
+      <folder title="Calendário" id="show-modal" :click="clickCalendar()">
         <calendar />
       </folder>
       <folder title="Aniversário">
@@ -64,7 +64,11 @@ export default {
     }
   },
   components: { InputDate, Folder, Notification, Calendar, Title, Modal },
-  methods: {}
+  methods: {
+    clickCalendar() {
+      this.showModal = true
+    }
+  }
 }
 </script>
 

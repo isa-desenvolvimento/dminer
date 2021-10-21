@@ -1,4 +1,3 @@
-<!-- template for the modal component -->
 <template>
   <div class="modal-mask">
     <div class="modal-wrapper">
