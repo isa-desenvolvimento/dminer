@@ -24,6 +24,7 @@
             :onClick="onClick"
             width="70"
             height="70"
+            :styles="onClick && 'cursor: pointer;'"
           >
             <icon-button />
           </icon-base>

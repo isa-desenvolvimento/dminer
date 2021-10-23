@@ -12,24 +12,42 @@
 
     <!-- Right content -->
     <div class="container__right">
-      <feed title="Feed">
-        <Publication />
-        <Publication />
-        <Publication />
-      </feed>
+      <icon-base
+        class="container__folder"
+        icon-name="icon"
+        viewBox="0 0 500 1600"
+        width="100%"
+        height="100%"
+        styles="height: 96vh; position: absolute; top: -50px; right: 30px;"
+      >
+        <icon-feed title="Feed">
+          <icon-base
+            icon-name="icon"
+            viewBox="0 0 500 500"
+            width="100%"
+            height="100%"
+          >
+            <icon-publicationP title="publiicon-publicationP">
+              hduakshdkusahdukhaskduhusakuhdkuashdksauhdkasuhd
+            </icon-publicationP>
+          </icon-base>
+        </icon-feed>
+      </icon-base>
     </div>
   </div>
 </template>
 
 <script>
 import { sidebarWidth, collapsed } from '@/components/sidebar/state'
-import Publication from '@/components/publication/Publication'
-import Feed from '@/components/feed/Feed'
+
+import IconBase from '@/components/icons/IconBase'
+import IconFeed from '@/components/icons/IconFeed'
+import IconPublicationP from '@/components/icons/IconPublicationP'
 
 import feedSVG from '@/assets/widget/feed.svg'
 
 export default {
-  components: { Publication, Feed },
+  components: { IconPublicationP, IconFeed, IconBase },
   data() {
     return { feedSVG }
   },
@@ -61,7 +79,7 @@ export default {
 }
 
 .container__right {
-  width: 25%;
+  width: 20%;
   position: relative;
 }
 

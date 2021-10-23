@@ -74,10 +74,12 @@ export default {
 
 <style scoped>
 .view__documents {
-  display: grid;
+  /* display: grid;
   grid-template-rows: 1fr 3fr 3fr;
   height: 100%;
-  /* padding: 0 3rem; */
+  padding: 0 6rem; */
+
+  display: grid;
   padding: 0 6rem;
 }
 
@@ -93,8 +95,6 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-
-  padding: 0.5rem;
 }
 
 @media only screen and (max-width: 1080px) {

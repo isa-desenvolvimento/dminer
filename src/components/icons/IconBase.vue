@@ -7,10 +7,7 @@
     :aria-labelledby="iconName"
     role="presentation"
     :viewBox="viewBox"
-    :style="{
-      'enable-background': 'new 0 0 512 256',
-      cursor: onClick ? 'pointer' : 'defaulf'
-    }"
+    :style="styles"
     xml:space="preserve"
     :onclick="onClick"
   >
@@ -43,7 +40,11 @@ export default {
       type: String,
       default: '0 0 512 512'
     },
-    onClick: { type: Function, required: false }
+    onClick: { type: Function, required: false },
+    styles: {
+      type: String || Object,
+      required: false
+    }
   }
 }
 </script>
