@@ -37,13 +37,18 @@
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(/img/folder.c7817247.svg);
+  background-position-x: center;
 }
 
 .modal-container {
   width: 300px;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   font-family: Helvetica, Arial, sans-serif;

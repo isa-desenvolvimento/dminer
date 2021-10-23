@@ -13,7 +13,7 @@
           </template>
         </notification>
       </folder>
-      <folder title="Calendário" id="show-modal" :click="clickCalendar()">
+      <folder title="Calendário" id="show-modal" :onClick="clickCalendar">
         <calendar />
       </folder>
       <folder title="Aniversário">

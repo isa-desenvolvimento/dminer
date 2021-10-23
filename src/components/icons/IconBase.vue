@@ -1,6 +1,7 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
     :width="width"
     :height="height"
     :aria-labelledby="iconName"
@@ -53,5 +54,9 @@ svg {
   vertical-align: baseline;
   margin-bottom: -2px; /* yes, I'm that particular about formatting */
   z-index: 3;
+}
+
+:not(svg) {
+  transform-origin: 100px 100px !important;
 }
 </style>

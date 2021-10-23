@@ -1,29 +1,41 @@
 <template>
-  <div class="container__folder">
-    <div class="folder__head">
-      <h2>{{ title }}</h2>
-    </div>
-    <div
-      class="folder__content"
-      :style="{ 'max-height': !isExpanded && '18rem' }"
-    >
-      <slot />
-    </div>
-    <div class="folder__footer">
-      <icon-base
-        viewBox="0 0 1024 1024"
-        icon-name="icon"
-        class="edit-icon"
-        :onClick="onClick"
-      >
-        <icon-button />
-      </icon-base>
-    </div>
-  </div>
+  <icon-base
+    class="container__folder"
+    icon-name="icon"
+    :onClick="onClick"
+    viewBox="0 0 500 500"
+  >
+    <icon-folder>
+      <div class="wrapper__folder">
+        <div class="folder__head">
+          <h2>{{ title }}</h2>
+        </div>
+        <div
+          class="folder__content"
+          :style="{ 'max-heitemplateht': !isExpanded && '18rem' }"
+        >
+          <slot />
+        </div>
+        <div class="folder__footer">
+          <icon-base
+            viewBox="0 0 1024 1024"
+            icon-name="icon"
+            class="edit-icon"
+            :onClick="onClick"
+            width="70"
+            height="70"
+          >
+            <icon-button />
+          </icon-base>
+        </div>
+      </div>
+    </icon-folder>
+  </icon-base>
 </template>
 
 <script>
 import IconButton from '@/components/icons/IconButton'
+import IconFolder from '@/components/icons/IconFolder'
 import IconBase from '@/components/icons/IconBase'
 
 export default {
@@ -34,7 +46,8 @@ export default {
   },
   components: {
     IconBase,
-    IconButton
+    IconButton,
+    IconFolder
   }
 }
 </script>
@@ -43,18 +56,17 @@ export default {
 .container__folder {
   width: 100%;
   height: 100%;
+}
 
+.wrapper__folder {
   display: grid;
-  grid-template-rows: 0.2fr 0.7fr;
-  background-repeat: no-repeat;
-  background-size: cover;
+  grid-auto-rows: 1fr 4.1fr 1fr;
   padding: 0 1rem;
-
-  background-image: url('~@/assets/widget/folder.svg');
 }
 
 .folder__head {
-  position: relative;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .folder__content {
@@ -65,20 +77,12 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: end;
+  margin-top: 5px;
 }
 
 h2 {
-  position: absolute;
-  right: 1.5rem;
-  bottom: -0.7rem;
-
   font-family: var(--font-family--title);
   color: var(--color-title);
   font-weight: 300;
-}
-
-.icon {
-  width: 40px;
-  height: 40px;
 }
 </style>
