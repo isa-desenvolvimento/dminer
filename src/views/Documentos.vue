@@ -47,6 +47,19 @@
       <template v-slot:header>
         <h3>custom header</h3>
       </template>
+      <template v-slot:body>
+        <calendar-view
+          :show-date="showDate"
+          class="theme-default holiday-us-traditional holiday-us-official"
+        >
+          <template #header="{ headerProps }">
+            <calendar-view-header
+              :header-props="headerProps"
+              @input="setShowDate"
+            />
+          </template>
+        </calendar-view>
+      </template>
     </modal>
   </transition>
 </template>
@@ -59,6 +72,9 @@ import Calendar from '@/components/calendar/Calendar'
 import Title from '@/components/title/Title'
 
 import Modal from '@/components/modal/Modal'
+
+import { CalendarView, CalendarViewHeader } from 'vue-simple-calendar'
+import '../../node_modules/vue-simple-calendar/dist/style.css'
 
 export default {
   data() {
@@ -74,7 +90,9 @@ export default {
     Notification,
     Calendar,
     Title,
-    Modal
+    Modal,
+    CalendarView,
+    CalendarViewHeader
   },
   methods: {
     clickCalendar() {
