@@ -47,7 +47,6 @@
       <template v-slot:header>
         <h3>custom header</h3>
       </template>
-      <template v-slot:body>alsihdlsaudkahsdkashkda</template>
     </modal>
   </transition>
 </template>
