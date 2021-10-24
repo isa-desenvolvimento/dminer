@@ -13,7 +13,11 @@
           </template>
         </notification>
       </folder>
-      <folder title="Calendário" id="show-modal" :onClick="clickCalendar">
+      <folder
+        title="Calendário"
+        id="show-modal"
+        :onClick="() => clickCalendar()"
+      >
         <calendar />
       </folder>
       <folder title="Aniversário">
@@ -43,6 +47,7 @@
       <template v-slot:header>
         <h3>custom header</h3>
       </template>
+      <template v-slot:body>alsihdlsaudkahsdkashkda</template>
     </modal>
   </transition>
 </template>
@@ -60,13 +65,24 @@ export default {
   data() {
     return {
       notificationList: ['Teste 1', 'Teste 2', 'Teste 3'],
-      showModal: false
+      showModal: false,
+      showDate: new Date()
     }
   },
-  components: { InputDate, Folder, Notification, Calendar, Title, Modal },
+  components: {
+    InputDate,
+    Folder,
+    Notification,
+    Calendar,
+    Title,
+    Modal
+  },
   methods: {
     clickCalendar() {
       this.showModal = true
+    },
+    setShowDate(d) {
+      this.showDate = d
     }
   }
 }

@@ -4,13 +4,6 @@ import Banner from '@/components/banner/Banner'
 import Content from '@/components/content/Content'
 
 export default {
-  // setup() {
-  //   return {
-  //     handleResize({ width, height }) {
-  //       console.log('resized', width, height)
-  //     }
-  //   }
-  // },
   components: { Sidebar, Banner, Content }
 }
 </script>
@@ -102,13 +95,14 @@ body {
 }
 
 #app {
-  font-family: 'Swis721_LtEx_BT_Light', Helvetica, Arial, sans-serif;
+  font-family: var(--font-family--text);
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 
+  width: 100vw;
   overflow: hidden;
 }
 </style>

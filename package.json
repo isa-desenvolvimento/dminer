@@ -22,7 +22,9 @@
     "v-calendar": "^3.0.0-alpha.6",
     "vue": "^3.0.0",
     "vue-boring-avatars": "^1.0.0",
+    "vue-loader-v16": "^16.0.0-beta.5.4",
     "vue-router": "^4.0.0-0",
+    "vue-simple-calendar": "^6.0.1",
     "vue3-resize": "^0.2.0",
     "vuex": "^4.0.2"
   },
