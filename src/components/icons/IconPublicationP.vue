@@ -1,430 +1,346 @@
 <template>
-  <g class="publication">
-    <rect
-      x="14.606"
-      y="108.466"
-      class="st0"
-      width="407.845"
-      height="237.781"
-    ></rect>
-    <g transform="matrix(0.12613, 0, 0, 0.12613, -2.367688, 102.611443)">
+  <g class="publication__p">
+    <rect x="2.3" y="2.4" class="st0" width="401" height="233.8" />
+    <g>
       <g>
-        <defs>
+        <g>
+          <defs>
+            <rect id="SVGID_1_" x="421.8" y="121" width="52.3" height="13.8" />
+          </defs>
+          <clipPath
+            id="SVGID_00000122709854771771269240000007226112493254717356_"
+          >
+            <use xlink:href="#SVGID_1_" style="overflow: visible" />
+          </clipPath>
+
           <rect
-            id="SVGID_1_"
-            x="3517.14"
-            y="1002.48"
-            width="421.47"
-            height="111.48"
-          ></rect>
-        </defs>
-        <clipPath
-          id="SVGID_00000090261360010478480080000008097817679902918333_"
-        >
-          <rect
-            x="3517.14"
-            y="1002.48"
-            width="421.47"
-            height="111.48"
-            transform="matrix(1, 0, 0, 1, 0, 0)"
-          ></rect>
-        </clipPath>
-        <rect x="3517.14" y="1002.59" width="421.47" height="111.48"></rect>
+            x="421.8"
+            y="121"
+            style="
+              clip-path: url(#SVGID_00000122709854771771269240000007226112493254717356_);
+              fill: #9fbec9;
+              stroke: #231f20;
+              stroke-width: 0.1116;
+              stroke-miterlimit: 10;
+            "
+            width="52.3"
+            height="13.8"
+          />
+        </g>
       </g>
       <g>
-        <defs>
-          <rect
-            id="SVGID_00000078004694145118639350000016955568110009276559_"
-            x="3517.14"
-            y="1002.48"
-            width="421.47"
-            height="111.48"
-          ></rect>
-        </defs>
-        <clipPath
-          id="SVGID_00000054955520811674875420000010568374379667793803_"
-        >
-          <rect
-            x="3517.14"
-            y="1002.48"
-            width="421.47"
-            height="111.48"
-            transform="matrix(1, 0, 0, 1, 0, 0)"
-          ></rect>
-        </clipPath>
-        <g
-          style="
-            clip-path: url(#SVGID_00000054955520811674875420000010568374379667793803_);
-          "
-        >
-          <g>
-            <line
-              class="st3"
-              x1="3799.22"
-              y1="1118.42"
-              x2="3837"
-              y2="992.13"
-            ></line>
+        <g>
+          <defs>
             <rect
-              x="3752.2"
-              y="1052.87"
-              transform="matrix(0.2865 -0.9581 0.9581 0.2865 1713.1962 4411.0132)"
-              class="st4"
-              width="131.82"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3760.44"
-              y1="1118.42"
-              x2="3799.22"
-              y2="1000.87"
-            ></line>
-            <rect
-              x="3717.93"
-              y="1057.24"
-              transform="matrix(0.3133 -0.9497 0.9497 0.3133 1589.3489 4317.2222)"
-              class="st4"
-              width="123.79"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3722.53"
-              y1="1118.42"
-              x2="3760.44"
-              y2="1000.87"
-            ></line>
-            <rect
-              x="3679.73"
-              y="1057.23"
-              transform="matrix(0.307 -0.9517 0.9517 0.307 1584.3691 4295.1396)"
-              class="st4"
-              width="123.52"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3682.88"
-              y1="1118.42"
-              x2="3722.53"
-              y2="1000.87"
-            ></line>
-            <rect
-              x="3640.66"
-              y="1057.26"
-              transform="matrix(0.3195 -0.9476 0.9476 0.3195 1515.5719 4229.7383)"
-              class="st4"
-              width="124.07"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3645.69"
-              y1="1115.8"
-              x2="3685.34"
-              y2="998.25"
-            ></line>
-            <rect
-              x="3603.49"
-              y="1054.63"
-              transform="matrix(0.3195 -0.9476 0.9476 0.3195 1492.7579 4192.7246)"
-              class="st4"
-              width="124.07"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3607.17"
-              y1="1115.8"
-              x2="3646.8"
-              y2="998.25"
-            ></line>
-            <rect
-              x="3564.95"
-              y="1054.63"
-              transform="matrix(0.3195 -0.9476 0.9476 0.3195 1466.5316 4156.2056)"
-              class="st4"
-              width="124.07"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3567.52"
-              y1="1115.8"
-              x2="3607.17"
-              y2="998.25"
-            ></line>
-            <rect
-              x="3525.3"
-              y="1054.64"
-              transform="matrix(0.3195 -0.9476 0.9476 0.3195 1439.5508 4118.6357)"
-              class="st4"
-              width="124.07"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3527.88"
-              y1="1118.42"
-              x2="3567.52"
-              y2="1000.87"
-            ></line>
-            <rect
-              x="3485.66"
-              y="1057.27"
-              transform="matrix(0.3195 -0.9476 0.9476 0.3195 1410.0836 4082.8669)"
-              class="st4"
-              width="124.07"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3517.82"
-              y1="1057.03"
-              x2="3536.36"
-              y2="1002.03"
-            ></line>
-            <rect
-              x="3498.07"
-              y="1027.13"
-              transform="matrix(0.3195 -0.9476 0.9476 0.3195 1424.6155 4042.8289)"
-              class="st4"
-              width="58.03"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3837.07"
-              y1="1122.8"
-              x2="3874.85"
-              y2="996.5"
-            ></line>
-            <rect
-              x="3790.05"
-              y="1057.25"
-              transform="matrix(0.2865 -0.9581 0.9581 0.2865 1736.012 4450.3984)"
-              class="st4"
-              width="131.82"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3875.33"
-              y1="1124.53"
-              x2="3913.1"
-              y2="998.25"
-            ></line>
-            <rect
-              x="3828.31"
-              y="1058.98"
-              transform="matrix(0.2865 -0.9581 0.9581 0.2865 1761.6436 4488.2852)"
-              class="st4"
-              width="131.82"
-              height="4.82"
-            ></rect>
-          </g>
-          <g>
-            <line
-              class="st3"
-              x1="3912.29"
-              y1="1131.9"
-              x2="3950.06"
-              y2="1005.6"
-            ></line>
-            <rect
-              x="3865.28"
-              y="1066.35"
-              transform="matrix(0.2865 -0.9581 0.9581 0.2865 1780.964 4528.9619)"
-              class="st4"
-              width="131.82"
-              height="4.82"
-            ></rect>
+              id="SVGID_00000019645639966766341640000008786990380666017971_"
+              x="421.8"
+              y="121"
+              width="52.3"
+              height="13.8"
+            />
+          </defs>
+          <clipPath
+            id="SVGID_00000123430389800788129240000005148708702208270213_"
+          >
+            <use
+              xlink:href="#SVGID_00000019645639966766341640000008786990380666017971_"
+              style="overflow: visible"
+            />
+          </clipPath>
+          <g
+            style="
+              clip-path: url(#SVGID_00000123430389800788129240000005148708702208270213_);
+            "
+          >
+            <g class="publication__p">
+              <line class="st3" x1="456.8" y1="135.4" x2="461.5" y2="119.7" />
+
+              <rect
+                x="451"
+                y="127.2"
+                transform="matrix(0.2865 -0.9581 0.9581 0.2865 205.3937 530.878)"
+                class="st4"
+                width="16.3"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="452" y1="135.4" x2="456.8" y2="120.8" />
+
+              <rect
+                x="446.7"
+                y="127.8"
+                transform="matrix(0.3133 -0.9497 0.9497 0.3133 190.4064 519.457)"
+                class="st4"
+                width="15.4"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="447.3" y1="135.4" x2="452" y2="120.8" />
+
+              <rect
+                x="442"
+                y="127.8"
+                transform="matrix(0.307 -0.9517 0.9517 0.307 189.6755 516.6693)"
+                class="st4"
+                width="15.3"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="442.3" y1="135.4" x2="447.3" y2="120.8" />
+
+              <rect
+                x="437.1"
+                y="127.8"
+                transform="matrix(0.3195 -0.9476 0.9476 0.3195 181.3225 508.6604)"
+                class="st4"
+                width="15.4"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="437.7" y1="135.1" x2="442.7" y2="120.5" />
+
+              <rect
+                x="432.5"
+                y="127.5"
+                transform="matrix(0.3195 -0.9476 0.9476 0.3195 178.4941 504.0693)"
+                class="st4"
+                width="15.4"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="433" y1="135.1" x2="437.9" y2="120.5" />
+
+              <rect
+                x="427.7"
+                y="127.5"
+                transform="matrix(0.3195 -0.9476 0.9476 0.3195 175.2418 499.5408)"
+                class="st4"
+                width="15.4"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="428" y1="135.1" x2="433" y2="120.5" />
+
+              <rect
+                x="422.8"
+                y="127.5"
+                transform="matrix(0.3195 -0.9476 0.9476 0.3195 171.8961 494.8835)"
+                class="st4"
+                width="15.4"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="423.1" y1="135.4" x2="428" y2="120.8" />
+
+              <rect
+                x="417.9"
+                y="127.8"
+                transform="matrix(0.3195 -0.9476 0.9476 0.3195 168.2415 490.4479)"
+                class="st4"
+                width="15.4"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="421.9" y1="127.8" x2="424.2" y2="120.9" />
+
+              <rect
+                x="419.4"
+                y="124.1"
+                transform="matrix(0.3195 -0.9476 0.9476 0.3195 170.0434 485.4825)"
+                class="st4"
+                width="7.2"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="461.5" y1="135.9" x2="466.2" y2="120.3" />
+
+              <rect
+                x="455.6"
+                y="127.8"
+                transform="matrix(0.2865 -0.9581 0.9581 0.2865 208.2233 535.7627)"
+                class="st4"
+                width="16.3"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="466.2" y1="136.1" x2="470.9" y2="120.5" />
+
+              <rect
+                x="460.4"
+                y="128"
+                transform="matrix(0.2865 -0.9581 0.9581 0.2865 211.4026 540.4597)"
+                class="st4"
+                width="16.3"
+                height="0.6"
+              />
+            </g>
+            <g class="publication__p">
+              <line class="st3" x1="470.8" y1="137" x2="475.5" y2="121.4" />
+
+              <rect
+                x="465"
+                y="128.9"
+                transform="matrix(0.2865 -0.9581 0.9581 0.2865 213.7986 545.5043)"
+                class="st4"
+                width="16.3"
+                height="0.6"
+              />
+            </g>
           </g>
         </g>
       </g>
       <g>
-        <defs>
+        <g>
+          <defs>
+            <rect
+              id="SVGID_00000145054438997908046360000003344990579510359982_"
+              x="421.8"
+              y="121"
+              width="52.3"
+              height="13.8"
+            />
+          </defs>
+          <clipPath
+            id="SVGID_00000160903231394374358280000000214778800634088321_"
+          >
+            <use
+              xlink:href="#SVGID_00000145054438997908046360000003344990579510359982_"
+              style="overflow: visible"
+            />
+          </clipPath>
+
           <rect
-            id="SVGID_00000052062867136309619530000014154678783967467148_"
-            x="3517.14"
-            y="1002.48"
-            width="421.47"
-            height="111.48"
-          ></rect>
-        </defs>
-        <clipPath
-          id="SVGID_00000014622088426136856190000016611880006175689355_"
-        >
-          <rect
-            x="3517.14"
-            y="1002.48"
-            width="421.47"
-            height="111.48"
-            transform="matrix(1, 0, 0, 1, 0, 0)"
-          ></rect>
-        </clipPath>
-        <rect x="3517.14" y="1002.59" width="421.47" height="111.48"></rect>
+            x="421.8"
+            y="121"
+            style="
+              clip-path: url(#SVGID_00000160903231394374358280000000214778800634088321_);
+              fill: none;
+            "
+            width="52.3"
+            height="13.8"
+          />
+        </g>
       </g>
     </g>
-    <path
-      class="st6"
-      d="M3683.09,1179.46"
-      transform="matrix(1, 0, 0, 1, -1738.864797, -847.653904)"
-    ></path>
-    <path
-      class="st7"
-      d="M3854.86,1134.36"
-      transform="matrix(1, 0, 0, 1, -1738.864797, -847.653904)"
-    ></path>
-    <rect
-      x="441.249"
-      y="229.055"
-      class="st8"
-      width="53.16"
-      height="14.06"
-    ></rect>
+    <path class="st6" d="M442.4,142.9" />
+    <path class="st7" d="M463.7,137.4" />
+    <rect x="421.8" y="121" class="st8" width="52.3" height="13.8" />
     <path
       class="st9"
-      d="M 422.451 243.541 L 422.451 228.352 C 422.451 227.422 423.206 226.67 424.133 226.67 L 431.01 226.67 C 431.938 226.67 432.692 227.424 432.692 228.352 L 432.692 243.54 C 432.692 244.47 431.937 245.224 431.01 245.224 L 424.133 245.224 C 423.206 245.225 422.451 244.471 422.451 243.541 Z"
-    ></path>
+      d="M403.3,135.2v-14.9c0-0.9,0.7-1.7,1.7-1.7h6.8c0.9,0,1.7,0.7,1.7,1.7v14.9c0,0.9-0.7,1.7-1.7,1.7H405
+		C404.1,136.9,403.3,136.2,403.3,135.2z"
+    />
     <path
       class="st9"
-      d="M 432.692 242.551 L 432.692 229.344 C 432.692 228.708 433.207 228.195 433.84 228.195 L 440.1 228.195 C 440.736 228.195 441.249 228.71 441.249 229.344 L 441.249 242.548 C 441.249 243.184 440.734 243.697 440.1 243.697 L 433.84 243.697 C 433.207 243.699 432.693 243.184 432.692 242.551 Z"
-    ></path>
-    <rect
-      x="14.606"
-      y="107.779"
-      class="st10"
-      width="407.845"
-      height="237.781"
-    ></rect>
-    <g transform="matrix(0.12613, 0, 0, 0.12613, -2.367688, 102.611443)">
-      <circle class="st11" cx="1751.34" cy="1926.17" r="102.34"></circle>
-      <circle class="st8" cx="1751.34" cy="1926.17" r="93.18"></circle>
-      <circle class="st9" cx="1633.51" cy="1931.1" r="16.12"></circle>
-      <circle class="st9" cx="1869.18" cy="1931.1" r="16.12"></circle>
-      <circle class="st9" cx="1751.34" cy="1926.17" r="63.18"></circle>
-      <circle class="st12" cx="1751.34" cy="1926.17" r="54.28"></circle>
-      <line
-        class="st13"
-        x1="1751.24"
-        y1="1873.23"
-        x2="1751.44"
-        y2="1979.11"
-      ></line>
-      <line
-        class="st13"
-        x1="1698.4"
-        y1="1925.06"
-        x2="1804.28"
-        y2="1926.17"
-      ></line>
-
-      <g>
-        <foreignObject y="9.5%" x="0" width="100%" height="100%">
-          <slot />
-        </foreignObject>
-      </g>
+      d="M413.4,134.3v-13c0-0.6,0.5-1.1,1.1-1.1h6.2c0.6,0,1.1,0.5,1.1,1.1v13c0,0.6-0.5,1.1-1.1,1.1h-6.2
+		C413.9,135.4,413.4,134.9,413.4,134.3z"
+    />
+    <rect x="2.3" y="1.8" class="st10" width="401" height="233.8" />
+    <g class="publication__p">
+      <circle class="st11" cx="202.8" cy="235.5" r="12.7" />
+      <circle class="st8" cx="202.8" cy="235.5" r="11.6" />
+      <circle class="st9" cx="188.2" cy="236.2" r="2" />
+      <circle class="st9" cx="217.4" cy="236.2" r="2" />
+      <circle class="st9" cx="202.8" cy="235.5" r="7.8" />
+      <circle class="st12" cx="202.8" cy="235.5" r="6.7" />
+      <line class="st13" x1="202.8" y1="229" x2="202.8" y2="242.1" />
+      <line class="st13" x1="196.3" y1="235.4" x2="209.4" y2="235.5" />
     </g>
   </g>
+  <foreignObject y="9.5%" x="0" width="100%" height="100%">
+    <slot />
+  </foreignObject>
 </template>
 
 <style>
-.publication > .st0 {
+.publication__p > .st0 {
   opacity: 0.2;
   fill: #aaff48;
   stroke: #020202;
-  stroke-width: 3;
+  stroke-width: 0.744;
   stroke-miterlimit: 10;
+  enable-background: new;
 }
 
-.publication > .st1 {
-  clip-path: url(#SVGID_00000072278412773513039830000015698035977974367416_);
+.publication__p > .st1 {
+  clip-path: url(#SVGID_00000089570478629334088870000007123502526242468226_);
   fill: #9fbec9;
   stroke: #231f20;
-  stroke-width: 0.9;
+  stroke-width: 0.1116;
   stroke-miterlimit: 10;
 }
-.publication > .st2 {
-  clip-path: url(#SVGID_00000093160547144444670030000008227635376104885688_);
+.publication__p > .st2 {
+  clip-path: url(#SVGID_00000096759210123587529630000015985707352022139325_);
 }
-.publication > .st3 {
+.publication__p > .st3 {
   fill: none;
 }
-.publication > .st4 {
+.publication__p > .st4 {
   fill: #1f191a;
+  stroke: none;
+  stroke-width: 0;
+  stroke-miterlimit: 0;
 }
-.publication > .st5 {
-  clip-path: url(#SVGID_00000044169726647918425200000016171342153260194466_);
+.publication__p > .st5 {
+  clip-path: url(#SVGID_00000100381166363649217260000013846041720460111504_);
   fill: none;
 }
-.publication > .st6 {
+.publication__p > .st6 {
   fill: #9fbec9;
   stroke: #231f20;
-  stroke-width: 3;
+  stroke-width: 0.372;
   stroke-miterlimit: 10;
 }
-.publication > .st7 {
+.publication__p > .st7 {
   fill: #9fbec9;
   stroke: #231f20;
-  stroke-width: 2;
+  stroke-width: 0.248;
   stroke-miterlimit: 10;
 }
-.publication > .st8 {
+.publication__p > .st8 {
   fill: none;
   stroke: #231f20;
-  stroke-width: 4;
+  stroke-width: 0.496;
   stroke-miterlimit: 10;
 }
-.publication > .st9 {
+.publication__p > .st9 {
   fill: #4c5d5f;
   stroke: #231f20;
-  stroke-width: 4;
+  stroke-width: 0.496;
   stroke-miterlimit: 10;
 }
-.publication > .st10 {
+.publication__p > .st10 {
   fill: none;
   stroke: #020202;
-  stroke-width: 3;
+  stroke-width: 0.744;
   stroke-miterlimit: 10;
 }
-.publication > .st11 {
+.publication__p > .st11 {
   fill: #9fbec9;
   stroke: #231f20;
-  stroke-width: 4;
+  stroke-width: 0.496;
   stroke-miterlimit: 10;
 }
-.publication > .st12 {
+.publication__p > .st12 {
   fill: #4c5d5f;
   stroke: #aaff48;
-  stroke-width: 8;
+  stroke-width: 0.992;
   stroke-miterlimit: 10;
 }
-.publication > .st13 {
+.publication__p > .st13 {
   fill: none;
   stroke: #aaff48;
-  stroke-width: 8;
+  stroke-width: 0.992;
   stroke-miterlimit: 10;
 }
 </style>

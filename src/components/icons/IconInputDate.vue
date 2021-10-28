@@ -182,7 +182,7 @@
   stroke-width: 0.4867;
   stroke-miterlimit: 10;
 }
-.input__date > .st9 {
+.st9 {
   fill: #a4bcc7;
   stroke: #000000;
   stroke-width: 0.4867;

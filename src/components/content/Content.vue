@@ -19,17 +19,16 @@
         width="100%"
         height="100%"
       >
-        <icon-feed title="Feed">
-          <!-- <icon-base
-            icon-name="icon"
-            viewBox="0 0 500 500"
-            width="100%"
-            height="100%"
-          >
-            <icon-publicationP title="publiicon-publicationP">
-              hduakshdkusahdukhaskduhusakuhdkuashdksauhdkasuhd
-            </icon-publicationP>
-          </icon-base> -->
+        <icon-feed>
+          <div class="feed__head">
+            <h2>Feed</h2>
+          </div>
+          <div class="feed__content">
+            <publication />
+            <publication />
+            <publication />
+            <publication />
+          </div>
         </icon-feed>
       </icon-base>
     </div>
@@ -41,15 +40,11 @@ import { sidebarWidth, collapsed } from '@/components/sidebar/state'
 
 import IconBase from '@/components/icons/IconBase'
 import IconFeed from '@/components/icons/IconFeed'
-// import IconPublicationP from '@/components/icons/IconPublicationP'
-
-import feedSVG from '@/assets/widget/feed.svg'
+import Publication from '@/components/publication/Publication'
 
 export default {
-  components: { IconFeed, IconBase },
-  data() {
-    return { feedSVG }
-  },
+  components: { IconFeed, IconBase, Publication },
+
   setup() {
     return {
       sidebarWidth,
@@ -87,7 +82,22 @@ export default {
   width: 138%;
   position: absolute;
   top: -50px;
-  right: -4px;
+  right: -25px;
+}
+
+.feed__head {
+  display: flex;
+  justify-content: center;
+  margin-left: 50%;
+}
+.feed__content {
+  overflow-y: auto;
+}
+
+h2 {
+  font-family: var(--font-family--title);
+  color: var(--color-title);
+  font-weight: 300;
 }
 
 @media only screen and (max-width: 1080px) {

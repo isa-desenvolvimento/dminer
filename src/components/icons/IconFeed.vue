@@ -30,7 +30,7 @@
       <circle class="st3" cx="141.5" cy="17.5" r="2" />
     </g>
   </g>
-  <foreignObject y="9.5%" x="0" width="100%" height="100%">
+  <foreignObject y="0%" x="0" width="100%" height="100%" class="content__feed">
     <slot />
   </foreignObject>
 </template>

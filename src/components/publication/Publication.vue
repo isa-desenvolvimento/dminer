@@ -1,40 +1,43 @@
 <template>
   <div class="container__publication">
-    <div class="publication__title">
-      <h3>{{ title }}</h3>
-    </div>
-    <div class="publication__item">
-      <slot />
-    </div>
+    <icon-base
+      icon-name="icon"
+      viewBox="0 0 500 500"
+      width="100%"
+      height="100%"
+    >
+      <icon-publicationP>
+        <div class="publication__title">
+          hduakshdkusahdukhaskduhusakuhdkuashdksauhdkasuhd
+        </div>
+      </icon-publicationP>
+    </icon-base>
   </div>
 </template>
 
 <script>
+import IconBase from '@/components/icons/IconBase'
+import IconPublicationP from '@/components/icons/IconPublicationP'
+
 export default {
-  props: {
-    title: { type: String, required: true }
-  }
+  components: { IconBase, IconPublicationP }
 }
 </script>
-
-<style>
+<style scoped>
 .container__publication {
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 20%;
+  width: 75%;
   margin-left: auto;
-  margin-right: 1.2rem;
-  width: 80%;
-  overflow: hidden;
-
-  background-image: url('~@/assets/widget/publication.svg');
+  margin-right: 14px;
+  margin-bottom: -80px;
 }
 
 .publication__title {
   font-family: var(--font-family-title);
-}
-
-.container__publication:nth-of-type(odd) {
-  background-image: url('~@/assets/widget/publication-p.svg');
+  width: 320px;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-align: start;
+  padding-left: 0.5rem;
 }
 </style>
