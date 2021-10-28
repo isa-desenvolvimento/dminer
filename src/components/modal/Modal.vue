@@ -1,27 +1,43 @@
 <template>
   <div class="modal-mask">
     <div class="modal-wrapper">
-      <div class="modal-container">
-        <div class="modal-header">
-          <slot name="header">default header</slot>
-        </div>
+      <icon-base
+        class="container__folder"
+        icon-name="icon"
+        viewBox="0 0 500 350"
+        width="70%"
+        height="100%"
+      >
+        <icon-modal>
+          <div class="modal-container">
+            <div class="modal-header">
+              <button class="modal-default-button" @click="$emit('close')">
+                X
+              </button>
+              <!-- <slot name="header">default header</slot> -->
+            </div>
 
-        <div class="modal-body">
-          <slot name="body"></slot>
-        </div>
-
-        <div class="modal-footer">
-          <slot name="footer">
-            default footer
-            <button class="modal-default-button" @click="$emit('close')">
-              OK
-            </button>
-          </slot>
-        </div>
-      </div>
+            <div class="modal-body">
+              <slot name="body"></slot>
+            </div>
+          </div>
+        </icon-modal>
+      </icon-base>
     </div>
   </div>
 </template>
+
+<script>
+import IconModal from '@/components/icons/IconModal'
+import IconBase from '@/components/icons/IconBase'
+
+export default {
+  components: {
+    IconBase,
+    IconModal
+  }
+}
+</script>
 
 <style scoped>
 .modal-mask {
@@ -41,18 +57,15 @@
 
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(/img/folder.c7817247.svg);
   background-position-x: center;
 }
 
 .modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: transparent;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  font-family: Helvetica, Arial, sans-serif;
+  width: 280px;
+  margin-left: auto;
+  margin-right: 6rem;
+  position: relative;
+  margin-top: 1.5rem;
 }
 
 .modal-header h3 {
@@ -67,6 +80,8 @@
 .modal-default-button {
   display: block;
   margin-top: 1rem;
+  position: absolute;
+  left: -70px;
 }
 
 /*

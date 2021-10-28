@@ -5,6 +5,7 @@ import Vue3Resize from 'vue3-resize'
 
 import '@fortawesome/fontawesome-free/js/all'
 import 'vue3-resize/dist/vue3-resize.css'
+// import 'alga-css/dist/alga-v1.min.css'
 
 createApp(App)
   .use(router)

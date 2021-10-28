@@ -44,21 +44,11 @@
       you can use custom content here to overwrite
       default content
     -->
-      <template v-slot:header>
+      <!-- <template v-slot:header>
         <h3>custom header</h3>
-      </template>
+      </template> -->
       <template v-slot:body>
-        <calendar-view
-          :show-date="showDate"
-          class="theme-default holiday-us-traditional holiday-us-official"
-        >
-          <template #header="{ headerProps }">
-            <calendar-view-header
-              :header-props="headerProps"
-              @input="setShowDate"
-            />
-          </template>
-        </calendar-view>
+        <FullCalendar />
       </template>
     </modal>
   </transition>
@@ -73,8 +63,7 @@ import Title from '@/components/title/Title'
 
 import Modal from '@/components/modal/Modal'
 
-import { CalendarView, CalendarViewHeader } from 'vue-simple-calendar'
-import '../../node_modules/vue-simple-calendar/dist/style.css'
+import FullCalendar from '../components/calendar/FullCalendar.vue'
 
 export default {
   data() {
@@ -91,8 +80,7 @@ export default {
     Calendar,
     Title,
     Modal,
-    CalendarView,
-    CalendarViewHeader
+    FullCalendar
   },
   methods: {
     clickCalendar() {

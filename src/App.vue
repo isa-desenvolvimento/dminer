@@ -36,6 +36,8 @@ export default {
   --sidebar-green-opacity: #55e48663;
 
   --gray: #60645c;
+  --rgbGray: 108, 117, 125;
+  --bdColor: rgb(227, 228, 229);
 
   --sidebar-border: 2px solid var(--gray);
   --fine-border: 1px solid var(--gray);

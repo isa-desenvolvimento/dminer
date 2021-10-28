@@ -2151,6 +2151,43 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+alga-css@*:
+  version "1.0.0-development9"
+  resolved "https://registry.yarnpkg.com/alga-css/-/alga-css-1.0.0-development9.tgz#aecc05ab9ac1074f7967bb260af89139b788e117"
+  integrity sha512-RahsB0d2J+4dMruxoYaGVCwO5b0Q7BZ0PZUiLTMgMy3vt4urhD9eNGhMzHql8S/OBTlRX5eXpGWKD7lDH/eMFg==
+  dependencies:
+    glob "^7.1.7"
+
+alga-css@^1.0.0-development7:
+  version "1.0.0-development7"
+  resolved "https://registry.yarnpkg.com/alga-css/-/alga-css-1.0.0-development7.tgz#bbb89d49eb6e10701b5e149bc4e74dc47979b55e"
+  integrity sha512-Xq3kJJOstiPab1/eT5ZOWcRK5A5ty+FdxK9SjEwT+q7FXw1qwv17jtDTp/T17Ks6IuD76p+V1KnJGVh8+dtpOg==
+  dependencies:
+    glob "^7.1.7"
+
+alga-js@^0.0.1-beta5:
+  version "0.0.1-beta9"
+  resolved "https://registry.yarnpkg.com/alga-js/-/alga-js-0.0.1-beta9.tgz#60fe7ab1b8d20cdfbb4024e19b75057441ffa60f"
+  integrity sha512-cDIPR9WTCL+35NHqATnzClG4pd89pyZ7cr9DG+kTCs+4Mlbmv7c9icXZThZ4N6wblpd1UE6a7PXJiMpQpP8eUA==
+
+alga-js@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/alga-js/-/alga-js-0.0.2.tgz#682f9fdce4b02cac76e3c49f280dd31ab0dc3cbb"
+  integrity sha512-Yts+Wa499Ik7QNoOqyyr8IJAjgP6yECyWA8h4AXK0BPbCVGqLSniBcuxWGwGEu+ebmz/UZ7KzvUkKYhSKwENkQ==
+
+alga-js@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/alga-js/-/alga-js-0.0.9.tgz#16d883b923838268fb17426922e533aa0d6dcdaa"
+  integrity sha512-gnR6qvQH14BWveY9SOYHmCWpOKds+zdqaNOQmwIN41KwJP/KBmDz+hcHhHGz92yc806O/b4iQv57xmk49+xQ9Q==
+
+alga-vue@^0.0.1-development2, alga-vue@^0.0.1-development4:
+  version "0.0.1-development4"
+  resolved "https://registry.yarnpkg.com/alga-vue/-/alga-vue-0.0.1-development4.tgz#5440bb47c548c1b185728a32d591ac7b09bed849"
+  integrity sha512-CHb74rfGJEPsklvc1OKKLfkTuUJA8nVlYsUypx4IPqOnt7/UvAfEgeuNay1ivyKyhjknDKKOXjAKTRibGNXwJg==
+  dependencies:
+    alga-js "^0.0.2"
+    vue "^3.0.5"
+
 alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.npmjs.org/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
@@ -4944,6 +4981,18 @@ glob@^7.0.3, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4:
   version "7.1.7"
   resolved "https://registry.npmjs.org/glob/-/glob-7.1.7.tgz"
   integrity sha512-OvD9ENzPLbegENnYP5UUfJIirTg4+XwMWGaQfQTY0JenxNvvIKP3U3/tAQSPIu/lHxXYSZmpXlUHeqAIdKzBLQ==
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^3.0.4"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
+
+glob@^7.1.7:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.0.tgz#d15535af7732e02e948f4c41628bd910293f6023"
+  integrity sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -9516,6 +9565,16 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vidie@^0.0.1-development6:
+  version "0.0.1-development6"
+  resolved "https://registry.yarnpkg.com/vidie/-/vidie-0.0.1-development6.tgz#20323fcb90de9c1de7f1819721e1e87ea73d4750"
+  integrity sha512-b/3lLk3HaUf8X39L06Ju1vtjQh3yorRigXV8NlP1wzTO1FpYoCihsrSKWL3nS8Q6NrMHh0AXliKlwcuAwn06xA==
+  dependencies:
+    alga-css "*"
+    alga-js "^0.0.1-beta5"
+    alga-vue "^0.0.1-development2"
+    vue "^3.0.5"
+
 vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
@@ -9547,7 +9606,7 @@ vue-hot-reload-api@^2.3.0:
 
 vue-loader-v16@^16.0.0-beta.5.4:
   version "16.0.0-beta.5.4"
-  resolved "https://registry.npmjs.org/vue-loader-v16/-/vue-loader-v16-16.0.0-beta.5.4.tgz"
+  resolved "https://registry.yarnpkg.com/vue-loader-v16/-/vue-loader-v16-16.0.0-beta.5.4.tgz#8fbcf87dc69c9979ecd777adba4e8a0e7fd95a7e"
   integrity sha512-sis7XW0hab2NRbWMGbYXlFwhaLE2sV/hqhVkLxV2/8XLsLL6Ylfz590IaJMSMiyqsEmFHW+fSfevnnIqOsYxoQ==
   dependencies:
     "@types/mini-css-extract-plugin" "^0.9.1"
@@ -9609,7 +9668,7 @@ vue3-resize@^0.2.0:
   resolved "https://registry.npmjs.org/vue3-resize/-/vue3-resize-0.2.0.tgz"
   integrity sha512-vZkbEv4PjMEWFV0igAxCvdSIH9hrIJjXyJ9XPTxH0cS/L2/VW1dLVORMWJKU0VXHpHiYKwskB62ju7aBQMVpOQ==
 
-vue@>=3.0.0, vue@^3.0.8:
+vue@>=3.0.0, vue@^3.0.5, vue@^3.0.8:
   version "3.2.20"
   resolved "https://registry.npmjs.org/vue/-/vue-3.2.20.tgz"
   integrity sha512-81JjEP4OGk9oO8+CU0h2nFPGgJBm9mNa3kdCX2k6FuRdrWrC+CNe+tOnuIeTg8EWwQuI+wwdra5Q7vSzp7p4Iw==
