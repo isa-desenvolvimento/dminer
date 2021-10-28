@@ -83,7 +83,7 @@ export default {
 }
 
 .icon__feed {
-  height: 94vh;
+  height: 110%;
   width: 138%;
   position: absolute;
   top: -50px;
@@ -105,7 +105,6 @@ export default {
   }
 
   .icon__feed {
-    height: 138vh;
     width: 100%;
     position: initial;
   }
