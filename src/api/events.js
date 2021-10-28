@@ -1,4 +1,4 @@
-const baseUrl = 'https://dminer-api.herkuapp.com/event'
+const baseUrl = 'https://dminer-api.herkuapp.com/api/events'
 
 export const fetchEvents = async () => {
   const response = await fetch(`${baseUrl}`, {

@@ -50,7 +50,7 @@
     />
     <circle class="st2" cx="44.14" cy="339.65" r="2.31" />
     <g>
-      <foreignObject y="0" x="0" width="100%" height="90%">
+      <foreignObject y="0" x="0" width="100%" height="100%">
         <slot />
       </foreignObject>
     </g>

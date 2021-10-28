@@ -208,7 +208,7 @@ export default defineComponent({
   /* grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: 2% repeat(7, 2%); */
   grid-template-columns: repeat(4, 30%);
-  grid-template-rows: repeat(7, 15%);
+  grid-template-rows: repeat(7, 14%);
 }
 
 .bdEnd-1 {
@@ -409,5 +409,9 @@ div.txtCenter.bdStart-1.bdRight-0.bdBottom-1.bdSolid.bdBlack.bdDarker
 .gridColumns-7 {
   display: grid;
   grid-template-columns: repeat(7, 19%);
+}
+
+.cursorPointer {
+  cursor: pointer;
 }
 </style>

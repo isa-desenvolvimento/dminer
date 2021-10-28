@@ -10,6 +10,7 @@
     :style="styles"
     xml:space="preserve"
     :onclick="onClick"
+    :class="classe"
   >
     <g :fill="iconColor">
       <slot />
@@ -41,6 +42,7 @@ export default {
       default: '0 0 512 512'
     },
     onClick: { type: Function, required: false },
+    classe: { type: String, required: false },
     styles: {
       type: String || Object,
       required: false
