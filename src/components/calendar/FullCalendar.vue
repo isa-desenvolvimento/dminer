@@ -102,6 +102,8 @@ export default defineComponent({
     provide('day', dayRef)
     provide('week', weekRef)
 
+    debugger
+
     return {
       toggleRef,
       dateRef,
@@ -199,6 +201,18 @@ export default defineComponent({
   grid-template-columns: repeat(7, 18%);
   grid-template-rows: 2% repeat(7, 3%);
 }
+
+/* foreignObject
+  > div
+  > div:nth-child(2)
+  > div
+  > div
+  > div:nth-child(2)
+  > div.dark
+  > div > gridColumns-7 {
+  display: grid;
+  grid-template-columns: repeat(7, 19%);
+} */
 
 .gap-8 {
   gap: 0.3rem;
@@ -406,12 +420,10 @@ div.txtCenter.bdStart-1.bdRight-0.bdBottom-1.bdSolid.bdBlack.bdDarker
   height: 8px;
 }
 
-.gridColumns-7 {
-  display: grid;
-  grid-template-columns: repeat(7, 19%);
-}
-
 .cursorPointer {
   cursor: pointer;
 }
 </style>
+
+// grid-template-columns: repeat(7, 18%); // grid-template-rows: 2% repeat(7,
+3%); // }
