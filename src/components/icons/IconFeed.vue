@@ -2,108 +2,60 @@
   <g class="feed">
     <polygon
       class="st0"
-      points="-8.052 183.898 498.463 183.898 498.463 127.86 462.375 -29.572 355.957 -29.572 326.657 58.251 17.624 57.173"
-    ></polygon>
-    <polyline
-      class="st1"
-      points="-30.558 780.933 -8.052 729.134 -8.052 183.898 17.624 57.173 313.149 52.093 345.164 -24.459"
-    ></polyline>
-    <polyline
-      class="st1"
-      points="-8.052 757.486 -28.086 800.277 -30.558 1389.661 -1.778 1509.461 470.87 1509.461 491.001 1390.581 491.001 750.744"
-    ></polyline>
-    <polyline
-      class="st1"
-      points="328.163 51.842 355.957 -29.572 462.375 -29.572 498.463 127.86 498.463 904.235"
-    ></polyline>
+      points="40,30 223.9,30 223.9,486.5 220.1,491.5 47.5,491.5 34.7,478 34.7,243 39.8,239 	"
+    />
     <polygon
-      class="st2"
-      points="300.915 1509.461 300.915 1576.93 459.441 1576.93 470.87 1509.461"
-    ></polygon>
-    <line
       class="st1"
-      x1="17.67"
-      y1="1542.039"
-      x2="300.915"
-      y2="1544.349"
-    ></line>
-    <circle
-      class="st3"
-      cx="-817.053"
-      cy="-557.099"
-      r="4.033"
-      transform="matrix(0.868016, 0, 0, 2.728596, 703.936279, 2270.841553)"
-    ></circle>
-    <circle
-      class="st3"
-      cx="-847.362"
-      cy="-544.714"
-      r="4.033"
-      transform="matrix(0.868016, 0, 0, 2.728596, 703.936279, 2270.841553)"
-    ></circle>
-    <circle
-      class="st3"
-      cx="-793.459"
-      cy="-266.841"
-      r="4.033"
-      transform="matrix(0.868016, 0, 0, 2.728596, 703.936279, 2270.841553)"
-    ></circle>
-    <circle
-      class="st3"
-      cx="-245.314"
-      cy="-561.057"
-      r="4.033"
-      transform="matrix(0.868016, 0, 0, 2.728596, 703.936279, 2270.841553)"
-    ></circle>
-    <circle
-      class="st3"
-      cx="-236.717"
-      cy="-496.885"
-      r="4.033"
-      transform="matrix(0.868016, 0, 0, 2.728596, 703.936279, 2270.841553)"
-    ></circle>
-    <circle
-      class="st3"
-      cx="-434.645"
-      cy="-810.89"
-      r="4.033"
-      transform="matrix(0.868016, 0, 0, 2.728596, 703.936279, 2270.841553)"
-    ></circle>
-    <circle
-      class="st3"
-      cx="-413.324"
-      cy="-841.202"
-      r="4.033"
-      transform="matrix(0.868016, 0, 0, 2.728596, 703.936279, 2270.841553)"
-    ></circle>
-    <g>
-      <foreignObject y="9.5%" x="0" width="100%" height="100%">
-        <slot />
-      </foreignObject>
+      points="130.7,491.5 130.7,497.1 215.9,497.1 220.1,491.5 	"
+    />
+    <polygon
+      class="st1"
+      points="40,30 223.9,30 223.9,14.4 216.9,6 159,6 142.5,16.5 54,16 	"
+    />
+    <g class="feed">
+      <polyline
+        class="st2"
+        points="29,243 40,234 40,30 54,16 134.7,16 151,6 		"
+      />
+      <polyline
+        class="st2"
+        points="45.5,234.5 34.7,243 34.7,478 47.5,491.5 130.7,491.5 130.7,497.1 215.9,497.1 223.9,486.5 
+			223.9,14.4 216.9,6 159,6 142.5,16.5 		"
+      />
+      <line class="st2" x1="130.7" y1="495.1" x2="52.9" y2="495.1" />
+      <circle class="st3" cx="51.5" cy="495.5" r="2" />
+      <circle class="st3" cx="28" cy="244" r="2.5" />
+      <circle class="st3" cx="46.1" cy="233" r="2.5" />
+      <circle class="st3" cx="152.5" cy="5.5" r="2" />
+      <circle class="st3" cx="141.5" cy="17.5" r="2" />
     </g>
   </g>
+  <foreignObject y="9.5%" x="0" width="100%" height="100%">
+    <slot />
+  </foreignObject>
 </template>
 
-<style scope>
+<style>
 .feed > .st0 {
-  fill: #aaff48;
-}
-.feed > .st1 {
-  fill: none;
-  stroke: #231f20;
-  stroke-width: 6;
+  fill: #ffffff;
+  stroke-width: 2;
   stroke-miterlimit: 10;
 }
-.feed > .st2 {
+.feed > .st1 {
   fill: #aaff48;
-  stroke: #231f20;
-  stroke-width: 6;
+  stroke-width: 2;
+}
+.feed > .st2 {
+  fill: none;
+  stroke: #363636;
+  stroke-width: 2;
+
   stroke-miterlimit: 10;
 }
 .feed > .st3 {
   fill: #aaff48;
-  stroke: #231f20;
-  stroke-width: 4;
+  stroke: #363636;
+  stroke-width: 2;
   stroke-miterlimit: 10;
 }
 </style>

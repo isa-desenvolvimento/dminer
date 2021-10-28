@@ -13,15 +13,14 @@
     <!-- Right content -->
     <div class="container__right">
       <icon-base
-        class="container__folder"
+        class="icon__feed"
         icon-name="icon"
-        viewBox="0 0 500 1600"
+        viewBox="0 0 250 500"
         width="100%"
         height="100%"
-        styles="height: 96vh; position: absolute; top: -50px; right: 30px;"
       >
         <icon-feed title="Feed">
-          <icon-base
+          <!-- <icon-base
             icon-name="icon"
             viewBox="0 0 500 500"
             width="100%"
@@ -30,7 +29,7 @@
             <icon-publicationP title="publiicon-publicationP">
               hduakshdkusahdukhaskduhusakuhdkuashdksauhdkasuhd
             </icon-publicationP>
-          </icon-base>
+          </icon-base> -->
         </icon-feed>
       </icon-base>
     </div>
@@ -42,12 +41,12 @@ import { sidebarWidth, collapsed } from '@/components/sidebar/state'
 
 import IconBase from '@/components/icons/IconBase'
 import IconFeed from '@/components/icons/IconFeed'
-import IconPublicationP from '@/components/icons/IconPublicationP'
+// import IconPublicationP from '@/components/icons/IconPublicationP'
 
 import feedSVG from '@/assets/widget/feed.svg'
 
 export default {
-  components: { IconPublicationP, IconFeed, IconBase },
+  components: { IconFeed, IconBase },
   data() {
     return { feedSVG }
   },
@@ -83,6 +82,14 @@ export default {
   position: relative;
 }
 
+.icon__feed {
+  height: 94vh;
+  width: 138%;
+  position: absolute;
+  top: -50px;
+  right: -4px;
+}
+
 @media only screen and (max-width: 1080px) {
   .container__content {
     display: grid;
@@ -95,6 +102,12 @@ export default {
 
   .container__right {
     width: 100%;
+  }
+
+  .icon__feed {
+    height: 138vh;
+    width: 100%;
+    position: initial;
   }
 }
 </style>
