@@ -22,17 +22,17 @@
 
 <script>
 import { sidebarWidth } from '@/components/sidebar/state'
-import useUser from '@/composables/useUser'
+// import useUser from '@/composables/useUser'
 import { ref } from 'vue'
 
 export default {
   setup() {
     const fileInputRef = ref(null)
-    const idUser = 1
+    // const idUser = 1
 
-    const { getUser } = useUser(fileInputRef, idUser)
+    // const { getUser } = useUser(fileInputRef, idUser)
 
-    return { sidebarWidth, fileInputRef, getUser }
+    return { sidebarWidth, fileInputRef }
   },
   data() {
     return {

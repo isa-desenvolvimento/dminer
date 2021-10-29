@@ -1,4 +1,4 @@
-const baseUrl = 'https://dminer-api.herokuapp.com/user'
+const baseUrl = 'https://dminer-api.herokuapp.com/api/user'
 
 export const fetchUser = async (id) => {
   const response = await fetch(`${baseUrl}/${id}`, {

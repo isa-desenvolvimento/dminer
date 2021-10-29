@@ -104,8 +104,6 @@ export default defineComponent({
     provide('day', dayRef)
     provide('week', weekRef)
 
-    debugger
-
     return {
       toggleRef,
       dateRef,

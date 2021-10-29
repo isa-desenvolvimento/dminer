@@ -8,7 +8,7 @@
         <notification v-for="item in notificationList" :key="item">
           <template v-slot:title>
             <Title>
-              {{ item }}
+              {{ item.notificationDescrible }}
             </Title>
           </template>
         </notification>
@@ -24,7 +24,7 @@
         <notification v-for="item in notificationList" :key="item">
           <template v-slot:title>
             <Title>
-              {{ item }}
+              {{ item.notificationDescrible }}
             </Title>
           </template>
         </notification>
@@ -65,20 +65,20 @@ import Modal from '@/components/modal/Modal'
 
 import FullCalendar from '../components/calendar/FullCalendar.vue'
 
+import { fetchAllNotification } from '@/api/notification'
+
 export default {
   data() {
     return {
-      notificationList: [
-        'Teste 1',
-        'Teste 2',
-        'Teste 3',
-        'Teste 1',
-        'Teste 2',
-        'Teste 3'
-      ],
+      notificationList: [],
       showModal: false,
       showDate: new Date()
     }
+  },
+  mounted() {
+    fetchAllNotification().then(
+      (notifications) => (this.notificationList = notifications)
+    )
   },
   components: {
     InputDate,
