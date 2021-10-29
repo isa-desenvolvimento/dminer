@@ -11,6 +11,7 @@
           <h2>{{ title }}</h2>
         </div>
         <div
+          :class="classContent"
           class="folder__content"
           :style="{ 'max-heitemplateht': !isExpanded && '18rem' }"
         >
@@ -43,7 +44,8 @@ export default {
   props: {
     title: { type: String, required: true },
     isExpanded: { type: Boolean, required: false, default: false },
-    onClick: { type: Function, required: false }
+    onClick: { type: Function, required: false },
+    classContent: { type: String, required: false }
   },
   components: {
     IconBase,
@@ -73,6 +75,8 @@ export default {
 
 .folder__content {
   overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 300px;
 }
 
 .folder__footer {

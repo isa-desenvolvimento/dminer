@@ -1,5 +1,5 @@
 <template>
-  <div class="container__notification">
+  <div class="container__title">
     <h2><slot /></h2>
   </div>
 </template>

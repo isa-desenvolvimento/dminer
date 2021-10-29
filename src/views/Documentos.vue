@@ -4,7 +4,7 @@
       <inputDate />
     </section>
     <section class="container__section">
-      <folder title="Notificações">
+      <folder title="Notificações" classContent="folder__notification__content">
         <notification v-for="item in notificationList" :key="item">
           <template v-slot:title>
             <Title>
@@ -68,7 +68,14 @@ import FullCalendar from '../components/calendar/FullCalendar.vue'
 export default {
   data() {
     return {
-      notificationList: ['Teste 1', 'Teste 2', 'Teste 3'],
+      notificationList: [
+        'Teste 1',
+        'Teste 2',
+        'Teste 3',
+        'Teste 1',
+        'Teste 2',
+        'Teste 3'
+      ],
       showModal: false,
       showDate: new Date()
     }
@@ -93,7 +100,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .view__documents {
   /* display: grid;
   grid-template-rows: 1fr 3fr 3fr;
@@ -116,6 +123,11 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+.folder__notification__content {
+  width: 108%;
+  margin-left: -12px;
 }
 
 @media only screen and (max-width: 1080px) {

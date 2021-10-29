@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1024 256" style="enable-background:new 0 0 1024 256;" xml:space="preserve">
+<svg version="1.1" id="Camada_2_00000064336370493523515280000015903776973959949493_"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 250 50"
+	 style="enable-background:new 0 0 250 50;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:none;stroke:#231F20;stroke-width:4;stroke-miterlimit:10;}
-	.st1{fill:#AAFF48;stroke:#231F20;stroke-width:2;stroke-miterlimit:10;}
+	.st0{fill:#A4BCC7;stroke:#221F20;stroke-width:0.8977;stroke-miterlimit:10;}
+	.st1{fill:#4F5C5F;stroke:#000000;stroke-width:1.4443;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#000000;stroke-width:1.4443;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st4{fill:#AAFF48;stroke:#000000;stroke-width:0.9733;stroke-miterlimit:10;}
 </style>
-<polyline class="st0" points="45.33,215.97 22.14,179.3 22.14,32.8 962.07,32.8 "/>
-<polyline class="st0" points="990.78,32.8 1016.24,32.8 1016.24,229.14 37.65,229.14 13.77,192.94 "/>
-<circle class="st1" cx="45.33" cy="215.94" r="5.65"/>
-<circle class="st1" cx="13.77" cy="190.95" r="5.65"/>
-<circle class="st1" cx="962.07" cy="32.51" r="5.65"/>
-<circle class="st1" cx="987.65" cy="32.8" r="5.65"/>
+<rect x="17" y="19.8" class="st0" width="49.8" height="10.4"/>
+<path class="st1" d="M79,31.7V18.3c0-0.7-0.5-1.2-1.2-1.2H74c-0.7,0-1.2,0.5-1.2,1.2v13.4c0,0.7,0.5,1.2,1.2,1.2h3.8
+	C78.5,32.9,79,32.4,79,31.7z"/>
+<path class="st1" d="M72.9,30.7V19.3c0-0.7-0.5-1.2-1.2-1.2H68c-0.7,0-1.2,0.5-1.2,1.2v11.4c0,0.7,0.5,1.2,1.2,1.2h3.8
+	C72.4,31.9,72.9,31.4,72.9,30.7z"/>
+<line class="st2" x1="17" y1="19.8" x2="21.9" y2="30.2"/>
+<line class="st2" x1="24.7" y1="19.8" x2="29.7" y2="30.2"/>
+<line class="st2" x1="31.7" y1="19.8" x2="36.6" y2="30.2"/>
+<line class="st2" x1="38.3" y1="19.8" x2="43.2" y2="30.2"/>
+<line class="st2" x1="45.2" y1="19.8" x2="50.2" y2="30.2"/>
+<line class="st2" x1="52.6" y1="19.8" x2="57.5" y2="30.2"/>
+<line class="st2" x1="59.5" y1="19.8" x2="64.5" y2="30.2"/>
+<polyline class="st3" points="85.7,43 79.1,37.7 79,3 210,3 "/>
+<polyline class="st3" points="218.2,3 225.4,3 225.4,47 86.8,47 82,42.9 "/>
+<g>
+	<circle class="st4" cx="81.1" cy="42.4" r="1"/>
+	<circle class="st4" cx="86.6" cy="43.4" r="1"/>
+	<circle class="st4" cx="211" cy="3" r="1"/>
+	<circle class="st4" cx="217.1" cy="3" r="1"/>
+</g>
 </svg>
