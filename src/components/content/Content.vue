@@ -12,25 +12,12 @@
 
     <!-- Right content -->
     <div class="container__right">
-      <icon-base
-        class="icon__feed"
-        icon-name="icon"
-        viewBox="0 0 250 500"
-        width="100%"
-        height="100%"
-      >
-        <icon-feed>
-          <div class="feed__head">
-            <h2>Feed</h2>
-          </div>
-          <div class="feed__content">
-            <publication />
-            <publication />
-            <publication />
-            <publication />
-          </div>
-        </icon-feed>
-      </icon-base>
+      <feed>
+        <publication />
+        <publication />
+        <publication />
+        <publication />
+      </feed>
     </div>
   </div>
 </template>
@@ -38,12 +25,11 @@
 <script>
 import { sidebarWidth, collapsed } from '@/components/sidebar/state'
 
-import IconBase from '@/components/icons/IconBase'
-import IconFeed from '@/components/icons/IconFeed'
+import Feed from '@/components/feed/Feed'
 import Publication from '@/components/publication/Publication'
 
 export default {
-  components: { IconFeed, IconBase, Publication },
+  components: { Feed, Publication },
 
   setup() {
     return {
@@ -77,29 +63,6 @@ export default {
   position: relative;
 }
 
-.icon__feed {
-  height: 110%;
-  width: 138%;
-  position: absolute;
-  top: -50px;
-  right: -25px;
-}
-
-.feed__head {
-  display: flex;
-  justify-content: center;
-  margin-left: 50%;
-}
-.feed__content {
-  overflow-y: auto;
-}
-
-h2 {
-  font-family: var(--font-family--title);
-  color: var(--color-title);
-  font-weight: 300;
-}
-
 @media only screen and (max-width: 1080px) {
   .container__content {
     display: grid;
@@ -112,11 +75,6 @@ h2 {
 
   .container__right {
     width: 100%;
-  }
-
-  .icon__feed {
-    width: 100%;
-    position: initial;
   }
 }
 </style>

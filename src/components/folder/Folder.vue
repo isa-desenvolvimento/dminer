@@ -68,6 +68,7 @@ export default {
 .folder__head {
   display: flex;
   justify-content: flex-end;
+  text-transform: uppercase;
 }
 
 .folder__content {

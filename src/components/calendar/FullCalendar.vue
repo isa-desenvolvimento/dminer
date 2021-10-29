@@ -80,6 +80,8 @@ export default defineComponent({
 
     toggleRef.value = 'monthly'
     weekRef.value = getWeeks.value
+
+    console.log('getWeekDays', getWeekDays);
     startDateRef.value = getWeekDays[0]
     endDateRef.value = getWeekDays[6]
 
