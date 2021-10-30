@@ -1,7 +1,5 @@
 <template>
-  <div class="container__title">
-    <h2><slot /></h2>
-  </div>
+  <h2><slot /></h2>
 </template>
 
 <style scoped>
