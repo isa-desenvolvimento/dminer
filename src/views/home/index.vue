@@ -3,12 +3,12 @@
     <section class="header__section">
       <inputDate />
     </section>
-    <section class="container__section drag__inner__list">
-      <component
-        v-for="(folder, key) in listComponents"
-        :key="key"
-        :is="folder"
-      ></component>
+    <section class="container__section">
+      <draggable :list="listComponents" :move="log">
+        <div v-for="(folder, key) in listComponents" :key="key">
+          <component :is="folder"></component>
+        </div>
+      </draggable>
     </section>
   </div>
 </template>
@@ -23,10 +23,21 @@ import notices from '@/views/home/notices.vue'
 import remember from '@/views/home/remember.vue'
 import quiz from '@/views/home/quiz.vue'
 
+import { VueDraggableNext } from 'vue-draggable-next'
+
 export default {
   data() {
     return {
-      listComponents: [
+      listComponents: [],
+      enabled: true,
+      dragging: false
+    }
+  },
+  mounted() {
+    if (localStorage.position_components_home) {
+      this.listComponents = JSON.parse(localStorage.position_components_home)
+    } else {
+      this.listComponents = [
         notification,
         calendar,
         birthday,
@@ -38,7 +49,16 @@ export default {
   },
 
   components: {
-    InputDate
+    InputDate,
+    draggable: VueDraggableNext
+  },
+  methods: {
+    log(event) {
+      //TODO: salvar a posição dos folders
+      // localStorage.position_components_home = JSON.stringify(
+      //   this.listComponents
+      // )
+    }
   }
 }
 </script>
@@ -54,12 +74,7 @@ export default {
   padding: 0 6rem;
 }
 
-.ghost-card {
-  opacity: 0.5;
-  background: #f7fafc;
-  border: 1px solid #4299e1;
-}
-.container__section {
+.container__section > div {
   width: 100%;
   top: 0;
   display: grid;

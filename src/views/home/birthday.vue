@@ -1,7 +1,7 @@
 <template>
   <folder
     class="mt-3 cursor-move"
-    title="notificações"
+    title="aniversário"
     classContent="folder__notification__content"
   >
     <notification v-for="item in notificationList" :key="item">
