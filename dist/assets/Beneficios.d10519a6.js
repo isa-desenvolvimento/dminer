@@ -1,0 +1,1 @@
+import{_ as o,a}from"./index.ae9b0ac4.js";import{f as n,a as s,h as t,o as r}from"./vendor.be869036.js";const c={components:{EventCalendar:a}},_={class:"about"};function d(p,i,f,m,l,v){const e=n("EventCalendar");return r(),s("div",_,[t(e)])}var x=o(c,[["render",d]]);export{x as default};
