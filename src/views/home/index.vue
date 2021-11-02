@@ -87,7 +87,7 @@ export default {
   .view__documents {
     grid-gap: 1rem;
   }
-  .container__section {
+  .container__section > div {
     display: contents;
     padding: 0.5rem;
     overflow-y: auto;
