@@ -1,46 +1,46 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Documentos from '../views/Documentos.vue'
+import Home from '@/views/home/index.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Documentos',
-    component: Documentos
+    name: 'Home',
+    component: Home
   },
   {
     path: '/documentos',
     name: 'Documentos',
-    component: () => import('../views/Documentos.vue')
+    component: () => import('@/views/Documentos.vue')
   },
   {
     path: '/beneficios',
     name: 'Benefícios',
-    component: () => import('../views/Beneficios.vue')
+    component: () => import('@/views/Beneficios.vue')
   },
   {
     path: '/equipe',
     name: 'Equipe',
-    component: () => import('../views/Equipe.vue')
+    component: () => import('@/views/Equipe.vue')
   },
   {
     path: '/tutoriais',
     name: 'Tutoriais',
-    component: () => import('../views/Tutoriais.vue')
+    component: () => import('@/views/Tutoriais.vue')
   },
   {
     path: '/permissoes',
     name: 'Permissões',
-    component: () => import('../views/Permissoes.vue')
+    component: () => import('@/views/Permissoes.vue')
   },
   {
     path: '/email',
     name: 'Email',
-    component: () => import('../views/Email.vue')
+    component: () => import('@/views/Email.vue')
   },
   {
     path: '/birthday',
     name: 'Birthday',
-    component: () => import('../views/Birthday.vue')
+    component: () => import('@/views/Birthday.vue')
   }
 ]
 
