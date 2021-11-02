@@ -6,7 +6,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
-import useEvents from '@/composables/useEvents.js'
+import useEvents from '@/composables/useEvents'
 
 const id = ref(10)
 
@@ -20,6 +20,14 @@ const options = reactive({
     center: 'title',
     right: 'dayGridMonth,dayGridWeek,listDay'
   },
+  buttonText: {
+    today: 'hoje',
+    month: 'mês',
+    week: 'semana',
+    day: 'dia',
+    list: 'lista'
+  },
+  locale: 'pt-BR',
   editable: true,
   selectable: true,
   weekends: true,
@@ -126,5 +134,24 @@ table[style] {
   color: #fff;
   background-color: var(--sidebar-green-dark);
   border-color: var(--fc-button-border-color, var(--sidebar-green-dark));
+}
+
+.fc-h-event {
+  display: block;
+  border: 1px solid var(--sidebar-green-dark);
+  background-color: var(--sidebar-green-dark);
+  color: #000;
+}
+
+.fc-daygrid-event-dot {
+  margin: 0 4px;
+  box-sizing: content-box;
+  width: 0;
+  height: 0;
+  border: 4px solid var(--sidebar-green-dark);
+  border: calc(var(--fc-daygrid-event-dot-width, 8px) / 2) solid
+    var(--fc-event-border-color, var(--sidebar-green-dark));
+  border-radius: 4px;
+  border-radius: calc(var(--fc-daygrid-event-dot-width, 8px) / 2);
 }
 </style>
