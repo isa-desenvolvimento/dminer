@@ -4,7 +4,7 @@ import {
   storeEvent,
   mutateEvent,
   destroyEvent
-} from '@/apis/events.js'
+} from '@/api/events.js'
 
 export default function useEvents() {
   const getEvents = ref([])
