@@ -10,29 +10,15 @@
       :style="{ 'background-image': `url(${previewImage})` }"
       @click="selectImage"
     ></div>
-
-    <input
-      :ref="fileInputRef"
-      type="file"
-      @input="pickFile"
-      class="imageInput"
-    />
+    <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
   </div>
 </template>
 
 <script>
 import { sidebarWidth } from '@/components/sidebar/state'
-// import useUser from '@/composables/useUser'
-import { ref } from 'vue'
-
 export default {
   setup() {
-    const fileInputRef = ref(null)
-    // const idUser = 1
-
-    // const { getUser } = useUser(fileInputRef, idUser)
-
-    return { sidebarWidth, fileInputRef }
+    return { sidebarWidth }
   },
   data() {
     return {
