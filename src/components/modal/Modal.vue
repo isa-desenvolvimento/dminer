@@ -24,7 +24,9 @@
               </button>
               <!-- <slot name="header">default header</slot> -->
             </div>
-
+            <div class="modal-left">
+              <slot name="left" />
+            </div>
             <div class="modal-body">
               <slot name="body"></slot>
             </div>
@@ -85,6 +87,21 @@ export default {
 
 .modal-body {
   margin: 20px 0;
+}
+
+.modal-left {
+  position: absolute;
+  left: -132px;
+  top: 120px;
+  display: grid;
+  justify-items: flex-start;
+  font-size: 0.3rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+  grid-gap: 0.3rem;
+
+  width: 27%;
 }
 
 .modal-default-button {

@@ -7,6 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
 import useEvents from '@/composables/useEvents'
+import moment from 'moment'
 
 const id = ref(10)
 
@@ -51,11 +52,14 @@ const options = reactive({
   },
   events: [],
   eventAdd: (arg) => {
+    const formatStart = moment(arg.start).format('YYYY-MM-DD hh:mm:ss')
+    const formatEnd = moment(arg.end).format('YYYY-MM-DD hh:mm:ss')
+
     createEvent({
       id: arg.event.id,
       title: arg.event.title,
-      start: arg.event.start,
-      end: arg.event.end,
+      start: formatStart,
+      end: formatEnd,
       allDay: arg.event.allDay
     })
   },
