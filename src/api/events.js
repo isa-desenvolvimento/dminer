@@ -30,7 +30,7 @@ export const mutateEvent = async (event, id) => {
 }
 
 export const destroyEvent = async (id) => {
-  return await fetch(`${baseURL}/${id}`, {
+  return await fetch(`${baseURL}/delete/${id}`, {
     method: 'DELETE'
   })
 }

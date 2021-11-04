@@ -42,6 +42,17 @@
             />
           </svg>
           <span>Enviar</span>
+
+          <div class="out">
+            <icon-base
+              viewBox="0 0 32 32"
+              icon-name="icon"
+              height="15px"
+              width="15px"
+            >
+              <icon-close />
+            </icon-base>
+          </div>
           <div class="lds-ellipsis">
             <div></div>
             <div></div>
@@ -70,6 +81,8 @@ import Datepicker from 'vue3-date-time-picker'
 import 'vue3-date-time-picker/dist/main.css'
 import moment from 'moment'
 import { reactive } from 'vue'
+import IconClose from '@/components/icons/IconClose.vue'
+import IconBase from '@/components/icons/IconBase.vue'
 
 export default {
   data() {
@@ -96,7 +109,9 @@ export default {
     Calendar,
     EventCalendar,
     Modal,
-    Datepicker
+    Datepicker,
+    IconClose,
+    IconBase
   },
   methods: {
     clickCalendar() {
@@ -120,15 +135,20 @@ export default {
         end: formatEnd
       })
 
-      if (result.errors.length === 0) {
+      if (result.errors.length < 0) {
         btn.classList.add('is-success')
         btn.classList.remove('is-loading')
-        // btn.removeEventListener('click', send)
 
         setTimeout(() => {
           btn.classList.remove('is-success')
           btn.disabled = false
-          // btn.removeEventListener('click', send)
+        }, 2000)
+      } else {
+        btn.classList.add('is-error')
+        btn.classList.remove('is-loading')
+        setTimeout(() => {
+          btn.classList.remove('is-error')
+          btn.disabled = false
         }, 2000)
       }
     }
@@ -232,6 +252,7 @@ input {
   transition: background, padding 500ms ease-in-out;
   width: 100%;
   font-family: var(--font-family--text);
+  position: relative;
 }
 
 #svgbtn {
@@ -254,6 +275,21 @@ input {
   margin: auto;
 }
 
+.is-error {
+  background: red;
+  margin: auto;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+}
+.out {
+  display: none;
+}
+
+.is-error .out {
+  display: block;
+}
+
 .is-success #svgbtn {
   width: 15px;
   height: 15px;
@@ -266,7 +302,8 @@ input {
 }
 
 .is-loading span,
-.is-success span {
+.is-success span,
+.is-error span {
   display: none;
 }
 
