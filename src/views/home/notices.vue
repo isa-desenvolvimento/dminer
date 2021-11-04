@@ -19,7 +19,7 @@ import Folder from '@/components/folder/Folder.vue'
 import Notification from '@/components/notification/Notification.vue'
 import Title from '@/components/title/Title.vue'
 
-import { fetchAllNotification } from '@/api/notification.js'
+import useNotice from '@/composables/useNotice.js'
 
 export default {
   data() {
@@ -27,10 +27,9 @@ export default {
       notificationList: []
     }
   },
-  mounted() {
-    fetchAllNotification().then(
-      (notifications) => (this.notificationList = notifications)
-    )
+  setup(props) {
+    const { getNotices } = useNotice()
+    props.notificationList = getNotices.value
   },
   components: {
     Folder,
