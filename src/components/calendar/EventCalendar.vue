@@ -32,6 +32,7 @@ const options = reactive({
   editable: true,
   selectable: true,
   weekends: true,
+
   select: (arg) => {
     id.value = id.value + 1
 
@@ -84,10 +85,14 @@ options.events = getEvents.value
 watch(getEvents, () => {
   options.events = getEvents.value
 })
+
+defineExpose({
+  options
+})
 </script>
 
 <template>
-  <FullCalendar v-bind:options="options" />
+  <FullCalendar :options="options" />
 </template>
 <style>
 table[style] {

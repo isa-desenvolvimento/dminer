@@ -6,7 +6,7 @@
     :onClick="() => clickCalendar()"
   >
     <div class="container__calendar">
-      <calendar />
+      <calendar :ref="calendar" />
     </div>
   </folder>
   <transition name="modal">
@@ -17,18 +17,13 @@
         <label>Inicio:</label>
 
         <Datepicker
-          locale="'pt-BR'"
           v-model="event.start"
           placeholder="Select date"
         ></Datepicker>
 
         <label>Fim:</label>
 
-        <Datepicker
-          locale="'pt-BR'"
-          v-model="event.end"
-          placeholder="Select date"
-        ></Datepicker>
+        <Datepicker v-model="event.end" placeholder="Select date"></Datepicker>
 
         <button id="send" class="send" @click="sendEvent">
           <svg viewBox="0 0 90.594 59.714" id="svgbtn">
@@ -62,7 +57,7 @@
         </button>
       </template>
       <template v-slot:body>
-        <EventCalendar />
+        <EventCalendar :events="events" />
       </template>
     </modal>
   </transition>
@@ -75,12 +70,12 @@ import EventCalendar from '@/components/calendar/EventCalendar.vue'
 import Modal from '@/components/modal/Modal.vue'
 import useEvents from '@/composables/useEvents'
 
-const { getEvents, createEvent, updateEvent, deleteEvent } = useEvents()
+const { createEvent, getEvents } = useEvents()
 
 import Datepicker from 'vue3-date-time-picker'
 import 'vue3-date-time-picker/dist/main.css'
 import moment from 'moment'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import IconClose from '@/components/icons/IconClose.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 
@@ -88,10 +83,12 @@ export default {
   data() {
     return {
       showModal: false,
-      showDate: new Date()
+      showDate: new Date(),
+      events: []
     }
   },
   setup(props) {
+    const calendar = ref([])
     const event = reactive({
       start: new Date(),
       end: new Date(),
@@ -100,7 +97,8 @@ export default {
     })
 
     return {
-      event
+      event,
+      calendar
     }
   },
 
@@ -138,6 +136,8 @@ export default {
       if (result.errors.length === 0) {
         btn.classList.add('is-success')
         btn.classList.remove('is-loading')
+
+        this.calendar.value.events = getEvents.value
 
         setTimeout(() => {
           btn.classList.remove('is-success')
