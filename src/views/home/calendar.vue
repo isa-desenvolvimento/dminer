@@ -135,7 +135,7 @@ export default {
         end: formatEnd
       })
 
-      if (result.errors.length < 0) {
+      if (result.errors.length === 0) {
         btn.classList.add('is-success')
         btn.classList.remove('is-loading')
 
@@ -243,7 +243,7 @@ input {
 
 .send {
   background: none;
-  color: white;
+  color: #45981b;
   border: 1px solid #45981b;
   border-radius: 70px;
   box-shadow: 0 0 0 0 rgb(69 152 27 / 50%);
