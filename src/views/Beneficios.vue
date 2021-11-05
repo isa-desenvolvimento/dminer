@@ -1,5 +1,13 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <EventCalendar />
   </div>
 </template>
+
+<script>
+import EventCalendar from '@/components/calendar/EventCalendar.vue'
+
+export default {
+  components: { EventCalendar }
+}
+</script>

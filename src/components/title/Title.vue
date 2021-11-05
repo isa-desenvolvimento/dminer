@@ -1,16 +1,13 @@
 <template>
-  <div class="container__notification">
-    <h2><slot /></h2>
-  </div>
+  <h1><slot /></h1>
 </template>
 
 <style scoped>
-h2 {
+h1 {
   font-family: var(--font-family--title);
   color: var(--color-title);
   font-weight: 300;
-  right: 0.5rem;
-  bottom: -2rem;
   text-transform: uppercase;
+  padding: 0 1rem;
 }
 </style>

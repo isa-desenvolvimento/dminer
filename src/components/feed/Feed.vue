@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div
     class="container__feed"
     :style="{ 'background-image': `url(${feedSVG})` }"
@@ -67,10 +68,37 @@ export default {
       console.log('teste')
     }
   }
+=======
+  <icon-base
+    class="icon__feed"
+    icon-name="icon"
+    viewBox="0 0 250 500"
+    width="100%"
+    height="100%"
+  >
+    <icon-feed>
+      <div class="feed__head">
+        <h2>Feed</h2>
+      </div>
+      <div class="feed__content">
+        <slot />
+      </div>
+    </icon-feed>
+  </icon-base>
+</template>
+
+<script>
+import IconBase from '@/components/icons/IconBase.vue'
+import IconFeed from '@/components/icons/IconFeed.vue'
+
+export default {
+  components: { IconFeed, IconBase }
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
 }
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 .container__feed {
   display: grid;
   grid-template-rows: 0.1fr 0.9fr 0.1fr;
@@ -108,11 +136,33 @@ h2 {
   right: 1.5rem;
   bottom: -0.7rem;
 
+=======
+.icon__feed {
+  height: 105%;
+  width: 138%;
+  position: absolute;
+  top: -50px;
+  right: -25px;
+}
+
+.feed__head {
+  display: flex;
+  justify-content: center;
+  margin-left: 50%;
+  text-transform: uppercase;
+}
+.feed__content {
+  overflow-y: auto;
+}
+
+h2 {
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
   font-family: var(--font-family--title);
   color: var(--color-title);
   font-weight: 300;
 }
 
+<<<<<<< HEAD
 .icon {
   height: 100%;
   width: 100%;
@@ -123,5 +173,12 @@ h2 {
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
+=======
+@media only screen and (max-width: 1080px) {
+  .icon__feed {
+    width: 100%;
+    position: initial;
+  }
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
 }
 </style>

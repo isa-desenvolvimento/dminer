@@ -1,23 +1,23 @@
 <script>
-import Sidebar from '@/components/sidebar/Sidebar'
-import Banner from '@/components/banner/Banner'
-import Content from '@/components/content/Content'
+import Sidebar from '@/components/sidebar/Sidebar.vue'
+import Banner from '@/components/banner/Banner.vue'
+import Content from '@/components/content/Content.vue'
 
+import useUser from '@/composables/useUser'
 export default {
-  // setup() {
-  //   return {
-  //     handleResize({ width, height }) {
-  //       console.log('resized', width, height)
-  //     }
-  //   }
-  // },
-  components: { Sidebar, Banner, Content }
+  components: { Sidebar, Banner, Content },
+  setup() {
+    const { getUser } = useUser(1)
+    const propsImage = getUser.banner
+
+    return { propsImage, getUser }
+  }
 }
 </script>
 <template>
   <div>
-    <Sidebar />
-    <Banner />
+    <Sidebar :user="getUser" />
+    <Banner :propsImage="propsImage" />
 
     <Content />
   </div>
@@ -41,13 +41,17 @@ export default {
   --sidebar-green-medium: #89f45f;
   --sidebar-green-dark: #43df94;
   --sidebar-green-opacity: #55e48663;
+  --white: #ffffff
 
   --gray: #60645c;
+  --rgbGray: 108, 117, 125;
+  --bdColor: rgb(227, 228, 229);
 
   --sidebar-border: 2px solid var(--gray);
   --fine-border: 1px solid var(--gray);
 
   --avatar-border-left-right: 81px solid var(--sidebar-green-medium);
+  --avatar-border-left-right-white: 81px solid var(--white);
   --avatar-border-bottom-top: 30px solid transparent;
   --sidebar-item-active: var(--sidebar-green-opacity);
   --sidebar-item-hover: var(--sidebar-green-opacity);
@@ -64,6 +68,7 @@ export default {
 
   --font-family--title: 'Cera_Stencil_PRO_Medium';
   --font-family--text: 'Swis721_LtEx_BT_Light';
+  --font-weight--text: 300px;
 
   --color-title: var(--gray);
 
@@ -102,13 +107,19 @@ body {
 }
 
 #app {
-  font-family: 'Swis721_LtEx_BT_Light', Helvetica, Arial, sans-serif;
+  font-family: var(--font-family--text);
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 
+  width: 100vw;
   overflow: hidden;
+}
+
+table {
+  width: 100%;
+  height: 100%;
 }
 </style>

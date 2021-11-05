@@ -12,16 +12,26 @@
 
     <!-- Right content -->
     <div class="container__right">
+<<<<<<< HEAD
       <feed title="Feed">
         <Publication />
         <Publication />
         <Publication />
+=======
+      <feed>
+        <publication
+          v-for="(post, key) in PostList"
+          :key="key"
+          :content="post.content"
+        />
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
       </feed>
     </div>
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { sidebarWidth, collapsed } from '@/components/sidebar/state'
 import Publication from '@/components/publication/Publication'
 import Feed from '@/components/feed/Feed'
@@ -36,6 +46,25 @@ export default {
   setup() {
     return {
       sidebarWidth,
+=======
+import { sidebarWidth, collapsed } from '@/components/sidebar/state.js'
+
+import Feed from '@/components/feed/Feed.vue'
+import Publication from '@/components/publication/Publication.vue'
+import useFeed from '@/composables/useFeed.js'
+
+export default {
+  components: { Feed, Publication },
+
+  setup() {
+    const { getFeeds } = useFeed()
+
+    const PostList = getFeeds
+
+    return {
+      sidebarWidth,
+      PostList,
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
       handleResize({ width }) {
         if (width < 1080) {
           collapsed.value = true
@@ -61,7 +90,11 @@ export default {
 }
 
 .container__right {
+<<<<<<< HEAD
   width: 25%;
+=======
+  width: 20%;
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
   position: relative;
 }
 

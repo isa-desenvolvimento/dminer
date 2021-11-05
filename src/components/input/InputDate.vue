@@ -1,18 +1,39 @@
 <template>
-  <div class="container__provisorio">
-    <input v-model="value" />
-    <div class="container__date">
-      <span>{{ date }}</span>
-    </div>
-  </div>
+  <icon-base
+    icon-name="icon"
+    viewBox="0 0 500 50"
+    width="70%"
+    height="100%"
+    classe="input__date"
+  >
+    <icon-input-date>
+      <div class="container__provisorio">
+        <input
+          :value="value"
+          @change="$emit('update:modelValue', $event.target.value)"
+        />
+
+        <div class="container__date">
+          <span>{{ date }}</span>
+        </div>
+      </div>
+    </icon-input-date>
+  </icon-base>
 </template>
 
 <script>
-import { dateNowFormart } from '@/util/date'
+import { dateNowFormart } from '@/util/date.js'
+import IconInputDate from '@/components/icons/IconInputDate.vue'
+import IconBase from '../icons/IconBase.vue'
 
 export default {
-  props: ['modelValue'],
-  emits: ['update:modelValue'],
+  components: { IconInputDate, IconBase },
+  props: {
+    value: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       date: dateNowFormart()
@@ -33,36 +54,35 @@ export default {
 
 <style scoped>
 .container__provisorio {
-  padding: 1.5rem;
-  display: flex;
-  width: 100%;
-  height: 90%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  gap: 15rem;
-
-  background-image: url('~@/assets/widget/fild.svg');
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  gap: 8rem;
 }
 input {
-  width: 55%;
+  width: 100%;
   border: none;
-  height: 30%;
   background: transparent;
   margin: auto;
-  margin-left: 2.5rem;
+  margin-left: 1rem;
 
   font-family: var(--font-family--text);
   color: var(--color-title);
   font-weight: 300;
   font-size: 1rem;
+  margin-top: 0.4rem;
 }
 
 .container__date {
   font-family: var(--font-family--title);
   color: var(--color-title);
   font-weight: 300;
-  font-size: 1.5rem;
-  margin: auto;
-  padding-top: 1rem;
+  font-size: 0.7rem;
+  padding-top: 1.3rem;
+}
+
+@media only screen and (max-width: 1080px) {
+  .input__date {
+    width: 100%;
+  }
 }
 </style>

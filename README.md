@@ -1,6 +1,7 @@
 <h1 align="center">
 
-👾  INTRANET D.MINER👾
+👾 INTRANET D.MINER👾
+
 </h1>
 <p align="center">🚀  Sistema comunicação para colaboradores internos. 
 </p>
@@ -22,13 +23,13 @@ $ git clonegit@github.com:dminer-git/intranet.git
 # Acesse a pasta do projeto no terminal/cmd
 $ cd intranet
 
-# Instale as dependências 
+# Instale as dependências
 $ yarn install
 
 # Execute a aplicação em modo de desenvolvimento
-$ yarn serve
+$ yarn dev
 
-# O servidor inciará na porta:8080 - acesse <http://localhost:8080>
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 
 ```
 

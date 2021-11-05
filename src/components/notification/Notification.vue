@@ -6,7 +6,10 @@
         <slot />
       </div>
     </div>
+<<<<<<< HEAD
     <div class="notification__cable"></div>
+=======
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
   </div>
 </template>
 
@@ -14,6 +17,7 @@
 .container__notification {
   display: flex;
   /* justify-content: space-evenly; */
+<<<<<<< HEAD
   margin-left: auto;
   align-items: center;
 
@@ -41,4 +45,47 @@
 .container__notification:nth-of-type(odd) > .container__notification_title {
   transform: rotateY(180deg);
 }
+=======
+  align-items: center;
+  margin-bottom: 1rem;
+
+  cursor: pointer;
+  height: 76%;
+}
+.container__notification_title {
+  background-image: url('@/assets/widget/notification.svg');
+  background-repeat: no-repeat;
+  width: 90%;
+  height: 40%;
+
+  display: flex;
+  justify-content: center;
+  max-width: 30rem;
+  text-overflow: ellipsis;
+}
+
+.container__notification_title:nth-child(even) {
+  background-image: url('@/assets/widget/notification.svg');
+  background-repeat: no-repeat;
+  width: 90%;
+  height: 30%;
+
+  display: flex;
+  justify-content: center;
+  padding-right: 4rem;
+  max-width: 30rem;
+  text-overflow: ellipsis;
+}
+
+/* .container__notification:nth-child(even) {
+  transform: rotateY(180deg);
+}
+
+.container__notification:nth-child(even)
+  > .container__notification_title
+  > .notification__title {
+  transform: rotateY(180deg);
+  padding-right: 4rem;
+} */
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
 </style>

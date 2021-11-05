@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <g>
+=======
+  <g class="icon__button">
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
     <circle class="st0" cx="510.31" cy="410.55" r="383.77" />
     <circle class="st1" cx="510.31" cy="410.55" r="349.41" />
     <circle class="st2" cx="67.43" cy="429.04" r="60.43" />
@@ -11,31 +15,51 @@
   </g>
 </template>
 <style type="text/css" scope>
+<<<<<<< HEAD
 .st0 {
+=======
+.icon__button > .st0 {
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
   fill: #9fbec9;
   stroke: #231f20;
   stroke-width: 8;
   stroke-miterlimit: 10;
 }
+<<<<<<< HEAD
 .st1 {
+=======
+.icon__button > .st1 {
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
   fill: none;
   stroke: #231f20;
   stroke-width: 8;
   stroke-miterlimit: 10;
 }
+<<<<<<< HEAD
 .st2 {
+=======
+.icon__button > .st2 {
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
   fill: #4c5d5f;
   stroke: #231f20;
   stroke-width: 8;
   stroke-miterlimit: 10;
 }
+<<<<<<< HEAD
 .st3 {
+=======
+.icon__button > .st3 {
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
   fill: #4c5d5f;
   stroke: #aaff48;
   stroke-width: 16;
   stroke-miterlimit: 10;
 }
+<<<<<<< HEAD
 .st4 {
+=======
+.icon__button > .st4 {
+>>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
   fill: none;
   stroke: #aaff48;
   stroke-width: 16;
