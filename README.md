@@ -38,5 +38,6 @@ $ yarn dev
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Vue3](https://v3.vuejs.org/)
+- [Vite](https://vitejs.dev/) 
 - [Commitlint](https://commitlint.js.org/)
 - [Husky](https://www.husky.com.br/)
