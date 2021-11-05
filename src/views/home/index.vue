@@ -20,7 +20,7 @@ import birthday from '@/views/home/birthday.vue'
 import calendar from '@/views/home/calendar.vue'
 import notification from '@/views/home/notification.vue'
 import notices from '@/views/home/notices.vue'
-import remember from '@/views/home/remember.vue'
+import reminder from '@/views/home/reminder.vue'
 import quiz from '@/views/home/quiz.vue'
 
 import { VueDraggableNext } from 'vue-draggable-next'
@@ -42,7 +42,7 @@ export default {
         calendar,
         birthday,
         notices,
-        remember,
+        reminder,
         quiz
       ]
     }
