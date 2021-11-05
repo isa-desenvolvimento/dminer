@@ -17,16 +17,16 @@
   margin-bottom: 1rem;
 
   cursor: pointer;
+  height: 76%;
 }
 .container__notification_title {
   background-image: url('@/assets/widget/notification.svg');
   background-repeat: no-repeat;
   width: 90%;
-  height: 30%;
+  height: 40%;
 
   display: flex;
   justify-content: center;
-  padding-left: 4rem;
   max-width: 30rem;
   text-overflow: ellipsis;
 }

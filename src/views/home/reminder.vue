@@ -50,8 +50,8 @@ ul {
 li {
   border: 3px solid #60645c;
   border-radius: 0.5rem;
-  height: 14vh;
-  margin-bottom: 1rem;
+  height: 15vh;
+  margin-bottom: 1.5rem;
   width: 90%;
 }
 

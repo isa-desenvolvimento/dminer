@@ -4,6 +4,8 @@
     icon-name="icon"
     :onClick="onClick"
     viewBox="0 0 500 500"
+    width="100%"
+    height="100%"
   >
     <icon-folder-reminder>
       <div class="wrapper__notification">

@@ -81,19 +81,19 @@
 <style scope>
 .folder > .st0 {
   fill: #aaff48;
-  stroke-width: 2;
+  stroke-width: 1;
   stroke-miterlimit: 10;
 }
 .folder > .st1 {
   fill: none;
   stroke: #231f20;
-  stroke-width: 3;
+  stroke-width: 2;
   stroke-miterlimit: 10;
 }
 .folder > .st2 {
   fill: #aaff48;
   stroke: #231f20;
-  stroke-width: 3;
+  stroke-width: 2;
   stroke-miterlimit: 10;
 }
 .folder > .st3 {
