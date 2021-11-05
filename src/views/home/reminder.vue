@@ -1,5 +1,5 @@
 <template>
-  <folder
+  <WidgetReminder
     class="mt-3 cursor-move"
     title="lembrete"
     classContent="folder__reminder__content"
@@ -22,12 +22,11 @@
         </div>
       </li>
     </ul>
-  </folder>
+  </WidgetReminder>
 </template>
 
 <script>
-import Folder from '@/components/folder/Folder.vue'
-import Notification from '@/components/notification/Notification.vue'
+import WidgetReminder from '@/components/widget/WidgetReminder.vue'
 import Title from '@/components/title/Title.vue'
 
 import useReminder from '@/composables/useReminder.js'
@@ -40,8 +39,7 @@ export default {
     return { getReminders, dateHourFormart }
   },
   components: {
-    Folder,
-    Notification,
+    WidgetReminder,
     Title
   }
 }
@@ -56,7 +54,10 @@ ul {
   list-style-type: none;
 }
 li {
-  height: 38vh;
+  border: 3px solid #60645c;
+  border-radius: 0.5rem;
+  height: 19vh;
+  margin-bottom: 1rem;
 }
 
 .reminder_footer {
