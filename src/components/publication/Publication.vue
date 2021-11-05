@@ -8,7 +8,7 @@
     >
       <icon-publicationP>
         <div class="publication__title">
-          hduakshdkusahdukhaskduhusakuhdkuashdksauhdkasuhd
+          {{ content }}
         </div>
       </icon-publicationP>
     </icon-base>
@@ -20,6 +20,9 @@ import IconBase from '@/components/icons/IconBase.vue'
 import IconPublicationP from '@/components/icons/IconPublicationP.vue'
 
 export default {
+  props: {
+    content: { type: String, required: true }
+  },
   components: { IconBase, IconPublicationP }
 }
 </script>
@@ -37,7 +40,8 @@ export default {
   text-overflow: ellipsis;
   word-wrap: break-word;
   overflow: hidden;
-  text-align: start;
+  text-align: center;
   padding-left: 0.5rem;
+  font-size: 1.5rem;
 }
 </style>
