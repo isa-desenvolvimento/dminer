@@ -8,7 +8,11 @@
   >
     <icon-input-date>
       <div class="container__provisorio">
-        <input v-model="value" />
+        <input
+          :value="value"
+          @change="$emit('update:modelValue', $event.target.value)"
+        />
+
         <div class="container__date">
           <span>{{ date }}</span>
         </div>
@@ -24,8 +28,12 @@ import IconBase from '../icons/IconBase.vue'
 
 export default {
   components: { IconInputDate, IconBase },
-  props: ['modelValue'],
-  emits: ['update:modelValue'],
+  props: {
+    value: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       date: dateNowFormart()
@@ -61,7 +69,7 @@ input {
   color: var(--color-title);
   font-weight: 300;
   font-size: 1rem;
-  margin-top: 0.7rem;
+  margin-top: 0.4rem;
 }
 
 .container__date {

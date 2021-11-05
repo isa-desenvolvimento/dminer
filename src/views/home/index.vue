@@ -1,7 +1,9 @@
 <template>
   <div class="view__home">
     <section class="header__section">
-      <inputDate />
+      <form action="#" @submit.prevent="handleSuubmit">
+        <inputDate v-model="search" />
+      </form>
     </section>
     <section class="container__section">
       <draggable :list="listComponents" :move="log">
@@ -14,6 +16,7 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 import InputDate from '@/components/input/InputDate.vue'
 
 import birthday from '@/views/home/birthday.vue'
@@ -25,12 +28,15 @@ import quiz from '@/views/home/quiz.vue'
 
 import { VueDraggableNext } from 'vue-draggable-next'
 
+import useSearch from '@/composables/useSearch'
+
 export default {
   data() {
     return {
       listComponents: [],
       enabled: true,
-      dragging: false
+      dragging: false,
+      inputValue: ''
     }
   },
   mounted() {
@@ -47,6 +53,19 @@ export default {
       ]
     }
   },
+  setup() {
+    const search = ref('')
+    const { getSearch, setSearch } = useSearch()
+
+    return {
+      search,
+      handleSuubmit(e) {
+        setSearch(search.value)
+        const result = getSearch
+        console.log(result)
+      }
+    }
+  },
 
   components: {
     InputDate,
@@ -58,6 +77,13 @@ export default {
       // localStorage.position_components_home = JSON.stringify(
       //   this.listComponents
       // )
+    },
+    submit(event) {
+      console.log(this.inputValue)
+
+      if (this.inputValue) {
+        console.log(this.inputValue)
+      }
     }
   }
 }
