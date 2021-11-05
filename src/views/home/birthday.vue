@@ -2,15 +2,27 @@
   <folder
     class="mt-3 cursor-move"
     title="aniversário"
-    classContent="folder__notification__content"
+    classContent="folder__user__content"
   >
-    <notification v-for="item in notificationList" :key="item">
-      <template v-slot:title>
+    <ul>
+      <li
+        class="user_li"
+        v-for="(item, key) in getUsersBirthday"
+        :key="key"
+        :id="`user_li_${key}`"
+      >
+        <Avatar :user="user" />
         <Title>
-          {{ item.notificationDescrible }}
+          {{ item.name }}
         </Title>
-      </template>
-    </notification>
+        <div class="notices_footer">
+          <span>
+            <b>Data:</b>
+            {{ dateHourFormart(item.dtBirthday) }}
+          </span>
+        </div>
+      </li>
+    </ul>
   </folder>
 </template>
 
@@ -19,30 +31,39 @@ import Folder from '@/components/folder/Folder.vue'
 import Notification from '@/components/notification/Notification.vue'
 import Title from '@/components/title/Title.vue'
 
-import { fetchAllNotification } from '@/api/notification.js'
+import useUser from '@/composables/useUser.js'
+import { dateHourFormart } from '@/util/date.js'
+import Avatar from '@/components/avatar/Avatar.vue'
 
 export default {
-  data() {
-    return {
-      notificationList: []
-    }
-  },
-  mounted() {
-    fetchAllNotification().then(
-      (notifications) => (this.notificationList = notifications)
-    )
+  setup() {
+    const { getUsersBirthday } = useUser(1)
+
+    return { getUsersBirthday, dateHourFormart }
   },
   components: {
     Folder,
     Notification,
-    Title
+    Title,
+    Avatar
   }
 }
 </script>
 
 <style scoped>
-.folder__notification__content {
+.folder__user__content {
   width: 108%;
   margin-left: -12px;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  height: 38vh;
+}
+
+.user_footer {
+  display: inline-grid;
+  text-transform: uppercase;
 }
 </style>

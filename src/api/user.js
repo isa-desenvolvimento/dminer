@@ -11,6 +11,17 @@ export const fetchUser = async (id) => {
   return json.status === 200 ? json.data : []
 }
 
+export const fetchUsersBirthday = async (date) => {
+  const response = await fetch(`${baseURL}/birthdays/${date}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const json = await response.json()
+  return json.status === 200 ? json.data : []
+}
+
 export const fetchUpdateUser = async () => {
   const response = await fetch(`${baseURL}`, {
     method: 'PUT',

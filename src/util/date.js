@@ -9,3 +9,5 @@ export const dateNowFormart = () => {
 export const dateHourFormart = (date) => {
   return moment(date).format('DD/MM/YYYY hh:mm')
 }
+
+export const mounthCurrent = () => new Date().getMonth() + 1

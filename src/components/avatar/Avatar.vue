@@ -2,13 +2,16 @@
   <div>
     <div
       id="hexagono"
-      :style="{ 'background-image': `url(${previewImage})` }"
+      :style="{
+        'background-image': `url(${previewImage})`,
+        cursor: isClicked ? 'pointer' : 'default'
+      }"
       @click="selectImage"
     ></div>
 
     <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
 
-    <h2>{{ username }}</h2>
+    <h2>{{ user.name }}</h2>
   </div>
 </template>
 
@@ -23,8 +26,9 @@ export default {
     user: {
       type: String,
       required: false,
-      default: { avatar: null, username: '' }
-    }
+      default: { avatar: null, name: '' }
+    },
+    isClicked: { type: Boolean, default: true, required: false }
   },
   mounted(props) {
     if ((localStorage.avatar, !props?.user.avatar)) {
@@ -34,10 +38,9 @@ export default {
     }
   },
 
-  props: { username: { type: String, required: false } },
   methods: {
     selectImage() {
-      this.$refs.fileInput.click()
+      if (this.isClicked) this.$refs.fileInput.click()
     },
     pickFile() {
       let input = this.$refs.fileInput
