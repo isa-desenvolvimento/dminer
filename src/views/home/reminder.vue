@@ -14,12 +14,6 @@
         <Title>
           {{ item.reminderDescrible }}
         </Title>
-        <div class="notices_footer">
-          <span>
-            <b>Data:</b>
-            {{ dateHourFormart(item.dataHora) }}
-          </span>
-        </div>
       </li>
     </ul>
   </WidgetReminder>
@@ -56,8 +50,9 @@ ul {
 li {
   border: 3px solid #60645c;
   border-radius: 0.5rem;
-  height: 19vh;
+  height: 14vh;
   margin-bottom: 1rem;
+  width: 90%;
 }
 
 .reminder_footer {
