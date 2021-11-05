@@ -22,7 +22,7 @@
           <icon-base
             viewBox="0 0 1024 1024"
             icon-name="icon"
-            class="edit-icon"
+            class="folder_button"
             :onClick="onClick"
             width="70"
             height="70"
@@ -92,5 +92,23 @@ h1 {
   font-family: var(--font-family--title);
   color: var(--color-title);
   font-weight: 300;
+}
+
+.folder_button:hover {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(69, 152, 27, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(69, 152, 27, 0);
+  }
 }
 </style>

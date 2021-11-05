@@ -106,13 +106,18 @@ export default {
 
 .modal-default-button {
   display: block;
-  margin-top: -1.5rem;
+  margin-top: -1rem;
   position: absolute;
   left: -100px;
   width: 10%;
   padding: 0rem;
-
   cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.modal-default-button:hover {
+  animation: pulse 1.5s infinite;
 }
 
 /*
@@ -132,5 +137,19 @@ export default {
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(69, 152, 27, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(69, 152, 27, 0);
+  }
 }
 </style>
