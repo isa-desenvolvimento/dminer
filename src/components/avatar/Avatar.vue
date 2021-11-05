@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      id="hexagono"
+      :class="{ hexagono: !isBGWhite, hexagono_white: isBGWhite }"
       :style="{
         'background-image': `url(${previewImage})`,
         cursor: isClicked ? 'pointer' : 'default'
@@ -28,7 +28,8 @@ export default {
       required: false,
       default: { avatar: null, name: '' }
     },
-    isClicked: { type: Boolean, default: true, required: false }
+    isClicked: { type: Boolean, default: true, required: false },
+    isBGWhite: { type: Boolean, default: false, required: false }
   },
   mounted(props) {
     if ((localStorage.avatar, !props?.user.avatar)) {
@@ -60,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-#hexagono {
+.hexagono {
   width: 10rem;
   height: 10rem;
 
@@ -70,7 +71,7 @@ export default {
 
   cursor: pointer;
 }
-#hexagono:before {
+.hexagono:before {
   content: '';
   position: absolute;
   top: 0px;
@@ -81,7 +82,7 @@ export default {
   border-right: var(--avatar-border-left-right);
   border-bottom: var(--avatar-border-bottom-top);
 }
-#hexagono:after {
+.hexagono:after {
   content: '';
   position: absolute;
   bottom: 0px;
@@ -90,6 +91,29 @@ export default {
   height: 0;
   border-left: var(--avatar-border-left-right);
   border-right: var(--avatar-border-left-right);
+  border-top: var(--avatar-border-bottom-top);
+}
+
+.hexagono_white:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0;
+  height: 0;
+  border-left: var(--avatar-border-left-right-white);
+  border-right: var(--avatar-border-left-right-white);
+  border-bottom: var(--avatar-border-bottom-top);
+}
+.hexagono_white:after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: var(--avatar-border-left-right-white);
+  border-right: var(--avatar-border-left-right-white);
   border-top: var(--avatar-border-bottom-top);
 }
 

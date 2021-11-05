@@ -1,13 +1,13 @@
 <template>
-  <folder title="aniversário" classContent="folder__user__content">
+  <folder title="aniversário" classContent="folder__birthday__content">
     <ul>
       <li
-        class="user_li"
-        v-for="(item, key) in getReminders"
+        class="birthday_li"
+        v-for="(item, key) in getUsersBirthday"
         :key="key"
-        :id="`user_li_${key}`"
+        :id="`birthday_li_${key}`"
       >
-        <Avatar :user="user" />
+        <Avatar :user="item" isBGWhite />
 
         <div class="notices_footer">
           <Title>Fernando</Title>
@@ -28,15 +28,15 @@ import Title from '@/components/title/Title.vue'
 
 import { dateHourFormart } from '@/util/date.js'
 import Avatar from '@/components/avatar/Avatar.vue'
-import useReminder from '@/composables/useReminder'
+import useBirthday from '@/composables/useBirthday'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconCountQuiz from '@/components/icons/IconCountQuiz.vue'
 
 export default {
   setup() {
-    const { getReminders } = useReminder(1)
+    const { getUsersBirthday } = useBirthday()
 
-    return { getReminders, dateHourFormart }
+    return { getUsersBirthday, dateHourFormart }
   },
   components: {
     Folder,
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style scoped>
-.folder__user__content {
+.folder__birthday__content {
   width: 108%;
   margin-left: -12px;
 }

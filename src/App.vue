@@ -41,6 +41,7 @@ export default {
   --sidebar-green-medium: #89f45f;
   --sidebar-green-dark: #43df94;
   --sidebar-green-opacity: #55e48663;
+  --white: #ffffff
 
   --gray: #60645c;
   --rgbGray: 108, 117, 125;
@@ -50,6 +51,7 @@ export default {
   --fine-border: 1px solid var(--gray);
 
   --avatar-border-left-right: 81px solid var(--sidebar-green-medium);
+  --avatar-border-left-right-white: 81px solid var(--white);
   --avatar-border-bottom-top: 30px solid transparent;
   --sidebar-item-active: var(--sidebar-green-opacity);
   --sidebar-item-hover: var(--sidebar-green-opacity);
