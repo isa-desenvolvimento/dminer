@@ -153,7 +153,7 @@ export default {
         end: formatEnd
       })
 
-      if (result.errors.length !== 0) {
+      if (result.errors.length === 0) {
         btn.classList.add('is-success')
         btn.classList.remove('is-loading')
 
