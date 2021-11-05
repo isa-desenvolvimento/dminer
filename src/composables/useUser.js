@@ -1,6 +1,5 @@
 import { ref, onMounted } from 'vue'
 import { fetchUser, fetchUpdateUser, fetchUsersBirthday } from '@/api/user'
-import { mounthCurrent } from '@/util/date.js'
 
 export default function useUser(idUser) {
   const getUser = ref([])
@@ -11,8 +10,7 @@ export default function useUser(idUser) {
   }
 
   const setUsersBirthday = async () => {
-    const mounth = await mounthCurrent()
-    getUsersBirthday.value = await fetchUsersBirthday(mounth)
+    getUsersBirthday.value = await fetchUsersBirthday()
   }
 
   const setBanner = async () => {

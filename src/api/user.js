@@ -11,8 +11,8 @@ export const fetchUser = async (id) => {
   return json.status === 200 ? json.data : []
 }
 
-export const fetchUsersBirthday = async (date) => {
-  const response = await fetch(`${baseURL}/birthdays/${date}`, {
+export const fetchUsersBirthday = async () => {
+  const response = await fetch(`${baseURL}/birthdays`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
