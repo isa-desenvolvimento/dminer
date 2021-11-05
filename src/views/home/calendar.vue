@@ -25,36 +25,50 @@
 
         <Datepicker v-model="event.end" placeholder="Select date"></Datepicker>
 
-        <button id="send" class="send" @click="sendEvent">
-          <svg viewBox="0 0 90.594 59.714" id="svgbtn">
-            <polyline
-              class="check"
-              fill="none"
-              stroke="#FFFFFF"
-              stroke-width="10"
-              stroke-miterlimit="10"
-              points="1.768,23.532 34.415,56.179 88.826,1.768"
-            />
-          </svg>
-          <span>Enviar</span>
+        <icon-base
+          icon-name="icon"
+          viewBox="0 0 500 500"
+          width="100%"
+          height="100%"
+          classe="send"
+        >
+          <component
+            :is="buttonComponent"
+            @click="sendEvent"
+            id="send"
+            class="send"
+          >
+            <svg viewBox="0 0 90.594 59.714" id="svgbtn">
+              <polyline
+                class="check"
+                fill="none"
+                stroke="#000000"
+                stroke-width="10"
+                stroke-miterlimit="10"
+                points="1.768,23.532 34.415,56.179 88.826,1.768"
+              />
+            </svg>
+            <span id="span_send">Enviar</span>
+            <div class="out">
+              <icon-base
+                viewBox="0 0 32 32"
+                icon-name="icon"
+                width="20%"
+                height="20%"
+                class="icon_close"
+              >
+                <icon-close />
+              </icon-base>
+            </div>
 
-          <div class="out">
-            <icon-base
-              viewBox="0 0 32 32"
-              icon-name="icon"
-              height="15px"
-              width="15px"
-            >
-              <icon-close />
-            </icon-base>
-          </div>
-          <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </button>
+            <div class="lds-ellipsis">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </component>
+        </icon-base>
       </template>
       <template v-slot:body>
         <EventCalendar :events="events" />
@@ -78,13 +92,16 @@ import moment from 'moment'
 import { reactive, ref } from 'vue'
 import IconClose from '@/components/icons/IconClose.vue'
 import IconBase from '@/components/icons/IconBase.vue'
+import IconButtonSend from '@/components/icons/IconButtonSend.vue'
+import IconButtonError from '@/components/icons/IconButtonError.vue'
 
 export default {
   data() {
     return {
       showModal: false,
       showDate: new Date(),
-      events: []
+      events: [],
+      buttonComponent: 'icon-button-send'
     }
   },
   setup(props) {
@@ -109,7 +126,9 @@ export default {
     Modal,
     Datepicker,
     IconClose,
-    IconBase
+    IconButtonSend,
+    IconBase,
+    IconButtonError
   },
   methods: {
     clickCalendar() {
@@ -120,9 +139,10 @@ export default {
     },
     async sendEvent() {
       const btn = document.getElementById('send')
+      const span = document.getElementById('span_send')
 
       btn.classList.add('is-loading')
-      btn.disabled = true
+      span.classList.add('is-none')
 
       const formatStart = moment(this.event.start).format('YYYY-MM-DD hh:mm:ss')
       const formatEnd = moment(this.event.end).format('YYYY-MM-DD hh:mm:ss')
@@ -133,7 +153,7 @@ export default {
         end: formatEnd
       })
 
-      if (result.errors.length === 0) {
+      if (result.errors.length !== 0) {
         btn.classList.add('is-success')
         btn.classList.remove('is-loading')
 
@@ -141,14 +161,18 @@ export default {
 
         setTimeout(() => {
           btn.classList.remove('is-success')
+          span.classList.remove('is-none')
+
           btn.disabled = false
         }, 2000)
       } else {
         btn.classList.add('is-error')
         btn.classList.remove('is-loading')
+        this.buttonComponent = 'icon-button-error'
+
         setTimeout(() => {
           btn.classList.remove('is-error')
-          btn.disabled = false
+          this.buttonComponent = 'icon-button-send'
         }, 2000)
       }
     }
@@ -242,17 +266,14 @@ input {
 }
 
 .send {
-  background: none;
-  color: #45981b;
-  border: 1px solid #45981b;
-  border-radius: 70px;
-  box-shadow: 0 0 0 0 rgb(69 152 27 / 50%);
   cursor: pointer;
   font-size: 1rem;
-  transition: background, padding 500ms ease-in-out;
   width: 100%;
   font-family: var(--font-family--text);
   position: relative;
+
+  margin-top: -13px;
+  color: black;
 }
 
 #svgbtn {
@@ -271,28 +292,39 @@ input {
 }
 
 .is-success {
-  background: #45981b;
   margin: auto;
 }
 
+.is-error .send {
+  display: none;
+  margin-top: -15%;
+}
+
 .is-error {
-  background: red;
-  margin: auto;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
 }
+
 .out {
   display: none;
 }
 
+.icon_close {
+  width: 20%;
+  height: 20%;
+  margin-top: -20px;
+  margin-bottom: 35px;
+  color: #f21d1d;
+}
+
 .is-error .out {
   display: block;
+  margin-top: -15%;
 }
 
 .is-success #svgbtn {
-  width: 15px;
-  height: 15px;
+  width: 20%;
+  height: 20%;
 }
 
 .check {
@@ -301,9 +333,7 @@ input {
   transition: stroke-dashoffset 500ms ease-in-out;
 }
 
-.is-loading span,
-.is-success span,
-.is-error span {
+.is-none {
   display: none;
 }
 
@@ -343,15 +373,17 @@ input {
 .lds-ellipsis {
   display: none;
   position: relative;
-  top: -13px;
+  top: -50px;
+  left: 40%;
 }
 
 .lds-ellipsis div {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  background: #45981b;
+
+  background: #000000;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
