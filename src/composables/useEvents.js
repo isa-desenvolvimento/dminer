@@ -14,7 +14,7 @@ export default function useEvents() {
   }
 
   const createEvent = (event) => {
-    storeEvent(event)
+    return storeEvent(event)
   }
 
   const updateEvent = (event, id) => {
