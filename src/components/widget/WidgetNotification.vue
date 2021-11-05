@@ -1,24 +1,24 @@
 <template>
   <icon-base
-    class="container__folder"
+    class="container__notification"
     icon-name="icon"
     :onClick="onClick"
     viewBox="0 0 500 500"
   >
-    <icon-folder>
-      <div class="wrapper__folder">
-        <div class="folder__head">
+    <icon-folder-notification>
+      <div class="wrapper__notification">
+        <div class="notification__head">
           <h1>{{ title }}</h1>
         </div>
         <div
           :class="classContent"
-          class="folder__content"
+          class="notification__content"
           :style="{ 'max-heitemplateht': !isExpanded && '18rem' }"
           :id="id"
         >
           <slot />
         </div>
-        <div class="folder__footer">
+        <div class="notification__footer">
           <icon-base
             viewBox="0 0 1024 1024"
             icon-name="icon"
@@ -32,14 +32,15 @@
           </icon-base>
         </div>
       </div>
-    </icon-folder>
+    </icon-folder-notification>
   </icon-base>
 </template>
 
 <script>
 import IconButton from '@/components/icons/IconButton.vue'
-import IconFolder from '@/components/icons/IconFolder.vue'
+import IconNotices from '@/components/icons/IconNotices.vue'
 import IconBase from '@/components/icons/IconBase.vue'
+import IconFolderNotification from '@/components/icons/IconFolderNotification.vue'
 
 export default {
   props: {
@@ -52,36 +53,37 @@ export default {
   components: {
     IconBase,
     IconButton,
-    IconFolder
+    IconNotices,
+    IconFolderNotification
   }
 }
 </script>
 
 <style scoped>
-.container__folder {
+.container__notification {
   width: 100%;
   height: 100%;
 }
 
-.wrapper__folder {
+.wrapper__notification {
   display: grid;
   grid-auto-rows: 1fr 4.1fr 1fr;
   padding: 0 1rem;
 }
 
-.folder__head {
+.notification__head {
   display: flex;
   justify-content: flex-end;
   text-transform: uppercase;
 }
 
-.folder__content {
+.notification__content {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 300px;
 }
 
-.folder__footer {
+.notification__footer {
   display: flex;
   justify-content: flex-end;
   align-items: end;
