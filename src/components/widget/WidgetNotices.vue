@@ -1,24 +1,24 @@
 <template>
   <icon-base
-    class="container__folder"
+    class="container__notices"
     icon-name="icon"
     :onClick="onClick"
     viewBox="0 0 500 500"
   >
-    <icon-folder>
-      <div class="wrapper__folder">
-        <div class="folder__head">
+    <icon-notices>
+      <div class="wrapper__notices">
+        <div class="notices__head">
           <h2>{{ title }}</h2>
         </div>
         <div
           :class="classContent"
-          class="folder__content"
+          class="notices__content"
           :style="{ 'max-heitemplateht': !isExpanded && '18rem' }"
           :id="id"
         >
           <slot />
         </div>
-        <div class="folder__footer">
+        <div class="notices__footer">
           <icon-base
             viewBox="0 0 1024 1024"
             icon-name="icon"
@@ -32,13 +32,13 @@
           </icon-base>
         </div>
       </div>
-    </icon-folder>
+    </icon-notices>
   </icon-base>
 </template>
 
 <script>
 import IconButton from '@/components/icons/IconButton.vue'
-import IconFolder from '@/components/icons/IconFolder.vue'
+import IconNotices from '@/components/icons/IconNotices.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 
 export default {
@@ -52,36 +52,36 @@ export default {
   components: {
     IconBase,
     IconButton,
-    IconFolder
+    IconNotices
   }
 }
 </script>
 
 <style scoped>
-.container__folder {
+.container__notices {
   width: 100%;
   height: 100%;
 }
 
-.wrapper__folder {
+.wrapper__notices {
   display: grid;
   grid-auto-rows: 1fr 4.1fr 1fr;
   padding: 0 1rem;
 }
 
-.folder__head {
+.notices__head {
   display: flex;
   justify-content: flex-end;
   text-transform: uppercase;
 }
 
-.folder__content {
+.notices__content {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 300px;
 }
 
-.folder__footer {
+.notices__footer {
   display: flex;
   justify-content: flex-end;
   align-items: end;

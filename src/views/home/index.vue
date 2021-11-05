@@ -1,5 +1,5 @@
 <template>
-  <div class="view__documents">
+  <div class="view__home">
     <section class="header__section">
       <inputDate />
     </section>
@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-.view__documents {
+.view__home {
   /* display: grid;
   grid-template-rows: 1fr 3fr 3fr;
   height: 100%;
@@ -84,8 +84,9 @@ export default {
 }
 
 @media only screen and (max-width: 1080px) {
-  .view__documents {
+  .view__home {
     grid-gap: 1rem;
+    padding: 0 4rem;
   }
   .container__section > div {
     display: contents;

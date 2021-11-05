@@ -1,40 +1,79 @@
 <template>
-  <folder
+  <WidgetNotices
     class="mt-3 cursor-move"
-    title="avisos"
     classContent="folder__notification__content"
+    id="folder_notices"
   >
-    <notification v-for="item in notificationList" :key="item">
-      <template v-slot:title>
+    <ul>
+      <li
+        class="notifices_li"
+        v-for="(item, key) in noticeList"
+        :key="key"
+        :id="`notifices_li_${key}`"
+      >
         <Title>
-          {{ item.notificationDescrible }}
+          {{ item.creator }}
         </Title>
-      </template>
-    </notification>
-  </folder>
+        <span class="">{{ item.warning }}</span>
+        <div class="notices_footer">
+          <span>
+            <b>Prioridade:</b>
+            {{ item.priority }}
+          </span>
+
+          <br />
+          <span>
+            <b>Data:</b>
+            {{ item.date }}
+          </span>
+        </div>
+      </li>
+    </ul>
+  </WidgetNotices>
 </template>
 
 <script>
-import Folder from '@/components/folder/Folder.vue'
-import Notification from '@/components/notification/Notification.vue'
 import Title from '@/components/title/Title.vue'
 
 import useNotice from '@/composables/useNotice.js'
+import debounce from '@/util/debounce.js'
+import WidgetNotices from '@/components/widget/WidgetNotices.vue'
 
 export default {
   data() {
-    return {
-      notificationList: []
-    }
+    return { index: 0 }
   },
-  setup(props) {
+  setup() {
     const { getNotices } = useNotice()
-    props.notificationList = getNotices.value
+    const noticeList = getNotices
+
+    return { noticeList }
   },
   components: {
-    Folder,
     Notification,
-    Title
+    Title,
+    WidgetNotices
+  },
+  mounted() {
+    const folder = document.getElementById('folder_notices')
+    folder.addEventListener('scroll', debounce(this.handleScroll, 100))
+  },
+  destroyed() {
+    const folder = document.getElementById('folder_notices')
+    folder.removeEventListener('scroll', debounce(this.handleScroll, 100))
+  },
+  methods: {
+    handleScroll(event) {
+      // const notifices_li = document.querySelectorAll('.notifices_li')
+      // const folder_notices = document.getElementById('folder_notices')
+      // notifices_li.forEach((element, key) => {
+      //   console.log(element.getBoundingClientRect().top)
+      //   if (element.getBoundingClientRect().top > 200) {
+      //     folder_notices.scrollTop =
+      //       element.getBoundingClientRect().height + 200
+      //   }
+      // })
+    }
   }
 }
 </script>
@@ -43,5 +82,16 @@ export default {
 .folder__notification__content {
   width: 108%;
   margin-left: -12px;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  height: 38vh;
+}
+
+.notices_footer {
+  display: inline-grid;
+  text-transform: uppercase;
 }
 </style>
