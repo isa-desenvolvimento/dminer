@@ -16,18 +16,22 @@
 
 <script>
 import { sidebarWidth } from '@/components/sidebar/state'
+
 export default {
+  data() {
+    return { previewImage: null }
+  },
+  props: {
+    propsImage: { type: String, required: false, default: null }
+  },
   setup() {
     return { sidebarWidth }
   },
-  data() {
-    return {
-      previewImage: null
-    }
-  },
-  mounted() {
-    if (localStorage.banner) {
+  mounted(props) {
+    if (localStorage.banner && !props?.propsImage) {
       this.previewImage = localStorage.banner
+    } else if (props?.propsImage) {
+      this.previewImage = props?.propsImage
     }
   },
 

@@ -1,7 +1,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { fetchUser, fetchUpdateUser } from '@/api/user'
 
-export default function useUser(getUserRef = null, idUser) {
+export default function useUser(idUser) {
   const getUser = ref([])
 
   const setUser = async () => {
@@ -9,12 +9,10 @@ export default function useUser(getUserRef = null, idUser) {
   }
 
   const setBanner = async () => {
-    await fetchUpdateUser(idUser, getUserRef.value)
+    await fetchUpdateUser(idUser)
   }
 
   onMounted(setUser)
-
-  watch(getUser, setUser)
 
   return {
     setUser,

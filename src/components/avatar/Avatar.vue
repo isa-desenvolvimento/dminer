@@ -19,9 +19,18 @@ export default {
       previewImage: null
     }
   },
-  mounted() {
-    if (localStorage.avatar) {
+  props: {
+    user: {
+      type: String,
+      required: false,
+      default: { avatar: null, username: '' }
+    }
+  },
+  mounted(props) {
+    if ((localStorage.avatar, !props?.user.avatar)) {
       this.previewImage = localStorage.avatar
+    } else if (props?.user.avatar) {
+      this.previewImage = props?.user.avatar
     }
   },
 
