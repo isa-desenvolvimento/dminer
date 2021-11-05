@@ -27,9 +27,9 @@ $ cd intranet
 $ yarn install
 
 # Execute a aplicação em modo de desenvolvimento
-$ yarn serve
+$ yarn dev
 
-# O servidor inciará na porta:8080 - acesse <http://localhost:8080>
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 
 ```
 
@@ -38,5 +38,6 @@ $ yarn serve
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Vue3](https://v3.vuejs.org/)
+- [Vite](https://vitejs.dev/) 
 - [Commitlint](https://commitlint.js.org/)
 - [Husky](https://www.husky.com.br/)
