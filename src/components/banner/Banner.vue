@@ -10,10 +10,6 @@
       :style="{ 'background-image': `url(${previewImage})` }"
       @click="selectImage"
     ></div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
     <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
   </div>
 </template>
@@ -22,19 +18,6 @@
 import { sidebarWidth } from '@/components/sidebar/state'
 
 export default {
-<<<<<<< HEAD
-  setup() {
-    return { sidebarWidth }
-  },
-  data() {
-    return {
-      previewImage: null
-    }
-  },
-  mounted() {
-    if (localStorage.banner) {
-      this.previewImage = localStorage.banner
-=======
   data() {
     return { previewImage: null }
   },
@@ -49,7 +32,6 @@ export default {
       this.previewImage = localStorage.banner
     } else if (props?.propsImage) {
       this.previewImage = props?.propsImage
->>>>>>> 3c00bf038ce8e07b0fca646fa200513cea84c6a5
     }
   },
 
