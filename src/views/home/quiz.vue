@@ -24,7 +24,12 @@
           width="135%"
           height="30%"
         >
-          <icon-count-quiz />
+          <icon-count-quiz>
+            <div class="quiz_count">
+              <div>2</div>
+              <div>2</div>
+            </div>
+          </icon-count-quiz>
         </icon-base>
       </li>
     </ul>
@@ -97,6 +102,12 @@ li {
 .quiz_footer {
   display: flex;
   justify-content: space-evenly;
+}
+
+.quiz_count {
+  font-size: 5rem;
+  color: white;
+  font-family: var(--font-family--text);
 }
 
 button {

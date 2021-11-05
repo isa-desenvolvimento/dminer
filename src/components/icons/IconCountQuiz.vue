@@ -99,7 +99,13 @@
 	293.7,356.6 330.2,383.7 332.8,356.6 307.1,348.7 "
     />
   </g>
-  <foreignObject y="0%" x="0" width="100%" height="100%" class="content__feed">
+  <foreignObject
+    y="12%"
+    x="51%"
+    width="100%"
+    height="100%"
+    class="content__feed"
+  >
     <slot />
   </foreignObject>
 </template>
