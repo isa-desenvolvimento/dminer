@@ -2,14 +2,10 @@
   <folder title="benefícios" classWrapper="folder_documents" hasButton="false">
     <ul>
       <li v-for="(item, key) in list" :key="key">
-        <div
-          class="image"
-          :style="{ 'background-image': `url(${item.image})` }"
-        ></div>
-        <div class="benefit_content">
-          <Title>{{ item.title }}</Title>
-          {{ item.content }}
-        </div>
+        <image-details :image="item.image">
+          <template v-slot:title>{{ item.title }}</template>
+          <template v-slot:content>{{ item.content }}</template>
+        </image-details>
       </li>
     </ul>
   </folder>
@@ -20,6 +16,7 @@ import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
 
 import useDocument from '@/composables/useDocument'
+import ImageDetails from '../components/ImageDetails.vue'
 
 export default {
   data() {
@@ -55,7 +52,8 @@ export default {
   },
   components: {
     Folder,
-    Title
+    Title,
+    ImageDetails
   }
 }
 </script>
@@ -63,34 +61,16 @@ export default {
 <style scoped>
 ul {
   list-style-type: none;
-  position: relative;
-}
-li {
   display: grid;
-  grid-template-columns: 40% 60%;
-  justify-content: start;
-  align-content: stretch;
-  border: 1px solid;
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 4px;
-  margin-right: 1rem;
-
-  max-height: 10rem;
-  word-wrap: break-word;
-}
-.image {
-  background-size: cover;
-  width: 10rem;
-  height: 10rem;
-  background-repeat: no-repeat;
 }
 
-.benefit_content {
-  font-size: 0.8rem;
-  text-overflow: ellipsis;
-  padding: 1rem;
-  margin-top: -2rem;
+li {
+  width: 75%;
+  justify-self: left;
+}
+
+li:nth-child(even) {
+  justify-self: right;
 }
 
 a {
