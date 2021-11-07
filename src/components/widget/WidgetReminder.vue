@@ -1,6 +1,6 @@
 <template>
   <icon-base
-    class="container__notification"
+    class="container__reminder"
     icon-name="icon"
     :onClick="onClick"
     viewBox="0 0 500 500"
@@ -8,23 +8,23 @@
     height="100%"
   >
     <icon-folder-reminder>
-      <div class="wrapper__notification">
-        <div class="notification__head">
+      <div class="wrapper__reminder">
+        <div class="reminder__head">
           <h1>{{ title }}</h1>
         </div>
         <div
           :class="classContent"
-          class="notification__content"
+          class="reminder__content"
           :style="{ 'max-heitemplateht': !isExpanded && '18rem' }"
           :id="id"
         >
           <slot />
         </div>
-        <div class="notification__footer">
+        <div class="reminder__footer">
           <icon-base
             viewBox="0 0 1024 1024"
             icon-name="icon"
-            class="edit-icon"
+            class="folder_button"
             :onClick="onClick"
             width="70"
             height="70"
@@ -62,30 +62,30 @@ export default {
 </script>
 
 <style scoped>
-.container__notification {
+.container__reminder {
   width: 100%;
   height: 100%;
 }
 
-.wrapper__notification {
+.wrapper__reminder {
   display: grid;
   grid-auto-rows: 1fr 4.1fr 1fr;
   padding: 0 1rem;
 }
 
-.notification__head {
+.reminder__head {
   display: flex;
   justify-content: flex-end;
   text-transform: uppercase;
 }
 
-.notification__content {
+.reminder__content {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 300px;
 }
 
-.notification__footer {
+.reminder__footer {
   display: flex;
   justify-content: flex-end;
   align-items: end;
