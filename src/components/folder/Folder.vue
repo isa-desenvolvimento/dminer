@@ -18,7 +18,7 @@
         >
           <slot />
         </div>
-        <div class="folder__footer">
+        <div class="folder__footer" v-if="hasButton">
           <icon-base
             viewBox="0 0 1024 1024"
             icon-name="icon"
@@ -47,7 +47,8 @@ export default {
     isExpanded: { type: Boolean, required: false, default: false },
     onClick: { type: Function, required: false },
     classContent: { type: String, required: false },
-    id: { type: String, required: false }
+    id: { type: String, required: false },
+    hasButton: { type: Boolean, required: false, default: true }
   },
   components: {
     IconBase,
@@ -67,6 +68,8 @@ export default {
   display: grid;
   grid-auto-rows: 1fr 4.1fr 1fr;
   padding: 0 1rem;
+
+  margin-top: -0.5rem;
 }
 
 .folder__head {
