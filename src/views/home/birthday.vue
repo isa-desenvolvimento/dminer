@@ -3,14 +3,14 @@
     <ul>
       <li
         class="birthday_li"
-        v-for="(item, key) in getUsersBirthday"
+        v-for="(item, key) in getBirthdays"
         :key="key"
         :id="`birthday_li_${key}`"
       >
-        <Avatar :user="item" isBGWhite />
+        <Avatar :avatar="item.avatar" isBGWhite />
 
         <div class="notices_footer">
-          <Title>Fernando</Title>
+          <Title>{{ item.name }}</Title>
           <span>
             <b>Data:</b>
             {{ dateHourFormart(item.dtBirthday) }}
@@ -23,28 +23,22 @@
 
 <script>
 import Folder from '@/components/folder/Folder.vue'
-import Notification from '@/components/notification/Notification.vue'
 import Title from '@/components/title/Title.vue'
+import Avatar from '@/components/avatar/Avatar.vue'
 
 import { dateHourFormart } from '@/util/date.js'
-import Avatar from '@/components/avatar/Avatar.vue'
 import useBirthday from '@/composables/useBirthday'
-import IconBase from '@/components/icons/IconBase.vue'
-import IconCountQuiz from '@/components/icons/IconCountQuiz.vue'
 
 export default {
   setup() {
-    const { getUsersBirthday } = useBirthday()
+    const { getBirthdays } = useBirthday()
 
-    return { getUsersBirthday, dateHourFormart }
+    return { getBirthdays, dateHourFormart }
   },
   components: {
     Folder,
-    Notification,
     Title,
-    Avatar,
-    IconBase,
-    IconCountQuiz
+    Avatar
   }
 }
 </script>

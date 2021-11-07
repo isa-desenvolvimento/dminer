@@ -11,7 +11,7 @@
 
     <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
 
-    <h2>{{ user.name }}</h2>
+    <h2>{{ username }}</h2>
   </div>
 </template>
 
@@ -23,19 +23,16 @@ export default {
     }
   },
   props: {
-    user: {
-      type: String,
-      required: false,
-      default: { avatar: null, name: '' }
-    },
+    avatar: { type: String, required: false, default: null },
+    username: { type: String, required: false, default: '' },
     isClicked: { type: Boolean, default: true, required: false },
     isBGWhite: { type: Boolean, default: false, required: false }
   },
   mounted(props) {
-    if ((localStorage.avatar, !props?.user.avatar)) {
+    if ((localStorage.avatar, !props?.avatar)) {
       this.previewImage = localStorage.avatar
-    } else if (props?.user.avatar) {
-      this.previewImage = props?.user.avatar
+    } else if (props?.avatar) {
+      this.previewImage = props?.avatar
     }
   },
 

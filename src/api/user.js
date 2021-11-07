@@ -8,7 +8,7 @@ export const fetchUser = async (id) => {
     }
   })
   const json = await response.json()
-  return json.status === 200 ? json.data : []
+  return response.status === 200 ? json.data : []
 }
 
 export const fetchUsersBirthday = async () => {
@@ -19,7 +19,7 @@ export const fetchUsersBirthday = async () => {
     }
   })
   const json = await response.json()
-  return json.status === 200 ? json.data : []
+  return response.status === 200 ? json.data : []
 }
 
 export const fetchUpdateUser = async () => {
@@ -30,5 +30,5 @@ export const fetchUpdateUser = async () => {
     }
   })
   const json = await response.json()
-  return json.status === 200 ? json.data : []
+  return response.status === 200 ? json.data : []
 }
