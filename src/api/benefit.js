@@ -1,6 +1,6 @@
 const baseURL = 'https://dminer-api.herokuapp.com/api/benefits'
 
-export const fetchAll = async () => {
+export const fetchAllBenefits = async () => {
   const response = await fetch(`${baseURL}/all`, {
     method: 'GET',
     headers: {

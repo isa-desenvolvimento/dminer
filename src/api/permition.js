@@ -1,6 +1,6 @@
 const baseURL = 'https://dminer-api.herokuapp.com/api/permition'
 
-export const fetchAll = async () => {
+export const fetchAllPermitions = async () => {
   const response = await fetch(`${baseURL}/all`, {
     method: 'GET',
     headers: {

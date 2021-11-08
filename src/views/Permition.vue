@@ -18,12 +18,12 @@ import Title from '@/components/title/Title.vue'
 import Select from '@/components/Select.vue'
 
 import usePermition from '@/composables/usePermition'
-import useUser from '@/composables/useUser'
+import useAllUsers from '@/composables/useAllUsers'
 
 export default {
   setup() {
     const { getPermition } = usePermition()
-    const { getAllUsers } = useUser()
+    const { getAllUsers } = useAllUsers()
 
     return { getPermition, getAllUsers }
   },

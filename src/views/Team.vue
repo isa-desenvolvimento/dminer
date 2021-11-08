@@ -21,11 +21,11 @@ import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
 import ImageDetails from '@/components/ImageDetails.vue'
 
-import useUser from '@/composables/useUser'
+import useAllUsers from '@/composables/useAllUsers'
 
 export default {
   setup() {
-    const { getAllUsers } = useUser()
+    const { getAllUsers } = useAllUsers()
 
     return { getAllUsers }
   },

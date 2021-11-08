@@ -1,6 +1,6 @@
 const baseURL = 'https://dminer-api.herokuapp.com/api/document'
 
-export const fetchAll = async () => {
+export const fetchAllDocuments = async () => {
   const response = await fetch(`${baseURL}/all`, {
     method: 'GET',
     headers: {
