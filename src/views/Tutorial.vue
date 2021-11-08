@@ -1,8 +1,8 @@
 <template>
-  <folder title="benefícios" classWrapper="folder_documents" hasButton="false">
+  <folder title="tutoriais" classWrapper="folder_documents" hasButton="false">
     <ul>
       <li v-for="(item, key) in list" :key="key">
-        <image-details :image="item.image">
+        <image-details :image="item.image" :category="item.category">
           <template v-slot:title>{{ item.title }}</template>
           <template v-slot:content>{{ item.content }}</template>
         </image-details>
@@ -23,6 +23,7 @@ export default {
     const list = [
       {
         title: 'teste',
+        category: 'categoria',
         image:
           'https://br.web.img3.acsta.net/newsv7/19/05/15/17/35/0837341.jpg',
         content:
@@ -30,6 +31,7 @@ export default {
       },
       {
         title: 'teste2',
+        category: 'categoria',
         image:
           'https://1.bp.blogspot.com/-U-4jKAotb3U/XzigweF2LbI/AAAAAAAAQsY/V2LDI5Jz2go0QEERdGwvhgJHAec_f6ysACLcBGAsYHQ/s600/rick+and+morty+the+other+five.png',
         content:
@@ -37,6 +39,7 @@ export default {
       },
       {
         title: 'teste2',
+        category: 'categoria',
         image:
           'https://1.bp.blogspot.com/-U-4jKAotb3U/XzigweF2LbI/AAAAAAAAQsY/V2LDI5Jz2go0QEERdGwvhgJHAec_f6ysACLcBGAsYHQ/s600/rick+and+morty+the+other+five.png',
         content:
@@ -65,12 +68,9 @@ ul {
 }
 
 li {
-  width: 75%;
-  justify-self: left;
-}
-
-li:nth-child(even) {
-  justify-self: right;
+  width: 90%;
+  border-top: 1px solid;
+  margin-right: 1rem;
 }
 
 a {

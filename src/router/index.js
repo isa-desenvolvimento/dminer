@@ -25,7 +25,7 @@ const routes = [
   {
     path: '/tutoriais',
     name: 'Tutoriais',
-    component: () => import('@/views/Tutoriais.vue')
+    component: () => import('@/views/Tutorial.vue')
   },
   {
     path: '/permissoes',

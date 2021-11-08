@@ -7,8 +7,8 @@
     <div class="image_details_content">
       <h2>
         <slot name="title" />
-        <div class="image_details_categorie" v-if="categorie">
-          {{ categorie }}
+        <div class="image_details_categorie" v-if="category">
+          {{ category }}
         </div>
       </h2>
       <span><slot name="content" /></span>
@@ -20,7 +20,7 @@
 export default {
   props: {
     image: { type: String, required: true },
-    categorie: { type: String, required: false, default: 'categoria' }
+    category: { type: String, required: false, default: '' }
   }
 }
 </script>
