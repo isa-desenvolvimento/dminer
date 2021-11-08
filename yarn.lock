@@ -2877,6 +2877,11 @@ vue-eslint-parser@^8.0.1:
     lodash "^4.17.21"
     semver "^7.3.5"
 
+vue-next-select@^2.10.1:
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/vue-next-select/-/vue-next-select-2.10.1.tgz#5f1a7fad1b542c249bb33a14b9eec867e964c407"
+  integrity sha512-qyAij4Skz8eWzYiDScrIuz+xChnUsCNomxSdp3yogRB/IWS4uJ5z9SIvbn1uclVdYlQrFEf3f0vu/VYI1FRRIQ==
+
 vue-router@^4.0.0-0:
   version "4.0.12"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.12.tgz#8dc792cddf5bb1abcc3908f9064136de7e13c460"
