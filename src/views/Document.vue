@@ -1,5 +1,5 @@
 <template>
-  <folder title="d-guide" classWrapper="folder_documents" hasButton="false">
+  <folder title="d-guide" classWrapper="folder_documents" :hasButton="false">
     <ul>
       <li v-for="(item, key) in list" :key="key">
         <a :href="item.link" target="_blank">

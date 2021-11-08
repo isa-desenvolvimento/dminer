@@ -18,7 +18,7 @@
         >
           <slot />
         </div>
-        <div class="folder__footer">
+        <div class="folder__footer" v-if="hasButton">
           <icon-base
             viewBox="0 0 1024 1024"
             icon-name="icon"

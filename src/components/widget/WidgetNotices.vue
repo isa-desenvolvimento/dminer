@@ -18,7 +18,7 @@
         >
           <slot />
         </div>
-        <div class="notices__footer">
+        <div class="notices__footer" v-if="hasButton">
           <icon-base
             viewBox="0 0 1024 1024"
             icon-name="icon"
@@ -47,7 +47,8 @@ export default {
     isExpanded: { type: Boolean, required: false, default: false },
     onClick: { type: Function, required: false },
     classContent: { type: String, required: false },
-    id: { type: String, required: false }
+    id: { type: String, required: false },
+    hasButton: { type: Boolean, required: false, default: true }
   },
   components: {
     IconBase,

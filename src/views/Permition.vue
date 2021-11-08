@@ -1,5 +1,5 @@
 <template>
-  <folder title="permissões" classWrapper="folder_documents" hasButton="false">
+  <folder title="permissões" classWrapper="folder_documents" :hasButton="false">
     <ul>
       <li v-for="(item, key) in list" :key="key">
         <h4>{{ item.fullname }}</h4>

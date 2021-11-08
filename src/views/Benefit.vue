@@ -1,5 +1,5 @@
 <template>
-  <folder title="benefícios" classWrapper="folder_documents" hasButton="false">
+  <folder title="benefícios" classWrapper="folder_documents" :hasButton="false">
     <ul>
       <li v-for="(item, key) in list" :key="key">
         <image-details :image="item.image">
