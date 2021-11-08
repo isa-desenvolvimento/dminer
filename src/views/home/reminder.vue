@@ -1,9 +1,5 @@
 <template>
-  <WidgetReminder
-    class="mt-3 cursor-move"
-    title="lembrete"
-    classContent="folder__reminder__content"
-  >
+  <WidgetReminder title="lembrete" classContent="folder__reminder__content">
     <ul>
       <li
         class="reminder_li"
@@ -50,8 +46,8 @@ ul {
 li {
   border: 3px solid #60645c;
   border-radius: 0.5rem;
-  height: 15vh;
-  margin-bottom: 1.5rem;
+  height: 13vh;
+  margin-bottom: 1.6rem;
   width: 90%;
 }
 
