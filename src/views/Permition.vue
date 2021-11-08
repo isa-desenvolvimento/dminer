@@ -15,13 +15,15 @@
 <script>
 import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
+import Select from '@/components/Select.vue'
 
 import usePermition from '@/composables/usePermition'
-import Select from '@/components/Select.vue'
+import useUser from '@/composables/useUser'
 
 export default {
   setup() {
-    const { getPermition, getAllUsers } = usePermition()
+    const { getPermition } = usePermition()
+    const { getAllUsers } = useUser()
 
     return { getPermition, getAllUsers }
   },
