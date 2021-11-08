@@ -1,11 +1,11 @@
 <template>
   <folder title="permissões" classWrapper="folder_documents" :hasButton="false">
     <ul>
-      <li v-for="(item, key) in list" :key="key">
-        <h4>{{ item.fullname }}</h4>
+      <li v-for="(item, key) in getAllUsers" :key="key">
+        <h4>{{ item.name }}</h4>
         <div class="permition_select">
           <label>permitir:</label>
-          <Select />
+          <Select :options="getPermition" />
         </div>
       </li>
     </ul>
@@ -16,34 +16,14 @@
 import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
 
-import useDocument from '@/composables/useDocument'
+import usePermition from '@/composables/usePermition'
 import Select from '@/components/Select.vue'
 
 export default {
-  data() {
-    const list = [
-      {
-        fullname: 'teste',
-        content:
-          'dkuhaskudhksauhdkhsadkuhsadkuhaskduhsakudhaskdhukusahdkasuhdkahudkahudskahudukahdkahusdksauhdkashudkashdkasuhdkashdkua'
-      },
-      {
-        fullname: 'teste2',
-        content:
-          'dkuhaskudhksauhdkhsadkuhsadkuhaskduhsakudhaskdhukusahdkasuhdkahudkahudskahudukahdkahusdksauhdkashudkashdkasuhdkashdkua'
-      },
-      {
-        fullname: 'teste2',
-        content:
-          'dkuhaskudhksauhdkhsadkuhsadkuhaskduhsakudhaskdhukusahdkasuhdkahudkahudskahudukahdkahusdksauhdkashudkashdkasuhdkashdkua'
-      }
-    ]
-    return { list }
-  },
   setup() {
-    const { getDocuments } = useDocument()
+    const { getPermition, getAllUsers } = usePermition()
 
-    return { getDocuments }
+    return { getPermition, getAllUsers }
   },
   components: {
     Folder,

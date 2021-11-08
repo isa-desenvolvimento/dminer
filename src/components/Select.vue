@@ -8,9 +8,10 @@ import VueSelect from 'vue-next-select'
 import 'vue-next-select/dist/index.min.css'
 
 export default {
-  setup() {
+  props: { optionsProps: { type: Array, required: true, default: [] } },
+  setup(props) {
     const value = ref(0)
-    const options = reactive([0, 1, 2])
+    const options = reactive(props.optionsProps)
     return {
       value,
       options

@@ -14,9 +14,9 @@
 <script>
 import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
+import ImageDetails from '@/components/ImageDetails.vue'
 
 import useBenefit from '@/composables/useBenefit'
-import ImageDetails from '@/components/ImageDetails.vue'
 
 export default {
   setup() {
