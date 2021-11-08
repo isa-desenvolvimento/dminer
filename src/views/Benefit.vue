@@ -1,7 +1,7 @@
 <template>
   <folder title="benefícios" classWrapper="folder_documents" :hasButton="false">
     <ul>
-      <li v-for="(item, key) in list" :key="key">
+      <li v-for="(item, key) in getBenefits" :key="key">
         <image-details :image="item.image">
           <template v-slot:title>{{ item.title }}</template>
           <template v-slot:content>{{ item.content }}</template>
@@ -15,40 +15,14 @@
 import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
 
-import useDocument from '@/composables/useDocument'
+import useBenefit from '@/composables/useBenefit'
 import ImageDetails from '@/components/ImageDetails.vue'
 
 export default {
-  data() {
-    const list = [
-      {
-        title: 'teste',
-        image:
-          'https://br.web.img3.acsta.net/newsv7/19/05/15/17/35/0837341.jpg',
-        content:
-          'dkuhaskudhksauhdkhsadkuhsadkuhaskduhsakudhaskdhukusahdkasuhdkahudkahudskahudukahdkahusdksauhdkashudkashdkasuhdkashdkua'
-      },
-      {
-        title: 'teste2',
-        image:
-          'https://1.bp.blogspot.com/-U-4jKAotb3U/XzigweF2LbI/AAAAAAAAQsY/V2LDI5Jz2go0QEERdGwvhgJHAec_f6ysACLcBGAsYHQ/s600/rick+and+morty+the+other+five.png',
-        content:
-          'dkuhaskudhksauhdkhsadkuhsadkuhaskduhsakudhaskdhukusahdkasuhdkahudkahudskahudukahdkahusdksauhdkashudkashdkasuhdkashdkua'
-      },
-      {
-        title: 'teste2',
-        image:
-          'https://1.bp.blogspot.com/-U-4jKAotb3U/XzigweF2LbI/AAAAAAAAQsY/V2LDI5Jz2go0QEERdGwvhgJHAec_f6ysACLcBGAsYHQ/s600/rick+and+morty+the+other+five.png',
-        content:
-          'dkuhaskudhksauhdkhsadkuhsadkuhaskduhsakudhaskdhukusahdkasuhdkahudkahudskahudukahdkahusdksauhdkashudkashdkasuhdkashdkua'
-      }
-    ]
-    return { list }
-  },
   setup() {
-    const { getDocuments } = useDocument()
+    const { getBenefits } = useBenefit()
 
-    return { getDocuments }
+    return { getBenefits }
   },
   components: {
     Folder,
