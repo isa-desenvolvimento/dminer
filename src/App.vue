@@ -4,18 +4,21 @@ import Banner from '@/components/banner/Banner.vue'
 import Content from '@/components/content/Content.vue'
 
 import useUser from '@/composables/useUser'
+
+import { ref } from 'vue'
 export default {
   components: { Sidebar, Banner, Content },
   setup() {
     const { getUser } = useUser(1)
-    return { getUser }
+    const user = ref(getUser)
+    return { user }
   }
 }
 </script>
 <template>
   <div>
-    <Sidebar :user="getUser" />
-    <Banner :propsImage="getUser.banner" />
+    <Sidebar :user="user" />
+    <Banner :propsImage="user.banner" />
 
     <Content />
   </div>

@@ -1,15 +1,17 @@
 <template>
   <div>
     <div
-      :class="{ hexagono: !isBirthday, hexagono_white: isBirthday }"
+      class="hex"
+      @click="selectImage"
       :style="{
         'background-image': `url(${previewImage})`,
-        cursor: isClicked ? 'pointer' : 'default'
+        cursor: isClicked ? 'pointer' : 'default',
+        width: width,
+        height: height
       }"
-      @click="selectImage"
-    ></div>
-
-    <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
+    >
+      <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
+    </div>
 
     <h2>{{ username }}</h2>
   </div>
@@ -17,17 +19,23 @@
 
 <script>
 export default {
-  props: {
-    avatar: { type: String, required: false, default: null },
-    username: { type: String, required: false, default: '' },
-    isClicked: { type: Boolean, default: true, required: false },
-    isBirthday: { type: Boolean, default: false, required: false }
-  },
   data() {
     return {
-      previewImage: this.avatar
+      previewImage: null
     }
   },
+  props: {
+    avatar: { type: String, required: true, default: null },
+    username: { type: String, required: false, default: '' },
+    isClicked: { type: Boolean, default: true, required: false },
+    width: { type: String, required: false, default: '8rem' },
+    height: { type: String, required: false, default: '9rem' }
+  },
+  mounted() {
+    this.previewImage =
+      this.avatar || localStorage.avatar || 'src/assets/widget/avatar.svg'
+  },
+
   methods: {
     selectImage() {
       if (this.isClicked) this.$refs.fileInput.click()
@@ -50,80 +58,28 @@ export default {
 </script>
 
 <style scoped>
-.hexagono,
-.hexagono_white {
-  width: 10rem;
-  height: 10rem;
-
-  background-size: cover;
-  background-position: center center;
+.hex {
+  display: flex;
+  justify-content: center;
   position: relative;
 
-  cursor: pointer;
-}
-.hexagono:before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 0;
-  height: 0;
-  border-left: var(--avatar-border-left-right);
-  border-right: var(--avatar-border-left-right);
-  border-bottom: var(--avatar-border-bottom-top);
-}
-.hexagono:after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: var(--avatar-border-left-right);
-  border-right: var(--avatar-border-left-right);
-  border-top: var(--avatar-border-bottom-top);
-}
+  min-width: 5rem;
+  min-height: 5rem;
 
-.hexagono_white:before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 0;
-  height: 0;
-  border-left: var(--avatar-border-left-right-white);
-  border-right: var(--avatar-border-left-right-white);
-  border-bottom: var(--avatar-border-bottom-top);
-}
-.hexagono_white:after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: var(--avatar-border-left-right-white);
-  border-right: var(--avatar-border-left-right-white);
-  border-top: var(--avatar-border-bottom-top);
-}
+  background-color: transparent;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 
-/* .container {
-  width: 100%;
-  background-color: red;
-  position: fixed;
-  top: 0;
-  height: 5rem;
-  transition: 0.2s linear;
-} */
-
-.imagePreviewWrapper {
-  width: 100%;
-  height: 100%;
-  display: block;
-  cursor: pointer;
-  margin: 0 auto 30px;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
+  background-repeat: repeat;
 }
 
 .imageInput {
