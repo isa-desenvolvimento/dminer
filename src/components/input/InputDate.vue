@@ -2,7 +2,7 @@
   <icon-base
     icon-name="icon"
     viewBox="0 0 500 50"
-    width="70%"
+    width="100%"
     height="100%"
     classe="input__date"
   >

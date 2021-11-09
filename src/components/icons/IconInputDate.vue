@@ -127,7 +127,7 @@
     <slot />
   </foreignObject>
 </template>
-<style>
+<style scoped>
 .input__date > .st0 {
   fill: #4f5c5f;
   stroke: #000000;
@@ -182,7 +182,7 @@
   stroke-width: 0.4867;
   stroke-miterlimit: 10;
 }
-.st9 {
+.input__date > .st9 {
   fill: #a4bcc7;
   stroke: #000000;
   stroke-width: 0.4867;
