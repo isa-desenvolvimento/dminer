@@ -12,10 +12,10 @@
             <span>{{ item.question }}</span>
           </div>
           <div class="quiz_footer">
-            <button type="button" class="first">
+            <button type="button" class="first" @click="count(item.id, 'a')">
               <span>{{ item.optionA }}</span>
             </button>
-            <button type="button" class="second">
+            <button type="button" class="second" @click="count(item.id, 'b')">
               <span>{{ item.optionB }}</span>
             </button>
           </div>
@@ -30,8 +30,8 @@
         >
           <icon-count-quiz>
             <div class="quiz_count">
-              <div @click="count(item.id, 'optionA')">2</div>
-              <div @click="count(item.id, 'optionB')">3</div>
+              <div>{{ item.countA }}</div>
+              <div>{{ item.countB }}</div>
             </div>
           </icon-count-quiz>
         </icon-base>
@@ -56,7 +56,6 @@ export default {
   methods: {
     count(id, item) {
       this.updateCount(id, item)
-      console.log(item)
     }
   },
   components: {
@@ -95,7 +94,6 @@ li {
 .icon_quiz_count {
   position: absolute;
   z-index: 2;
-  cursor: pointer;
 }
 
 .quiz_question {
