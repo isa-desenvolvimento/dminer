@@ -194,6 +194,7 @@ export default {
 .menu {
   justify-content: center;
   margin-top: 10%;
+  overflow-y: scroll;
 }
 
 h1 {

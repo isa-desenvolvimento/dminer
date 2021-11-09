@@ -3,17 +3,21 @@
     <ul>
       <li
         class="user_li"
-        v-for="(item, key) in getReminders"
+        v-for="(item, key) in getQuizs"
         :key="key"
         :id="`user_li_${key}`"
       >
         <div class="container_quiz">
           <div class="quiz_question">
-            <span>kdauhksahdkahskdhksahdksahdkashd</span>
+            <span>{{ item.question }}</span>
           </div>
           <div class="quiz_footer">
-            <button type="button" class="first"><span>Sim</span></button>
-            <button type="button" class="second"><span>Não</span></button>
+            <button type="button" class="first">
+              <span>{{ item.optionA }}</span>
+            </button>
+            <button type="button" class="second">
+              <span>{{ item.optionB }}</span>
+            </button>
           </div>
         </div>
 
@@ -26,8 +30,8 @@
         >
           <icon-count-quiz>
             <div class="quiz_count">
-              <div>2</div>
-              <div>2</div>
+              <div @click="count(item.id, 'optionA')">2</div>
+              <div @click="count(item.id, 'optionB')">3</div>
             </div>
           </icon-count-quiz>
         </icon-base>
@@ -38,26 +42,25 @@
 
 <script>
 import Folder from '@/components/folder/Folder.vue'
-import Notification from '@/components/notification/Notification.vue'
-import Title from '@/components/title/Title.vue'
-
-import { dateHourFormart } from '@/util/date.js'
-import Avatar from '@/components/avatar/Avatar.vue'
-import useReminder from '@/composables/useReminder'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconCountQuiz from '@/components/icons/IconCountQuiz.vue'
 
+import useQuiz from '@/composables/useQuiz'
+
 export default {
   setup() {
-    const { getReminders } = useReminder(1)
+    const { getQuizs, updateCount } = useQuiz()
 
-    return { getReminders, dateHourFormart }
+    return { getQuizs, updateCount }
+  },
+  methods: {
+    count(id, item) {
+      this.updateCount(id, item)
+      console.log(item)
+    }
   },
   components: {
     Folder,
-    Notification,
-    Title,
-    Avatar,
     IconBase,
     IconCountQuiz
   }
@@ -87,10 +90,12 @@ li {
   display: grid;
   grid-template-rows: 80% 20%;
   padding: 0.5rem;
+  width: 75%;
 }
 .icon_quiz_count {
   position: absolute;
   z-index: 2;
+  cursor: pointer;
 }
 
 .quiz_question {
