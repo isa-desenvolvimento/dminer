@@ -1,5 +1,5 @@
 <template>
-  <g>
+  <g class="icon_feed_view">
     <linearGradient
       id="SVGID_1_"
       gradientUnits="userSpaceOnUse"
@@ -299,59 +299,59 @@
     </g>
   </g>
 </template>
-<style type="text/css" scoped>
-.st0 {
+<style scoped>
+.icon_feed_view > .st0 {
   fill: url(#SVGID_1_);
   stroke: #231f20;
   stroke-width: 2;
   stroke-miterlimit: 10;
 }
 
-.st1 {
+.icon_feed_view > .st1 {
   clip-path: url(#SVGID_00000139279871328186426440000012454784800700494778_);
   fill: #9fbec9;
   stroke: #231f20;
   stroke-width: 0.9;
   stroke-miterlimit: 10;
 }
-.st2 {
+.icon_feed_view > .st2 {
   clip-path: url(#SVGID_00000146477045010952111520000002458392532606998924_);
 }
-.st3 {
+.icon_feed_view > .st3 {
   fill: none;
 }
-.st4 {
+.icon_feed_view > .st4 {
   fill: #1f191a;
 }
-.st5 {
+.icon_feed_view > .st5 {
   clip-path: url(#SVGID_00000176732204913669960600000004380694413396424839_);
   fill: none;
 }
-.st6 {
+.icon_feed_view > .st6 {
   fill: #9fbec9;
   stroke: #231f20;
   stroke-width: 3;
   stroke-miterlimit: 10;
 }
-.st7 {
+.icon_feed_view > .st7 {
   fill: #9fbec9;
   stroke: #231f20;
   stroke-width: 2;
   stroke-miterlimit: 10;
 }
-.st8 {
+.icon_feed_view > .st8 {
   fill: none;
   stroke: #231f20;
   stroke-width: 4;
   stroke-miterlimit: 10;
 }
-.st9 {
+.icon_feed_view > .st9 {
   fill: #4c5d5f;
   stroke: #231f20;
   stroke-width: 4;
   stroke-miterlimit: 10;
 }
-.st10 {
+.icon_feed_view > .st10 {
   fill: none;
   stroke: #aaff48;
   stroke-width: 6;

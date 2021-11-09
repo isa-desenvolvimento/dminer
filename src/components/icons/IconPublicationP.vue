@@ -1,7 +1,7 @@
 <template>
   <g class="publication__p">
     <rect x="2.3" y="2.4" class="st0" width="401" height="233.8" />
-    <g>
+    <g class="publication__p">
       <g>
         <g>
           <defs>
@@ -262,7 +262,7 @@
   </foreignObject>
 </template>
 
-<style>
+<style scoped>
 .publication__p > .st0 {
   opacity: 0.2;
   fill: #aaff48;
