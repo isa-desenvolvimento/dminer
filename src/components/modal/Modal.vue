@@ -8,7 +8,7 @@
         width="70%"
         height="100%"
       >
-        <icon-modal>
+        <component :is="modal">
           <div class="modal-container">
             <div class="modal-header">
               <button class="modal-default-button" @click="$emit('close')">
@@ -31,7 +31,7 @@
               <slot name="body"></slot>
             </div>
           </div>
-        </icon-modal>
+        </component>
       </icon-base>
     </div>
   </div>
@@ -39,14 +39,19 @@
 
 <script>
 import IconModal from '@/components/icons/IconModal.vue'
+import IconFolder from '@/components/icons/IconFolder.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconButtonClose from '@/components/icons/IconButtonClose.vue'
 
 export default {
+  props: {
+    modal: { type: String, required: false, default: 'icon-modal' }
+  },
   components: {
     IconBase,
     IconModal,
-    IconButtonClose
+    IconButtonClose,
+    IconFolder
   }
 }
 </script>

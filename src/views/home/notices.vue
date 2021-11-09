@@ -3,6 +3,7 @@
     class="mt-3 cursor-move"
     classContent="folder__notification__content"
     id="folder_notices"
+    :onClick="openAddNotices"
   >
     <ul>
       <li
@@ -30,6 +31,12 @@
       </li>
     </ul>
   </WidgetNotices>
+
+  <transition name="modal">
+    <modal v-if="showModal" @close="showModal = false" modal="icon-folder">
+      <template v-slot:body></template>
+    </modal>
+  </transition>
 </template>
 
 <script>
@@ -38,10 +45,23 @@ import Title from '@/components/title/Title.vue'
 import useNotice from '@/composables/useNotice.js'
 import debounce from '@/util/debounce.js'
 import WidgetNotices from '@/components/widget/WidgetNotices.vue'
+import Modal from '@/components/modal/Modal.vue'
+import Send from '@/components/button/Send.vue'
+import Select from '@/components/Select.vue'
 
 export default {
   data() {
-    return { index: 0 }
+    return {
+      index: 0,
+      showModal: false,
+      priorityList: ['Alta', 'Média', 'Baixa'],
+      notice: {
+        warning: '',
+        date: new Date(),
+        priority: 'Média',
+        users: []
+      }
+    }
   },
   setup() {
     const { getNotices } = useNotice()
@@ -52,7 +72,10 @@ export default {
   components: {
     Notification,
     Title,
-    WidgetNotices
+    WidgetNotices,
+    Modal,
+    Send,
+    Select
   },
   mounted() {
     const folder = document.getElementById('folder_notices')
@@ -73,6 +96,12 @@ export default {
       //       element.getBoundingClientRect().height + 200
       //   }
       // })
+    },
+    submit() {
+      console.log('submit')
+    },
+    openAddNotices() {
+      this.showModal = true
     }
   }
 }

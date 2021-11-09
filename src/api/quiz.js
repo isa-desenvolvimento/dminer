@@ -1,7 +1,7 @@
 const baseURL = 'https://dminer-api.herokuapp.com/api/survey'
 
 export const fetchAllQuiz = async () => {
-  const response = await fetch(`${baseURL}/`, {
+  const response = await fetch(`${baseURL}/all`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
