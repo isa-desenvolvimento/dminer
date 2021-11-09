@@ -19,7 +19,9 @@
               {{ item.email }}
             </div>
             <div class="team_container_span">
+              <div class="icon_green"></div>
               {{ dayMounthFormart(item.dtBirthday) }}
+              <div class="icon_green"></div>
               <a :href="item.linkedin" target="_blank">linkedin</a>
             </div>
           </div>
@@ -84,6 +86,9 @@ li {
   text-align: start;
   margin-top: -1.5rem;
 
+  display: grid;
+  grid-template-rows: 50% 40% 33%;
+
   text-transform: uppercase;
 }
 
@@ -91,6 +96,18 @@ li {
   font-family: var(--font-family--title);
   font-size: 0.7rem;
   font-weight: var(--font-weight);
+}
+
+.team_container_span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.icon_green {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--sidebar-green-ligth);
 }
 
 a {
