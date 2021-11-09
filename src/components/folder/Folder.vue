@@ -3,9 +3,9 @@
     class="container__folder"
     icon-name="icon"
     :onClick="onClick"
-    viewBox="0 0 500 500"
+    :viewBox="viewbox"
   >
-    <icon-folder>
+    <component :is="folder">
       <div class="wrapper__folder">
         <div class="folder__head">
           <h1>{{ title }}</h1>
@@ -32,7 +32,7 @@
           </icon-base>
         </div>
       </div>
-    </icon-folder>
+    </component>
   </icon-base>
 </template>
 
@@ -40,6 +40,7 @@
 import IconButton from '@/components/icons/IconButton.vue'
 import IconFolder from '@/components/icons/IconFolder.vue'
 import IconBase from '@/components/icons/IconBase.vue'
+import IconModalFolder from '@/components/icons/IconModalFolder.vue'
 
 export default {
   props: {
@@ -48,12 +49,15 @@ export default {
     onClick: { type: Function, required: false },
     classContent: { type: String, required: false },
     id: { type: String, required: false },
-    hasButton: { type: Boolean, required: false, default: true }
+    hasButton: { type: Boolean, required: false, default: true },
+    folder: { type: String, required: false, default: 'icon-folder' },
+    viewbox: { type: String, required: false, default: '0 0 500 500' }
   },
   components: {
     IconBase,
     IconButton,
-    IconFolder
+    IconFolder,
+    IconModalFolder
   }
 }
 </script>

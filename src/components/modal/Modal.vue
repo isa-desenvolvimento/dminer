@@ -42,6 +42,7 @@ import IconModal from '@/components/icons/IconModal.vue'
 import IconFolder from '@/components/icons/IconFolder.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconButtonClose from '@/components/icons/IconButtonClose.vue'
+import IconModalFolder from '@/components/icons/IconModalFolder.vue'
 
 export default {
   props: {
@@ -51,7 +52,8 @@ export default {
     IconBase,
     IconModal,
     IconButtonClose,
-    IconFolder
+    IconFolder,
+    IconModalFolder
   }
 }
 </script>

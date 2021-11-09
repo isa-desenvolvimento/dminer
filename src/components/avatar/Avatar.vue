@@ -63,7 +63,7 @@ export default {
   justify-content: center;
   position: relative;
 
-  min-width: 5rem;
+  min-width: 3rem;
   min-height: 5rem;
 
   background-color: transparent;

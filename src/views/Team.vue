@@ -1,15 +1,15 @@
 <template>
-  <folder title="equipe" classWrapper="folder_documents" :hasButton="false">
+  <folder
+    title="equipe"
+    folder="icon-modal-folder"
+    :hasButton="false"
+    viewbox="0 0 700 500"
+  >
     <ul>
       <li v-for="(item, key) in getAllUsers" :key="key">
         <div class="team_container">
           <div class="team_avatar">
-            <Avatar
-              width="100%"
-              height="100%"
-              :avatar="item.avatar"
-              isBirthday
-            />
+            <Avatar width="90%" height="80%" :avatar="item.avatar" isBirthday />
           </div>
           <div class="team_container_text">
             <div class="team_container_name">
@@ -56,28 +56,41 @@ ul {
   list-style-type: none;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-gap: 2rem;
+  width: 90%;
+  justify-items: center;
 }
 
 li {
   display: grid;
+  background-image: url(@/assets/widget/frame-team.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  width: 100%;
+  height: 100%;
 }
 
 .team_container {
   display: grid;
   grid-template-columns: 30% 70%;
-  grid-gap: 1.5rem;
-}
-.team_avatar {
-  width: 30%;
-  height: 30%;
+  padding: 1rem;
+  padding-left: 2rem;
 }
 
 .team_container_text {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   justify-self: start;
   align-self: center;
   text-align: start;
+  margin-top: -1.5rem;
+
+  text-transform: uppercase;
+}
+
+.team_container_name {
+  font-family: var(--font-family--title);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight);
 }
 
 a {
