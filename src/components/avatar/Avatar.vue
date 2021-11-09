@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      :class="{ hexagono: !isBGWhite, hexagono_white: isBGWhite }"
+      :class="{ hexagono: !isBirthday, hexagono_white: isBirthday }"
       :style="{
         'background-image': `url(${previewImage})`,
         cursor: isClicked ? 'pointer' : 'default'
@@ -17,25 +17,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      previewImage: null
-    }
-  },
   props: {
     avatar: { type: String, required: false, default: null },
     username: { type: String, required: false, default: '' },
     isClicked: { type: Boolean, default: true, required: false },
-    isBGWhite: { type: Boolean, default: false, required: false }
+    isBirthday: { type: Boolean, default: false, required: false }
   },
-  mounted(props) {
-    if ((localStorage.avatar, !props?.avatar)) {
-      this.previewImage = localStorage.avatar
-    } else if (props?.avatar) {
-      this.previewImage = props?.avatar
+  data() {
+    return {
+      previewImage: this.avatar
     }
   },
-
   methods: {
     selectImage() {
       if (this.isClicked) this.$refs.fileInput.click()
@@ -58,7 +50,8 @@ export default {
 </script>
 
 <style scoped>
-.hexagono {
+.hexagono,
+.hexagono_white {
   width: 10rem;
   height: 10rem;
 

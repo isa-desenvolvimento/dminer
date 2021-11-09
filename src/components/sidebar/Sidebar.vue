@@ -20,7 +20,9 @@ import {
 } from './state'
 
 export default {
-  props: {},
+  props: {
+    user: null
+  },
   components: {
     SidebarLink,
     Avatar,
@@ -35,7 +37,7 @@ export default {
     IconEdit,
     IconBase
   },
-  setup() {
+  setup(props) {
     return {
       collapsed,
       toggleSidebar,
@@ -68,7 +70,7 @@ export default {
         <icon-base icon-name="icon" class="edit-icon">
           <icon-edit />
         </icon-base>
-        <Avatar username="D.MINER" />
+        <Avatar :avatar="user.avatar" :username="user.name" />
       </div>
     </div>
     <div class="menu" :style="{ display: collapsed ? 'block' : 'grid' }">

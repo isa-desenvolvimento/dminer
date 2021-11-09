@@ -18,24 +18,13 @@
 import { sidebarWidth } from '@/components/sidebar/state'
 
 export default {
+  props: { propsImage: { type: String, required: false, default: null } },
   data() {
-    return { previewImage: null }
-  },
-  props: {
-    propsImage: { type: String, required: false, default: null }
+    return { previewImage: this.propsImage }
   },
   setup() {
     return { sidebarWidth }
   },
-  mounted(props) {
-    if (localStorage.banner && !props?.propsImage) {
-      this.previewImage = localStorage.banner
-    } else if (props?.propsImage) {
-      this.previewImage = props?.propsImage
-    }
-  },
-
-  props: { toggleSidebar: Boolean },
   methods: {
     selectImage() {
       this.$refs.fileInput.click()

@@ -8,16 +8,14 @@ export default {
   components: { Sidebar, Banner, Content },
   setup() {
     const { getUser } = useUser(1)
-    const propsImage = getUser.banner
-
-    return { propsImage, getUser }
+    return { getUser }
   }
 }
 </script>
 <template>
   <div>
     <Sidebar :user="getUser" />
-    <Banner :propsImage="propsImage" />
+    <Banner :propsImage="getUser.banner" />
 
     <Content />
   </div>
@@ -51,7 +49,7 @@ export default {
   --fine-border: 1px solid var(--gray);
 
   --avatar-border-left-right: 81px solid var(--sidebar-green-medium);
-  --avatar-border-left-right-white: 81px solid var(--white);
+  --avatar-border-left-right-white: 81px solid white;
   --avatar-border-bottom-top: 30px solid transparent;
   --sidebar-item-active: var(--sidebar-green-opacity);
   --sidebar-item-hover: var(--sidebar-green-opacity);

@@ -7,7 +7,7 @@
         :key="key"
         :id="`birthday_li_${key}`"
       >
-        <Avatar :avatar="item.avatar" isBGWhite />
+        <Avatar :avatar="item.avatar" isBirthday />
 
         <div class="notices_footer">
           <Title>{{ item.name }}</Title>
