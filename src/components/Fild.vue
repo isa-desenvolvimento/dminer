@@ -1,29 +1,63 @@
 <template>
-  <div class="container_input">
+  <div class="container_input" @click="focus($event)">
     <div>
       <label v-if="text">{{ text }}:</label>
-      <input class="input_form" type="text" @change="$emit('value')" />
+      <input
+        :id="`container_input_${text}`"
+        class="input_form"
+        type="text"
+        @change="$emit('value')"
+        :required="required"
+      />
       <div>
         <icon-base
           viewBox="0 0 500 58"
           width="100%"
           height="100%"
           class="fild_container_icon"
+          :class="`container_input_${text}`"
         >
           <icon-line></icon-line>
         </icon-base>
       </div>
+      <div v-if="isError" class="fild_container_error">campo obrigatório</div>
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 import IconBase from './icons/IconBase.vue'
 import IconLine from './icons/IconLine.vue'
 export default {
+  mounted() {
+    if (this.isError) {
+      const circle = document.querySelector(
+        `.container_input_${this.text} .icon__line > .st1`
+      )
+      circle.style.fill = 'red'
+    }
+  },
   components: { IconLine, IconBase },
   props: {
-    text: { type: String, required: false }
+    text: { type: String, required: false },
+    required: { type: Boolean, required: false, default: false },
+    isError: { type: Boolean, required: false, default: false }
+  },
+  setup() {
+    const fildSet = ref(null)
+
+    return { fildSet }
+  },
+  methods: {
+    focus(e) {
+      console.log(e)
+      const input = document.getElementById(`container_input_${this.text}`)
+      input.focus()
+
+      // const line = document.getElementsByClassName(`container_input_${text} `container_input_${text}`)
+      // line.style('`container_input_${text}`)
+    }
   }
 }
 </script>
@@ -39,6 +73,7 @@ export default {
   z-index: 1;
   grid-template-columns: 25% auto; */
   position: relative;
+  cursor: text;
 }
 
 label {
@@ -82,5 +117,12 @@ label {
   padding: 0;
   padding-top: 0.5rem;
   font-size: 0.8rem;
+}
+
+.fild_container_error {
+  font-size: 0.5rem;
+  color: red;
+  text-align: start;
+  margin-top: -0.7rem;
 }
 </style>

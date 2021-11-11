@@ -3,7 +3,7 @@
     <widget-modal
       v-if="showModal"
       layout="icon-modal-folder"
-      :title="'cadastro'"
+      :title="'cadastro de usuário'"
     >
       <template v-slot:body>
         <div class="form_container">
@@ -11,7 +11,7 @@
 
           <div class="form_container_text">
             <fild-input :text="'data de nascimento'" />
-            <fild-input :text="'cargo'" />
+            <fild-input :text="'cargo'" isError />
             <fild-input :text="'e-mail'" />
             <fild-input :text="'equipe'" />
             <fild-input :text="'apelido'" />
