@@ -1,41 +1,50 @@
 <template>
-  <folder
-    title="equipe"
-    folder="icon-modal-folder"
-    viewbox="0 0 700 500"
-    :onClick="openModal"
-  >
-    <ul>
-      <li v-for="(item, key) in getAllUsers" :key="key">
-        <div class="team_container">
-          <div class="team_avatar">
-            <Avatar width="90%" height="80%" :avatar="item.avatar" isBirthday />
-          </div>
-          <div class="team_container_text">
-            <div class="team_container_name">
-              {{ item.name }} • {{ item.area }}
+  <transition name="modal">
+    <widget-modal
+      v-if="showModalEquipe"
+      title="Equipe"
+      :onClick="openModal"
+      @close="this.$router.push('/')"
+    >
+      <template v-slot:body>
+        <ul>
+          <li v-for="(item, key) in getAllUsers" :key="key">
+            <div class="team_container">
+              <div class="team_avatar">
+                <Avatar
+                  width="90%"
+                  height="80%"
+                  :avatar="item.avatar"
+                  isBirthday
+                />
+              </div>
+              <div class="team_container_text">
+                <div class="team_container_name">
+                  {{ item.name }} • {{ item.area }}
+                </div>
+                <div class="team_container_email">
+                  {{ item.email }}
+                </div>
+                <div class="team_container_span">
+                  <div class="icon_green"></div>
+                  {{ dayMounthFormart(item.dtBirthday) }}
+                  <div class="icon_green"></div>
+                  <a :href="item.linkedin" target="_blank">linkedin</a>
+                </div>
+              </div>
             </div>
-            <div class="team_container_email">
-              {{ item.email }}
-            </div>
-            <div class="team_container_span">
-              <div class="icon_green"></div>
-              {{ dayMounthFormart(item.dtBirthday) }}
-              <div class="icon_green"></div>
-              <a :href="item.linkedin" target="_blank">linkedin</a>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </folder>
+          </li>
+        </ul>
+      </template>
+    </widget-modal>
+  </transition>
   <form-user :showModal="showModal" @close="showModal = false" />
 </template>
 
 <script>
-import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
 import Avatar from '@/components/avatar/Avatar.vue'
+import WidgetModal from '@/components/widget/WidgetModal.vue'
 
 import useAllUsers from '@/composables/useAllUsers'
 import { dayMounthFormart } from '@/util/date.js'
@@ -43,7 +52,7 @@ import FormUser from './formUser.vue'
 
 export default {
   data() {
-    return { showModal: false }
+    return { showModalEquipe: true, showModal: false }
   },
   setup() {
     const { getAllUsers } = useAllUsers()
@@ -51,7 +60,7 @@ export default {
     return { getAllUsers, dayMounthFormart }
   },
   components: {
-    Folder,
+    WidgetModal,
     Title,
     Avatar,
     FormUser
@@ -66,11 +75,13 @@ export default {
 
 <style scoped>
 ul {
+  max-height: 358px;
   list-style-type: none;
   display: grid;
   grid-template-columns: 50% 50%;
   width: 90%;
   justify-items: center;
+  overflow: scroll;
 }
 
 li {

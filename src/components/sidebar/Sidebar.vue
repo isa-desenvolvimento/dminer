@@ -113,41 +113,6 @@ export default {
         <icon-power />
       </SidebarLink>
     </div>
-    <span
-      class="collapse-icon"
-      :class="{ 'rotate-180': collapsed }"
-      @click="toggleSidebar"
-    >
-      <i class="fas fa-angle-double-left" />
-    </span>
-    <hr
-      :style="{
-        top: collapsed ? '28%' : '25%',
-        left: collapsed ? '80%' : '94%',
-        width: collapsed ? '25px' : '35px'
-      }"
-    />
-    <div
-      class="circle"
-      :style="{
-        top: collapsed ? '29.4%' : '26.7%',
-        left: collapsed ? '68%' : '91%'
-      }"
-    />
-    <div
-      class="circle"
-      :style="{
-        top: collapsed ? '29%' : '25.2%',
-        left: collapsed ? '148%' : '119%'
-      }"
-    />
-    <hr
-      :style="{
-        top: collapsed ? '29%' : '25.7%',
-        left: collapsed ? '100%' : '100%',
-        width: collapsed ? '25px' : '35px'
-      }"
-    />
   </div>
 </template>
 
@@ -170,27 +135,8 @@ export default {
   display: flex;
   flex-direction: column;
   box-shadow: 2px 10px 4px #888888;
-}
 
-.sidebar::before {
-  content: '';
-  height: 100%;
-  width: 220px;
-  position: absolute;
-  left: 0;
-  bottom: 68%;
-  background: var(--sidebar-green-medium);
-  transform: skewY(-25deg);
-  border-right: var(--sidebar-border);
-  transition: 0.2s linear;
-  box-shadow: 1px -6px 4px var(--gray);
-
-  transition: 0.3s ease;
-}
-
-.sidebar-closed::before {
-  width: 70px !important;
-  transition: 0.2s linear;
+  z-index: 100000;
 }
 
 .menu {
@@ -199,30 +145,12 @@ export default {
   overflow-y: scroll;
 }
 
-h1 {
-  z-index: 2;
-}
-
 .container-avatar {
   display: flex;
   justify-content: center;
   transition: 0.3s ease;
   transition-delay: 0.3s;
   z-index: 0;
-}
-
-.circle {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  z-index: 8;
-  position: absolute;
-  border: var(--fine-border);
-  transition: 0.3s ease;
-}
-
-.sidebar h1 {
-  height: 2.5em;
 }
 
 .collapse-icon {
@@ -238,13 +166,6 @@ h1 {
 .rotate-180 {
   transform: rotate(180deg);
   transition: 0.2s linear;
-}
-
-hr {
-  background: var(--gray);
-  position: absolute;
-  transform: skewY(336deg);
-  box-shadow: 4px 2px 4px var(--gray);
 }
 
 .edit-icon {

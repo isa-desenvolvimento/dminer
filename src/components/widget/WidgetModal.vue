@@ -37,6 +37,18 @@
           <div class="modal-footer">
             <slot name="footer"></slot>
           </div>
+          <div class="folder__footer" v-if="onClick">
+            <icon-base
+              viewBox="0 0 1024 1024"
+              icon-name="icon"
+              :onClick="onClick"
+              width="70"
+              height="70"
+              :styles="onClick && 'cursor: pointer;'"
+            >
+              <icon-button />
+            </icon-base>
+          </div>
         </component>
       </icon-base>
     </div>
@@ -49,19 +61,22 @@ import IconFolder from '@/components/icons/IconFolder.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconButtonClose from '@/components/icons/IconButtonClose.vue'
 import IconModalFolder from '@/components/icons/IconModalFolder.vue'
+import IconButton from '@/components/icons/IconButton.vue'
 
 export default {
   props: {
-    layout: { type: String, required: false, default: 'icon-modal' },
-    viewbox: { type: String, required: false, default: '0 0 500 500' },
-    title: { type: String, required: true, default: '' }
+    layout: { type: String, required: false, default: 'icon-modal-folder' },
+    viewbox: { type: String, required: false, default: '0 0 700 500' },
+    title: { type: String, required: true, default: '' },
+    onClick: { type: Function, required: false, default: '' }
   },
   components: {
     IconBase,
     IconModal,
     IconButtonClose,
     IconFolder,
-    IconModalFolder
+    IconModalFolder,
+    IconButton
   }
 }
 </script>
@@ -172,6 +187,14 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: right;
+}
+
+.folder__footer {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 @keyframes pulse {

@@ -3,7 +3,6 @@
     <widget-modal
       v-if="showModal"
       layout="icon-modal-folder"
-      viewbox="0 0 700 500"
       :title="'cadastro'"
     >
       <template v-slot:body>
@@ -30,7 +29,6 @@
 import FildInput from '@/components/Fild.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconFrame from '@/components/icons/IconFrame.vue'
-
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 
