@@ -30,7 +30,7 @@
     </foreignObject>
   </g>
 </template>
-<style type="text/css" scope>
+<style scoped>
 .icon__button_send > .st0 {
   fill: none;
   stroke: #020202;

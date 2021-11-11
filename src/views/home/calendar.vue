@@ -13,7 +13,11 @@
     <modal v-if="showModal" @close="showModal = false">
       <template v-slot:left>
         <label>Título:</label>
-        <input v-model="event.title" placeholder="Nome do evento" />
+        <input
+          class="input_calendar"
+          v-model="event.title"
+          placeholder="Nome do evento"
+        />
         <label>Inicio:</label>
 
         <Datepicker
@@ -185,7 +189,7 @@ export default {
   padding: 0 1.5rem;
 }
 
-input {
+.input_calendar {
   /* background-color: #ffffff;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -201,7 +205,7 @@ input {
 
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #231f20;
+  /* border-bottom: 1px solid #231f20; */
   outline: none;
   transition: none;
   width: 100%;

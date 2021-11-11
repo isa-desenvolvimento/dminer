@@ -1,0 +1,190 @@
+<template>
+  <div class="modal-mask">
+    <div class="modal-wrapper">
+      <icon-base
+        class="container__folder"
+        icon-name="icon"
+        :viewBox="viewbox"
+        width="70%"
+        height="100%"
+      >
+        <component :is="layout">
+          <div class="modal-container">
+            <div class="modal-header">
+              <div class="modal_head_title">
+                <h1>{{ title }}</h1>
+              </div>
+              <button class="modal-default-button" @click="$emit('close')">
+                <icon-base
+                  class="icon__feed"
+                  icon-name="icon"
+                  viewBox="0 0 500 500"
+                  width="80%"
+                  height="80%"
+                >
+                  <icon-button-close></icon-button-close>
+                </icon-base>
+              </button>
+              <!-- <slot name="header">default header</slot> -->
+            </div>
+            <div class="modal-left">
+              <slot name="left" />
+            </div>
+            <div class="modal-body">
+              <slot name="body"></slot>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <slot name="footer"></slot>
+          </div>
+        </component>
+      </icon-base>
+    </div>
+  </div>
+</template>
+
+<script>
+import IconModal from '@/components/icons/IconModal.vue'
+import IconFolder from '@/components/icons/IconFolder.vue'
+import IconBase from '@/components/icons/IconBase.vue'
+import IconButtonClose from '@/components/icons/IconButtonClose.vue'
+import IconModalFolder from '@/components/icons/IconModalFolder.vue'
+
+export default {
+  props: {
+    layout: { type: String, required: false, default: 'icon-modal' },
+    viewbox: { type: String, required: false, default: '0 0 500 500' },
+    title: { type: String, required: true, default: '' }
+  },
+  components: {
+    IconBase,
+    IconModal,
+    IconButtonClose,
+    IconFolder,
+    IconModalFolder
+  }
+}
+</script>
+
+<style scoped>
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+}
+
+.modal-container {
+  /* width: 300px; */
+  width: 100%;
+  margin-left: auto;
+  margin-right: 3rem;
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-left {
+  position: absolute;
+  left: -132px;
+  top: 120px;
+  display: grid;
+  justify-items: flex-start;
+  font-size: 0.3rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+  grid-gap: 0.3rem;
+
+  width: 27%;
+}
+
+.modal-default-button {
+  display: block;
+  margin-top: -5rem;
+  position: absolute;
+  right: 3rem;
+  width: 2rem;
+  padding: 0rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.modal-default-button:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+h1 {
+  font-family: var(--font-family--title);
+  color: var(--color-title);
+  font-weight: 300;
+  text-align: right;
+  margin-right: 6rem;
+  margin-top: -0.5rem;
+  text-transform: uppercase;
+}
+
+.modal-footer {
+  position: absolute;
+  bottom: 20px;
+  right: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(69, 152, 27, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(69, 152, 27, 0);
+  }
+}
+</style>

@@ -38,7 +38,7 @@
     <ellipse class="st2" cx="3.3" cy="168.3" rx="3.3" ry="3.4" />
     <ellipse class="st2" cx="28.7" cy="164.9" rx="3.3" ry="3.4" />
     <g>
-      <foreignObject y="8%" x="0" width="100%" height="100%">
+      <foreignObject y="0%" x="0" width="100%" height="100%">
         <slot />
       </foreignObject>
     </g>

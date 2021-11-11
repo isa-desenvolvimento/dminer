@@ -8,11 +8,16 @@
   >
     <component
       :is="buttonComponent"
-      @click="$emit('send')"
+      :click="onClick"
       id="send"
       class="send"
+      :class="{
+        'is-loading': isLoading,
+        'is-success': isSuccess,
+        'is-error': isError
+      }"
     >
-      <svg viewBox="0 0 90.594 59.714" id="svgbtn">
+      <svg viewBox="0 0 90.594 59.714" id="svgbtn" v-if="isSuccess">
         <polyline
           class="check"
           fill="none"
@@ -22,8 +27,8 @@
           points="1.768,23.532 34.415,56.179 88.826,1.768"
         />
       </svg>
-      <span id="span_send">Enviar</span>
-      <div class="out">
+      <span v-if="!isLoading && !isSuccess && !isError">Enviar</span>
+      <div class="out" v-if="isError">
         <icon-base
           viewBox="0 0 32 32"
           icon-name="icon"
@@ -35,7 +40,7 @@
         </icon-base>
       </div>
 
-      <div class="lds-ellipsis">
+      <div class="lds-ellipsis" v-if="isLoading">
         <div></div>
         <div></div>
         <div></div>
@@ -47,17 +52,33 @@
 
 <script>
 import IconBase from '@/components/icons/IconBase.vue'
+import IconButtonSend from '@/components/icons/IconButtonSend.vue'
+import IconButtonError from '@/components/icons/IconButtonError.vue'
+import IconClose from '@/components/icons/IconClose.vue'
 
 export default {
+  props: {
+    isLoading: { type: Boolean, default: false, required: true },
+    isError: { type: Boolean, default: false, required: true },
+    isSuccess: { type: Boolean, default: false, required: true }
+  },
   data() {
     return {
-      buttonComponent: 'icon-button-send'
+      buttonComponent: this.isError ? 'icon-button-error' : 'icon-button-send'
     }
   },
   components: {
-    IconBase
+    IconBase,
+    IconButtonSend,
+    IconButtonError,
+    IconClose
   },
-  emits: ['send']
+  emits: ['send'],
+  methods: {
+    onClick() {
+      this.$emit('send')
+    }
+  }
 }
 </script>
 
@@ -76,10 +97,9 @@ export default {
 .send {
   cursor: pointer;
   font-size: 1rem;
-  width: 100%;
+  width: 15%;
   font-family: var(--font-family--text);
   position: relative;
-
   margin-top: -13px;
   color: black;
 }
@@ -120,9 +140,9 @@ export default {
 .icon_close {
   width: 20%;
   height: 20%;
-  margin-top: -20px;
   margin-bottom: 35px;
   color: #f21d1d;
+  margin-top: 4.5rem;
 }
 
 .is-error .out {
@@ -167,21 +187,10 @@ export default {
   }
 }
 
-#reset {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: none;
-  border: 1px solid white;
-  font-size: 14px;
-  color: white;
-  padding: 5px 20px;
-}
-
 .lds-ellipsis {
   display: none;
   position: relative;
-  top: -50px;
+  top: 40px;
   left: 40%;
 }
 

@@ -2,8 +2,8 @@
   <folder
     title="equipe"
     folder="icon-modal-folder"
-    :hasButton="false"
     viewbox="0 0 700 500"
+    :onClick="openModal"
   >
     <ul>
       <li v-for="(item, key) in getAllUsers" :key="key">
@@ -29,6 +29,7 @@
       </li>
     </ul>
   </folder>
+  <form-user :showModal="showModal" @close="showModal = false" />
 </template>
 
 <script>
@@ -38,8 +39,12 @@ import Avatar from '@/components/avatar/Avatar.vue'
 
 import useAllUsers from '@/composables/useAllUsers'
 import { dayMounthFormart } from '@/util/date.js'
+import FormUser from './formUser.vue'
 
 export default {
+  data() {
+    return { showModal: false }
+  },
   setup() {
     const { getAllUsers } = useAllUsers()
 
@@ -48,7 +53,13 @@ export default {
   components: {
     Folder,
     Title,
-    Avatar
+    Avatar,
+    FormUser
+  },
+  methods: {
+    openModal() {
+      this.showModal = true
+    }
   }
 }
 </script>

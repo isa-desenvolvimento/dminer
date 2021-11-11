@@ -27,7 +27,7 @@ export default {
   props: {
     avatar: { type: String, required: true, default: null },
     username: { type: String, required: false, default: '' },
-    isClicked: { type: Boolean, default: true, required: false },
+    isClicked: { type: Boolean, default: false, required: false },
     width: { type: String, required: false, default: '8rem' },
     height: { type: String, required: false, default: '9rem' }
   },
