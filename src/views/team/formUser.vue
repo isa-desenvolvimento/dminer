@@ -10,10 +10,7 @@
           <fild-input :text="'nome'" v-model="user.name" />
 
           <div class="form_container_text">
-            <fild-input
-              :text="'data de nascimento'"
-              v-model="user.dtBirthday"
-            />
+            <fild-date :text="'data de nascimento'" v-model="user.dtBirthday" />
             <fild-input :text="'cargo'" v-model="user.profile" />
             <fild-input :text="'e-mail'" v-model="user.email" />
             <fild-input :text="'equipe'" v-model="user.team" />
@@ -29,14 +26,15 @@
   </transition>
 </template>
 <script>
-import FildInput from '@/components/Fild.vue'
+import FildInput from '@/components/input/Fild.vue'
+import FildDate from '@/components/input/FildDate.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconFrame from '@/components/icons/IconFrame.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 
 export default {
-  components: { FildInput, IconFrame, IconBase, Send, WidgetModal },
+  components: { FildInput, FildDate, IconFrame, IconBase, Send, WidgetModal },
 
   props: {
     showModal: { type: Boolean, required: true },

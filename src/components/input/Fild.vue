@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="container_input"
-    @click="focus($event)"
-    @input="$emit('update:input', this.content)"
-  >
+  <div class="container_input" @click="focus($event)">
     <div>
       <label v-if="text">{{ text }}:</label>
       <input
@@ -11,7 +7,6 @@
         class="input_form"
         type="text"
         @change="changeInput"
-        :value="content"
         :required="required"
       />
       <div>

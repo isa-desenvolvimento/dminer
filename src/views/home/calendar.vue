@@ -18,12 +18,27 @@
           v-model="event.title"
           placeholder="Nome do evento"
         />
-        <label>Inicio:</label>
 
-        <Datepicker
-          v-model="event.start"
-          placeholder="Select date"
-        ></Datepicker>
+        <div>
+          <label>Inicio:</label>
+
+          <Datepicker
+            v-model="event.start"
+            placeholder="Select date"
+          ></Datepicker>
+
+          <div>
+            <icon-base
+              viewBox="0 0 500 58"
+              width="100%"
+              height="100%"
+              class="fild_container_icon"
+              :class="`container_input_teste`"
+            >
+              <icon-line></icon-line>
+            </icon-base>
+          </div>
+        </div>
 
         <label>Fim:</label>
 
@@ -98,6 +113,7 @@ import IconClose from '@/components/icons/IconClose.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconButtonSend from '@/components/icons/IconButtonSend.vue'
 import IconButtonError from '@/components/icons/IconButtonError.vue'
+import IconLine from '@/components/icons/IconLine.vue'
 
 export default {
   data() {
@@ -132,7 +148,8 @@ export default {
     IconClose,
     IconButtonSend,
     IconBase,
-    IconButtonError
+    IconButtonError,
+    IconLine
   },
   methods: {
     clickCalendar() {
@@ -233,7 +250,7 @@ export default {
   background-color: transparent;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid #231f20;
+  /* border-bottom: 1px solid #231f20; */
   outline: none;
   transition: none;
   width: 100%;
@@ -429,5 +446,19 @@ export default {
   100% {
     transform: translate(24px, 0);
   }
+}
+
+.fild_container_icon {
+  /* position: absolute;
+  bottom: 0;
+  left: 0;
+  /* width: fit-content;
+
+  grid-area: icon;
+  transform: rotateY(180deg); */
+
+  transform: rotateY(180deg);
+  margin-top: -30px;
+  z-index: 3;
 }
 </style>
