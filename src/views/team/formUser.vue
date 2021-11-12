@@ -13,7 +13,7 @@
             <fild-date :text="'data de nascimento'" v-model="user.dtBirthday" />
             <fild-input :text="'cargo'" v-model="user.profile" />
             <fild-input :text="'e-mail'" v-model="user.email" />
-            <fild-input :text="'equipe'" v-model="user.team" />
+            <fild-input :text="'equipe'" v-model="user.area" />
             <fild-input :text="'apelido'" v-model="user.nickname" />
             <fild-input :text="'linkedin'" v-model="user.linkedin" />
           </div>
@@ -33,6 +33,8 @@ import IconFrame from '@/components/icons/IconFrame.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 
+import useUser from '@/composables/useUser.js'
+
 export default {
   components: { FildInput, FildDate, IconFrame, IconBase, Send, WidgetModal },
 
@@ -45,21 +47,33 @@ export default {
         dtBirthday: null,
         name: '',
         profile: '',
-        team: '',
+        area: '',
         nickname: '',
         linkedin: '',
         email: ''
       }
     }
   },
+  setup() {
+    const { createUser } = useUser()
+
+    return { createUser }
+  },
   methods: {
     changeInput(index, value) {
       this.user[index] = value
     },
     sendForm() {
-      console.log(this.user)
+      console.table(this.user)
+
+      const isValid = this.validForm()
+      if (isValid) {
+        this.createUser(this.user)
+      }
     },
-    validForm() {}
+    validForm() {
+      return true
+    }
   }
 }
 </script>

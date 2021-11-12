@@ -43,3 +43,15 @@ export const fetchUpdateUser = async () => {
   const json = await response.json()
   return response.status === 200 ? json.data : []
 }
+
+export const fetchCreateUser = async (user) => {
+  const response = await fetch(`${baseURL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(user)
+  })
+  const json = await response.json()
+  return response.status === 200 ? json.data : []
+}
