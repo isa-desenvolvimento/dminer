@@ -7,20 +7,23 @@
     >
       <template v-slot:body>
         <div class="form_container">
-          <fild-input :text="'nome'" />
+          <fild-input :text="'nome'" v-model="user.name" />
 
           <div class="form_container_text">
-            <fild-input :text="'data de nascimento'" />
-            <fild-input :text="'cargo'" isError />
-            <fild-input :text="'e-mail'" />
-            <fild-input :text="'equipe'" />
-            <fild-input :text="'apelido'" />
-            <fild-input :text="'linkedin'" />
+            <fild-input
+              :text="'data de nascimento'"
+              v-model="user.dtBirthday"
+            />
+            <fild-input :text="'cargo'" v-model="user.profile" />
+            <fild-input :text="'e-mail'" v-model="user.email" />
+            <fild-input :text="'equipe'" v-model="user.team" />
+            <fild-input :text="'apelido'" v-model="user.nickname" />
+            <fild-input :text="'linkedin'" v-model="user.linkedin" />
           </div>
         </div>
       </template>
       <template v-slot:footer>
-        <send></send>
+        <send @click="sendForm"></send>
       </template>
     </widget-modal>
   </transition>
@@ -50,6 +53,15 @@ export default {
         email: ''
       }
     }
+  },
+  methods: {
+    changeInput(index, value) {
+      this.user[index] = value
+    },
+    sendForm() {
+      console.log(this.user)
+    },
+    validForm() {}
   }
 }
 </script>

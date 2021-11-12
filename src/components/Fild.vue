@@ -1,12 +1,17 @@
 <template>
-  <div class="container_input" @click="focus($event)">
+  <div
+    class="container_input"
+    @click="focus($event)"
+    @input="$emit('update:input', this.content)"
+  >
     <div>
       <label v-if="text">{{ text }}:</label>
       <input
         :id="`container_input_${text}`"
         class="input_form"
         type="text"
-        @change="$emit('value')"
+        @change="changeInput"
+        :value="content"
         :required="required"
       />
       <div>
@@ -26,9 +31,9 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import IconBase from './icons/IconBase.vue'
-import IconLine from './icons/IconLine.vue'
+import IconBase from '@/components/icons/IconBase.vue'
+import IconLine from '@/components/icons/IconLine.vue'
+
 export default {
   mounted() {
     if (this.isError) {
@@ -44,19 +49,14 @@ export default {
     required: { type: Boolean, required: false, default: false },
     isError: { type: Boolean, required: false, default: false }
   },
-  setup() {
-    const fildSet = ref(null)
 
-    return { fildSet }
-  },
   methods: {
     focus(e) {
-      console.log(e)
       const input = document.getElementById(`container_input_${this.text}`)
       input.focus()
-
-      // const line = document.getElementsByClassName(`container_input_${text} `container_input_${text}`)
-      // line.style('`container_input_${text}`)
+    },
+    changeInput(e) {
+      this.$emit('update:modelValue', e.target.value)
     }
   }
 }
