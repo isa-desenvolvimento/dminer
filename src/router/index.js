@@ -30,7 +30,7 @@ const routes = [
   {
     path: '/permissoes',
     name: 'Permissões',
-    component: () => import('@/views/Permition.vue')
+    component: () => import('@/views/permission/index.vue')
   },
   {
     path: '/email',

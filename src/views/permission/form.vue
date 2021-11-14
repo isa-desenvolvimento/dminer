@@ -3,45 +3,17 @@
     <widget-modal
       v-if="showModal"
       layout="icon-modal-folder"
-      :title="'cadastro de tutorial'"
+      :title="'cadastro de perfil'"
     >
       <template v-slot:body>
         <div class="form_container">
           <div class="form_container_text">
-            <fild-input
-              :text="'Título'"
-              v-model="value.title"
-              :value="value.title"
-              required
-              :isError="isError && !value.title"
-            />
-            <fild-input
-              :text="'Conteúdo'"
-              v-model="value.content"
-              :value="value.content"
-              required
-              :isError="isError && !value.content"
-            />
-            <fild-input
-              :text="'Categoria'"
-              v-model="value.category"
-              :value="value.category"
-              required
-              :isError="isError && !value.category"
-            />
             <fild-input
               :text="'Permissão'"
               v-model="value.permission"
               :value="value.permission"
               required
               :isError="isError && !value.permission"
-            />
-            <fild-input
-              :text="'Imagem'"
-              v-model="value.image"
-              :value="value.image"
-              required
-              :isError="isError && !value.image"
             />
           </div>
         </div>
@@ -63,7 +35,7 @@ import IconBase from '@/components/icons/IconBase.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 
-import useBenefit from '@/composables/useBenefit'
+import usePermition from '@/composables/usePermition'
 
 export default {
   data() {
@@ -81,16 +53,12 @@ export default {
       type: Object,
       required: false,
       default: {
-        title: '',
-        content: '',
-        permissions: 0,
-        category: 0,
-        image: null
+        permission: ''
       }
     }
   },
   setup() {
-    const { create } = useBenefit()
+    const { create } = usePermition()
 
     return { create }
   },
@@ -114,7 +82,7 @@ export default {
           this.isSuccess = true
           setTimeout(() => {
             this.isSuccess = false
-            this.$router.push('/tutorial')
+            this.$router.push('/permissao')
           }, 3000)
         }
       } else {
@@ -150,7 +118,5 @@ export default {
 
 .form_container_text {
   display: grid;
-  grid-template-columns: 45% 45%;
-  grid-gap: 10%;
 }
 </style>
