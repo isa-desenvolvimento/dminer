@@ -64,8 +64,6 @@ export default {
       this.user[index] = value
     },
     sendForm() {
-      console.table(this.user)
-
       const isValid = this.validForm()
       if (isValid) {
         this.createUser(this.user)
