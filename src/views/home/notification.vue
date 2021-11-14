@@ -4,19 +4,18 @@
     title="notificações"
     classContent="folder__notification__content"
   >
-    <notification v-for="item in notificationList" :key="item">
-      <template v-slot:title>
+    <ul>
+      <li v-for="item in notificationList" :key="item">
         <Title>
           {{ item.notificationDescrible }}
         </Title>
-      </template>
-    </notification>
+      </li>
+    </ul>
   </WidgetNotification>
 </template>
 
 <script>
 import Folder from '@/components/folder/Folder.vue'
-import Notification from '@/components/notification/Notification.vue'
 import Title from '@/components/title/Title.vue'
 
 import { fetchAllNotification } from '@/api/notification.js'
@@ -35,7 +34,6 @@ export default {
   },
   components: {
     Folder,
-    Notification,
     Title,
     WidgetNotification
   }
@@ -46,5 +44,20 @@ export default {
 .folder__notification__content {
   width: 108%;
   margin-left: -12px;
+}
+
+ul {
+  list-style-type: none;
+  display: grid;
+  grid-gap: 3rem;
+  margin-top: -0.5rem;
+}
+
+li {
+  text-align: unset;
+}
+
+li:nth-child(even) {
+  text-align: left;
 }
 </style>
