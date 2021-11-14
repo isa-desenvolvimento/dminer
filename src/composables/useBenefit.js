@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue'
-import { fetchAllBenefits } from '@/api/benefit.js'
+import { fetchAllBenefits, fetchCreate } from '@/api/benefit.js'
 
 export default function useBenefit() {
   const getBenefits = ref([])
@@ -8,9 +8,14 @@ export default function useBenefit() {
     getBenefits.value = await fetchAllBenefits()
   }
 
+  const create = async (item) => {
+    return await fetchCreate(item)
+  }
+
   onMounted(setBenefit)
   return {
     getBenefits,
-    setBenefit
+    setBenefit,
+    create
   }
 }

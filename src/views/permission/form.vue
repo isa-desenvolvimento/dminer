@@ -118,5 +118,7 @@ export default {
 
 .form_container_text {
   display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 10%;
 }
 </style>
