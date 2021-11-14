@@ -14,7 +14,7 @@
             <fild-input :text="'cargo'" v-model="user.profile" />
             <fild-input :text="'e-mail'" v-model="user.email" />
             <fild-input :text="'equipe'" v-model="user.area" />
-            <fild-input :text="'apelido'" v-model="user.nickname" />
+            <!-- <fild-input :text="'apelido'" v-model="user.nickname" /> -->
             <fild-input :text="'linkedin'" v-model="user.linkedin" />
           </div>
         </div>
@@ -48,7 +48,7 @@ export default {
         name: '',
         profile: '',
         area: '',
-        nickname: '',
+        // nickname: '',
         linkedin: '',
         email: ''
       }

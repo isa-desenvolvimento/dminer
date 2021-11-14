@@ -16,8 +16,6 @@ export default function useUser(idUser) {
     await fetchCreateUser(user)
   }
 
-  onMounted(setUser)
-
   return {
     setUser,
     getUser,
