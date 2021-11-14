@@ -1,26 +1,18 @@
 <template>
   <transition name="modal">
     <widget-modal
-      v-if="showModalEquipe"
-      title="d-guide"
+      v-if="showModalPrimary"
+      title="benefícios"
       :onClick="openModal"
       @close="this.$router.push('/')"
     >
       <template v-slot:body>
         <ul>
-          <li v-for="(item, key) in getDocuments" :key="key">
-            <a :href="item.content" target="_blank">
-              {{ item.title }}
-            </a>
-            <button class="team_btn_edit">
-              <icon-base
-                icon-name="icon"
-                class="team_icon_edit"
-                @click="setDoc(item)"
-              >
-                <icon-edit />
-              </icon-base>
-            </button>
+          <li v-for="(item, key) in getBenefits" :key="key">
+            <image-details :image="item.image">
+              <template v-slot:title>{{ item.title }}</template>
+              <template v-slot:content>{{ item.content }}</template>
+            </image-details>
           </li>
         </ul>
       </template>
@@ -38,18 +30,23 @@
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
-import formCrud from '@/views/documents/form.vue'
+import formCrud from './form.vue'
 
-import useDocument from '@/composables/useDocument'
+import useBenefit from '@/composables/useBenefit'
 
 export default {
   data() {
-    return { showModalEquipe: true, showModal: false, value: {}, isEdit: false }
+    return {
+      showModalPrimary: true,
+      showModal: false,
+      value: {},
+      isEdit: false
+    }
   },
   setup() {
-    const { getDocuments } = useDocument()
+    const { getBenefits } = useBenefit()
 
-    return { getDocuments }
+    return { getBenefits }
   },
   components: {
     WidgetModal,

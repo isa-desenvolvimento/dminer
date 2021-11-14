@@ -3,38 +3,38 @@
     <widget-modal
       v-if="showModal"
       layout="icon-modal-folder"
-      :title="'cadastro de documentos'"
+      :title="'cadastro de benefícios'"
     >
       <template v-slot:body>
         <div class="form_container">
           <div class="form_container_text">
             <fild-input
               :text="'Título'"
-              v-model="doc.title"
-              :value="doc.title"
+              v-model="value.title"
+              :value="value.title"
               required
-              :isError="isError && !doc.title"
+              :isError="isError && !value.title"
             />
             <fild-input
-              :text="'Link'"
-              v-model="doc.link"
-              :value="doc.link"
+              :text="'Conteúdo'"
+              v-model="value.content"
+              :value="value.content"
               required
-              :isError="isError && !doc.link"
+              :isError="isError && !value.content"
             />
             <fild-input
               :text="'Permissão'"
-              v-model="doc.permission"
-              :value="doc.permission"
+              v-model="value.permission"
+              :value="value.permission"
               required
-              :isError="isError && !doc.permission"
+              :isError="isError && !value.permission"
             />
             <fild-input
-              :text="'Categoria'"
-              v-model="doc.category"
-              :value="doc.category"
+              :text="'Imagem'"
+              v-model="value.image"
+              :value="value.image"
               required
-              :isError="isError && !doc.category"
+              :isError="isError && !value.image"
             />
           </div>
         </div>
@@ -56,7 +56,7 @@ import IconBase from '@/components/icons/IconBase.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 
-import useDocument from '@/composables/useDocument'
+import useBenefit from '@/composables/useBenefit'
 
 export default {
   data() {
@@ -70,35 +70,35 @@ export default {
   props: {
     showModal: { type: Boolean, required: true },
     isEdit: false,
-    doc: {
+    value: {
       type: Object,
       required: false,
       default: {
         title: '',
-        category: 0,
+        content: '',
         permissions: 0,
-        link: ''
+        image: null
       }
     }
   },
   setup() {
-    const { create } = useDocument()
+    const { create } = useBenefit()
 
     return { create }
   },
 
   methods: {
     changeInput(index, value) {
-      this.docs[index] = value
+      this.value[index] = value
     },
     sendForm() {
       this.isLoading = true
       if (this.validForm()) {
         let result
         if (this.isEdit) {
-          result = this.create(this.doc)
+          result = this.create(this.value)
         } else {
-          result = this.create(this.doc)
+          result = this.create(this.value)
         }
 
         this.isLoading = false
@@ -106,7 +106,7 @@ export default {
           this.isSuccess = true
           setTimeout(() => {
             this.isSuccess = false
-            this.$router.push('/documentos')
+            this.$router.push('/beneficios')
           }, 3000)
         }
       } else {
@@ -118,7 +118,7 @@ export default {
       }
     },
     validForm() {
-      return Object.values(this.doc).every((item) => !!item)
+      return Object.values(this.value).every((item) => !!item)
     }
   }
 }

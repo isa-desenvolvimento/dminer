@@ -12,6 +12,8 @@ export default function useDocument() {
     return await fetchCreate(doc)
   }
 
+  onMounted(setDocument)
+
   return {
     getDocuments,
     setDocument,
