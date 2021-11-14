@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import { collapsed } from './state'
 
 import IconBase from '@/components/icons/IconBase.vue'
+import IconLine from '@/components/icons/IconLine.vue'
 
 export default {
   props: {
@@ -12,7 +13,7 @@ export default {
     isIconLink: { type: Boolean, required: false },
     isPower: { type: Boolean, required: false }
   },
-  components: { IconBase },
+  components: { IconBase, IconLine },
   setup(props) {
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
@@ -27,7 +28,6 @@ export default {
     class="link"
     :class="{ active: isActive }"
     :style="{
-      'border-top': collapsed || isIconLink ? 'none' : '1px solid #60645c',
       'justify-content': isIconLink || isPower ? 'center' : ''
     }"
   >
@@ -39,10 +39,16 @@ export default {
         <slot />
       </span>
     </transition>
-    <div
-      class="circle"
-      :style="{ display: collapsed || isIconLink ? 'none' : 'block' }"
-    />
+
+    <icon-base
+      v-if="collapsed || !isIconLink"
+      viewBox="0 0 500 58"
+      width="100%"
+      height="100%"
+      class="fild_container_icon"
+    >
+      <icon-line />
+    </icon-base>
   </router-link>
 </template>
 
@@ -78,18 +84,6 @@ export default {
   gap: 0.2rem;
 }
 
-.circle {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  z-index: 8;
-  position: absolute;
-  border: var(--fine-border);
-  transition: 0.3s ease;
-  top: -8%;
-  left: -5%;
-}
-
 .link:hover {
   background-color: var(--sidebar-item-hover);
 }
@@ -102,5 +96,20 @@ export default {
   flex-shrink: 0;
   width: 25px;
   margin-right: 10px;
+}
+
+.fild_container_icon {
+  /* position: absolute;
+  bottom: 0;
+  left: 0;
+  /* width: fit-content;
+
+  grid-area: icon;
+  transform: rotateY(180deg); */
+
+  margin-top: -30px;
+  z-index: 3;
+  position: absolute;
+  top: -5px;
 }
 </style>
