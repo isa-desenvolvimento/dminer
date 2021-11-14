@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue'
-import { fetchAllDocuments } from '@/api/document.js'
+import { fetchAllDocuments, fetchCreate } from '@/api/document.js'
 
 export default function useDocument() {
   const getDocuments = ref([])
@@ -8,9 +8,13 @@ export default function useDocument() {
     getDocuments.value = await fetchAllDocuments()
   }
 
-  onMounted(setDocument)
+  const create = async (doc) => {
+    return await fetchCreate(doc)
+  }
+
   return {
     getDocuments,
-    setDocument
+    setDocument,
+    create
   }
 }
