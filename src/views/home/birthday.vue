@@ -7,7 +7,7 @@
         :key="key"
         :id="`birthday_li_${key}`"
       >
-        <Avatar :avatar="item.avatar" isBirthday />
+        <Avatar :avatar="item.avatar" isBirthday height="8rem" />
 
         <div class="notices_footer">
           <Title>{{ item.name }}</Title>
@@ -49,11 +49,12 @@ export default {
   margin-left: -12px;
 }
 ul {
+  max-height: 358px;
   list-style-type: none;
-  position: relative;
+  overflow: scroll;
 }
 li {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 40% 60%;
   justify-content: start;
   align-content: stretch;
@@ -61,7 +62,17 @@ li {
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 4px;
-  margin-right: 1rem;
+  margin-right: 1rem; */
+
+  display: flex;
+  background-image: url(/src/assets/widget/frame-team.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 90%;
+  position: relative;
+  text-align: left;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .container_quiz {

@@ -33,9 +33,11 @@ export const fetchUsersBirthday = async () => {
       'Content-Type': 'application/json'
     }
   })
+
   const json = await response.json()
 
-  return messagesFetch('search', response.status, json.data)
+  // return messagesFetch('search', response.status, json.data)
+  return response.status === 200 ? json.data : []
 }
 
 export const fetchUpdateUser = async () => {
