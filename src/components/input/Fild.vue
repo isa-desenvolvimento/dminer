@@ -1,13 +1,18 @@
 <template>
   <div class="container_input" @click="focus($event)">
     <div>
-      <label v-if="text">{{ text }}:</label>
+      <label v-if="text">
+        {{ text }}
+        <span v-if="required">*</span>
+        :
+      </label>
       <input
         :id="`container_input_${text}`"
         class="input_form"
         type="text"
         @change="changeInput"
         :required="required"
+        :value="value"
       />
       <div>
         <icon-base
@@ -31,6 +36,7 @@ import IconLine from '@/components/icons/IconLine.vue'
 
 export default {
   mounted() {
+    // TODO: colocar para mudar sempre que atualizar a props
     if (this.isError) {
       const circle = document.querySelector(
         `.container_input_${this.text} .icon__line > .st1`
@@ -38,9 +44,11 @@ export default {
       circle.style.fill = 'red'
     }
   },
+
   components: { IconLine, IconBase },
   props: {
     text: { type: String, required: false },
+    value: { type: String, required: false },
     required: { type: Boolean, required: false, default: false },
     isError: { type: Boolean, required: false, default: false }
   },

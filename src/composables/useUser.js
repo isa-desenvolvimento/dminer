@@ -13,13 +13,18 @@ export default function useUser(idUser) {
   }
 
   const createUser = async (user) => {
-    await fetchCreateUser(user)
+    return await fetchCreateUser(user)
+  }
+
+  const updateUser = async (user) => {
+    return await fetchUpdateUser(id, user)
   }
 
   return {
     setUser,
     getUser,
     setBanner,
-    createUser
+    createUser,
+    updateUser
   }
 }

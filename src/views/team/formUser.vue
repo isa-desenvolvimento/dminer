@@ -7,20 +7,65 @@
     >
       <template v-slot:body>
         <div class="form_container">
-          <fild-input :text="'nome'" v-model="user.name" />
+          <fild-input
+            :text="'nome'"
+            :value="user.name"
+            v-model="user.name"
+            required
+            :isError="isError && !user.name"
+          />
 
           <div class="form_container_text">
-            <fild-date :text="'data de nascimento'" v-model="user.dtBirthday" />
-            <fild-input :text="'cargo'" v-model="user.profile" />
-            <fild-input :text="'e-mail'" v-model="user.email" />
-            <fild-input :text="'equipe'" v-model="user.area" />
-            <!-- <fild-input :text="'apelido'" v-model="user.nickname" /> -->
-            <fild-input :text="'linkedin'" v-model="user.linkedin" />
+            <fild-date
+              :text="'data de nascimento'"
+              v-model="user.dtBirthday"
+              :value="user.dtBirthday"
+              required
+              :isError="isError && !user.dtBirthday"
+            />
+            <fild-input
+              :text="'cargo'"
+              v-model="user.profile"
+              :value="user.profile"
+              required
+              :isError="isError && !user.profile"
+            />
+            <fild-input
+              :text="'e-mail'"
+              v-model="user.email"
+              :value="user.email"
+              required
+              :isError="isError && !user.email"
+            />
+            <fild-input
+              :text="'equipe'"
+              v-model="user.area"
+              :value="user.area"
+              required
+              :isError="isError && !user.area"
+            />
+            <fild-input
+              :text="'apelido'"
+              :value="user.nickname"
+              v-model="user.nickname"
+            />
+            <fild-input
+              :text="'linkedin'"
+              v-model="user.linkedin"
+              :value="user.linkedin"
+              required
+              :isError="isError && !user.linkedin"
+            />
           </div>
         </div>
       </template>
       <template v-slot:footer>
-        <send @click="sendForm"></send>
+        <send
+          :isLoading="isLoading"
+          :isSuccess="isSuccess"
+          :isError="isError"
+          @click="sendForm"
+        ></send>
       </template>
     </widget-modal>
   </transition>
@@ -36,10 +81,17 @@ import WidgetModal from '@/components/widget/WidgetModal.vue'
 import useUser from '@/composables/useUser.js'
 
 export default {
+  data() {
+    return {
+      isLoading: false,
+      isSuccess: false,
+      isError: false
+    }
+  },
   components: { FildInput, FildDate, IconFrame, IconBase, Send, WidgetModal },
-
   props: {
     showModal: { type: Boolean, required: true },
+    isEdit: false,
     user: {
       type: String,
       required: false,
@@ -48,7 +100,7 @@ export default {
         name: '',
         profile: '',
         area: '',
-        // nickname: '',
+        nickname: '',
         linkedin: '',
         email: ''
       }
@@ -59,18 +111,40 @@ export default {
 
     return { createUser }
   },
+
   methods: {
     changeInput(index, value) {
       this.user[index] = value
     },
     sendForm() {
-      const isValid = this.validForm()
-      if (isValid) {
-        this.createUser(this.user)
+      this.isLoading = true
+      if (this.validForm()) {
+        if (this.isEdit) {
+          const result = this.createUser(this.user)
+        } else {
+          const result = this.createUser(this.user)
+        }
+
+        this.isLoading = false
+        if (result) {
+          this.isSuccess = true
+          setTimeout(() => {
+            this.isSuccess = false
+            this.$router.push('/equipe')
+          }, 3000)
+        }
+      } else {
+        this.isLoading = false
+        this.isError = true
+        setTimeout(() => {
+          this.isError = false
+        }, 3000)
       }
     },
     validForm() {
-      return true
+      let _user = { ...this.user }
+      delete _user.nickname
+      return Object.values(_user).every((item) => !!item)
     }
   }
 }

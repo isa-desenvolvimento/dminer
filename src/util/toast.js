@@ -18,10 +18,7 @@ export const messagesFetch = (type, status, data) => {
     onToast(translation.MESSAGE[`SUCCESS_${type.toUpperCase()}`], 'success')
     return data
   } else {
-    onToast(
-      translation.MESSAGE.ERROR_[`SUCCESS_${type.toUpperCase()}`],
-      'danger'
-    )
-    return []
+    onToast(translation.MESSAGE[`ERROR_${type.toUpperCase()}`], 'danger')
+    return null
   }
 }

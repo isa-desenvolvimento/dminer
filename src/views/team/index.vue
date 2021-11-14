@@ -33,18 +33,34 @@
                 </div>
               </div>
             </div>
+            <button class="team_btn_edit">
+              <icon-base
+                icon-name="icon"
+                class="team_icon_edit"
+                @click="setUser(item)"
+              >
+                <icon-edit />
+              </icon-base>
+            </button>
           </li>
         </ul>
       </template>
     </widget-modal>
   </transition>
-  <form-user :showModal="showModal" @close="showModal = false" />
+  <form-user
+    :showModal="showModal"
+    @close="showModal = false"
+    :user="user"
+    :isEdit="isEdit"
+  />
 </template>
 
 <script>
 import Title from '@/components/title/Title.vue'
 import Avatar from '@/components/avatar/Avatar.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
+import IconEdit from '@/components/icons/IconEdit.vue'
+import IconBase from '@/components/icons/IconBase.vue'
 
 import useAllUsers from '@/composables/useAllUsers'
 import { dayMounthFormart } from '@/util/date.js'
@@ -52,7 +68,7 @@ import FormUser from './formUser.vue'
 
 export default {
   data() {
-    return { showModalEquipe: true, showModal: false }
+    return { showModalEquipe: true, showModal: false, user: {}, isEdit: false }
   },
   setup() {
     const { getAllUsers } = useAllUsers()
@@ -63,11 +79,18 @@ export default {
     WidgetModal,
     Title,
     Avatar,
-    FormUser
+    FormUser,
+    IconEdit,
+    IconBase
   },
   methods: {
     openModal() {
       this.showModal = true
+    },
+    setUser(user) {
+      this.isEdit = true
+      this.user = user
+      this.openModal()
     }
   }
 }
@@ -90,8 +113,9 @@ li {
   background-repeat: no-repeat;
   background-size: contain;
 
-  width: 100%;
+  width: 90%;
   height: 100%;
+  position: relative;
 }
 
 .team_container {
@@ -130,6 +154,21 @@ li {
   width: 0.5rem;
   height: 0.5rem;
   background-color: var(--sidebar-green-ligth);
+}
+
+.team_btn_edit {
+  border: none;
+  position: absolute;
+  right: -1rem;
+  width: 24%;
+  height: 1rem;
+  top: 0.6rem;
+  background: transparent;
+  cursor: pointer;
+}
+.team_icon_edit {
+  width: 24%;
+  height: 1rem;
 }
 
 a {

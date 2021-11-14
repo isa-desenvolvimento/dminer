@@ -1,12 +1,17 @@
 <template>
   <div class="container_input" @click="focus($event)">
     <div>
-      <label v-if="text">{{ text }}:</label>
+      <label v-if="text">
+        {{ text }}
+        <span v-if="required">*</span>
+        :
+      </label>
 
       <Datepicker
         :id="`container_input_${text}`"
         class="input_form"
         @update:modelValue="changeInput"
+        :value="value"
         placeholder="Selecione a data"
         locale="pt-BR"
         inputFormat="dd-MM-yyyy"
@@ -40,7 +45,7 @@ export default {
   setup(props) {
     const date = ref([])
 
-    date.value = new Date()
+    date.value = new Date(props.value) || new Date()
 
     return {
       date
@@ -57,6 +62,7 @@ export default {
   components: { IconLine, IconBase, Datepicker },
   props: {
     text: { type: String, required: false },
+    value: { type: String, required: false },
     required: { type: Boolean, required: false, default: false },
     isError: { type: Boolean, required: false, default: false }
   },

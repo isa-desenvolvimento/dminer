@@ -9,7 +9,9 @@ export const fetchAllUser = async () => {
     }
   })
   const json = await response.json()
-  return messagesFetch('search', response.status, json.data)
+
+  // return messagesFetch('search', response.status, json.data)
+  return response.status === 200 ? json.data : []
 }
 
 export const fetchUser = async (id) => {
@@ -20,6 +22,7 @@ export const fetchUser = async (id) => {
     }
   })
   const json = await response.json()
+
   return messagesFetch('search', response.status, json.data)
 }
 
@@ -31,6 +34,7 @@ export const fetchUsersBirthday = async () => {
     }
   })
   const json = await response.json()
+
   return messagesFetch('search', response.status, json.data)
 }
 
@@ -42,6 +46,7 @@ export const fetchUpdateUser = async () => {
     }
   })
   const json = await response.json()
+
   return messagesFetch('update', response.status, json.data)
 }
 
@@ -54,5 +59,6 @@ export const fetchCreateUser = async (user) => {
     body: JSON.stringify(user)
   })
   const json = await response.json()
+
   return messagesFetch('registration', response.status, json.data)
 }
