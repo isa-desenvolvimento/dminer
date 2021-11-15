@@ -23,7 +23,7 @@ export const fetchUser = async (id) => {
   })
   const json = await response.json()
 
-  return messagesFetch('search', response.status, json.data)
+  return response.status === 200 ? json.data : []
 }
 
 export const fetchUsersBirthday = async () => {

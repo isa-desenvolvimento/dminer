@@ -9,7 +9,8 @@ import { ref } from 'vue'
 export default {
   components: { Sidebar, Banner, Content },
   setup() {
-    const { getUser } = useUser(1)
+    const { getUser, setUser } = useUser(1)
+    setUser()
     const user = ref(getUser)
     return { user }
   }
