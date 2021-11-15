@@ -155,4 +155,8 @@ a {
   position: absolute;
   bottom: -20px;
 }
+
+label {
+  position: relative;
+}
 </style>
