@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .container_input {
   /* display: grid;
   grid-template-areas:
@@ -142,6 +142,47 @@ label {
   color: red;
   text-align: start;
   margin-top: -0.7rem;
+}
+
+.dp__input_icons {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  stroke-width: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 6px 0;
+  /* padding: 6px 4px; */
+  color: #231f20;
+  box-sizing: content-box;
+}
+
+.dp__input {
+  /* background-color: var(--dp-background-color);
+  border-radius: 4px;
+  border: 1px solid var(--dp-border-color);
+  outline: none;
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  font-size: 0.4rem;
+  line-height: 0.5rem;
+  padding: 5px 13px;
+  color: var(--dp-text-color);
+  box-sizing: border-box; */
+
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  /* border-bottom: 1px solid #231f20; */
+  outline: none;
+  transition: none;
+  width: 100%;
+  font-size: 0.4rem;
+  line-height: 0.5rem;
+  padding: 5px 10px;
+  color: var(--dp-text-color);
+  box-sizing: border-box;
+  text-overflow: ellipsis;
 }
 
 .dp__input_icons {

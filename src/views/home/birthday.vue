@@ -55,7 +55,6 @@ export default {
 ul {
   max-height: 358px;
   list-style-type: none;
-  overflow: scroll;
 }
 li {
   /* display: grid;

@@ -16,3 +16,6 @@ export const mounthCurrent = () => new Date().getMonth() + 1
 export const dateFormart = (date) => moment(date).format(FORMAT_DATE)
 
 export const dayMounthFormart = (date) => moment(date).format('DD/MM')
+
+export const dateHourFormarUs = (date) =>
+  moment(date).format('YYYY-MM-DD hh:mm:ss')
