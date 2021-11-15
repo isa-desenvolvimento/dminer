@@ -1,5 +1,9 @@
 <template>
-  <folder title="enquete" classContent="folder__user__content">
+  <widget-layout-home
+    layout="icon-folder"
+    title="enquete"
+    classContent="folder__user__content"
+  >
     <ul>
       <li
         class="user_li"
@@ -37,11 +41,11 @@
         </icon-base>
       </li>
     </ul>
-  </folder>
+  </widget-layout-home>
 </template>
 
 <script>
-import Folder from '@/components/folder/Folder.vue'
+import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconCountQuiz from '@/components/icons/IconCountQuiz.vue'
 
@@ -59,7 +63,7 @@ export default {
     }
   },
   components: {
-    Folder,
+    WidgetLayoutHome,
     IconBase,
     IconCountQuiz
   }

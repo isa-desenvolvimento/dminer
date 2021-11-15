@@ -1,5 +1,6 @@
 <template>
-  <folder
+  <widget-layout-home
+    layout="icon-folder"
     class="mt-3 cursor-move"
     title="calendário"
     id="show-modal"
@@ -8,9 +9,10 @@
     <div class="container__calendar">
       <calendar :ref="calendar" />
     </div>
-  </folder>
+  </widget-layout-home>
+
   <transition name="modal">
-    <modal v-if="showModal" @close="showModal = false">
+    <widget-modal v-if="showModal" @close="showModal = false">
       <template v-slot:left>
         <label>Título:</label>
         <input
@@ -92,15 +94,16 @@
       <template v-slot:body>
         <EventCalendar :events="events" />
       </template>
-    </modal>
+    </widget-modal>
   </transition>
 </template>
 
 <script>
-import Folder from '@/components/folder/Folder.vue'
+import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
+import WidgetModal from '@/components/widget/WidgetModal.vue'
+
 import Calendar from '@/components/calendar/Calendar.vue'
 import EventCalendar from '@/components/calendar/EventCalendar.vue'
-import Modal from '@/components/modal/Modal.vue'
 import useEvents from '@/composables/useEvents'
 
 const { createEvent, getEvents } = useEvents()
@@ -140,10 +143,10 @@ export default {
   },
 
   components: {
-    Folder,
+    WidgetLayoutHome,
+    WidgetModal,
     Calendar,
     EventCalendar,
-    Modal,
     Datepicker,
     IconClose,
     IconButtonSend,

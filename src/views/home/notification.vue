@@ -17,7 +17,6 @@
 
 <script>
 import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
-import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
 
 import { fetchAllNotification } from '@/api/notification.js'
@@ -34,7 +33,6 @@ export default {
     )
   },
   components: {
-    Folder,
     Title,
     WidgetLayoutHome
   }

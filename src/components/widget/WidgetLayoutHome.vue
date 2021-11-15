@@ -43,6 +43,7 @@ import IconNotices from '@/components/icons/IconNotices.vue'
 import IconFolderNotification from '@/components/icons/IconFolderNotification.vue'
 import IconFolderReminder from '@/components/icons/IconFolderReminder.vue'
 import IconSidebar from '@/components/icons/IconSidebar.vue'
+import IconFolder from '@/components/icons/IconFolder.vue'
 
 export default {
   props: {
@@ -60,7 +61,8 @@ export default {
     IconNotices,
     IconFolderNotification,
     IconFolderReminder,
-    IconSidebar
+    IconSidebar,
+    IconFolder
   }
 }
 </script>

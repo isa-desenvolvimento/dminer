@@ -32,17 +32,10 @@
       </li>
     </ul>
   </widget-layout-home>
-
-  <transition name="modal">
-    <modal v-if="showModal" @close="showModal = false" modal="icon-folder">
-      <template v-slot:body></template>
-    </modal>
-  </transition>
 </template>
 
 <script>
 import Title from '@/components/title/Title.vue'
-import Modal from '@/components/modal/Modal.vue'
 import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
 import Send from '@/components/button/Send.vue'
 import Select from '@/components/Select.vue'
@@ -73,7 +66,6 @@ export default {
   components: {
     Title,
     WidgetLayoutHome,
-    Modal,
     Send,
     Select
   },

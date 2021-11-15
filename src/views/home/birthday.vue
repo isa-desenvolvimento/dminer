@@ -1,5 +1,9 @@
 <template>
-  <folder title="aniversário" classContent="folder__birthday__content">
+  <widget-layout-home
+    layout="icon-folder"
+    title="aniversário"
+    classContent="folder__birthday__content"
+  >
     <ul>
       <li
         class="birthday_li"
@@ -18,11 +22,11 @@
         </div>
       </li>
     </ul>
-  </folder>
+  </widget-layout-home>
 </template>
 
 <script>
-import Folder from '@/components/folder/Folder.vue'
+import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
 import Title from '@/components/title/Title.vue'
 import Avatar from '@/components/avatar/Avatar.vue'
 
@@ -36,7 +40,7 @@ export default {
     return { getBirthdays, dateHourFormart }
   },
   components: {
-    Folder,
+    WidgetLayoutHome,
     Title,
     Avatar
   }
