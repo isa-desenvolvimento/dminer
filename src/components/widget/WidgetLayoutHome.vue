@@ -1,30 +1,28 @@
 <template>
   <icon-base
-    class="container__reminder"
+    class="container__notices"
     icon-name="icon"
     :onClick="onClick"
     viewBox="0 0 500 500"
-    width="100%"
-    height="100%"
   >
-    <icon-folder-reminder>
-      <div class="wrapper__reminder">
-        <div class="reminder__head">
-          <h1>{{ title }}</h1>
+    <component :is="layout">
+      <div class="wrapper__notices">
+        <div class="notices__head">
+          <h2>{{ title }}</h2>
         </div>
         <div
           :class="classContent"
-          class="reminder__content"
+          class="notices__content"
           :style="{ 'max-heitemplateht': !isExpanded && '18rem' }"
           :id="id"
         >
           <slot />
         </div>
-        <div class="reminder__footer" v-if="hasButton">
+        <div class="notices__footer" v-if="hasButton">
           <icon-base
             viewBox="0 0 1024 1024"
             icon-name="icon"
-            class="folder_button"
+            class="edit-icon"
             :onClick="onClick"
             width="70"
             height="70"
@@ -34,15 +32,17 @@
           </icon-base>
         </div>
       </div>
-    </icon-folder-reminder>
+    </component>
   </icon-base>
 </template>
 
 <script>
 import IconButton from '@/components/icons/IconButton.vue'
-import IconNotices from '@/components/icons/IconNotices.vue'
 import IconBase from '@/components/icons/IconBase.vue'
+import IconNotices from '@/components/icons/IconNotices.vue'
+import IconFolderNotification from '@/components/icons/IconFolderNotification.vue'
 import IconFolderReminder from '@/components/icons/IconFolderReminder.vue'
+import IconSidebar from '@/components/icons/IconSidebar.vue'
 
 export default {
   props: {
@@ -51,49 +51,52 @@ export default {
     onClick: { type: Function, required: false },
     classContent: { type: String, required: false },
     id: { type: String, required: false },
-    hasButton: { type: Boolean, required: false, default: true }
+    hasButton: { type: Boolean, required: false, default: true },
+    layout: { type: String, required: true }
   },
   components: {
     IconBase,
     IconButton,
     IconNotices,
-    IconFolderReminder
+    IconFolderNotification,
+    IconFolderReminder,
+    IconSidebar
   }
 }
 </script>
 
 <style scoped>
-.container__reminder {
+.container__notices {
   width: 100%;
   height: 100%;
 }
 
-.wrapper__reminder {
+.wrapper__notices {
   display: grid;
   grid-auto-rows: 1fr 4.1fr 1fr;
   padding: 0 1rem;
 }
 
-.reminder__head {
+.notices__head {
   display: flex;
   justify-content: flex-end;
   text-transform: uppercase;
 }
 
-.reminder__content {
+.notices__content {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 300px;
 }
 
-.reminder__footer {
+.notices__footer {
   display: flex;
   justify-content: flex-end;
   align-items: end;
   margin-top: 5px;
 }
 
-h1 {
+h2 {
   font-family: var(--font-family--title);
   color: var(--color-title);
   font-weight: 300;

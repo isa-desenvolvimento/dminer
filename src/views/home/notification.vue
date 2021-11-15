@@ -1,5 +1,6 @@
 <template>
-  <WidgetNotification
+  <widget-layout-home
+    layout="icon-folder-notification"
     class="mt-3 cursor-move"
     title="notificações"
     classContent="folder__notification__content"
@@ -11,15 +12,15 @@
         </Title>
       </li>
     </ul>
-  </WidgetNotification>
+  </widget-layout-home>
 </template>
 
 <script>
+import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
 import Folder from '@/components/folder/Folder.vue'
 import Title from '@/components/title/Title.vue'
 
 import { fetchAllNotification } from '@/api/notification.js'
-import WidgetNotification from '@/components/widget/WidgetNotification.vue'
 
 export default {
   data() {
@@ -35,7 +36,7 @@ export default {
   components: {
     Folder,
     Title,
-    WidgetNotification
+    WidgetLayoutHome
   }
 }
 </script>

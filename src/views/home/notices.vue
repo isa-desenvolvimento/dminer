@@ -1,5 +1,6 @@
 <template>
-  <WidgetNotices
+  <widget-layout-home
+    layout="icon-notices"
     class="mt-3 cursor-move"
     classContent="folder__notification__content"
     id="folder_notices"
@@ -30,7 +31,7 @@
         </div>
       </li>
     </ul>
-  </WidgetNotices>
+  </widget-layout-home>
 
   <transition name="modal">
     <modal v-if="showModal" @close="showModal = false" modal="icon-folder">
@@ -41,13 +42,13 @@
 
 <script>
 import Title from '@/components/title/Title.vue'
+import Modal from '@/components/modal/Modal.vue'
+import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
+import Send from '@/components/button/Send.vue'
+import Select from '@/components/Select.vue'
 
 import useNotice from '@/composables/useNotice.js'
 import debounce from '@/util/debounce.js'
-import WidgetNotices from '@/components/widget/WidgetNotices.vue'
-import Modal from '@/components/modal/Modal.vue'
-import Send from '@/components/button/Send.vue'
-import Select from '@/components/Select.vue'
 
 export default {
   data() {
@@ -70,9 +71,8 @@ export default {
     return { noticeList }
   },
   components: {
-    Notification,
     Title,
-    WidgetNotices,
+    WidgetLayoutHome,
     Modal,
     Send,
     Select

@@ -1,5 +1,9 @@
 <template>
-  <WidgetReminder title="lembrete" classContent="folder__reminder__content">
+  <widget-layout-home
+    layout="icon-folder-reminder"
+    title="lembrete"
+    classContent="folder__reminder__content"
+  >
     <ul>
       <li
         class="reminder_li"
@@ -12,11 +16,11 @@
         </Title>
       </li>
     </ul>
-  </WidgetReminder>
+  </widget-layout-home>
 </template>
 
 <script>
-import WidgetReminder from '@/components/widget/WidgetReminder.vue'
+import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
 import Title from '@/components/title/Title.vue'
 
 import useReminder from '@/composables/useReminder.js'
@@ -29,7 +33,7 @@ export default {
     return { getReminders, dateHourFormart }
   },
   components: {
-    WidgetReminder,
+    WidgetLayoutHome,
     Title
   }
 }
