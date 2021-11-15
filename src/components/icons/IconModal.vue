@@ -52,7 +52,7 @@
       <circle class="st2" cx="45.7" cy="338.8" r="2.3" />
     </g>
     <g>
-      <foreignObject y="0" x="0" width="100%" height="100%">
+      <foreignObject y="0.5rem" x="0" width="100%" height="85%">
         <slot />
       </foreignObject>
     </g>

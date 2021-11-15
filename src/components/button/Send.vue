@@ -4,7 +4,7 @@
     viewBox="0 0 500 500"
     width="100%"
     height="100%"
-    classe="send"
+    :classe="width === '15%' && 'send'"
   >
     <component
       :is="buttonComponent"
@@ -16,6 +16,7 @@
         'is-success': isSuccess,
         'is-error': isError
       }"
+      :style="{ width: width }"
     >
       <svg viewBox="0 0 90.594 59.714" id="svgbtn" v-if="isSuccess">
         <polyline
@@ -60,7 +61,8 @@ export default {
   props: {
     isLoading: { type: Boolean, default: false, required: true },
     isError: { type: Boolean, default: false, required: true },
-    isSuccess: { type: Boolean, default: false, required: true }
+    isSuccess: { type: Boolean, default: false, required: true },
+    width: { type: String, default: '15%', required: false }
   },
   data() {
     return {
@@ -97,11 +99,12 @@ export default {
 .send {
   cursor: pointer;
   font-size: 1rem;
-  width: 15%;
   font-family: var(--font-family--text);
   position: relative;
   margin-top: -13px;
   color: black;
+
+  width: 15%;
 }
 
 #svgbtn {

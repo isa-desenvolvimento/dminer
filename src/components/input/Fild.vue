@@ -88,6 +88,8 @@ label {
   left: 0;
 
   grid-area: label;
+
+  color: var(--color-text);
 }
 
 .fild_container_icon {
@@ -120,6 +122,7 @@ label {
   padding: 0;
   padding-top: 0.5rem;
   font-size: 0.8rem;
+  background-color: transparent;
 }
 
 .fild_container_error {

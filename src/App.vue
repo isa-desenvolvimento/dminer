@@ -42,7 +42,8 @@ export default {
   --sidebar-green-medium: #89f45f;
   --sidebar-green-dark: #43df94;
   --sidebar-green-opacity: #55e48663;
-  --white: #ffffff
+  --white: #ffffff;
+  --black: #000000;
 
   --gray: #60645c;
   --rgbGray: 108, 117, 125;
@@ -72,6 +73,7 @@ export default {
   --font-weight--text: 300px;
 
   --color-title: var(--gray);
+  --color-text: var(--black);
 
   --background-color: white;
 

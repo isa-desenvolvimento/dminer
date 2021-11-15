@@ -9,12 +9,12 @@
         height="100%"
       >
         <component :is="layout">
-          <div class="modal-container">
+          <div class="modal-container" :style="{ width: width }">
             <div class="modal-header">
               <div class="modal_head_title">
                 <h1>{{ title }}</h1>
               </div>
-              <button class="modal-default-button" @click="$emit('close')">
+              <button :class="classButton" @click="$emit('close')">
                 <icon-base
                   class="icon__feed"
                   icon-name="icon"
@@ -66,9 +66,15 @@ import IconButton from '@/components/icons/IconButton.vue'
 export default {
   props: {
     layout: { type: String, required: false, default: 'icon-modal-folder' },
+    width: { type: String, required: false, default: '100%' },
     viewbox: { type: String, required: false, default: '0 0 700 500' },
     title: { type: String, required: true, default: '' },
-    onClick: { type: Function, required: false, default: '' }
+    onClick: { type: Function, required: false, default: '' },
+    classButton: {
+      type: String,
+      required: false,
+      default: 'modal-default-button'
+    }
   },
   components: {
     IconBase,
@@ -103,8 +109,6 @@ export default {
 }
 
 .modal-container {
-  /* width: 300px; */
-  width: 100%;
   margin-left: auto;
   margin-right: 3rem;
   position: relative;
@@ -122,8 +126,7 @@ export default {
 
 .modal-left {
   position: absolute;
-  left: -132px;
-  top: 120px;
+  left: -8rem;
   display: grid;
   justify-items: flex-start;
   font-size: 0.3rem;
@@ -131,8 +134,7 @@ export default {
   border: none;
   border-radius: 3px;
   grid-gap: 0.3rem;
-
-  width: 27%;
+  width: 5rem;
 }
 
 .modal-default-button {
@@ -147,6 +149,19 @@ export default {
   border: none;
 }
 
+.modal-default-button-calendar {
+  display: block;
+  margin-top: -2rem;
+  position: absolute;
+  right: -1rem;
+  width: 1.5rem;
+  padding: 0rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.modal-default-button-calendar:hover,
 .modal-default-button:hover {
   animation: pulse 1.5s infinite;
 }

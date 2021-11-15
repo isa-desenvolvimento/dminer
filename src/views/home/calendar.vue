@@ -12,84 +12,47 @@
   </widget-layout-home>
 
   <transition name="modal">
-    <widget-modal v-if="showModal" @close="showModal = false">
+    <widget-modal
+      layout="icon-modal"
+      viewbox="0 0 500 350"
+      v-if="showModal"
+      @close="showModal = false"
+      classButton="modal-default-button-calendar"
+      width="300px"
+    >
       <template v-slot:left>
-        <label>Título:</label>
-        <input
-          class="input_calendar"
+        <fild-input
+          :text="'Título'"
           v-model="event.title"
-          placeholder="Nome do evento"
+          :value="event.title"
+          required
+          :isError="isError && !event.title"
+        />
+
+        <fild-date
+          :text="'Início'"
+          v-model="event.start"
+          :value="event.start"
+          required
+          :isError="isError && !event.start"
+        />
+        <fild-date
+          :text="'Fim'"
+          v-model="event.end"
+          :value="event.end"
+          required
+          :isError="isError && !event.end"
         />
 
         <div>
-          <label>Inicio:</label>
-
-          <Datepicker
-            v-model="event.start"
-            placeholder="Select date"
-          ></Datepicker>
-
-          <div>
-            <icon-base
-              viewBox="0 0 500 58"
-              width="100%"
-              height="100%"
-              class="fild_container_icon"
-              :class="`container_input_teste`"
-            >
-              <icon-line></icon-line>
-            </icon-base>
-          </div>
-        </div>
-
-        <label>Fim:</label>
-
-        <Datepicker v-model="event.end" placeholder="Select date"></Datepicker>
-
-        <icon-base
-          icon-name="icon"
-          viewBox="0 0 500 500"
-          width="100%"
-          height="100%"
-          classe="send"
-        >
-          <component
-            :is="buttonComponent"
+          <send
+            :isLoading="isLoading"
+            :isSuccess="isSuccess"
+            :isError="isError"
             @click="sendEvent"
-            id="send"
-            class="send"
-          >
-            <svg viewBox="0 0 90.594 59.714" id="svgbtn">
-              <polyline
-                class="check"
-                fill="none"
-                stroke="#000000"
-                stroke-width="10"
-                stroke-miterlimit="10"
-                points="1.768,23.532 34.415,56.179 88.826,1.768"
-              />
-            </svg>
-            <span id="span_send">Enviar</span>
-            <div class="out">
-              <icon-base
-                viewBox="0 0 32 32"
-                icon-name="icon"
-                width="20%"
-                height="20%"
-                class="icon_close"
-              >
-                <icon-close />
-              </icon-base>
-            </div>
-
-            <div class="lds-ellipsis">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </component>
-        </icon-base>
+            width="100%"
+          ></send>
+        </div>
       </template>
       <template v-slot:body>
         <EventCalendar :events="events" />
@@ -101,6 +64,9 @@
 <script>
 import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
+import Send from '@/components/button/Send.vue'
+import FildInput from '@/components/input/Fild.vue'
+import FildDate from '@/components/input/FildDate.vue'
 
 import Calendar from '@/components/calendar/Calendar.vue'
 import EventCalendar from '@/components/calendar/EventCalendar.vue'
@@ -112,10 +78,7 @@ import Datepicker from 'vue3-date-time-picker'
 import 'vue3-date-time-picker/dist/main.css'
 import moment from 'moment'
 import { reactive, ref } from 'vue'
-import IconClose from '@/components/icons/IconClose.vue'
 import IconBase from '@/components/icons/IconBase.vue'
-import IconButtonSend from '@/components/icons/IconButtonSend.vue'
-import IconButtonError from '@/components/icons/IconButtonError.vue'
 import IconLine from '@/components/icons/IconLine.vue'
 
 export default {
@@ -124,7 +87,10 @@ export default {
       showModal: false,
       showDate: new Date(),
       events: [],
-      buttonComponent: 'icon-button-send'
+      buttonComponent: 'icon-button-send',
+      isLoading: false,
+      isSuccess: false,
+      isError: false
     }
   },
   setup(props) {
@@ -148,11 +114,11 @@ export default {
     Calendar,
     EventCalendar,
     Datepicker,
-    IconClose,
-    IconButtonSend,
     IconBase,
-    IconButtonError,
-    IconLine
+    IconLine,
+    Send,
+    FildInput,
+    FildDate
   },
   methods: {
     clickCalendar() {

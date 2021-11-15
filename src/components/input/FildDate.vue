@@ -102,6 +102,7 @@ label {
   left: 0;
 
   grid-area: label;
+  color: var(--color-text);
 }
 
 .fild_container_icon {
