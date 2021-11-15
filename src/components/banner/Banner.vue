@@ -15,22 +15,27 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+
 import { sidebarWidth } from '@/components/sidebar/state'
 
 export default {
   props: { propsImage: { type: String, required: false, default: null } },
-  data() {
-    return { previewImage: this.propsImage }
-  },
-  setup() {
-    return { sidebarWidth }
+  setup(props) {
+    const fileInput = ref([])
+    const previewImage = ref([])
+
+    previewImage.value = props.propsImage
+    fileInput.value = props.propsImage
+
+    return { fileInput, previewImage, sidebarWidth }
   },
   methods: {
     selectImage() {
-      this.$refs.fileInput.click()
+      this.fileInput.click()
     },
     pickFile() {
-      let input = this.$refs.fileInput
+      let input = this.fileInput
       let file = input.files
       if (file && file[0]) {
         let reader = new FileReader()

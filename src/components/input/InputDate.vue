@@ -64,12 +64,11 @@ input {
   background: transparent;
   margin: auto;
   margin-left: 1rem;
-
   font-family: var(--font-family--text);
   color: var(--color-title);
   font-weight: 300;
-  font-size: 1rem;
-  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
 }
 
 .container__date {

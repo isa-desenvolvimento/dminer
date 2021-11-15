@@ -18,30 +18,36 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
-  data() {
-    return {
-      previewImage: null
-    }
-  },
   props: {
-    avatar: { type: String, required: true, default: null },
+    avatar: {
+      type: String,
+      required: true,
+      default: 'src/assets/widget/avatar.svg'
+    },
     username: { type: String, required: false, default: '' },
     isClicked: { type: Boolean, default: false, required: false },
     width: { type: String, required: false, default: '8rem' },
     height: { type: String, required: false, default: '9rem' }
   },
-  mounted() {
-    this.previewImage =
-      this.avatar || localStorage.avatar || 'src/assets/widget/avatar.svg'
+  setup(props) {
+    const fileInput = ref([])
+    const previewImage = ref([])
+
+    previewImage.value = props.avatar
+    fileInput.value = props.avatar
+
+    return { fileInput, previewImage }
   },
 
   methods: {
     selectImage() {
-      if (this.isClicked) this.$refs.fileInput.click()
+      if (this.isClicked) this.fileInput.click()
     },
     pickFile() {
-      let input = this.$refs.fileInput
+      let input = this.fileInput
       let file = input.files
       if (file && file[0]) {
         let reader = new FileReader()

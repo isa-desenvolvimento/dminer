@@ -87,9 +87,8 @@ import {
 } from './state'
 
 export default {
-  props: {
-    user: null
-  },
+  props: { user: { type: Object, required: true } },
+
   components: {
     SidebarLink,
     Avatar,
@@ -177,7 +176,7 @@ h1 {
 
 .edit-icon {
   position: absolute;
-  right: 0;
+  right: 1.5rem;
   top: 2rem;
   height: 1.5rem;
 }

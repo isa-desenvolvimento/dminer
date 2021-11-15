@@ -5,21 +5,19 @@ import Content from '@/components/content/Content.vue'
 
 import useUser from '@/composables/useUser'
 
-import { ref } from 'vue'
 export default {
   components: { Sidebar, Banner, Content },
   setup() {
     const { getUser, setUser } = useUser(1)
     setUser()
-    const user = ref(getUser)
-    return { user }
+    return { getUser }
   }
 }
 </script>
 <template>
   <div>
-    <Sidebar :user="user" />
-    <Banner :propsImage="user.banner" />
+    <Sidebar :user="getUser" />
+    <Banner :propsImage="getUser.banner" />
 
     <Content />
   </div>
