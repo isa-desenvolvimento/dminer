@@ -23,22 +23,15 @@ export default {
 
 <style>
 .vue-select {
-  /* position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  box-sizing: border-box; */
   outline: 0;
   width: 100%;
-  background: var(--sidebar-green-ligth);
+  background: transparent;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: none;
   border-radius: 0.2rem;
   padding: 0.3rem;
   font-size: var(--font-family--text);
   margin: 0.1rem;
-
   cursor: pointer;
 }
 

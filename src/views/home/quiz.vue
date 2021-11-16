@@ -93,11 +93,12 @@ li {
   display: grid;
   grid-template-rows: 80% 20%;
   padding: 0.5rem;
-  width: 75%;
+  width: 70%;
 }
 .icon_quiz_count {
   position: absolute;
   z-index: 2;
+  left: 1rem;
 }
 
 .quiz_question {

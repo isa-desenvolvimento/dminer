@@ -35,7 +35,7 @@ import IconBase from '@/components/icons/IconBase.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 
-import usePermition from '@/composables/usePermition'
+import usePermission from '@/composables/usePermission.js'
 
 export default {
   data() {
@@ -58,7 +58,7 @@ export default {
     }
   },
   setup() {
-    const { create } = usePermition()
+    const { create } = usePermission()
 
     return { create }
   },

@@ -61,10 +61,10 @@ import Avatar from '@/components/avatar/Avatar.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
+import FormUser from './form.vue'
 
 import useAllUsers from '@/composables/useAllUsers'
 import { dayMounthFormart } from '@/util/date.js'
-import FormUser from './formUser.vue'
 
 export default {
   data() {

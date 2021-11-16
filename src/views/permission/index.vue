@@ -11,8 +11,7 @@
           <li v-for="(item, key) in getAllUsers" :key="key">
             <h4>{{ item.name }}</h4>
             <div class="permition_select">
-              <label>permitir:</label>
-              <Select :options="getPermition" />
+              <fild-select :options="getPermission" text="permitir" />
             </div>
 
             <icon-base
@@ -41,10 +40,10 @@ import WidgetModal from '@/components/widget/WidgetModal.vue'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import formCrud from './form.vue'
-import Select from '@/components/Select.vue'
+import FildSelect from '@/components/input/FildSelect.vue'
 import IconLine from '@/components/icons/IconLine.vue'
 
-import usePermition from '@/composables/usePermition'
+import usePermission from '@/composables/usePermission'
 import useAllUsers from '@/composables/useAllUsers'
 
 export default {
@@ -57,17 +56,17 @@ export default {
     }
   },
   setup() {
-    const { getPermition } = usePermition()
+    const { getPermission } = usePermission()
     const { getAllUsers } = useAllUsers()
 
-    return { getPermition, getAllUsers }
+    return { getPermission, getAllUsers }
   },
   components: {
     WidgetModal,
     formCrud,
     IconEdit,
     IconBase,
-    Select,
+    FildSelect,
     IconLine
   },
   methods: {
@@ -154,9 +153,5 @@ a {
   z-index: 3;
   position: absolute;
   bottom: -20px;
-}
-
-label {
-  position: relative;
 }
 </style>

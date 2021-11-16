@@ -22,19 +22,22 @@
               required
               :isError="isError && !value.link"
             />
-            <fild-input
+            <fild-select
               :text="'Permissão'"
               v-model="value.permission"
               :value="value.permission"
               required
               :isError="isError && !value.permission"
+              :options="getPermission"
             />
-            <fild-input
+
+            <fild-select
               :text="'Categoria'"
               v-model="value.category"
               :value="value.category"
               required
               :isError="isError && !value.category"
+              :options="getCategories"
             />
           </div>
         </div>
@@ -52,11 +55,14 @@
 </template>
 <script>
 import FildInput from '@/components/input/Fild.vue'
+import FildSelect from '@/components/input/FildSelect.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 
 import useDocument from '@/composables/useDocument'
+import useCategory from '@/composables/useCategory'
+import usePermission from '@/composables/usePermission'
 
 export default {
   data() {
@@ -66,7 +72,7 @@ export default {
       isError: false
     }
   },
-  components: { FildInput, IconBase, Send, WidgetModal },
+  components: { FildInput, IconBase, Send, WidgetModal, FildSelect },
   props: {
     showModal: { type: Boolean, required: true },
     isEdit: false,
@@ -84,7 +90,10 @@ export default {
   setup() {
     const { create } = useDocument()
 
-    return { create }
+    const { getCategories } = useCategory()
+    const { getPermission } = usePermission()
+
+    return { create, getCategories, getPermission }
   },
 
   methods: {
@@ -106,7 +115,7 @@ export default {
           this.isSuccess = true
           setTimeout(() => {
             this.isSuccess = false
-            this.$router.push('/valueumentos')
+            this.$router.push('/documentos')
           }, 3000)
         }
       } else {
@@ -126,15 +135,13 @@ export default {
 
 <style scope>
 .form_container {
-  /* display: grid;
-  background-image: url(/src/assets/widget/frame-team.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
+  display: grid;
+
   width: 100%;
   height: 100%;
   margin: auto;
   justify-items: stretch;
-  padding: 2rem; */
+  padding: 2rem;
 
   width: 80%;
   margin: auto;
