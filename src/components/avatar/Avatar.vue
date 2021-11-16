@@ -33,11 +33,8 @@ export default {
     height: { type: String, required: false, default: '9rem' }
   },
   setup(props) {
-    const fileInput = ref([])
-    const previewImage = ref([])
-
-    previewImage.value = props.avatar
-    fileInput.value = props.avatar
+    const fileInput = ref(props.avatar)
+    const previewImage = ref(props.avatar || 'src/assets/widget/avatar.svg')
 
     return { fileInput, previewImage }
   },
