@@ -77,6 +77,12 @@ export default {
   --background-color: white;
 
   --background-color--disabled: white;
+
+  scroll-behavior: smooth;
+}
+
+.vc-containe {
+  border-color: transparent;
 }
 
 /* width */

@@ -46,8 +46,8 @@ import debounce from '@/util/debounce.js'
 export default {
   data() {
     return {
-      index: 0,
       showModal: false,
+      lastScrollTop: 0,
       priorityList: ['Alta', 'Média', 'Baixa'],
       notice: {
         warning: '',
@@ -71,23 +71,29 @@ export default {
   },
   mounted() {
     const folder = document.getElementById('folder_notices')
-    folder.addEventListener('scroll', debounce(this.handleScroll, 100))
+    folder.addEventListener('scroll', debounce(this.handleScroll), {
+      passive: true
+    })
   },
   destroyed() {
     const folder = document.getElementById('folder_notices')
-    folder.removeEventListener('scroll', debounce(this.handleScroll, 100))
+    folder.removeEventListener('scroll', debounce(this.handleScroll), {
+      passive: true
+    })
   },
   methods: {
-    handleScroll(event) {
-      // const notifices_li = document.querySelectorAll('.notifices_li')
-      // const folder_notices = document.getElementById('folder_notices')
-      // notifices_li.forEach((element, key) => {
-      //   console.log(element.getBoundingClientRect().top)
-      //   if (element.getBoundingClientRect().top > 200) {
-      //     folder_notices.scrollTop =
-      //       element.getBoundingClientRect().height + 200
-      //   }
-      // })
+    handleScroll(e) {
+      const folder_notices = document.getElementById('folder_notices')
+
+      if (e.target.scrollTop > this.lastScrollTop) {
+        console.log('desceu')
+        folder_notices.scrollTop += 200
+      } else {
+        console.log('subiu')
+        // folder_notices.scrollTop -= 200
+      }
+
+      this.lastScrollTop = e.target.scrollTop
     },
     submit() {
       console.log('submit')
