@@ -5,6 +5,9 @@
       'margin-left': sidebarWidth
     }"
   >
+    <div class="container_text" @click="selectImage">
+      <Title v-if="!previewImage">Banner (espaço para upload)</Title>
+    </div>
     <div
       class="imagePreviewWrapper"
       :style="{ 'background-image': `url(${previewImage})` }"
@@ -16,6 +19,7 @@
 
 <script>
 import { ref } from 'vue'
+import Title from '@/components/title/Title.vue'
 
 import { sidebarWidth } from '@/components/sidebar/state'
 
@@ -24,10 +28,8 @@ export default {
   setup(props) {
     const fileInput = ref([])
     const previewImage = ref([])
-
     previewImage.value = props.propsImage
     fileInput.value = props.propsImage
-
     return { fileInput, previewImage, sidebarWidth }
   },
   methods: {
@@ -47,14 +49,15 @@ export default {
         this.$emit('input', file[0])
       }
     }
-  }
+  },
+  components: { Title }
 }
 </script>
 
 <style scoped>
 .container {
   width: 100%;
-  background-color: red;
+  background-color: #60645c6e;
   position: fixed;
   top: 0;
   height: 5rem;
@@ -73,5 +76,11 @@ export default {
 
 .imageInput {
   display: none;
+}
+
+.container_text {
+  text-align: start;
+  margin-left: 5rem;
+  cursor: pointer;
 }
 </style>
