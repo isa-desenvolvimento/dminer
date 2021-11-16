@@ -122,7 +122,7 @@ export default {
   background-position: center;
   height: 100vh;
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   top: 0;
   left: 0;
   bottom: 0;
