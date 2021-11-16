@@ -99,9 +99,6 @@ export default {
   },
 
   methods: {
-    changeInput(index, value) {
-      this.value[index] = value
-    },
     sendForm() {
       this.isLoading = true
       if (this.validForm()) {

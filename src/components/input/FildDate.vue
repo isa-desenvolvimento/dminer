@@ -22,7 +22,7 @@
           viewBox="0 0 500 58"
           width="100%"
           height="100%"
-          class="fild_container_icon"
+          class="fild_container_icon_date"
           :class="`container_input_${text}`"
         >
           <icon-line></icon-line>
@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .container_input {
   /* display: grid;
   grid-template-areas:
@@ -105,7 +105,7 @@ label {
   color: var(--color-text);
 }
 
-.fild_container_icon {
+.fild_container_icon_date {
   /* position: absolute;
   bottom: 0;
   left: 0;

@@ -128,9 +128,6 @@ export default {
   },
 
   methods: {
-    changeInput(index, value) {
-      this.value[index] = typeof value == 'object' ? value.id : value
-    },
     sendForm() {
       this.isLoading = true
       if (this.validForm()) {

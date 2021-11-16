@@ -14,7 +14,7 @@
         placeholder=""
         @update:modelValue="changeInput"
         :reduce="(item) => item.id"
-        label-by="title"
+        :label-by="title"
       ></vue-select>
 
       <div>
@@ -22,7 +22,7 @@
           viewBox="0 0 500 58"
           width="100%"
           height="100%"
-          class="fild_container_icon"
+          class="fild_container_icon_select"
           :class="`container_input_${text}`"
         >
           <icon-line></icon-line>
@@ -46,9 +46,14 @@ export default {
     const value = ref(0)
     const options = reactive(props.options)
 
+    const verifyLabelIndex = Object.keys(options).filter((option) =>
+      options[option].hasOwnProperty('title')
+    )
+
     return {
       value,
-      options
+      options,
+      title: verifyLabelIndex.length ? 'title' : 'name'
     }
   },
   mounted() {
@@ -65,6 +70,7 @@ export default {
     value: { type: String, required: false },
     required: { type: Boolean, required: false, default: false },
     isError: { type: Boolean, required: false, default: false },
+    multiple: { type: Boolean, required: false, default: false },
     options: { type: Array, required: true, default: [] }
   },
 
@@ -120,6 +126,10 @@ label {
   cursor: pointer;
 }
 
+.vue-select-header {
+  margin-top: 0.2rem;
+}
+
 .vue-dropdown-item.selected {
   background-color: var(--sidebar-green-ligth);
 }
@@ -130,5 +140,9 @@ label {
 
 .vue-dropdown-item.selected.highlighted {
   background-color: var(--sidebar-green-ligth);
+}
+
+.fild_container_icon_select {
+  margin-top: -1rem;
 }
 </style>

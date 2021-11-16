@@ -130,4 +130,9 @@ table {
   width: 100%;
   height: 100%;
 }
+
+input {
+  font-family: var(--font-family--text);
+  font-size: var(--font-size--text);
+}
 </style>
