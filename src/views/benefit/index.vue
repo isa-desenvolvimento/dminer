@@ -10,7 +10,19 @@
         <ul>
           <li v-for="(item, key) in getBenefits" :key="key">
             <image-details :image="item.image" imageW="7rem" imageH="7rem">
-              <template v-slot:title>{{ item.title }}</template>
+              <template v-slot:title>
+                {{ item.title }}
+
+                <button class="team_btn_edit">
+                  <icon-base
+                    icon-name="icon"
+                    class="team_icon_edit"
+                    @click="setDoc(item)"
+                  >
+                    <icon-edit />
+                  </icon-base>
+                </button>
+              </template>
               <template v-slot:content>{{ item.content }}</template>
             </image-details>
           </li>
@@ -105,12 +117,12 @@ a {
   right: -1rem;
   width: 24%;
   height: 1rem;
-  top: 0.6rem;
+  top: -1rem;
   background: transparent;
   cursor: pointer;
 }
 .team_icon_edit {
-  width: 24%;
+  width: 100%;
   height: 1rem;
 }
 

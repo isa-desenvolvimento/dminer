@@ -7,6 +7,7 @@
     >
       <template v-slot:body>
         <div class="form_container">
+          <upload-image v-model="value.image" :propsImage="value.image" />
           <div class="form_container_text">
             <fild-input
               :text="'Título'"
@@ -31,14 +32,6 @@
               :isError="isError && !value.permission"
               :options="getPermission"
             />
-
-            <fild-input
-              :text="'Imagem'"
-              v-model="value.image"
-              :value="value.image"
-              required
-              :isError="isError && !value.image"
-            />
           </div>
         </div>
       </template>
@@ -59,6 +52,7 @@ import FildSelect from '@/components/input/FildSelect.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
+import UploadImage from '@/components/UploadImage.vue'
 
 import useBenefit from '@/composables/useBenefit'
 
@@ -70,7 +64,14 @@ export default {
       isError: false
     }
   },
-  components: { FildInput, IconBase, Send, WidgetModal, FildSelect },
+  components: {
+    FildInput,
+    IconBase,
+    Send,
+    WidgetModal,
+    FildSelect,
+    UploadImage
+  },
   props: {
     showModal: { type: Boolean, required: true },
     isEdit: false,
@@ -127,23 +128,19 @@ export default {
 
 <style scope>
 .form_container {
-  /* display: grid;
-  background-image: url(/src/assets/widget/frame-team.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
+  display: flex;
   width: 100%;
   height: 100%;
   margin: auto;
-  justify-items: stretch;
-  padding: 2rem; */
+  padding: 2rem;
 
   width: 80%;
   margin: auto;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .form_container_text {
   display: grid;
-  grid-template-columns: 45% 45%;
-  grid-gap: 10%;
 }
 </style>
