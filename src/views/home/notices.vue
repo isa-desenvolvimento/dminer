@@ -38,7 +38,6 @@
 import Title from '@/components/title/Title.vue'
 import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
 import Send from '@/components/button/Send.vue'
-import Select from '@/components/Select.vue'
 
 import useNotice from '@/composables/useNotice.js'
 import debounce from '@/util/debounce.js'
@@ -66,8 +65,7 @@ export default {
   components: {
     Title,
     WidgetLayoutHome,
-    Send,
-    Select
+    Send
   },
   mounted() {
     const folder = document.getElementById('folder_notices')
