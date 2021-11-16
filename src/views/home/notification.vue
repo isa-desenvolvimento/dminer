@@ -8,7 +8,7 @@
     <ul>
       <li v-for="item in notificationList" :key="item">
         <Title>
-          {{ item.notificationDescrible }}
+          {{ item.notification }}
         </Title>
       </li>
     </ul>

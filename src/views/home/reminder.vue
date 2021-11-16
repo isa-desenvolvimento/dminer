@@ -12,7 +12,7 @@
         :id="`reminder_li_${key}`"
       >
         <Title>
-          {{ item.reminderDescrible }}
+          {{ item.reminder }}
         </Title>
       </li>
     </ul>

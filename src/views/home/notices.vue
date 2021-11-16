@@ -9,7 +9,7 @@
     <ul>
       <li
         class="notifices_li"
-        v-for="(item, key) in noticeList"
+        v-for="(item, key) in getNotices"
         :key="key"
         :id="`notifices_li_${key}`"
       >
@@ -38,7 +38,7 @@
       v-if="showModal"
       layout="icon-modal-folder"
       :title="'cadastro de avisos'"
-      @close="this.$router.push('/')"
+      @close="showModal = false"
     >
       <template v-slot:body>
         <div class="form_container">

@@ -1,10 +1,5 @@
 <template>
-  <icon-base
-    class="container__notices"
-    icon-name="icon"
-    :onClick="onClick"
-    viewBox="0 0 500 500"
-  >
+  <icon-base class="container__notices" icon-name="icon" viewBox="0 0 500 500">
     <component :is="layout">
       <div class="wrapper__notices">
         <div class="notices__head">
