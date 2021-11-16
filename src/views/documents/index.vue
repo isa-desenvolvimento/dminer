@@ -21,6 +21,14 @@
                 <icon-edit />
               </icon-base>
             </button>
+            <icon-base
+              viewBox="0 0 500 58"
+              width="100%"
+              height="100%"
+              class="fild_container_icon"
+            >
+              <icon-line />
+            </icon-base>
           </li>
         </ul>
       </template>
@@ -39,6 +47,7 @@ import WidgetModal from '@/components/widget/WidgetModal.vue'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import formCrud from '@/views/documents/form.vue'
+import IconLine from '@/components/icons/IconLine.vue'
 
 import useDocument from '@/composables/useDocument'
 
@@ -55,7 +64,8 @@ export default {
     WidgetModal,
     formCrud,
     IconEdit,
-    IconBase
+    IconBase,
+    IconLine
   },
   methods: {
     openModal() {
@@ -78,7 +88,6 @@ ul {
 li {
   padding: 1rem;
   display: flex;
-  border-bottom: 1px solid;
   margin-right: 2rem;
 }
 
@@ -108,5 +117,11 @@ a {
 
 a {
   text-decoration: none;
+}
+
+.fild_container_icon {
+  position: absolute;
+  bottom: 0;
+  width: 85%;
 }
 </style>

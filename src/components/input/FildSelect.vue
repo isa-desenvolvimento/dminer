@@ -9,10 +9,12 @@
 
       <vue-select
         :id="`container_input_${text}`"
-        @update:modelValue="changeInput"
-        :options="optionsProps"
+        :options="options"
         close-on-select
         placeholder=""
+        @update:modelValue="changeInput"
+        :reduce="(item) => item.id"
+        label-by="title"
       ></vue-select>
 
       <div>
@@ -32,24 +34,21 @@
 </template>
 
 <script>
+import { ref, reactive } from 'vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconLine from '@/components/icons/IconLine.vue'
-
-import Datepicker from 'vue3-date-time-picker'
-import 'vue3-date-time-picker/dist/main.css'
-import { ref, reactive } from 'vue'
 
 import VueSelect from 'vue-next-select'
 import 'vue-next-select/dist/index.min.css'
 
 export default {
   setup(props) {
-    const date = ref([])
-
-    date.value = new Date(props.value) || new Date()
+    const value = ref(0)
+    const options = reactive(props.options)
 
     return {
-      date
+      value,
+      options
     }
   },
   mounted() {
@@ -60,22 +59,23 @@ export default {
       circle.style.fill = 'red'
     }
   },
-  components: { IconLine, IconBase, Datepicker },
+  components: { IconLine, IconBase, VueSelect },
   props: {
     text: { type: String, required: false },
     value: { type: String, required: false },
     required: { type: Boolean, required: false, default: false },
     isError: { type: Boolean, required: false, default: false },
-    optionsProps: { type: Array, required: true, default: [] }
+    options: { type: Array, required: true, default: [] }
   },
 
   methods: {
     focus(e) {
-      const input = document.getElementById(`container_input_${this.text}`)
-      input.focus()
+      // const input = document.getElementById(`container_input_${this.text}`)
+      // input.focus()
     },
     changeInput(e) {
-      this.$emit('update:modelValue', e)
+      console.log(e)
+      this.$emit('update:modelValue', e.id)
     }
   }
 }

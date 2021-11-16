@@ -22,5 +22,5 @@ export const fetchCreate = async (doc) => {
   })
   const json = await response.json()
 
-  return messagesFetch('category', response.status, json.data)
+  return messagesFetch('registration', response.status, json.data)
 }

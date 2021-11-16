@@ -1,4 +1,4 @@
-const baseURL = 'https://dminer-api.herokuapp.com/api/permition'
+const baseURL = 'https://dminer-api.herokuapp.com/api/permission'
 import { messagesFetch } from '@/util/toast.js'
 
 export const fetchAllPermissions = async () => {

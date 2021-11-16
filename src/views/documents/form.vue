@@ -37,7 +37,7 @@
               :value="value.category"
               required
               :isError="isError && !value.category"
-              :options="getCategories"
+              :options="teste"
             />
           </div>
         </div>
@@ -93,12 +93,21 @@ export default {
     const { getCategories } = useCategory()
     const { getPermission } = usePermission()
 
-    return { create, getCategories, getPermission }
+    const teste = [
+      { id: 1, title: "Old Man's War" },
+      { id: 2, title: 'The Lock Artist' },
+      { id: 3, title: 'HTML5' },
+      { id: 4, title: 'Right Ho Jeeves' },
+      { id: 5, title: 'The Code of the Wooster' },
+      { id: 6, title: 'Thank You Jeeves' }
+    ]
+
+    return { create, getCategories, getPermission, teste }
   },
 
   methods: {
     changeInput(index, value) {
-      this.value[index] = value
+      this.value[index] = typeof value == 'object' ? value.id : value
     },
     sendForm() {
       this.isLoading = true
