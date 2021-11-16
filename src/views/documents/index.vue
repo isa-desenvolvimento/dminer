@@ -90,6 +90,7 @@ li {
   display: flex;
   margin-right: 2rem;
   position: relative;
+  margin-top: 1rem;
 }
 
 a {
@@ -122,7 +123,6 @@ a {
 
 .fild_container_icon {
   position: absolute;
-  bottom: -1.5rem;
   left: -1rem;
 }
 </style>

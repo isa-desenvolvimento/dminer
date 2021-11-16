@@ -9,10 +9,27 @@
       <template v-slot:body>
         <ul>
           <li v-for="(item, key) in getTutorials" :key="key">
+            <button class="team_btn_edit">
+              <icon-base
+                icon-name="icon"
+                class="team_icon_edit"
+                @click="setDoc(item)"
+              >
+                <icon-edit />
+              </icon-base>
+            </button>
             <image-details :image="item.image" :category="item.category">
               <template v-slot:title>{{ item.title }}</template>
               <template v-slot:content>{{ item.content }}</template>
             </image-details>
+            <icon-base
+              viewBox="0 0 500 58"
+              width="100%"
+              height="100%"
+              class="fild_container_icon"
+            >
+              <icon-line />
+            </icon-base>
           </li>
         </ul>
       </template>
@@ -31,8 +48,11 @@ import WidgetModal from '@/components/widget/WidgetModal.vue'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import formCrud from './form.vue'
+import ImageDetails from '@/components/ImageDetails.vue'
+import IconLine from '@/components/icons/IconLine.vue'
 
 import useTutorial from '@/composables/useTutorial'
+import usePermission from '@/composables/usePermission'
 
 export default {
   data() {
@@ -45,14 +65,17 @@ export default {
   },
   setup() {
     const { getTutorials } = useTutorial()
+    const { getPermission } = usePermission()
 
-    return { getTutorials }
+    return { getTutorials, getPermission }
   },
   components: {
     WidgetModal,
     formCrud,
     IconEdit,
-    IconBase
+    IconBase,
+    ImageDetails,
+    IconLine
   },
   methods: {
     openModal() {
@@ -75,8 +98,7 @@ ul {
 
 li {
   width: 90%;
-  border-top: 1px solid;
-  margin-right: 1rem;
+  position: relative;
 }
 
 .team_btn_edit {
@@ -96,5 +118,11 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.fild_container_icon {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 1rem;
 }
 </style>

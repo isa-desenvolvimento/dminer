@@ -29,13 +29,15 @@
               required
               :isError="isError && !value.category"
             />
-            <fild-input
+            <fild-select
               :text="'Permissão'"
               v-model="value.permission"
               :value="value.permission"
               required
               :isError="isError && !value.permission"
+              :options="getPermission"
             />
+
             <fild-input
               :text="'Imagem'"
               v-model="value.image"
@@ -62,6 +64,7 @@ import FildInput from '@/components/input/Fild.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
+import FildSelect from '@/components/input/FildSelect.vue'
 
 import useBenefit from '@/composables/useBenefit'
 
@@ -73,7 +76,7 @@ export default {
       isError: false
     }
   },
-  components: { FildInput, IconBase, Send, WidgetModal },
+  components: { FildInput, IconBase, Send, WidgetModal, FildSelect },
   props: {
     showModal: { type: Boolean, required: true },
     isEdit: false,
@@ -134,15 +137,7 @@ export default {
 
 <style scope>
 .form_container {
-  /* display: grid;
-  background-image: url(/src/assets/widget/frame-team.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  justify-items: stretch;
-  padding: 2rem; */
+  display: grid;
 
   width: 80%;
   margin: auto;

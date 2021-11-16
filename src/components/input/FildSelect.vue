@@ -114,8 +114,9 @@ label {
   border-bottom: none;
   border-radius: 0.2rem;
   padding: 0.3rem;
+  padding-bottom: 0;
   font-size: var(--font-family--text);
-  margin: 0.1rem;
+  margin: 0;
   cursor: pointer;
 }
 
