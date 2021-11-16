@@ -20,3 +20,16 @@ export const fetchQuizAnswer = async (id, option, idUser = 4) => {
   })
   return response.status === 200
 }
+
+export const fetchCreate = async (doc) => {
+  const response = await fetch(`${baseURL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(doc)
+  })
+  const json = await response.json()
+
+  return messagesFetch('registration', response.status, json.data)
+}

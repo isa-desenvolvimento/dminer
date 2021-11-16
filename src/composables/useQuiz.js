@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue'
-import { fetchAllQuiz, fetchQuizAnswer } from '@/api/quiz.js'
+import { fetchAllQuiz, fetchQuizAnswer, fetchCreate } from '@/api/quiz.js'
 
 export default function useQuiz() {
   const getQuizs = ref([])
@@ -12,10 +12,15 @@ export default function useQuiz() {
     getQuizs.value = await fetchQuizAnswer(id, item)
   }
 
+  const create = async (item) => {
+    return await fetchCreate(item)
+  }
+
   onMounted(setQuiz)
   return {
     getQuizs,
     setQuiz,
-    updateCount
+    updateCount,
+    create
   }
 }

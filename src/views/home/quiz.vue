@@ -3,6 +3,7 @@
     layout="icon-folder"
     title="enquete"
     classContent="folder__user__content"
+    :onClick="openModal"
   >
     <ul>
       <li
@@ -42,30 +43,139 @@
       </li>
     </ul>
   </widget-layout-home>
+
+  <transition name="modal">
+    <widget-modal
+      v-if="showModal"
+      layout="icon-modal-folder"
+      :title="'cadastro de enquete'"
+      @close="showModal = false"
+    >
+      <template v-slot:body>
+        <div class="form_container">
+          <div class="form_container_text">
+            <fild-input
+              :text="'Pergunta'"
+              v-model="value.question"
+              :value="value.question"
+              required
+              :isError="isError && !value.question"
+            />
+
+            <fild-input
+              :text="'Resposta A'"
+              v-model="value.optionA"
+              :value="value.optionA"
+              required
+              :isError="isError && !value.optionA"
+            />
+
+            <fild-input
+              :text="'Resposta B'"
+              v-model="value.optionB"
+              :value="value.optionB"
+              required
+              :isError="isError && !value.optionB"
+            />
+
+            <fild-date
+              :text="'Valido até'"
+              v-model="value.date"
+              :value="value.date"
+              required
+              :isError="isError && !value.date"
+            />
+          </div>
+        </div>
+      </template>
+      <template v-slot:footer>
+        <send
+          :isLoading="isLoading"
+          :isSuccess="isSuccess"
+          :isError="isError"
+          @click="sendForm"
+        ></send>
+      </template>
+    </widget-modal>
+  </transition>
 </template>
 
 <script>
+import WidgetModal from '@/components/widget/WidgetModal.vue'
 import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
+import Send from '@/components/button/Send.vue'
+import FildDate from '@/components/input/FildDate.vue'
+import FildInput from '@/components/input/Fild.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import IconCountQuiz from '@/components/icons/IconCountQuiz.vue'
 
 import useQuiz from '@/composables/useQuiz'
 
 export default {
+  data() {
+    return {
+      showModal: false,
+      value: {
+        question: '',
+        date: new Date() + 1,
+        optionA: '',
+        optionB: ''
+      },
+      isLoading: false,
+      isSuccess: false,
+      isError: false
+    }
+  },
   setup() {
-    const { getQuizs, updateCount } = useQuiz()
+    const { getQuizs, updateCount, create } = useQuiz()
 
-    return { getQuizs, updateCount }
+    return { getQuizs, updateCount, create }
   },
   methods: {
     count(id, item) {
       this.updateCount(id, item)
+    },
+    sendForm() {
+      this.isLoading = true
+      if (this.validForm()) {
+        let result
+        if (this.isEdit) {
+          result = this.create(this.value)
+        } else {
+          result = this.create(this.value)
+        }
+
+        this.isLoading = false
+        if (result) {
+          this.isSuccess = true
+          setTimeout(() => {
+            this.isSuccess = false
+            this.$router.push('/')
+          }, 3000)
+        }
+      } else {
+        this.isLoading = false
+        this.isError = true
+        setTimeout(() => {
+          this.isError = false
+        }, 3000)
+      }
+    },
+    validForm() {
+      return Object.values(this.value).every((item) => !!item)
+    },
+    openModal() {
+      this.showModal = true
     }
   },
   components: {
     WidgetLayoutHome,
     IconBase,
-    IconCountQuiz
+    IconCountQuiz,
+    Send,
+    WidgetModal,
+    FildInput,
+    FildDate
   }
 }
 </script>
@@ -151,5 +261,24 @@ button > span {
   cursor: pointer;
   background-color: transparent;
   color: red;
+}
+
+.form_container {
+  display: grid;
+
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  justify-items: stretch;
+  padding: 2rem;
+
+  width: 80%;
+  margin: auto;
+}
+
+.form_container_text {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-gap: 10%;
 }
 </style>

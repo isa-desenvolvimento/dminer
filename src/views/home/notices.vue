@@ -186,6 +186,8 @@ export default {
     sendForm() {
       this.isLoading = true
       if (this.validForm()) {
+        this.value.users = [this.value.users]
+
         let result
         if (this.isEdit) {
           result = this.create(this.value)
