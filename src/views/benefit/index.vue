@@ -9,7 +9,7 @@
       <template v-slot:body>
         <ul>
           <li v-for="(item, key) in getBenefits" :key="key">
-            <image-details :image="item.image">
+            <image-details :image="item.image" imageW="7rem" imageH="7rem">
               <template v-slot:title>{{ item.title }}</template>
               <template v-slot:content>{{ item.content }}</template>
             </image-details>
@@ -31,6 +31,7 @@ import WidgetModal from '@/components/widget/WidgetModal.vue'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import formCrud from './form.vue'
+import ImageDetails from '@/components/ImageDetails.vue'
 
 import useBenefit from '@/composables/useBenefit'
 
@@ -52,7 +53,8 @@ export default {
     WidgetModal,
     formCrud,
     IconEdit,
-    IconBase
+    IconBase,
+    ImageDetails
   },
   methods: {
     openModal() {
@@ -75,8 +77,17 @@ ul {
 li {
   padding: 1rem;
   display: flex;
-  border-bottom: 1px solid;
-  margin-right: 2rem;
+  position: relative;
+  justify-content: left;
+  width: 90%;
+}
+
+li:nth-child(even) {
+  padding: 1rem;
+  display: flex;
+  position: relative;
+  justify-content: right;
+  width: 90%;
 }
 
 a {

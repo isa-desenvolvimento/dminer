@@ -86,9 +86,10 @@ ul {
   position: relative;
 }
 li {
-  padding: 1rem;
+  padding: 1.5rem;
   display: flex;
   margin-right: 2rem;
+  position: relative;
 }
 
 a {
@@ -121,7 +122,7 @@ a {
 
 .fild_container_icon {
   position: absolute;
-  bottom: 0;
-  width: 85%;
+  bottom: -1.5rem;
+  left: -1rem;
 }
 </style>

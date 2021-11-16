@@ -25,10 +25,10 @@
             />
             <fild-input
               :text="'cargo'"
-              v-model="user.profile"
-              :value="user.profile"
+              v-model="user.area"
+              :value="user.area"
               required
-              :isError="isError && !user.profile"
+              :isError="isError && !user.area"
             />
             <fild-input
               :text="'e-mail'"
@@ -37,24 +37,28 @@
               required
               :isError="isError && !user.email"
             />
-            <fild-input
+            <!-- <fild-input
               :text="'equipe'"
               v-model="user.area"
               :value="user.area"
               required
               :isError="isError && !user.area"
-            />
-            <fild-input
-              :text="'apelido'"
-              :value="user.nickname"
-              v-model="user.nickname"
-            />
+            /> -->
+
             <fild-input
               :text="'linkedin'"
               v-model="user.linkedin"
               :value="user.linkedin"
               required
               :isError="isError && !user.linkedin"
+            />
+            <fild-select
+              :text="'Permissão'"
+              v-model="value.permission"
+              :value="value.permission"
+              required
+              :isError="isError && !value.permission"
+              :options="getPermission"
             />
           </div>
         </div>
@@ -77,8 +81,10 @@ import IconBase from '@/components/icons/IconBase.vue'
 import IconFrame from '@/components/icons/IconFrame.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
+import FildSelect from '@/components/input/FildSelect.vue'
 
 import useUser from '@/composables/useUser.js'
+import usePermission from '@/composables/usePermission'
 
 export default {
   data() {
@@ -88,7 +94,15 @@ export default {
       isError: false
     }
   },
-  components: { FildInput, FildDate, IconFrame, IconBase, Send, WidgetModal },
+  components: {
+    FildInput,
+    FildDate,
+    IconFrame,
+    IconBase,
+    Send,
+    WidgetModal,
+    FildSelect
+  },
   props: {
     showModal: { type: Boolean, required: true },
     isEdit: false,
@@ -108,13 +122,14 @@ export default {
   },
   setup() {
     const { createUser } = useUser()
+    const { getPermission } = usePermission()
 
-    return { createUser }
+    return { createUser, getPermission }
   },
 
   methods: {
     changeInput(index, value) {
-      this.user[index] = value
+      this.value[index] = typeof value == 'object' ? value.id : value
     },
     sendForm() {
       this.isLoading = true

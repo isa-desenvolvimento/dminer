@@ -22,13 +22,16 @@
               required
               :isError="isError && !value.content"
             />
-            <fild-input
+
+            <fild-select
               :text="'Permissão'"
               v-model="value.permission"
               :value="value.permission"
               required
               :isError="isError && !value.permission"
+              :options="getPermission"
             />
+
             <fild-input
               :text="'Imagem'"
               v-model="value.image"
@@ -52,6 +55,7 @@
 </template>
 <script>
 import FildInput from '@/components/input/Fild.vue'
+import FildSelect from '@/components/input/FildSelect.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import Send from '@/components/button/Send.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
@@ -66,7 +70,7 @@ export default {
       isError: false
     }
   },
-  components: { FildInput, IconBase, Send, WidgetModal },
+  components: { FildInput, IconBase, Send, WidgetModal, FildSelect },
   props: {
     showModal: { type: Boolean, required: true },
     isEdit: false,
@@ -89,7 +93,7 @@ export default {
 
   methods: {
     changeInput(index, value) {
-      this.value[index] = value
+      this.value[index] = typeof value == 'object' ? value.id : value
     },
     sendForm() {
       this.isLoading = true

@@ -2,7 +2,11 @@
   <div class="image_details_wrapper">
     <div
       class="image_details_image"
-      :style="{ 'background-image': `url(${image})` }"
+      :style="{
+        'background-image': `url(${image})`,
+        width: imageW,
+        height: imageH
+      }"
     ></div>
     <div class="image_details_content">
       <h2>
@@ -20,7 +24,9 @@
 export default {
   props: {
     image: { type: String, required: true },
-    category: { type: String, required: false, default: '' }
+    category: { type: String, required: false, default: '' },
+    imageW: { type: String, required: false, default: '100%' },
+    imageH: { type: String, required: false, default: '100%' }
   }
 }
 </script>
@@ -41,10 +47,6 @@ export default {
 }
 
 .image_details_image {
-  width: 100%;
-  height: 100%;
-  max-width: 10rem;
-  max-height: 10rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

@@ -81,7 +81,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container_input {
   position: relative;
   cursor: text;

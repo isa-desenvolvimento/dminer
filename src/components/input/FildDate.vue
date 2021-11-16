@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container_input {
   /* display: grid;
   grid-template-areas:
