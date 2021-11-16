@@ -97,7 +97,7 @@ export default {
   padding: 0 6rem; */
 
   display: grid;
-  padding: 0 6rem;
+  padding: 0 3rem;
 }
 
 .container__section > div {
@@ -106,7 +106,8 @@ export default {
   display: grid;
   align-items: center;
   gap: 0.5rem;
-  grid-template-columns: 34% 34% 34%;
+  grid-template-columns: 28.5% 28.5% 28.5%;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 1080px) {

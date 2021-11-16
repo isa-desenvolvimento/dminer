@@ -7,7 +7,7 @@
     :style="{ width: sidebarWidth }"
   >
     <span v-if="collapsed" class="username">
-      {{ user.name.charAt(0) }}
+      {{ user?.name.charAt(0) }}
     </span>
     <div class="container-avatar" v-else>
       <div>
@@ -123,7 +123,7 @@ export default {
   height: 100vh;
   position: fixed;
   z-index: 9999;
-  top: 0;
+  top: -1px;
   left: 0;
   bottom: 0;
   padding: 0.5em;
