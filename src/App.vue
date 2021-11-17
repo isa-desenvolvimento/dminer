@@ -2,11 +2,12 @@
 import Sidebar from '@/components/sidebar/Sidebar.vue'
 import Banner from '@/components/banner/Banner.vue'
 import Content from '@/components/content/Content.vue'
+import Avatar from '@/components/avatar/Avatar.vue'
 
 import useUser from '@/composables/useUser'
 
 export default {
-  components: { Sidebar, Banner, Content },
+  components: { Sidebar, Banner, Content, Avatar },
   setup() {
     const { getUser, setUser } = useUser(1)
     setUser()

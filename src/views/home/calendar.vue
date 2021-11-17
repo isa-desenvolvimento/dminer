@@ -155,4 +155,8 @@ export default {
 .container__calendar {
   padding: 0 1.5rem;
 }
+
+.vc-container {
+  border-color: none;
+}
 </style>

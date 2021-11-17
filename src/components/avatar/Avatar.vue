@@ -21,6 +21,13 @@
 import { ref } from 'vue'
 
 export default {
+  data() {
+    return { isLoading: true, previewImage: null }
+  },
+  updated() {
+    this.isLoading = true
+    this.previewImage = this.avatar
+  },
   props: {
     avatar: {
       type: String,

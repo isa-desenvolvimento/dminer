@@ -6,10 +6,10 @@
     }"
     :style="{ width: sidebarWidth }"
   >
-    <span v-if="collapsed" class="username">
-      {{ user?.name.charAt(0) }}
+    <span v-show="collapsed" class="username">
+      {{ user?.name?.charAt(0) }}
     </span>
-    <div class="container-avatar" v-else>
+    <div class="container-avatar" v-show="!collapsed">
       <div>
         <icon-base icon-name="icon" class="edit-icon">
           <icon-edit />
