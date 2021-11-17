@@ -95,8 +95,8 @@ export default {
   scroll-behavior: smooth;
 }
 
-.vc-containe {
-  border-color: transparent;
+.vc-container {
+  border: none;
 }
 
 /* width */
