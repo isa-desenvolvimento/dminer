@@ -9,16 +9,26 @@ import useUser from '@/composables/useUser'
 export default {
   components: { Sidebar, Banner, Content, Avatar },
   setup() {
-    const { getUser, setUser } = useUser(1)
+    const { getUser, setUser, updateUser } = useUser(1)
+
     setUser()
-    return { getUser }
+    return { getUser, updateUser }
+  },
+  methods: {
+    updateUser() {
+      this.updateUser(this.getUser)
+    }
   }
 }
 </script>
 <template>
   <div>
-    <Sidebar :user="getUser" />
-    <Banner :propsImage="getUser.banner" />
+    <Sidebar :user="getUser" v-model="getUser.avatar" @change="updateUser" />
+    <Banner
+      :propsImage="getUser.banner"
+      v-model="getUser.banner"
+      @change="updateUser"
+    />
 
     <Content />
   </div>

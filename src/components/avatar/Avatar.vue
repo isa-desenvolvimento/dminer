@@ -58,9 +58,9 @@ export default {
         reader.onload = (e) => {
           this.previewImage = e.target.result
           localStorage.avatar = e.target.result
+          this.$emit('update:modelValue', e.target.result)
         }
         reader.readAsDataURL(file[0])
-        this.$emit('input', file[0])
       }
     }
   }

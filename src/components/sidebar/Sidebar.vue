@@ -14,7 +14,13 @@
         <icon-base icon-name="icon" class="edit-icon">
           <icon-edit />
         </icon-base>
-        <Avatar :avatar="user.avatar" :username="user.name" isClicked />
+        <Avatar
+          :avatar="user.avatar"
+          :username="user.name"
+          isClicked
+          v-model="user.avatar"
+          @change="updateUser"
+        />
       </div>
     </div>
     <div class="menu" :style="{ display: collapsed ? 'block' : 'grid' }">
@@ -103,12 +109,17 @@ export default {
     IconEdit,
     IconBase
   },
-  setup(props) {
+  setup() {
     return {
       collapsed,
       toggleSidebar,
       sidebarWidth,
       SIDEBAR_WIDTH_COLLAPSED
+    }
+  },
+  methods: {
+    updateUser() {
+      this.$emit('update:modelValue', this.user)
     }
   }
 }

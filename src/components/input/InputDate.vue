@@ -24,7 +24,7 @@
 <script>
 import { dateNowFormart } from '@/util/date.js'
 import IconInputDate from '@/components/icons/IconInputDate.vue'
-import IconBase from '../icons/IconBase.vue'
+import IconBase from '@/components/icons/IconBase.vue'
 
 export default {
   components: { IconInputDate, IconBase },

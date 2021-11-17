@@ -17,7 +17,7 @@
           <Title>{{ item.name }}</Title>
           <span>
             <b>Data:</b>
-            {{ dateHourFormart(item.dtBirthday) }}
+            {{ dayMounthFormart(item.dtBirthday) }}
           </span>
         </div>
       </li>
@@ -30,14 +30,14 @@ import WidgetLayoutHome from '@/components/widget/WidgetLayoutHome.vue'
 import Title from '@/components/title/Title.vue'
 import Avatar from '@/components/avatar/Avatar.vue'
 
-import { dateHourFormart } from '@/util/date.js'
+import { dayMounthFormart } from '@/util/date.js'
 import useBirthday from '@/composables/useBirthday'
 
 export default {
   setup() {
     const { getBirthdays } = useBirthday()
 
-    return { getBirthdays, dateHourFormart }
+    return { getBirthdays, dayMounthFormart }
   },
   components: {
     WidgetLayoutHome,

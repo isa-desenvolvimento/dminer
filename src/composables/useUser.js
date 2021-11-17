@@ -17,7 +17,7 @@ export default function useUser(idUser) {
   }
 
   const updateUser = async (user) => {
-    return await fetchUpdateUser(id, user)
+    return await fetchUpdateUser(user)
   }
 
   return {

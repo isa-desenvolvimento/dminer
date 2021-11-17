@@ -23,6 +23,7 @@ import { ref } from 'vue'
 import Title from '@/components/title/Title.vue'
 
 import { sidebarWidth } from '@/components/sidebar/state'
+import useUser from '@/composables/useUser'
 
 export default {
   data() {
@@ -30,9 +31,10 @@ export default {
   },
   props: { propsImage: { type: String, required: false, default: null } },
   setup() {
+    const { updateUser } = useUser()
     const fileInput = ref([])
 
-    return { fileInput, sidebarWidth }
+    return { fileInput, sidebarWidth, updateUser }
   },
   updated() {
     this.isLoading = true
@@ -50,7 +52,7 @@ export default {
         let reader = new FileReader()
         reader.onload = (e) => {
           this.previewImage = e.target.result
-          localStorage.banner = e.target.result
+          this.$emit('update:modelValue', e.target.result)
         }
         reader.readAsDataURL(file[0])
         this.$emit('input', file[0])

@@ -17,10 +17,10 @@
             />
             <fild-input
               :text="'Link'"
-              v-model="value.link"
-              :value="value.link"
+              v-model="value.contentLink"
+              :value="value.contentLink"
               required
-              :isError="isError && !value.link"
+              :isError="isError && !value.contentLink"
             />
             <fild-select
               :text="'Permissão'"
@@ -37,7 +37,7 @@
               :value="value.category"
               required
               :isError="isError && !value.category"
-              :options="getPermission"
+              :options="getCategories"
             />
           </div>
         </div>
