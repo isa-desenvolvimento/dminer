@@ -83,8 +83,12 @@ export default {
 
 <style scoped>
 ul {
+  max-height: 358px;
   list-style-type: none;
-  position: relative;
+  display: grid;
+  width: 90%;
+  overflow-y: auto;
+  margin: auto;
 }
 li {
   padding: 1rem;

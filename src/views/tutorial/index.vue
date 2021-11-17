@@ -92,8 +92,12 @@ export default {
 
 <style scoped>
 ul {
+  display: grid;
+  width: 90%;
+  overflow-y: auto;
   list-style-type: none;
   position: relative;
+  height: 100%;
 }
 
 li {
@@ -121,7 +125,7 @@ a {
 
 .fild_container_icon {
   position: absolute;
-  bottom: -1.5rem;
+  bottom: -2.5rem;
   left: 1rem;
 }
 </style>
