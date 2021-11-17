@@ -61,7 +61,8 @@ import WidgetModal from '@/components/widget/WidgetModal.vue'
 import FildSelect from '@/components/input/FildSelect.vue'
 import UploadImage from '@/components/UploadImage.vue'
 
-import useBenefit from '@/composables/useBenefit'
+import useTutorial from '@/composables/useTutorial'
+import usePermission from '@/composables/usePermission'
 
 export default {
   data() {
@@ -95,14 +96,16 @@ export default {
     }
   },
   setup() {
-    const { create } = useBenefit()
+    const { create } = useTutorial()
+    const { getPermission } = usePermission()
 
-    return { create }
+    return { create, getPermission }
   },
 
   methods: {
     sendForm() {
       this.isLoading = true
+      console.log(this.value)
       if (this.validForm()) {
         let result
         if (this.isEdit) {

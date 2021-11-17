@@ -107,7 +107,6 @@ li {
   right: -1rem;
   width: 24%;
   height: 1rem;
-  top: 0.6rem;
   background: transparent;
   cursor: pointer;
 }
