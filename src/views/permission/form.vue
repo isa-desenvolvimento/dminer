@@ -79,7 +79,7 @@ export default {
           this.isSuccess = true
           setTimeout(() => {
             this.isSuccess = false
-            this.$router.push('/permissao')
+            this.$emit('close')
           }, 3000)
         }
       } else {

@@ -3,7 +3,7 @@
     <widget-modal
       v-if="showModalEquipe"
       title="Equipe"
-      :onClick="openModal"
+      :onClick="setUser"
       @close="this.$router.push('/')"
     >
       <template v-slot:body>

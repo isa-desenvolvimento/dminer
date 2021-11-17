@@ -9,48 +9,48 @@
         <div class="form_container">
           <fild-input
             :text="'nome'"
-            :value="user.name"
-            v-model="user.name"
+            :value="value.name"
+            v-model="value.name"
             required
-            :isError="isError && !user.name"
+            :isError="isError && !value.name"
           />
 
           <div class="form_container_text">
             <fild-date
               :text="'data de nascimento'"
-              v-model="user.dtBirthday"
-              :value="user.dtBirthday"
+              v-model="value.dtBirthday"
+              :value="value.dtBirthday"
               required
-              :isError="isError && !user.dtBirthday"
+              :isError="isError && !value.dtBirthday"
             />
             <fild-input
               :text="'cargo'"
-              v-model="user.area"
-              :value="user.area"
+              v-model="value.area"
+              :value="value.area"
               required
-              :isError="isError && !user.area"
+              :isError="isError && !value.area"
             />
             <fild-input
               :text="'e-mail'"
-              v-model="user.email"
-              :value="user.email"
+              v-model="value.email"
+              :value="value.email"
               required
-              :isError="isError && !user.email"
+              :isError="isError && !value.email"
             />
             <!-- <fild-input
               :text="'equipe'"
-              v-model="user.area"
-              :value="user.area"
+              v-model="value.area"
+              :value="value.area"
               required
-              :isError="isError && !user.area"
+              :isError="isError && !value.area"
             /> -->
 
             <fild-input
               :text="'linkedin'"
-              v-model="user.linkedin"
-              :value="user.linkedin"
+              v-model="value.linkedin"
+              :value="value.linkedin"
               required
-              :isError="isError && !user.linkedin"
+              :isError="isError && !value.linkedin"
             />
             <fild-select
               :text="'Permissão'"
@@ -85,6 +85,7 @@ import FildSelect from '@/components/input/FildSelect.vue'
 
 import useUser from '@/composables/useUser.js'
 import usePermission from '@/composables/usePermission'
+import { dateHourFormarUs } from '@/util/date'
 
 export default {
   data() {
@@ -106,17 +107,18 @@ export default {
   props: {
     showModal: { type: Boolean, required: true },
     isEdit: false,
-    user: {
-      type: String,
+    value: {
+      type: Object,
       required: false,
       default: {
         dtBirthday: null,
         name: '',
-        profile: '',
+        permission: 0,
         area: '',
-        nickname: '',
         linkedin: '',
-        email: ''
+        email: '',
+        avatar: '',
+        banner: ''
       }
     }
   },
@@ -131,10 +133,12 @@ export default {
     sendForm() {
       this.isLoading = true
       if (this.validForm()) {
+        this.value.dtBirthday = dateHourFormarUs(this.value.dtBirthday)
+
         if (this.isEdit) {
-          const result = this.createUser(this.user)
+          const result = this.createUser(this.value)
         } else {
-          const result = this.createUser(this.user)
+          const result = this.createUser(this.value)
         }
 
         this.isLoading = false
@@ -142,7 +146,7 @@ export default {
           this.isSuccess = true
           setTimeout(() => {
             this.isSuccess = false
-            this.$router.push('/equipe')
+            this.$emit('close')
           }, 3000)
         }
       } else {
@@ -154,8 +158,9 @@ export default {
       }
     },
     validForm() {
-      let _user = { ...this.user }
-      delete _user.nickname
+      let _user = { ...this.value }
+      delete _user.avatar
+      delete _user.banner
       return Object.values(_user).every((item) => !!item)
     }
   }

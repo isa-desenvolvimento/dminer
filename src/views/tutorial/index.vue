@@ -3,7 +3,7 @@
     <widget-modal
       v-if="showModalPrimary"
       title="tutorial"
-      :onClick="openModal"
+      :onClick="setDoc"
       @close="this.$router.push('/')"
     >
       <template v-slot:body>
@@ -18,7 +18,12 @@
                 <icon-edit />
               </icon-base>
             </button>
-            <image-details :image="item.image" :category="item.category">
+            <image-details
+              :image="item.image"
+              :category="item.category"
+              imageW="6rem"
+              imageH="6rem"
+            >
               <template v-slot:title>{{ item.title }}</template>
               <template v-slot:content>{{ item.content }}</template>
             </image-details>
@@ -113,6 +118,7 @@ li {
   height: 1rem;
   background: transparent;
   cursor: pointer;
+  top: 1rem;
 }
 .team_icon_edit {
   width: 24%;
@@ -125,7 +131,7 @@ a {
 
 .fild_container_icon {
   position: absolute;
-  bottom: -2.5rem;
+  bottom: -4.5rem;
   left: 1rem;
 }
 </style>

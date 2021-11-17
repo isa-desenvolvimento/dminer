@@ -3,7 +3,7 @@
     <widget-modal
       v-if="showModalEquipe"
       title="d-guide"
-      :onClick="openModal"
+      :onClick="setDoc"
       @close="this.$router.push('/')"
     >
       <template v-slot:body>

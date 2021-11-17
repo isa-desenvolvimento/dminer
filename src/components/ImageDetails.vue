@@ -33,16 +33,9 @@ export default {
 
 <style scoped>
 .image_details_wrapper {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  justify-content: start;
-  align-content: stretch;
+  display: flex;
   margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 4px;
-  margin-right: 1rem;
-
-  max-height: 10rem;
+  padding: 0.5rem;
   word-wrap: break-word;
 }
 
