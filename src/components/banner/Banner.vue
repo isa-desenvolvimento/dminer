@@ -52,10 +52,9 @@ export default {
         let reader = new FileReader()
         reader.onload = (e) => {
           this.previewImage = e.target.result
-          this.$emit('update:modelValue', e.target.result)
+          this.$emit('update:modelValue', reader.result)
         }
         reader.readAsDataURL(file[0])
-        this.$emit('input', file[0])
       }
     }
   },

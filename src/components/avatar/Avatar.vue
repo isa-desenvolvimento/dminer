@@ -4,7 +4,9 @@
       class="hex"
       @click="selectImage"
       :style="{
-        'background-image': `url(${previewImage})`,
+        'background-image': `url(${
+          previewImage || 'src/assets/widget/avatar.svg'
+        })`,
         cursor: isClicked ? 'pointer' : 'default',
         width: width,
         height: height
@@ -41,7 +43,7 @@ export default {
   },
   setup(props) {
     const fileInput = ref(props.avatar)
-    const previewImage = ref(props.avatar || 'src/assets/widget/avatar.svg')
+    const previewImage = ref(props.avatar)
 
     return { fileInput, previewImage }
   },
@@ -58,7 +60,7 @@ export default {
         reader.onload = (e) => {
           this.previewImage = e.target.result
           localStorage.avatar = e.target.result
-          this.$emit('update:modelValue', e.target.result)
+          this.$emit('update:modelValue', reader.result)
         }
         reader.readAsDataURL(file[0])
       }

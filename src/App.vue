@@ -15,8 +15,11 @@ export default {
     return { getUser, updateUser }
   },
   methods: {
-    updateUser() {
-      this.updateUser(this.getUser)
+    updateUser(e) {
+      console.table(this.getUser)
+      setTimeout(() => {
+        this.updateUser(this.getUser)
+      }, 0)
     }
   }
 }
