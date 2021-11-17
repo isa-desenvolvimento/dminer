@@ -48,11 +48,10 @@ ul {
   list-style-type: none;
 }
 li {
-  border: 3px solid #60645c;
-  border-radius: 0.5rem;
-  height: 13vh;
+  height: 15vh;
   margin-bottom: 1.6rem;
   width: 90%;
+  padding: 1rem;
 }
 
 .reminder_footer {

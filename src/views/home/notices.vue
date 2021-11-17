@@ -228,6 +228,7 @@ ul {
 }
 li {
   height: 38vh;
+  padding: 1rem;
 }
 
 .notices_footer {
