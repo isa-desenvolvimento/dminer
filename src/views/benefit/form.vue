@@ -57,7 +57,6 @@ import UploadImage from '@/components/UploadImage.vue'
 import useBenefit from '@/composables/useBenefit'
 import usePermission from '@/composables/usePermission'
 import { dateHourFormarUs } from '@/util/date'
-import useUser from '@/composables/useUser'
 
 export default {
   data() {

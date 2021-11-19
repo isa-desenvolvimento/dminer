@@ -103,6 +103,7 @@ ul {
   list-style-type: none;
   position: relative;
   height: 100%;
+  max-height: 358px;
 }
 
 li {
