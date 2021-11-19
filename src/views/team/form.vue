@@ -169,16 +169,7 @@ export default {
 
 <style scope>
 .form_container {
-  /* display: grid;
-  background-image: url(/src/assets/widget/frame-team.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  justify-items: stretch;
-  padding: 2rem; */
-
+  display: flow-root;
   width: 80%;
   margin: auto;
 }

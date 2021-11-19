@@ -24,12 +24,13 @@
               required
               :isError="isError && !value.content"
             />
-            <fild-input
+            <fild-select
               :text="'Categoria'"
               v-model="value.category"
               :value="value.category"
               required
               :isError="isError && !value.category"
+              :options="getCategories"
             />
             <fild-select
               :text="'Permissão'"
@@ -63,6 +64,8 @@ import UploadImage from '@/components/UploadImage.vue'
 
 import useTutorial from '@/composables/useTutorial'
 import usePermission from '@/composables/usePermission'
+import useCategory from '@/composables/useCategory'
+import { dateHourFormarUs } from '@/util/date'
 
 export default {
   data() {
@@ -98,8 +101,9 @@ export default {
   setup() {
     const { create } = useTutorial()
     const { getPermission } = usePermission()
+    const { getCategories } = useCategory()
 
-    return { create, getPermission }
+    return { create, getPermission, getCategories }
   },
 
   methods: {
@@ -131,6 +135,9 @@ export default {
       }
     },
     validForm() {
+      this.value.date = dateHourFormarUs(new Date())
+      this.value.creator = parseInt(localStorage.idUser)
+
       return Object.values(this.value).every((item) => !!item)
     }
   }
