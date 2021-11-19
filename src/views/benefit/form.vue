@@ -56,6 +56,8 @@ import UploadImage from '@/components/UploadImage.vue'
 
 import useBenefit from '@/composables/useBenefit'
 import usePermission from '@/composables/usePermission'
+import { dateHourFormarUs } from '@/util/date'
+import useUser from '@/composables/useUser'
 
 export default {
   data() {
@@ -122,6 +124,9 @@ export default {
       }
     },
     validForm() {
+      this.value.date = dateHourFormarUs(new Date())
+      this.value.creator = parseInt(localStorage.idUser)
+
       return Object.values(this.value).every((item) => !!item)
     }
   }

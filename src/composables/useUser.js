@@ -5,6 +5,7 @@ export default function useUser(idUser) {
   const getUser = ref([])
 
   const setUser = async () => {
+    localStorage.idUser = idUser
     getUser.value = await fetchUser(idUser)
   }
 
