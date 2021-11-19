@@ -1,37 +1,21 @@
-import { reactive, onMounted } from 'vue'
-import {
-  fetchAllNotification,
-  storeNotification,
-  mutateNotification,
-  destroyNotification
-} from '@/api/notification.js'
+import { ref, onMounted } from 'vue'
+import { fetchAll, fetchCreate } from '@/api/notice.js'
 
 export default function useNotification() {
   const getNotifications = ref([])
 
   const setNotification = async () => {
-    getNotifications.value = await fetchAllNotification()
+    getNotifications.value = await fetchAll()
   }
 
-  const createNotification = (notification) => {
-    storeNotification(notification)
-  }
-
-  const updateNotification = (notification, id) => {
-    mutateNotification(notification, id)
-  }
-
-  const deleteNotification = (id) => {
-    destroyNotification(id)
+  const create = async (item) => {
+    return await fetchCreate(item)
   }
 
   onMounted(setNotification)
-
   return {
     getNotifications,
     setNotification,
-    createNotification,
-    updateNotification,
-    deleteNotification
+    create
   }
 }

@@ -156,4 +156,23 @@ li {
   display: inline-grid;
   text-transform: uppercase;
 }
+
+.form_container {
+  display: grid;
+
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  justify-items: stretch;
+  padding: 2rem;
+
+  width: 80%;
+  margin: auto;
+}
+
+.form_container_text {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-gap: 10%;
+}
 </style>
