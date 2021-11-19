@@ -120,6 +120,7 @@ li {
   background: transparent;
   cursor: pointer;
   top: 1rem;
+  z-index: 4;
 }
 .team_icon_edit {
   width: 24%;

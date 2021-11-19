@@ -9,22 +9,32 @@
       <template v-slot:body>
         <ul>
           <li v-for="(item, key) in getBenefits" :key="key">
-            <image-details :image="item.image" imageW="7rem" imageH="7rem">
-              <template v-slot:title>
-                {{ item.title }}
-
-                <button class="team_btn_edit">
-                  <icon-base
-                    icon-name="icon"
-                    class="team_icon_edit"
-                    @click="setDoc(item)"
-                  >
-                    <icon-edit />
-                  </icon-base>
-                </button>
-              </template>
+            <button class="team_btn_edit">
+              <icon-base
+                icon-name="icon"
+                class="team_icon_edit"
+                @click="setDoc(item)"
+              >
+                <icon-edit />
+              </icon-base>
+            </button>
+            <image-details
+              :image="item.image"
+              :category="item.category"
+              imageW="6rem"
+              imageH="6rem"
+            >
+              <template v-slot:title>{{ item.title }}</template>
               <template v-slot:content>{{ item.content }}</template>
             </image-details>
+            <icon-base
+              viewBox="0 0 500 58"
+              width="100%"
+              height="100%"
+              class="fild_container_icon"
+            >
+              <icon-line />
+            </icon-base>
           </li>
         </ul>
       </template>
@@ -44,6 +54,7 @@ import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 import formCrud from './form.vue'
 import ImageDetails from '@/components/ImageDetails.vue'
+import IconLine from '@/components/icons/IconLine.vue'
 
 import useBenefit from '@/composables/useBenefit'
 
@@ -66,7 +77,8 @@ export default {
     formCrud,
     IconEdit,
     IconBase,
-    ImageDetails
+    ImageDetails,
+    IconLine
   },
   methods: {
     openModal() {
@@ -83,36 +95,18 @@ export default {
 
 <style scoped>
 ul {
-  max-height: 358px;
-  list-style-type: none;
   display: grid;
   width: 90%;
   overflow-y: auto;
-  margin: auto;
+  list-style-type: none;
+  position: relative;
+  height: 100%;
+  max-height: 358px;
 }
+
 li {
-  padding: 1rem;
-  display: flex;
-  position: relative;
-  justify-content: left;
   width: 90%;
-}
-
-li:nth-child(even) {
-  padding: 1rem;
-  display: flex;
   position: relative;
-  justify-content: right;
-  width: 90%;
-}
-
-a {
-  text-decoration: none;
-}
-.icon_green {
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: var(--sidebar-green-ligth);
 }
 
 .team_btn_edit {
@@ -121,16 +115,23 @@ a {
   right: -1rem;
   width: 24%;
   height: 1rem;
-  top: -1rem;
   background: transparent;
   cursor: pointer;
+  top: 1rem;
+  z-index: 4;
 }
 .team_icon_edit {
-  width: 100%;
+  width: 24%;
   height: 1rem;
 }
 
 a {
   text-decoration: none;
+}
+
+.fild_container_icon {
+  position: absolute;
+  bottom: -4.5rem;
+  left: 1rem;
 }
 </style>
