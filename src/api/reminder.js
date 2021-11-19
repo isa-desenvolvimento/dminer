@@ -10,3 +10,16 @@ export const fetchAllReminder = async () => {
   const json = await response.json()
   return response.status === 200 ? json.data : []
 }
+
+export const fetchCreate = async (doc) => {
+  const response = await fetch(`${baseURL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(doc)
+  })
+  const json = await response.json()
+
+  return messagesFetch('registration', response.status, json.data)
+}
