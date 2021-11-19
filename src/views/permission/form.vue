@@ -10,10 +10,10 @@
           <div class="form_container_text">
             <fild-input
               :text="'Permissão'"
-              v-model="value.permission"
-              :value="value.permission"
+              v-model="value.title"
+              :value="value.title"
               required
-              :isError="isError && !value.permission"
+              :isError="isError && !value.title"
             />
           </div>
         </div>
@@ -53,7 +53,7 @@ export default {
       type: Object,
       required: false,
       default: {
-        permission: ''
+        title: ''
       }
     }
   },
