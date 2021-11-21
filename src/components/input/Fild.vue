@@ -1,32 +1,30 @@
 <template>
   <div class="container_input" @click="focus($event)">
-    <div>
-      <label v-if="text">
+    <div class="input_text">
+      <div v-if="text" class="input_label">
         {{ text }}
         <span v-if="required">*</span>
         :
-      </label>
+      </div>
       <input
         :id="`container_input_${text}`"
         class="input_form"
-        type="text"
+        :type="type"
         @change="changeInput"
         :required="required"
         :value="value"
       />
-      <div>
-        <icon-base
-          viewBox="0 0 500 58"
-          width="100%"
-          height="100%"
-          class="fild_container_icon"
-          :class="`container_input_${text}`"
-        >
-          <icon-line></icon-line>
-        </icon-base>
-      </div>
-      <div v-if="isError" class="fild_container_error">campo obrigatório</div>
     </div>
+    <icon-base
+      viewBox="0 0 500 58"
+      width="100%"
+      height="100%"
+      class="fild_container_icon"
+      :class="`container_input_${text}`"
+    >
+      <icon-line></icon-line>
+    </icon-base>
+    <div v-if="isError" class="fild_container_error">campo obrigatório</div>
   </div>
 </template>
 
@@ -35,14 +33,11 @@ import IconBase from '@/components/icons/IconBase.vue'
 import IconLine from '@/components/icons/IconLine.vue'
 
 export default {
-  mounted() {
-    // TODO: colocar para mudar sempre que atualizar a props
-    if (this.isError) {
-      const circle = document.querySelector(
-        `.container_input_${this.text} .icon__line > .st1`
-      )
-      circle.style.fill = 'red'
-    }
+  updated() {
+    const circle = document.querySelector(
+      `.container_input_${this.text} .icon__line > .st1`
+    )
+    circle.style.fill = this.isError ? 'red' : 'var( --sidebar-green-ligth)'
   },
 
   components: { IconLine, IconBase },
@@ -50,7 +45,8 @@ export default {
     text: { type: String, required: false },
     value: { type: String, required: false },
     required: { type: Boolean, required: false, default: false },
-    isError: { type: Boolean, required: false, default: false }
+    isError: { type: Boolean, required: false, default: false },
+    type: { type: String, required: false, default: 'text' }
   },
 
   methods: {
@@ -67,40 +63,21 @@ export default {
 
 <style scoped>
 .container_input {
-  /* display: grid;
-  grid-template-areas:
-    'label input input input input'
-    'icon icon icon icon icon'; */
-  /* width: 100%;
-  text-overflow: ellipsis;
-  z-index: 1;
-  grid-template-columns: 25% auto; */
   position: relative;
   cursor: text;
 }
 
-label {
+.input_text {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.input_label {
   text-transform: capitalize;
-  font-size: 0.5rem;
-  font-family: var(--font-family--text);
-
-  position: absolute;
-  left: 0;
-
-  grid-area: label;
-
-  color: var(--color-text);
+  text-align: start;
 }
 
 .fild_container_icon {
-  /* position: absolute;
-  bottom: 0;
-  left: 0;
-  /* width: fit-content;
-
-  grid-area: icon;
-  transform: rotateY(180deg); */
-
   transform: rotateY(180deg);
   margin-top: -30px;
   z-index: 3;
@@ -126,9 +103,10 @@ label {
 }
 
 .fild_container_error {
+  position: absolute;
   font-size: 0.5rem;
   color: red;
   text-align: start;
-  margin-top: -0.7rem;
+  margin-top: -1.5rem;
 }
 </style>

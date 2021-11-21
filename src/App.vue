@@ -5,9 +5,14 @@ import Content from '@/components/content/Content.vue'
 import Avatar from '@/components/avatar/Avatar.vue'
 
 import useUser from '@/composables/useUser'
+import Login from './views/login/index.vue'
 
 export default {
-  components: { Sidebar, Banner, Content, Avatar },
+  data() {
+    isLogged: false
+  },
+
+  components: { Sidebar, Banner, Content, Avatar, Login },
   setup() {
     const { getUser, setUser, update } = useUser(1)
 
@@ -25,7 +30,7 @@ export default {
 }
 </script>
 <template>
-  <div>
+  <div v-if="isLogged">
     <Sidebar :user="getUser" v-model="getUser.avatar" @change="updateUser" />
     <Banner
       :propsImage="getUser.banner"
@@ -34,6 +39,9 @@ export default {
     />
 
     <Content />
+  </div>
+  <div v-else>
+    <Login />
   </div>
 </template>
 

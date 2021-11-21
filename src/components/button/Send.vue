@@ -28,7 +28,7 @@
           points="1.768,23.532 34.415,56.179 88.826,1.768"
         />
       </svg>
-      <span v-if="!isLoading && !isSuccess && !isError">Enviar</span>
+      <span v-if="!isLoading && !isSuccess && !isError">{{ text }}</span>
       <div class="out" v-if="isError">
         <icon-base
           viewBox="0 0 32 32"
@@ -62,7 +62,8 @@ export default {
     isLoading: { type: Boolean, default: false, required: true },
     isError: { type: Boolean, default: false, required: true },
     isSuccess: { type: Boolean, default: false, required: true },
-    width: { type: String, default: '15%', required: false }
+    width: { type: String, default: '15%', required: false },
+    text: { type: String, default: 'Enviar', required: false }
   },
   data() {
     return {
