@@ -32,7 +32,8 @@
     "vue-next-select": "^2.10.1",
     "vue-router": "^4.0.0-0",
     "vue3-date-time-picker": "^2.3.2",
-    "vue3-resize": "^0.2.0"
+    "vue3-resize": "^0.2.0",
+    "vuex": "4"
   },
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",

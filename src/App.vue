@@ -104,7 +104,7 @@ export default {
 }
 
 .vc-container {
-  border: none;
+  border: none !important;
 }
 
 /* width */

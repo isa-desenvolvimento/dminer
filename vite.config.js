@@ -15,5 +15,13 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
+  },
+  proxy: {
+    '/api': {
+      target: 'https://www.dminerweb.com.br:8553',
+      changeOrigin: true,
+      secure: false,
+      ws: true
+    }
   }
 })

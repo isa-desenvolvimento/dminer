@@ -70,6 +70,11 @@ export default {
       buttonComponent: this.isError ? 'icon-button-error' : 'icon-button-send'
     }
   },
+  update() {
+    this.buttonComponent = this.isError
+      ? 'icon-button-error'
+      : 'icon-button-send'
+  },
   components: {
     IconBase,
     IconButtonSend,
