@@ -13,20 +13,11 @@
         {{ text }}
       </div>
     </div>
-
-    <div v-if="isError" class="fild_container_error">campo obrigatório</div>
   </div>
 </template>
 
 <script>
 export default {
-  updated() {
-    const circle = document.querySelector(
-      `.container_input_${this.text} .icon__line > .st1`
-    )
-    circle.style.fill = this.isError ? 'red' : 'var( --sidebar-green-ligth)'
-  },
-
   props: {
     text: { type: String, required: false },
     value: { type: String, required: false },
@@ -96,6 +87,7 @@ input[type='checkbox'] {
   position: relative;
   cursor: pointer;
 }
+
 input[type='checkbox']:before {
   content: '';
   display: block;

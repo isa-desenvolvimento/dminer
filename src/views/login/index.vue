@@ -96,6 +96,12 @@ export default {
             }, 3000)
           }
         )
+      } else {
+        this.isLoading = false
+        this.isError = true
+        setTimeout(() => {
+          this.isError = false
+        }, 3000)
       }
     },
     validForm() {

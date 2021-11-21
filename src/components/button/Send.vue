@@ -60,7 +60,7 @@ import IconClose from '@/components/icons/IconClose.vue'
 export default {
   props: {
     isLoading: { type: Boolean, default: false, required: true },
-    isError: { type: Boolean, default: false, required: true },
+    isError: { type: Boolean, default: true, required: true },
     isSuccess: { type: Boolean, default: false, required: true },
     width: { type: String, default: '15%', required: false },
     text: { type: String, default: 'Enviar', required: false }
@@ -70,11 +70,14 @@ export default {
       buttonComponent: this.isError ? 'icon-button-error' : 'icon-button-send'
     }
   },
-  update() {
+
+  updated() {
+    console.log(this.isError)
     this.buttonComponent = this.isError
       ? 'icon-button-error'
       : 'icon-button-send'
   },
+
   components: {
     IconBase,
     IconButtonSend,
