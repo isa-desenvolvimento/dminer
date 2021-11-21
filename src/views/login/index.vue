@@ -18,13 +18,16 @@
           :isError="isError && !value.password"
           type="password"
         />
-        <send
-          :isLoading="isLoading"
-          :isSuccess="isSuccess"
-          :isError="isError"
-          @click="sendForm"
-          text="Entrar"
-        ></send>
+        <div class="login_button">
+          <send
+            :isLoading="isLoading"
+            :isSuccess="isSuccess"
+            :isError="isError"
+            @click="sendForm"
+            text="Entrar"
+            width="100%"
+          ></send>
+        </div>
       </div>
     </div>
   </div>
@@ -105,6 +108,11 @@ export default {
   width: 100%;
   padding: 1rem;
   background-color: aliceblue;
+}
+
+.login_button {
+  width: 30%;
+  margin: auto;
 }
 
 .form_container {
