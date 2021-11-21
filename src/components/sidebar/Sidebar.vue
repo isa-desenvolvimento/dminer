@@ -59,9 +59,11 @@
         <icon-permissions />
         PERMISSÕES
       </SidebarLink>
-      <SidebarLink to="/power" icon="power" isPower>
-        <icon-power />
-      </SidebarLink>
+      <div @click="logout()">
+        <SidebarLink to="/power" icon="power" isPower>
+          <icon-power />
+        </SidebarLink>
+      </div>
     </div>
     <span
       class="collapse-icon"
@@ -117,9 +119,14 @@ export default {
       SIDEBAR_WIDTH_COLLAPSED
     }
   },
+
   methods: {
     updateUser() {
       this.$emit('update:modelValue', this.user)
+    },
+    logout() {
+      this.$store.dispatch('auth/logout')
+      this.$router.push('/login')
     }
   }
 }

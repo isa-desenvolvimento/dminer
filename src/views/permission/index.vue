@@ -112,6 +112,7 @@ h4 {
   align-items: center;
   margin-left: auto;
   margin-right: 2rem;
+  z-index: 4;
 
   cursor: pointer;
 }

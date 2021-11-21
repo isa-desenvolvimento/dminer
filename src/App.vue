@@ -5,7 +5,7 @@ import Content from '@/components/content/Content.vue'
 import Avatar from '@/components/avatar/Avatar.vue'
 
 import useUser from '@/composables/useUser'
-import Login from './views/login/index.vue'
+import Login from '@/views/login/index.vue'
 
 export default {
   components: { Sidebar, Banner, Content, Avatar, Login },
@@ -32,7 +32,7 @@ export default {
 }
 </script>
 <template>
-  <transition v-if="!loggedIn">
+  <transition v-if="loggedIn" name="fade">
     <div>
       <Sidebar :user="getUser" v-model="getUser.avatar" @change="updateUser" />
       <Banner
@@ -44,7 +44,7 @@ export default {
       <Content />
     </div>
   </transition>
-  <transition v-else>
+  <transition v-else name="fade">
     <Login />
   </transition>
 </template>
