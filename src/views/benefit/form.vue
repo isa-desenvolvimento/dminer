@@ -89,10 +89,10 @@ export default {
     }
   },
   setup() {
-    const { create } = useBenefit()
+    const { create, update } = useBenefit()
     const { getPermission } = usePermission()
 
-    return { create, getPermission }
+    return { create, getPermission, update }
   },
 
   methods: {
@@ -101,7 +101,7 @@ export default {
       if (this.validForm()) {
         let result
         if (this.isEdit) {
-          result = this.create(this.value)
+          result = this.update(this.value)
         } else {
           result = this.create(this.value)
         }

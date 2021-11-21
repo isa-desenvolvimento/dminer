@@ -37,7 +37,7 @@
               <icon-base
                 icon-name="icon"
                 class="team_icon_edit"
-                @click="setUser(item)"
+                @click="edit(item)"
               >
                 <icon-edit />
               </icon-base>
@@ -50,7 +50,7 @@
   <form-user
     :showModal="showModal"
     @close="showModal = false"
-    :user="user"
+    :value="value"
     :isEdit="isEdit"
   />
 </template>
@@ -68,7 +68,7 @@ import { dayMounthFormart } from '@/util/date.js'
 
 export default {
   data() {
-    return { showModalEquipe: true, showModal: false, user: {}, isEdit: false }
+    return { showModalEquipe: true, showModal: false, value: {}, isEdit: false }
   },
   setup() {
     const { getAllUsers } = useAllUsers()
@@ -87,9 +87,13 @@ export default {
     openModal() {
       this.showModal = true
     },
-    setUser(user) {
+    edit(value) {
       this.isEdit = true
-      this.user = user
+
+      this.setUser(value)
+    },
+    setUser(value) {
+      this.value = value
       this.openModal()
     }
   }

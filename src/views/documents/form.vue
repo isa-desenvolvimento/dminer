@@ -88,12 +88,12 @@ export default {
     }
   },
   setup() {
-    const { create } = useDocument()
+    const { create, update } = useDocument()
 
     const { getCategories } = useCategory()
     const { getPermission } = usePermission()
 
-    return { create, getCategories, getPermission }
+    return { create, getCategories, getPermission, update }
   },
 
   methods: {
@@ -102,7 +102,7 @@ export default {
       if (this.validForm()) {
         let result
         if (this.isEdit) {
-          result = this.create(this.value)
+          result = this.update(this.value)
         } else {
           result = this.create(this.value)
         }

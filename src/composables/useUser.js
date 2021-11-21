@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue'
-import { fetchUser, fetchUpdateUser, fetchCreateUser } from '@/api/user'
+import { fetchUser, fetchUpdate, fetchCreateUser } from '@/api/user'
 
 export default function useUser(idUser) {
   const getUser = ref([])
@@ -9,23 +9,18 @@ export default function useUser(idUser) {
     getUser.value = await fetchUser(idUser)
   }
 
-  const setBanner = async () => {
-    await fetchUpdateUser(idUser)
-  }
-
   const createUser = async (user) => {
     return await fetchCreateUser(user)
   }
 
-  const updateUser = async (user) => {
-    return await fetchUpdateUser(user)
+  const update = async (user) => {
+    return await fetchUpdate(user)
   }
 
   return {
     setUser,
     getUser,
-    setBanner,
     createUser,
-    updateUser
+    update
   }
 }

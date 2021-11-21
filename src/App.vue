@@ -9,16 +9,16 @@ import useUser from '@/composables/useUser'
 export default {
   components: { Sidebar, Banner, Content, Avatar },
   setup() {
-    const { getUser, setUser, updateUser } = useUser(1)
+    const { getUser, setUser, update } = useUser(1)
 
     setUser()
-    return { getUser, updateUser }
+    return { getUser, update }
   },
   methods: {
     updateUser(e) {
       console.table(this.getUser)
       setTimeout(() => {
-        this.updateUser(this.getUser)
+        this.update(this.getUser)
       }, 0)
     }
   }

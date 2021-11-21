@@ -24,3 +24,16 @@ export const fetchCreate = async (item) => {
 
   return messagesFetch('registration', response.status, json.data)
 }
+
+export const fetchUpdate = async (user) => {
+  const response = await fetch(`${baseURL}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(user)
+  })
+  const json = await response.json()
+
+  return messagesFetch('update', response.status, json.data)
+}

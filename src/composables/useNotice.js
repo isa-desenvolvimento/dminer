@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue'
-import { fetchAll, fetchCreate } from '@/api/notice.js'
+import { fetchAll, fetchCreate, fetchUpdate } from '@/api/notice.js'
 
 export default function useNotice() {
   const getNotices = ref([])
@@ -12,10 +12,15 @@ export default function useNotice() {
     return await fetchCreate(item)
   }
 
+  const update = async (item) => {
+    return await fetchUpdate(item)
+  }
+
   onMounted(setNotice)
   return {
     getNotices,
     setNotice,
-    create
+    create,
+    update
   }
 }

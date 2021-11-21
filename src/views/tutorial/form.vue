@@ -99,21 +99,20 @@ export default {
     }
   },
   setup() {
-    const { create } = useTutorial()
+    const { create, update } = useTutorial()
     const { getPermission } = usePermission()
     const { getCategories } = useCategory()
 
-    return { create, getPermission, getCategories }
+    return { create, getPermission, getCategories, update }
   },
 
   methods: {
     sendForm() {
       this.isLoading = true
-      console.log(this.value)
       if (this.validForm()) {
         let result
         if (this.isEdit) {
-          result = this.create(this.value)
+          result = this.update(this.value)
         } else {
           result = this.create(this.value)
         }

@@ -37,13 +37,13 @@
               required
               :isError="isError && !value.email"
             />
-            <!-- <fild-input
-              :text="'equipe'"
-              v-model="value.area"
-              :value="value.area"
+            <fild-input
+              :text="'apelido'"
+              v-model="value.nickname"
+              :value="value.nickname"
               required
-              :isError="isError && !value.area"
-            /> -->
+              :isError="isError && !value.nickname"
+            />
 
             <fild-input
               :text="'linkedin'"
@@ -118,15 +118,20 @@ export default {
         linkedin: '',
         email: '',
         avatar: '',
-        banner: ''
+        banner: '',
+        nickname: ''
       }
     }
   },
-  setup() {
-    const { createUser } = useUser()
+  setup(props) {
+    const { createUser, update } = useUser()
     const { getPermission } = usePermission()
 
-    return { createUser, getPermission }
+    props.value.dtBirthday = props.isEdit
+      ? new Date(props.value.dtBirthday)
+      : new Date()
+
+    return { createUser, getPermission, update }
   },
 
   methods: {
@@ -136,7 +141,7 @@ export default {
         this.value.dtBirthday = dateHourFormarUs(this.value.dtBirthday)
 
         if (this.isEdit) {
-          const result = this.createUser(this.value)
+          const result = this.update(this.value)
         } else {
           const result = this.createUser(this.value)
         }

@@ -40,7 +40,7 @@ export const fetchUsersBirthday = async () => {
   return response.status === 200 ? json.data : []
 }
 
-export const fetchUpdateUser = async (user) => {
+export const fetchUpdate = async (user) => {
   const response = await fetch(`${baseURL}`, {
     method: 'PUT',
     headers: {

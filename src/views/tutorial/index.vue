@@ -13,7 +13,7 @@
               <icon-base
                 icon-name="icon"
                 class="team_icon_edit"
-                @click="setDoc(item)"
+                @click="edit(item)"
               >
                 <icon-edit />
               </icon-base>
@@ -86,8 +86,11 @@ export default {
     openModal() {
       this.showModal = true
     },
-    setDoc(value) {
+    edit(value) {
       this.isEdit = true
+      this.setDoc(value)
+    },
+    setDoc(value) {
       this.value = value
       this.openModal()
     }
