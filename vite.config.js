@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import svgLoader from 'vite-svg-loader'
+const fs = require('fs')
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,13 +16,17 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
-  },
-  proxy: {
-    '/api': {
-      target: 'https://www.dminerweb.com.br:8553',
-      changeOrigin: true,
-      secure: false,
-      ws: true
-    }
   }
+
+  // devServer: {
+  //   disableHostCheck: true,
+  //   port: 8553,
+  //   host: 'https://www.dminerweb.com.br',
+  //   //key: fs.readFileSync('./certs/xxxxxx.pem'),
+  //   //cert: fs.readFileSync('./certs/xxxxxx.pem'),
+  //   pfx: fs.readFileSync('src/assets/certificado.cer'),
+  //   pfxPassphrase: 'xxxxxx',
+  //   https: true,
+  //   hotOnly: false
+  // }
 })

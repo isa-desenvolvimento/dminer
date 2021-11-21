@@ -8,10 +8,6 @@ import useUser from '@/composables/useUser'
 import Login from './views/login/index.vue'
 
 export default {
-  data() {
-    isLogged: false
-  },
-
   components: { Sidebar, Banner, Content, Avatar, Login },
   setup() {
     const { getUser, setUser, update } = useUser(1)
@@ -19,6 +15,12 @@ export default {
     setUser()
     return { getUser, update }
   },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn
+    }
+  },
+
   methods: {
     updateUser(e) {
       console.table(this.getUser)
@@ -30,19 +32,21 @@ export default {
 }
 </script>
 <template>
-  <div v-if="isLogged">
-    <Sidebar :user="getUser" v-model="getUser.avatar" @change="updateUser" />
-    <Banner
-      :propsImage="getUser.banner"
-      v-model="getUser.banner"
-      @change="updateUser"
-    />
+  <transition v-if="!loggedIn">
+    <div>
+      <Sidebar :user="getUser" v-model="getUser.avatar" @change="updateUser" />
+      <Banner
+        :propsImage="getUser.banner"
+        v-model="getUser.banner"
+        @change="updateUser"
+      />
 
-    <Content />
-  </div>
-  <div v-else>
+      <Content />
+    </div>
+  </transition>
+  <transition v-else>
     <Login />
-  </div>
+  </transition>
 </template>
 
 <style>

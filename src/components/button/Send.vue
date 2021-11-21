@@ -72,7 +72,6 @@ export default {
   },
 
   updated() {
-    console.log(this.isError)
     this.buttonComponent = this.isError
       ? 'icon-button-error'
       : 'icon-button-send'
