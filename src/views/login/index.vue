@@ -158,7 +158,8 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   margin: auto;
-  padding: 5rem;
+  padding: 4rem;
+  margin-bottom: 2rem;
 }
 
 .login_form {
