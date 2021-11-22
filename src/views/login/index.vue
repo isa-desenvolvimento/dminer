@@ -1,8 +1,11 @@
 <template>
   <div class="conatiner_login">
-    <div class="login_img"></div>
+    <div class="login_img">
+      <div class="login_logo_completa"></div>
+    </div>
     <div class="login_form">
       <div class="login_form_container">
+        <div class="login_logo"></div>
         <fild-input
           :text="'Usuário'"
           v-model="value.userName"
@@ -126,10 +129,36 @@ export default {
 }
 
 .login_img {
-  display: block;
-  background-color: #ddd;
+  display: flex;
+  background-image: linear-gradient(
+    to top left,
+    #daf880,
+    #59c700,
+    #daf880,
+    #daf880,
+    #daf880,
+    #59c700,
+    #daf880
+  );
 
   transition: all 0.5s 0s ease;
+}
+
+.login_logo_completa {
+  background-image: url(@/assets/widget/logo_completa.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+.login_logo {
+  background-image: url(@/assets/widget/logo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  padding: 5rem;
 }
 
 .login_form {
@@ -149,6 +178,7 @@ export default {
   padding: 5rem;
   font-size: 1.5rem;
   height: auto;
+  margin-top: -5rem;
 }
 
 @media only screen and (max-width: 1080px) {
