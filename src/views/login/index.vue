@@ -2,7 +2,7 @@
   <div class="conatiner_login">
     <div class="login_img"></div>
     <div class="login_form">
-      <div class="form_container">
+      <div class="login_form_container">
         <fild-input
           :text="'Usuário'"
           v-model="value.userName"
@@ -145,9 +145,10 @@ export default {
   margin: auto;
 }
 
-.form_container {
+.login_form_container {
   padding: 5rem;
   font-size: 1.5rem;
+  height: auto;
 }
 
 @media only screen and (max-width: 1080px) {

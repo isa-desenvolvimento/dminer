@@ -32,7 +32,7 @@ export default {
 }
 </script>
 <template>
-  <transition v-if="!loggedIn" name="fade">
+  <transition v-if="loggedIn" name="fade">
     <div>
       <Sidebar :user="getUser" v-model="getUser.avatar" @change="updateUser" />
       <Banner
