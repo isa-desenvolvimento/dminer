@@ -6,8 +6,8 @@
       :title="'cadastro de perfil'"
     >
       <template v-slot:body>
-        <div class="form_container">
-          <div class="form_container_text">
+        <div class="permission_form_container">
+          <div class="permission_form_container_text">
             <fild-input
               :text="'Permissão'"
               v-model="value.title"
@@ -98,7 +98,7 @@ export default {
 </script>
 
 <style scope>
-.form_container {
+.permission_form_container {
   /* display: grid;
   background-image: url(/src/assets/widget/frame-team.svg);
   background-repeat: no-repeat;
@@ -113,7 +113,7 @@ export default {
   margin: auto;
 }
 
-.form_container_text {
+.permission_form_container_text {
   display: grid;
   grid-template-columns: 100%;
   grid-gap: 10%;

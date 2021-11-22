@@ -103,12 +103,12 @@ export default {
 <style scoped>
 ul {
   max-height: 358px;
+  overflow: scroll;
   list-style-type: none;
   display: grid;
   grid-template-columns: 50% 50%;
   width: 90%;
   justify-items: center;
-  overflow: scroll;
 }
 
 li {

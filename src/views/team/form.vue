@@ -6,7 +6,7 @@
       :title="'cadastro de usuário'"
     >
       <template v-slot:body>
-        <div class="form_container">
+        <div class="team_form_container">
           <fild-input
             :text="'nome'"
             :value="value.name"
@@ -15,7 +15,7 @@
             :isError="isError && !value.name"
           />
 
-          <div class="form_container_text">
+          <div class="team_form_container_text">
             <fild-date
               :text="'data de nascimento'"
               v-model="value.dtBirthday"
@@ -173,13 +173,13 @@ export default {
 </script>
 
 <style scope>
-.form_container {
+.team_form_container {
   display: flow-root;
   width: 80%;
   margin: auto;
 }
 
-.form_container_text {
+.team_form_container_text {
   display: grid;
   grid-template-columns: 45% 45%;
   grid-gap: 10%;

@@ -122,6 +122,9 @@ export default {
 
 .modal-body {
   margin: 20px 0;
+  width: 95%;
+  max-height: 358px;
+  overflow-y: auto;
 }
 
 .modal-left {

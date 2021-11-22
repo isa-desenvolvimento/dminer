@@ -6,9 +6,9 @@
       :title="'cadastro de benefícios'"
     >
       <template v-slot:body>
-        <div class="form_container">
+        <div class="benefit_form_container">
           <upload-image v-model="value.image" :propsImage="value.image" />
-          <div class="form_container_text">
+          <div class="benefit_form_container_text">
             <fild-input
               :text="'Título'"
               v-model="value.title"
@@ -133,7 +133,7 @@ export default {
 </script>
 
 <style scope>
-.form_container {
+.benefit_form_container {
   display: flex;
   width: 100%;
   height: 100%;
@@ -146,7 +146,7 @@ export default {
   justify-content: center;
 }
 
-.form_container_text {
+.benefit_form_container_text {
   display: grid;
 }
 </style>

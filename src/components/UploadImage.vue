@@ -47,10 +47,10 @@ export default {
 
 <style scoped>
 .container {
-  width: 8rem;
+  width: 11rem;
   background-color: #60645c6e;
   top: 0;
-  height: 8rem;
+  height: 11rem;
   transition: 0.2s linear;
   position: relative;
 }

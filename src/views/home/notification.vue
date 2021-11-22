@@ -139,6 +139,7 @@ li {
 
 li:nth-child(even) {
   text-align: left;
+  margin-left: 1rem;
 }
 
 .form_container {

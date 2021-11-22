@@ -30,8 +30,8 @@
           viewBox="0 0 300 500"
           icon-name="icon"
           class="icon_quiz_count"
-          width="135%"
-          height="30%"
+          width="100%"
+          height="65%"
         >
           <icon-count-quiz>
             <div class="quiz_count">
@@ -192,6 +192,8 @@ ul {
 li {
   height: 38vh;
   display: flex;
+  position: relative;
+  margin-left: -1rem;
 }
 
 .container_quiz {
@@ -203,12 +205,14 @@ li {
   display: grid;
   grid-template-rows: 80% 20%;
   padding: 0.5rem;
-  width: 70%;
+  width: 50rem;
+  height: 13rem;
 }
 .icon_quiz_count {
-  position: absolute;
+  /* position: absolute; */
   z-index: 2;
-  left: 1rem;
+  width: 40rem;
+  margin-left: -146px;
 }
 
 .quiz_question {

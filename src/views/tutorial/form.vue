@@ -6,10 +6,10 @@
       :title="'cadastro de tutorial'"
     >
       <template v-slot:body>
-        <div class="form_container">
+        <div class="tutorial_form_container">
           <upload-image v-model="value.image" :propsImage="value.image" />
 
-          <div class="form_container_text">
+          <div class="tutorial_form_container_text">
             <fild-input
               :text="'Título'"
               v-model="value.title"
@@ -144,9 +144,8 @@ export default {
 </script>
 
 <style scope>
-.form_container {
+.tutorial_form_container {
   display: flex;
-  width: 100%;
   height: 100%;
   margin: auto;
   padding: 2rem;
@@ -157,7 +156,7 @@ export default {
   justify-content: center;
 }
 
-.form_container_text {
+.tutorial_form_container_text {
   display: grid;
   grid-template-columns: 45% 45%;
   grid-gap: 10%;

@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue'
-import { fetchAll, fetchCreate } from '@/api/notice.js'
+import { fetchAll, fetchCreate } from '@/api/notification.js'
 
 export default function useNotification() {
   const getNotifications = ref([])

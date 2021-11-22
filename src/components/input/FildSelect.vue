@@ -1,11 +1,11 @@
 <template>
   <div class="container_input" @click="focus($event)">
     <div>
-      <label v-if="text">
+      <div v-if="text" class="input_label">
         {{ text }}
         <span v-if="required">*</span>
         :
-      </label>
+      </div>
 
       <vue-select
         :id="`container_input_${text}`"
@@ -92,17 +92,9 @@ export default {
   position: relative;
   cursor: text;
 }
-
-label {
+.input_label {
   text-transform: capitalize;
-  font-size: 0.5rem;
-  font-family: var(--font-family--text);
-
-  position: absolute;
-  left: 0;
-
-  grid-area: label;
-  color: var(--color-text);
+  text-align: start;
 }
 
 .fild_container_error {
