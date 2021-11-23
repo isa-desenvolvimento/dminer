@@ -5,15 +5,23 @@ const URL = '/survey'
 
 export const fetchAll = async () => {
   const response = await apiIntra(`${URL}/all`)
-  return response.status === 200 ? response.data : []
+  return response.status === 200 ? response.data.data : []
 }
 
 export const fetchCreate = async (item) => {
-  const response = await fetch(`${URL}`, item)
-  return messagesFetch('registration', response.status, response.data)
+  const response = await apiIntra.post(`${URL}`, item)
+  return messagesFetch('registration', response.status, response.data.data)
 }
 
 export const fetchUpdate = async (item) => {
-  const response = await fetch(`${URL}`, item)
-  return messagesFetch('update', response.status, response.data)
+  const response = await apiIntra.put(`${URL}`, item)
+  return messagesFetch('update', response.status, response.data.data)
+}
+
+export const fetchQuizAnswer = async (id, option, idUser = 4) => {
+  const response = await apiIntra.post(
+    `${baseURL}/answer/${id}/${idUser}/${option}`,
+    {}
+  )
+  return messagesFetch('update', response.status, response.data.data)
 }

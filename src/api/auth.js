@@ -8,5 +8,5 @@ export const fetchtAuth = async (item) => {
     userPassword: '#Matheus97',
     type: 'painel'
   })
-  return messagesFetch('registration', response.status, response.data)
+  return messagesFetch('registration', response.status, response.data.data)
 }
