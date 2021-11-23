@@ -58,8 +58,7 @@ export default {
       reminderPassword: false,
       value: {
         userName: '',
-        userPassword: '',
-        type: 'painel'
+        userPassword: ''
       }
     }
   },

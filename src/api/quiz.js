@@ -1,35 +1,19 @@
-const baseURL = 'https://dminer-api.herokuapp.com/api/survey'
+import { messagesFetch } from '@/util/toast.js'
+import { apiIntra } from './http'
+
+const URL = '/survey'
 
 export const fetchAll = async () => {
-  const response = await fetch(`${baseURL}/all`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  const json = await response.json()
-  return response.status === 200 ? json.data : []
+  const response = await apiIntra(`${URL}/all`)
+  return response.status === 200 ? response.data : []
 }
 
-export const fetchQuizAnswer = async (id, option, idUser = 4) => {
-  const response = await fetch(`${baseURL}/answer/${id}/${idUser}/${option}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  return response.status === 200
+export const fetchCreate = async (item) => {
+  const response = await fetch(`${URL}`, item)
+  return messagesFetch('registration', response.status, response.data)
 }
 
-export const fetchCreate = async (doc) => {
-  const response = await fetch(`${baseURL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(doc)
-  })
-  const json = await response.json()
-
-  return messagesFetch('registration', response.status, json.data)
+export const fetchUpdate = async (item) => {
+  const response = await fetch(`${URL}`, item)
+  return messagesFetch('update', response.status, response.data)
 }

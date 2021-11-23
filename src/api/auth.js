@@ -1,15 +1,12 @@
-const baseURL = 'https://www.dminerweb.com.br:8553'
 import { messagesFetch } from '@/util/toast.js'
 
-export const fetchtAuth = async (item) => {
-  const response = await fetch(`${baseURL}/api/auth/login`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(item)
-  })
-  const json = await response.json()
+import { apiLogin } from './http'
 
-  return messagesFetch('registration', response.status, json.data)
+export const fetchtAuth = async (item) => {
+  const response = await apiLogin.post('/api/auth/login', {
+    userName: 'matheus.ribeiro1',
+    userPassword: '#Matheus97',
+    type: 'painel'
+  })
+  return messagesFetch('registration', response.status, response.data)
 }

@@ -161,4 +161,11 @@ input {
   font-family: var(--font-family--text);
   font-size: var(--font-size--text);
 }
+
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: transparent !important;
+  color: -internal-light-dark(black, white) !important;
+}
 </style>

@@ -6,7 +6,7 @@ export default function useAuth(user) {
 
   const login = async () => {
     const auth = await fetchtAuth(user)
-    if (auth.accessToken) {
+    if (auth.baererAuthentication) {
       localStorage.user = logged.value = auth
     }
   }
