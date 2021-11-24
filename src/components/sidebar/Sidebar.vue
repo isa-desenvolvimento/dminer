@@ -16,7 +16,7 @@
         </icon-base>
         <Avatar
           :avatar="user.avatar"
-          :username="user.name"
+          :username="user.usuario"
           isClicked
           v-model="user.avatar"
           @change="updateUser"
@@ -144,7 +144,7 @@ export default {
   top: -1px;
   left: 0;
   bottom: 0;
-  padding: 0.5em;
+  padding: 1.5em;
   transition: 0.3s ease;
   display: flex;
   flex-direction: column;

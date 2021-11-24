@@ -103,5 +103,6 @@ h2 {
   color: black;
   font-weight: 300;
   text-transform: uppercase;
+  margin-left: -2rem;
 }
 </style>

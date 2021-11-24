@@ -19,7 +19,6 @@ export default {
   },
   methods: {
     updateUser(e) {
-      console.table(this.getUser)
       setTimeout(() => {
         // this.update(this.getUser)
       }, 0)

@@ -1,11 +1,11 @@
 import { ref, onMounted } from 'vue'
-import { fetchAlltutorials, fetchCreate, fetchUpdate } from '@/api/tutorial.js'
+import { fetchAll, fetchCreate, fetchUpdate } from '@/api/tutorial.js'
 
 export default function useTutorial() {
   const getTutorials = ref([])
 
   const setTutorial = async () => {
-    getTutorials.value = await fetchAlltutorials()
+    getTutorials.value = await fetchAll()
   }
 
   const create = async (item) => {

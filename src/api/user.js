@@ -5,20 +5,11 @@ import { apiIntra, wbDiminerImage } from './http'
 const URL = '/user'
 
 export const fetchAvatar = async (id) => {
-  debugger
-  return wbDiminerImage
-    .get(`api/auth/avatar/?login_user=${id}`)
-    .then((response) => {
-      return (
-        'data:image/png;base64,' +
-        btoa(
-          new Uint8Array(response.data).reduce(
-            (data, byte) => data + String.fromCharCode(byte),
-            ''
-          )
-        )
-      )
-    })
+  const response = await fetch(
+    `https://www.dminerweb.com.br:8553/api/auth/avatar/?login_user=${id}`
+  )
+
+  return response.status === 200 ? response.blob() : []
 }
 
 export const fetchAllUser = async () => {

@@ -3,7 +3,6 @@
     <widget-modal
       v-if="showModalEquipe"
       title="Equipe"
-      :onClick="setUser"
       @close="this.$router.push('/')"
     >
       <template v-slot:body>
@@ -33,7 +32,7 @@
                 </div>
               </div>
             </div>
-            <button class="team_btn_edit">
+            <!-- <button class="team_btn_edit">
               <icon-base
                 icon-name="icon"
                 class="team_icon_edit"
@@ -41,7 +40,7 @@
               >
                 <icon-edit />
               </icon-base>
-            </button>
+            </button> -->
           </li>
         </ul>
       </template>
@@ -61,7 +60,7 @@ import Avatar from '@/components/avatar/Avatar.vue'
 import WidgetModal from '@/components/widget/WidgetModal.vue'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
-import FormUser from './form.vue'
+// import FormUser from './form.vue'
 
 import useAllUsers from '@/composables/useAllUsers'
 import { dayMounthFormart } from '@/util/date.js'
@@ -79,31 +78,28 @@ export default {
     WidgetModal,
     Title,
     Avatar,
-    FormUser,
+    // FormUser,
     IconEdit,
     IconBase
   },
   methods: {
-    openModal() {
-      this.showModal = true
-    },
-    edit(value) {
-      this.isEdit = true
-
-      this.setUser(value)
-    },
-    setUser(value) {
-      this.value = value
-      this.openModal()
-    }
+    // openModal() {
+    //   this.showModal = true
+    // },
+    // edit(value) {
+    //   this.isEdit = true
+    //   this.setUser(value)
+    // },
+    // setUser(value) {
+    //   this.value = value
+    //   this.openModal()
+    // }
   }
 }
 </script>
 
 <style scoped>
 ul {
-  max-height: 358px;
-  overflow: scroll;
   list-style-type: none;
   display: grid;
   grid-template-columns: 50% 50%;

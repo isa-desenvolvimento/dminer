@@ -102,11 +102,9 @@ export default {
 ul {
   display: grid;
   width: 90%;
-  overflow-y: auto;
   list-style-type: none;
   position: relative;
   height: 100%;
-  max-height: 358px;
 }
 
 li {

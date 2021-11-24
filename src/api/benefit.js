@@ -4,7 +4,7 @@ import { apiIntra } from './http'
 const URL = '/benefits'
 
 export const fetchAll = async () => {
-  const response = await apiIntra(`${URL}/all`)
+  const response = await apiIntra.get(`${URL}/all`)
   return response.status === 200 ? response.data.data : []
 }
 

@@ -23,7 +23,6 @@ import { ref } from 'vue'
 import Title from '@/components/title/Title.vue'
 
 import { sidebarWidth } from '@/components/sidebar/state'
-import useUser from '@/composables/useUser'
 
 export default {
   data() {
@@ -31,10 +30,9 @@ export default {
   },
   props: { propsImage: { type: String, required: false, default: null } },
   setup() {
-    const { updateUser } = useUser()
     const fileInput = ref([])
 
-    return { fileInput, sidebarWidth, updateUser }
+    return { fileInput, sidebarWidth }
   },
   updated() {
     this.isLoading = true
