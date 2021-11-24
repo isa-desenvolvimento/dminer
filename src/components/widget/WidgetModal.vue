@@ -7,6 +7,7 @@
         :viewBox="viewbox"
         width="70%"
         height="100%"
+        :style="{ marginLeft: sidebarWidth }"
       >
         <component :is="layout">
           <div class="modal-container" :style="{ width: width }">
@@ -74,6 +75,11 @@ export default {
       type: String,
       required: false,
       default: 'modal-default-button'
+    }
+  },
+  computed: {
+    sidebarWidth() {
+      return this.$store.state.sidebar.sidebarWidth
     }
   },
   components: {

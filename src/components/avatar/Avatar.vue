@@ -14,8 +14,9 @@
     >
       <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
     </div>
-
-    <h2>{{ username }}</h2>
+    <div class="username">
+      <h2>{{ username }}</h2>
+    </div>
   </div>
 </template>
 
@@ -96,6 +97,10 @@ export default {
 
 .imageInput {
   display: none;
+}
+
+.username {
+  width: 99%;
 }
 
 h2 {

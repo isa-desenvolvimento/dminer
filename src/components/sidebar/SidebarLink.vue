@@ -1,7 +1,6 @@
 <script>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { collapsed } from './state'
 
 import IconBase from '@/components/icons/IconBase.vue'
 import IconLine from '@/components/icons/IconLine.vue'
@@ -14,10 +13,15 @@ export default {
     isPower: { type: Boolean, required: false }
   },
   components: { IconBase, IconLine },
+  computed: {
+    collapsed() {
+      return this.$store.state.sidebar.collapsed
+    }
+  },
   setup(props) {
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
-    return { isActive, collapsed }
+    return { isActive }
   }
 }
 </script>

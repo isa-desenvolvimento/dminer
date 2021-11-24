@@ -7,7 +7,7 @@
     :style="{ width: sidebarWidth }"
   >
     <span v-show="collapsed" class="username">
-      {{ user?.name?.charAt(0) }}
+      {{ user?.usuario?.charAt(0) }}
     </span>
     <div class="container-avatar" v-show="!collapsed">
       <div>
@@ -87,13 +87,6 @@ import IconPower from '@/components/icons/IconPower.vue'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconBase from '@/components/icons/IconBase.vue'
 
-import {
-  collapsed,
-  toggleSidebar,
-  sidebarWidth,
-  SIDEBAR_WIDTH_COLLAPSED
-} from './state'
-
 export default {
   props: { user: { type: Object, required: true } },
 
@@ -111,15 +104,15 @@ export default {
     IconEdit,
     IconBase
   },
-  setup() {
-    return {
-      collapsed,
-      toggleSidebar,
-      sidebarWidth,
-      SIDEBAR_WIDTH_COLLAPSED
+
+  computed: {
+    collapsed() {
+      return this.$store.state.sidebar.collapsed
+    },
+    sidebarWidth() {
+      return this.$store.state.sidebar.sidebarWidth
     }
   },
-
   methods: {
     updateUser() {
       this.$emit('update:modelValue', this.user)
@@ -127,6 +120,9 @@ export default {
     logout() {
       this.$store.dispatch('auth/logout')
       this.$router.push('/login')
+    },
+    toggleSidebar() {
+      this.$store.dispatch('sidebar/toggleSidebar')
     }
   }
 }
@@ -138,25 +134,24 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  /* height: 100vh; */
   position: fixed;
   z-index: 9999;
   top: -1px;
   left: 0;
   bottom: 0;
   padding: 1.5em;
-  transition: 0.3s ease;
   display: flex;
   flex-direction: column;
 
-  grid-area: sidebar;
+  transition: all 0.5s 0s ease;
 }
 
 .menu {
   justify-content: left;
   margin-top: 10%;
   overflow-y: scroll;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-family: var(--font-family--text);
 
   overflow-x: hidden;
@@ -164,15 +159,6 @@ export default {
 
 h1 {
   z-index: 2;
-}
-
-.container-avatar {
-  display: flex;
-  justify-content: left;
-  margin-left: 1rem;
-  transition: 0.3s ease;
-  transition-delay: 0.3s;
-  z-index: 0;
 }
 
 .sidebar h1 {
