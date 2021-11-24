@@ -2,18 +2,14 @@
   <div>
     <div
       class="hex"
-      @click="selectImage"
       :style="{
         'background-image': `url(${
           previewImage || 'src/assets/widget/avatar.svg'
         })`,
-        cursor: isClicked ? 'pointer' : 'default',
         width: width,
         height: height
       }"
-    >
-      <input ref="fileInput" type="file" @input="pickFile" class="imageInput" />
-    </div>
+    ></div>
     <div class="username">
       <h2>{{ username }}</h2>
     </div>
@@ -38,34 +34,13 @@ export default {
       default: 'src/assets/widget/avatar.svg'
     },
     username: { type: String, required: false, default: '' },
-    isClicked: { type: Boolean, default: false, required: false },
     width: { type: String, required: false, default: '8rem' },
     height: { type: String, required: false, default: '9rem' }
   },
   setup(props) {
-    const fileInput = ref(props.avatar)
     const previewImage = ref(props.avatar)
 
-    return { fileInput, previewImage }
-  },
-
-  methods: {
-    selectImage() {
-      if (this.isClicked) this.fileInput.click()
-    },
-    pickFile() {
-      let input = this.fileInput
-      let file = input.files
-      if (file && file[0]) {
-        let reader = new FileReader()
-        reader.onload = (e) => {
-          this.previewImage = e.target.result
-          localStorage.avatar = e.target.result
-          this.$emit('update:modelValue', reader.result)
-        }
-        reader.readAsDataURL(file[0])
-      }
-    }
+    return { previewImage }
   }
 }
 </script>

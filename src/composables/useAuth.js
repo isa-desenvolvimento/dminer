@@ -5,6 +5,7 @@ export default function useAuth() {
   const login = async (user) => {
     const auth = await fetchtAuth(user)
     if (auth && auth.baererAuthentication) {
+      debugger
       localStorage.user = JSON.stringify(auth)
       return auth
     }

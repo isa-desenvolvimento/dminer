@@ -11,15 +11,10 @@
     </span>
     <div class="container-avatar" v-show="!collapsed">
       <div>
-        <icon-base icon-name="icon" class="edit-icon">
-          <icon-edit />
-        </icon-base>
         <Avatar
           :avatar="user.avatar"
           :username="user.usuario"
-          isClicked
           v-model="user.avatar"
-          @change="updateUser"
         />
       </div>
     </div>
@@ -155,34 +150,6 @@ export default {
   font-family: var(--font-family--text);
 
   overflow-x: hidden;
-}
-
-h1 {
-  z-index: 2;
-}
-
-.sidebar h1 {
-  height: 2.5em;
-}
-
-.collapse-icon {
-  position: absolute;
-  bottom: 2px;
-  padding: 0.75em;
-
-  color: rgba(255, 255, 255, 0.7);
-
-  transition: 0.2s linear;
-  cursor: pointer;
-
-  width: 100%;
-}
-
-.edit-icon {
-  position: absolute;
-  right: 1.5rem;
-  top: 2rem;
-  height: 1.5rem;
 }
 
 .username {
