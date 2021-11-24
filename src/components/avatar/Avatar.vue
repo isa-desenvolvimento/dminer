@@ -100,7 +100,7 @@ export default {
 }
 
 .username {
-  width: 99%;
+  width: 90%;
 }
 
 h2 {

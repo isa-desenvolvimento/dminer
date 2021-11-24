@@ -22,8 +22,6 @@
 import { ref } from 'vue'
 import Title from '@/components/title/Title.vue'
 
-import { sidebarWidth } from '@/components/sidebar/state'
-
 export default {
   data() {
     return { isLoading: true, previewImage: null }
@@ -32,11 +30,16 @@ export default {
   setup() {
     const fileInput = ref([])
 
-    return { fileInput, sidebarWidth }
+    return { fileInput }
   },
   updated() {
     this.isLoading = true
     this.previewImage = this.propsImage
+  },
+  computed: {
+    sidebarWidth() {
+      return this.$store.state.sidebar.sidebarWidth
+    }
   },
 
   methods: {

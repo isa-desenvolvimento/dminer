@@ -24,30 +24,35 @@
 </template>
 
 <script>
-import { sidebarWidth, collapsed } from '@/components/sidebar/state.js'
-
 import Feed from '@/components/feed/Feed.vue'
 import Publication from '@/components/publication/Publication.vue'
 import useFeed from '@/composables/useFeed.js'
+
+import { useStore } from 'vuex'
 
 export default {
   components: { Feed, Publication },
 
   setup() {
+    const store = useStore()
     const { getFeeds } = useFeed()
 
     const PostList = getFeeds
 
     return {
-      sidebarWidth,
       PostList,
       handleResize({ width }) {
         if (width < 1080) {
-          collapsed.value = true
+          store.dispatch('sidebar/openSidebar')
         } else {
-          collapsed.value = false
+          store.dispatch('sidebar/closeSidebar')
         }
       }
+    }
+  },
+  computed: {
+    sidebarWidth() {
+      return this.$store.state.sidebar.sidebarWidth
     }
   }
 }
