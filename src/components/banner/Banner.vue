@@ -81,6 +81,8 @@ export default {
   margin: 0 auto 30px;
   background-size: cover;
   background-position: center center;
+  position: absolute;
+  top: 0;
 }
 
 .imageInput {
