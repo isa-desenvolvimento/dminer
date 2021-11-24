@@ -4,28 +4,24 @@ import Banner from '@/components/banner/Banner.vue'
 import Content from '@/components/content/Content.vue'
 import Avatar from '@/components/avatar/Avatar.vue'
 
-import useUser from '@/composables/useUser'
 import Login from '@/views/login/index.vue'
 
 export default {
   components: { Sidebar, Banner, Content, Avatar, Login },
-  setup() {
-    const { getUser, setUser, update } = useUser(1)
 
-    setUser()
-    return { getUser, update }
-  },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn
+    },
+    user() {
+      return this.$store.state.user
     }
   },
-
   methods: {
     updateUser(e) {
       console.table(this.getUser)
       setTimeout(() => {
-        this.update(this.getUser)
+        // this.update(this.getUser)
       }, 0)
     }
   }
@@ -34,10 +30,10 @@ export default {
 <template>
   <transition v-if="loggedIn" name="fade">
     <div>
-      <Sidebar :user="getUser" v-model="getUser.avatar" @change="updateUser" />
+      <Sidebar :user="user" v-model="user.avatar" @change="updateUser" />
       <Banner
-        :propsImage="getUser.banner"
-        v-model="getUser.banner"
+        :propsImage="user.banner"
+        v-model="user.banner"
         @change="updateUser"
       />
 

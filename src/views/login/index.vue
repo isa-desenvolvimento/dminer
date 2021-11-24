@@ -57,8 +57,9 @@ export default {
       isError: false,
       reminderPassword: false,
       value: {
-        userName: '',
-        userPassword: ''
+        userName: 'matheus.ribeiro1',
+        userPassword: '#Matheus97',
+        type: 'painel'
       }
     }
   },
@@ -78,7 +79,6 @@ export default {
       this.isLoading = true
 
       if (this.validForm()) {
-        console.log(this.value)
         this.$store.dispatch('auth/login', this.value).then(
           () => {
             this.isLoading = false

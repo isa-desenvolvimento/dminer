@@ -1,13 +1,12 @@
 import { ref } from 'vue'
 import { fetchtAuth } from '@/api/auth'
 
-export default function useAuth(user) {
-  const logged = ref([])
-
-  const login = async () => {
+export default function useAuth() {
+  const login = async (user) => {
     const auth = await fetchtAuth(user)
-    if (auth.baererAuthentication) {
-      localStorage.user = logged.value = auth
+    if (auth && auth.baererAuthentication) {
+      localStorage.user = JSON.stringify(auth)
+      return auth
     }
   }
 
@@ -16,7 +15,6 @@ export default function useAuth(user) {
   }
 
   return {
-    logged,
     login,
     logout
   }

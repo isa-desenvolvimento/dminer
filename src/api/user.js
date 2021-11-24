@@ -1,8 +1,25 @@
 import { messagesFetch } from '@/util/toast.js'
 
-import { apiIntra } from './http'
+import { apiIntra, wbDiminerImage } from './http'
 
 const URL = '/user'
+
+export const fetchAvatar = async (id) => {
+  debugger
+  return wbDiminerImage
+    .get(`api/auth/avatar/?login_user=${id}`)
+    .then((response) => {
+      return (
+        'data:image/png;base64,' +
+        btoa(
+          new Uint8Array(response.data).reduce(
+            (data, byte) => data + String.fromCharCode(byte),
+            ''
+          )
+        )
+      )
+    })
+}
 
 export const fetchAllUser = async () => {
   const response = await apiIntra(`${URL}/all`)

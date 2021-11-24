@@ -5,8 +5,6 @@ const URL = '/notification'
 
 export const fetchAll = async () => {
   const response = await apiIntra(`${URL}/all`)
-  console.log(response.data.data)
-
   return response.status === 200 ? response.data.data : []
 }
 

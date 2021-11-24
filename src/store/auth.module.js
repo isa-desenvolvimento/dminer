@@ -1,9 +1,10 @@
 import useAuth from '@/composables/useAuth'
 
-const user = localStorage.user
-const initialState = user
-  ? { status: { loggedIn: true }, user }
-  : { status: { loggedIn: false }, user: null }
+const userLocalStorage = localStorage.user && JSON.parse(localStorage.user)
+
+const initialState = userLocalStorage
+  ? { status: { loggedIn: true } }
+  : { status: { loggedIn: false } }
 
 const { login, logout } = useAuth()
 
@@ -11,8 +12,8 @@ export const auth = {
   namespaced: true,
   state: initialState,
   actions: {
-    login({ commit }, user) {
-      return login(user).then(
+    login({ commit }, value) {
+      return login(value).then(
         (user) => {
           commit('loginSuccess', user)
           return Promise.resolve(user)
@@ -32,15 +33,15 @@ export const auth = {
   mutations: {
     loginSuccess(state, user) {
       state.status.loggedIn = true
-      state.user = user
+      this.dispatch('user/setUser', user)
     },
     loginFailure(state) {
       state.status.loggedIn = false
-      state.user = null
+      this.commit('user/success', null)
     },
     logout(state) {
       state.status.loggedIn = false
-      state.user = null
+      this.commit('user/success', null)
     },
     registerSuccess(state) {
       state.status.loggedIn = false
