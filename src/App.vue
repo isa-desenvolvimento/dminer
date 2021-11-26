@@ -13,9 +13,6 @@ export default {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn
     },
-    user() {
-      return this.$store.state.user
-    },
     banner() {
       return this.$store.state.user.banner
     }
@@ -25,7 +22,7 @@ export default {
 <template>
   <transition v-if="loggedIn" name="fade">
     <div>
-      <Sidebar :user="user" v-model="user.avatar" @change="updateUser" />
+      <Sidebar />
       <Banner :isLoading="banner" />
 
       <Content />

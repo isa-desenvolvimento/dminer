@@ -106,6 +106,9 @@ export default {
   },
 
   computed: {
+    user() {
+      return this.$store.state.user
+    },
     collapsed() {
       return this.$store.state.sidebar.collapsed
     },
