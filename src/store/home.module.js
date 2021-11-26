@@ -27,9 +27,6 @@ export const home = {
       return getSearch(keyword).then(
         (payload) => {
           this.state.home = payload
-
-          console.log(payload)
-
           localStorage.home = JSON.stringify(payload)
           commit('searchSuccess', payload)
           return Promise.resolve(payload)

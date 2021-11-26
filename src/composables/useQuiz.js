@@ -8,8 +8,8 @@ export default function useQuiz() {
     getQuizs.value = await fetchAll()
   }
 
-  const updateCount = async (id, item) => {
-    getQuizs.value = await fetchQuizAnswer(id, item)
+  const updateCount = async (idQuiz, item, login) => {
+    getQuizs.value = await fetchQuizAnswer(idQuiz, item, login)
   }
 
   const create = async (item) => {

@@ -85,12 +85,11 @@ export default {
       // )
     },
     submit(event) {
-      if (this.inputValue) {
-        this.$store.dispatch('home/search', this.inputValue).then((result) => {
-          console.log(result)
+      this.$store
+        .dispatch('home/search', this.inputValue || null)
+        .then((result) => {
           this.update = true
         })
-      }
     }
   }
 }

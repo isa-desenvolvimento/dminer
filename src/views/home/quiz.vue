@@ -110,6 +110,7 @@ import IconBase from '@/components/icons/IconBase.vue'
 import IconCountQuiz from '@/components/icons/IconCountQuiz.vue'
 
 import useQuiz from '@/composables/useQuiz'
+import { dateHourFormarUs } from '@/util/date.js'
 
 export default {
   data() {
@@ -133,7 +134,7 @@ export default {
   },
   methods: {
     count(id, item) {
-      this.updateCount(id, item)
+      this.updateCount(id, item, this.$store.state.user.login)
     },
     sendForm() {
       this.isLoading = true
@@ -150,7 +151,7 @@ export default {
           this.isSuccess = true
           setTimeout(() => {
             this.isSuccess = false
-            this.$emit('close')
+            this.showModal = false
           }, 3000)
         }
       } else {
@@ -162,6 +163,7 @@ export default {
       }
     },
     validForm() {
+      this.value.date = dateHourFormarUs(this.value.date)
       return Object.values(this.value).every((item) => !!item)
     },
     openModal() {

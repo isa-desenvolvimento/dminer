@@ -51,12 +51,14 @@ export default {
       date
     }
   },
-  mounted() {
-    if (this.isError) {
-      const circle = document.querySelector(
-        `.container_input_${this.text} .icon__line > .st1`
-      )
-      circle.style.fill = 'red'
+
+  updated() {
+    const circle = document.querySelector(
+      `.container_input_${this.text} .icon__line > .st1`
+    )
+
+    if (circle) {
+      circle.style.fill = this.isError ? 'red' : 'var( --sidebar-green-ligth)'
     }
   },
   components: { IconLine, IconBase, Datepicker },

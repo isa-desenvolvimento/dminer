@@ -37,7 +37,10 @@ export default {
     const circle = document.querySelector(
       `.container_input_${this.text} .icon__line > .st1`
     )
-    circle.style.fill = this.isError ? 'red' : 'var( --sidebar-green-ligth)'
+
+    if (circle) {
+      circle.style.fill = this.isError ? 'red' : 'var( --sidebar-green-ligth)'
+    }
   },
 
   components: { IconLine, IconBase },
