@@ -48,7 +48,7 @@
   </transition>
   <form-user
     :showModal="showModal"
-    @close="showModal = false"
+    @close="close"
     :value="value"
     :isEdit="isEdit"
   />
@@ -94,6 +94,10 @@ export default {
     //   this.value = value
     //   this.openModal()
     // }
+    close() {
+      this.setDocument()
+      this.showModal = false
+    }
   }
 }
 </script>

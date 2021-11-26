@@ -42,7 +42,7 @@
   </transition>
   <form-crud
     :showModal="showModal"
-    @close="showModal = false"
+    @close="close"
     :value="value"
     :isEdit="isEdit"
   />
@@ -69,10 +69,10 @@ export default {
     }
   },
   setup() {
-    const { getTutorials } = useTutorial()
+    const { getTutorials, setTutorial } = useTutorial()
     const { getPermission } = usePermission()
 
-    return { getTutorials, getPermission }
+    return { getTutorials, getPermission, setTutorial }
   },
   components: {
     WidgetModal,
@@ -93,6 +93,10 @@ export default {
     setDoc(value) {
       this.value = value
       this.openModal()
+    },
+    close() {
+      this.setTutorial()
+      this.showModal = false
     }
   }
 }

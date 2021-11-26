@@ -42,7 +42,7 @@
   </transition>
   <form-crud
     :showModal="showModal"
-    @close="showModal = false"
+    @close="close"
     :value="value"
     :isEdit="isEdit"
   />
@@ -68,9 +68,9 @@ export default {
     }
   },
   setup() {
-    const { getBenefits } = useBenefit()
+    const { getBenefits, setBenefit } = useBenefit()
 
-    return { getBenefits }
+    return { getBenefits, setBenefit }
   },
   components: {
     WidgetModal,
@@ -91,6 +91,10 @@ export default {
     setDoc(value) {
       this.value = value
       this.openModal()
+    },
+    close() {
+      this.setBenefit()
+      this.showModal = false
     }
   }
 }
