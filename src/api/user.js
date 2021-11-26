@@ -12,6 +12,16 @@ export const fetchAvatar = async (id) => {
   return response.status === 200 ? response.blob() : []
 }
 
+export const fetchBanner = async (login) => {
+  const response = await apiIntra(`${URL}/${login}`)
+  return response.status === 200 ? response.data.data.banner : []
+}
+
+export const fetchUpdateBanner = async (login, banner) => {
+  const response = await apiIntra.post(`${URL}`, { banner, login })
+  return messagesFetch('update', response.status, response.data.data)
+}
+
 export const fetchAllUser = async () => {
   const response = await apiIntra(`${URL}/all`)
   return response.status === 200 ? response.data.data : []

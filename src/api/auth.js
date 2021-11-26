@@ -4,5 +4,5 @@ import { apiLogin } from './http'
 
 export const fetchtAuth = async (item) => {
   const response = await apiLogin.post('/api/auth/login', item)
-  return messagesFetch('registration', response.status, response.data)
+  return messagesFetch('login', response.status, response.data)
 }

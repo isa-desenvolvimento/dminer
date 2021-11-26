@@ -1,4 +1,3 @@
-import { ref } from 'vue'
 import { fetchtAuth } from '@/api/auth'
 
 export default function useAuth() {
