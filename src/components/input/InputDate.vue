@@ -2,9 +2,9 @@
   <icon-base
     icon-name="icon"
     viewBox="0 0 500 50"
-    width="100%"
+    width="85%"
     height="100%"
-    classe="input__date"
+    class="input__date"
   >
     <icon-input-date>
       <div class="container__provisorio">
@@ -71,6 +71,9 @@ input {
   margin-top: 0.8rem;
 }
 
+.input__date {
+  margin-left: -4rem;
+}
 .container__date {
   font-family: var(--font-family--title);
   color: var(--color-title);
@@ -82,6 +85,7 @@ input {
 @media only screen and (max-width: 1080px) {
   .input__date {
     width: 100%;
+    margin-left: 0;
   }
 }
 </style>

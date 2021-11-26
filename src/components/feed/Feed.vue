@@ -3,7 +3,7 @@
     class="icon__feed"
     icon-name="icon"
     viewBox="0 0 250 500"
-    width="100%"
+    width="auto"
     height="100%"
   >
     <icon-feed>
@@ -29,7 +29,7 @@ export default {
 <style scoped>
 .icon__feed {
   height: 105%;
-  width: 138%;
+  width: auto;
   position: absolute;
   top: -50px;
   right: -25px;
