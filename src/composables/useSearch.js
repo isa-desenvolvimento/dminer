@@ -1,15 +1,11 @@
-import { ref } from 'vue'
-import { fetchAllSearch } from '@/api/search.js'
+import { fetchSearch } from '@/api/search.js'
 
 export default function useSearch() {
-  const getSearch = ref([])
-
-  const setSearch = async (text) => {
-    getSearch.value = await fetchAllSearch(text)
+  const getSearch = async (text) => {
+    return await fetchSearch(text)
   }
 
   return {
-    getSearch,
-    setSearch
+    getSearch
   }
 }

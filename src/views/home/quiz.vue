@@ -8,7 +8,7 @@
     <ul>
       <li
         class="user_li"
-        v-for="(item, key) in getQuizs"
+        v-for="(item, key) in $store.state.home.quizList"
         :key="key"
         :id="`user_li_${key}`"
       >
@@ -127,9 +127,9 @@ export default {
     }
   },
   setup() {
-    const { getQuizs, updateCount, create } = useQuiz()
+    const { updateCount, create } = useQuiz()
 
-    return { getQuizs, updateCount, create }
+    return { updateCount, create }
   },
   methods: {
     count(id, item) {

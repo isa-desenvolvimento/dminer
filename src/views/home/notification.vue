@@ -7,7 +7,7 @@
     :onClick="openModal"
   >
     <ul>
-      <li v-for="item in getNotifications" :key="item">
+      <li v-for="item in $store.state.home.notificationlist" :key="item.id">
         <Title>
           {{ item.notification }}
         </Title>
@@ -71,10 +71,10 @@ export default {
     }
   },
   setup() {
-    const { getNotifications, create } = useNotification()
-
-    return { getNotifications, create }
+    const { create } = useNotification()
+    return { create }
   },
+
   methods: {
     sendForm() {
       this.isLoading = true

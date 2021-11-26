@@ -31,7 +31,6 @@ export const user = {
       getAvatar(user.login).then(
         (response) => {
           state.avatar = response
-          commit('success', state)
           this.dispatch('user/banner', user)
 
           return Promise.resolve(response)
@@ -47,7 +46,9 @@ export const user = {
       getBanner(user.login).then(
         (response) => {
           state.banner = response
-          commit('success', state)
+          commit('success', user)
+
+          this.dispatch('home/search', null)
 
           return Promise.resolve(response)
         },
