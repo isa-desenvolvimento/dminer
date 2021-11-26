@@ -106,7 +106,7 @@ export default {
   display: grid;
   padding: 0 3rem;
   width: 80%;
-  /* margin: auto; */
+  margin: auto;
 }
 
 .container__section > div {

@@ -13,6 +13,7 @@ export default function useTutorial() {
   }
 
   const update = async (item) => {
+    debugger
     return await fetchUpdate(item)
   }
 
