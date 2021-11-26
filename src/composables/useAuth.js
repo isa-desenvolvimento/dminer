@@ -10,7 +10,7 @@ export default function useAuth() {
   }
 
   const logout = () => {
-    localStorage.removeItem('user')
+    localStorage.clear()
   }
 
   return {
