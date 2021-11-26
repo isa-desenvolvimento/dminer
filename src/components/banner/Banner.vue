@@ -24,17 +24,21 @@ import Title from '@/components/title/Title.vue'
 
 export default {
   data() {
-    return { isLoading: true, previewImage: null }
+    return {
+      previewImage: this.$store.state.user.banner,
+      update: this.isLoading
+    }
   },
-  props: { propsImage: { type: String, required: false, default: null } },
+  props: { isLoading: { type: Boolean, required: false, default: false } },
   setup() {
     const fileInput = ref([])
 
     return { fileInput }
   },
   updated() {
-    this.isLoading = true
-    this.previewImage = this.propsImage
+    if (this.update) {
+      this.previewImage = this.$store.state.user.banner
+    }
   },
   computed: {
     sidebarWidth() {
@@ -52,8 +56,9 @@ export default {
       if (file && file[0]) {
         let reader = new FileReader()
         reader.onload = (e) => {
+          this.update = false
           this.previewImage = e.target.result
-          this.$emit('update:modelValue', reader.result)
+          this.$store.dispatch('user/updateBanner', reader.result)
         }
         reader.readAsDataURL(file[0])
       }

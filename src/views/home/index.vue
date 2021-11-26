@@ -1,8 +1,8 @@
 <template>
   <div class="view__home">
     <section class="header__section">
-      <form action="#" @submit.prevent="handleSuubmit">
-        <inputDate v-model="search" />
+      <form action="#" @submit.prevent="submit">
+        <inputDate v-model="inputValue" />
       </form>
     </section>
     <section class="container__section">
@@ -36,7 +36,8 @@ export default {
       listComponents: [],
       enabled: true,
       dragging: false,
-      inputValue: ''
+      inputValue: '',
+      update: false
     }
   },
   mounted() {
@@ -51,8 +52,13 @@ export default {
         reminder,
         quiz
       ]
+
+      // localStorage.position_components_home = JSON.stringify(
+      //   this.listComponents
+      // )
     }
   },
+
   setup() {
     const search = ref('')
     const { getSearch, setSearch } = useSearch()
@@ -79,10 +85,11 @@ export default {
       // )
     },
     submit(event) {
-      console.log(this.inputValue)
-
       if (this.inputValue) {
-        console.log(this.inputValue)
+        this.$store.dispatch('home/search', this.inputValue).then((result) => {
+          console.log(result)
+          this.update = true
+        })
       }
     }
   }
@@ -98,6 +105,8 @@ export default {
 
   display: grid;
   padding: 0 3rem;
+  width: 80%;
+  /* margin: auto; */
 }
 
 .container__section > div {
@@ -107,7 +116,7 @@ export default {
   align-items: center;
   gap: 0.5rem;
   grid-template-columns: 28.5% 28.5% 28.5%;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 @media only screen and (max-width: 1080px) {

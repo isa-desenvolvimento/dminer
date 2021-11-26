@@ -8,12 +8,12 @@
     <ul>
       <li
         class="reminder_li"
-        v-for="(item, key) in getReminders"
+        v-for="(item, key) in $store.state.home.reminderList"
         :key="key"
         :id="`reminder_li_${key}`"
       >
         <Title>
-          {{ item.reminder }}
+          {{ item.reminderDescrible }}
         </Title>
       </li>
     </ul>
@@ -86,9 +86,9 @@ export default {
     }
   },
   setup() {
-    const { getReminders, updateCount, create } = useReminder()
+    const { updateCount, create } = useReminder()
 
-    return { getReminders, dateHourFormart, updateCount, create }
+    return { dateHourFormart, updateCount, create }
   },
   methods: {
     sendForm() {

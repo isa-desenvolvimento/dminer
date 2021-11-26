@@ -1,4 +1,3 @@
-import { ref } from 'vue'
 import { fetchtAuth } from '@/api/auth'
 
 export default function useAuth() {
@@ -12,7 +11,7 @@ export default function useAuth() {
   }
 
   const logout = () => {
-    localStorage.removeItem('user')
+    localStorage.clear()
   }
 
   return {

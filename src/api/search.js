@@ -3,7 +3,7 @@ import { apiIntra } from './http'
 
 const URL = '/search'
 
-export const fetchAllSearch = async () => {
-  const response = await apiIntra(`${URL}/all`)
+export const fetchSearch = async (keyword) => {
+  const response = await apiIntra(`${URL}/${keyword}`)
   return response.status === 200 ? response.data.data : []
 }

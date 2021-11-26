@@ -9,8 +9,8 @@
     <ul>
       <li
         class="notifices_li"
-        v-for="(item, key) in getNotices"
-        :key="key"
+        v-for="item in $store.state.home.noticeList"
+        :key="item.id"
         :id="`notifices_li_${key}`"
       >
         <Title>
@@ -150,6 +150,7 @@ export default {
     FildDate,
     FildSelect
   },
+
   mounted() {
     const folder = document.getElementById('folder_notices')
     folder.addEventListener('scroll', debounce(this.handleScroll), {
