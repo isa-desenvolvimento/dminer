@@ -56,9 +56,14 @@ export default {
       isSuccess: false,
       isError: false,
       reminderPassword: false,
+      // value: {
+      //   userName: 'matheus.ribeiro1',
+      //   userPassword: '#Matheus97',
+      //   type: 'painel'
+      // }
       value: {
-        userName: 'matheus.ribeiro1',
-        userPassword: '#Matheus97',
+        userName: '',
+        userPassword: '',
         type: 'painel'
       }
     }
